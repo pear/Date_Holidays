@@ -49,15 +49,80 @@ class Date_Holidays_Driver_PHPdotNet extends Date_Holidays_Driver
     */
     function _buildHolidays()
     {
-        // Lukas Smith: 5th of November 1977
-        $this->_addHoliday('lsmith', $this->_year . '-11-05', 'Lukas Smith');
-        
-        // Stephan Schmidt: 12th of May 1974
-        $this->_addHoliday('schst', $this->_year . '-05-12', 'Stephan Schmidt');
-        
-        // Carsten Lucke: 9th of September 1980
-        $this->_addHoliday('luckec', $this->_year . '-09-09', 'Carsten Lucke');
-        
+        $static             = array(
+            // Lukas Smith: 5 November 1977, Germany?
+            'lsmith'   => array(
+                'date'          => '11-05',
+                'title'         => 'Lukas Smith'
+            ),
+            // Stephan Schmidt: 12 May 1974, Germany
+            'schst'   => array(
+                'date'          => '05-12',
+                'title'         => 'Stephan Schmidt'
+            ),
+            // Carsten Lucke: 9 September 1980, Germany
+            'luckec'   => array(
+                'date'          => '09-09',
+                'title'         => 'Carsten Lucke'
+            ),
+            // Arnaud Limbourg: 14 March 1976, France
+            'arnaud'   => array(
+                'date'          => '03-14',
+                'title'         => 'Arnaud Limbourg'
+            ),
+            // Sebastian Bergmann: 22 April 1978, Germany
+            'sebastian'   => array(
+                'date'          => '04-22',
+                'title'         => 'Sebastian Bergmann'
+            ),
+            // Akash Mahajan: 20 May 1981, India
+            'akash'   => array(
+                'date'          => '05-20',
+                'title'         => 'Akash Mahajan'
+            ),
+            // Greg Beaver: 2 September 1976, USA
+            'cellog'   => array(
+                'date'          => '09-02',
+                'title'         => 'Gregory Beaver'
+            ),
+            // Ryan King: 31 March 1982, USA
+            'ryansking'   => array(
+                'date'          => '03-31',
+                'title'         => 'Ryan King'
+            ),
+            // Helgi Þormar Þorbjörnsson: 4 November 1986, Iceland
+            'dufuz'   => array(
+                'date'          => '11-04',
+                'title'         => 'Helgi Þormar Þorbjörnsson'
+            ),
+            // Tobias Schlitt: 19 May 1980, Germany
+            'toby'   => array(
+                'date'          => '05-19',
+                'title'         => 'Tobias Schlitt'
+            ),
+            // Sebastian Mordziol, 7 February 1975
+            'argh'   => array(
+                'date'          => '02-07',
+                'title'         => 'Sebastian Mordziol'
+            ),
+            // Jeroen Steggink: 7 December 1981, Netherlands
+            'steggink'   => array(
+                'date'          => '12-07',
+                'title'         => 'Jeroen Steggink'
+            ),
+            // Dylan Anderson: 21 October 1981, Canada
+            'anderson'   => array(
+                'date'          => '10-21',
+                'title'         => 'Dylan Anderson'
+            ),
+            // James McGlinn: 10 January 1980, New Zealand 
+            'mcglinn'   => array(
+                'date'          => '01-10',
+                'title'         => 'James McGlinn'
+            )
+        );
+
+        $this->_addStaticHolidays($static);
         if (Date_Holidays::errorsOccurred()) {
             return Date_Holidays::getErrorStack();
         }

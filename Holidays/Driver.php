@@ -706,7 +706,7 @@ class Date_Holidays_Driver
     }
     
    /**
-    * Returns dates of all holidays or those specififed in $restrict array
+    * Returns dates of all holidays or those accepted by the applied filter.
     *
     * Structure of the returned array:
     * <pre>

@@ -46,6 +46,7 @@
          <file role="php" name="Composite.php"/>
          <file role="php" name="Germany.php"/>
          <file role="php" name="Jewish.php"/>
+         <file role="php" name="PHPdotNet.php"/>
          <file role="php" name="UNO.php"/>
          <file role="php" name="USA.php"/>
         </dir> <!-- Holidays/Driver -->

@@ -82,9 +82,11 @@ class Date_Holidays_Driver_Composite extends Date_Holidays_Driver
     */
     function addDriver($driver)
     {
-        $id                         = md5(serialize($driver));
-        $this->_drivers[$id]        = &$driver;
+        $id                     = md5(serialize($driver));
+        $this->_drivers[$id]    = &$driver;
         array_push($this->_driverIds, $id);
+        
+        $this->_internalNames   = array_merge($driver->getInternalHolidayNames(), $this->_internalNames);
     }
     
    /**
@@ -107,6 +109,14 @@ class Date_Holidays_Driver_Composite extends Date_Holidays_Driver
         // unset driver's prio
         $index = array_search($id, $this->_driverIds);
         unset($this->_driverIds[$index]);
+        
+        // rebuild the internal-names array
+        $this->_internalNames = array();
+        foreach ($this->_driverIds as $id) {
+            $this->_internalNames = array_merge($this->_drivers[$id]->_internalNames, $this->_internalNames);
+        }
+//        $this->_internalNames = array_values(array_unique($this->_internalNames));
+        
         return true;
     }
     
@@ -168,26 +178,31 @@ class Date_Holidays_Driver_Composite extends Date_Holidays_Driver
     }
     
    /**
-    * Returns dates of all holidays or those specififed in $restrict array
+    * Returns dates of all holidays or those accepted by the specified filter.
     *
     * @access   public
-    * @param    array   $restrict   internal names of desired holidays
-    * @return   array with holidays' dates on success, otherwise a PEAR_ErrorStack object
+    * @param    Date_Holidays_Filter    filter-object (or an array !DEPRECATED!)
+    * @return   array   array with holidays' dates on success, otherwise a PEAR_ErrorStack object
     * @throws   object PEAR_ErrorStack   DATE_HOLIDAYS_INVALID_INTERNAL_NAME
     */
-    function getHolidayDates($restrict = array())
+    function getHolidayDates($filter = null)
     {
-        if (empty($restrict)) {
-            foreach ($this->_driverIds as $id) {
-                $restrict = array_merge($this->_drivers[$id]->_internalNames, $restrict);
-            }
+        if (is_null($filter)) {
+            $filter = &new Date_Holidays_Filter_Blacklist(array());
+        } elseif (is_array($filter)) {
+            $filter = &new Date_Holidays_Filter_Whitelist($filter);
         }
-        $restrict   = array_unique($restrict);
 
         $errorStack = &Date_Holidays::getErrorStack();
         $dates      = array();
         $notFound   = array();
-        foreach ($restrict as $internalName) {
+        
+        foreach ($this->_internalNames as $internalName) {
+            // check if the filter permits further processing
+            if (! $filter->accept($internalName)) {
+                continue;
+            }
+            
             foreach ($this->_driverIds as $id) {
                 $date = &$this->_drivers[$id]->getHolidayDate($internalName);
                 if (Date_Holidays::isError($date)) {
@@ -219,6 +234,7 @@ class Date_Holidays_Driver_Composite extends Date_Holidays_Driver
                 continue 2;
             }
         }
+        
         if (! empty($notFound)) {
             foreach ($notFound as $internalName) {
                 $errorStack->push(DATE_HOLIDAYS_INVALID_INTERNAL_NAME, 'error', array(), 
@@ -310,23 +326,28 @@ class Date_Holidays_Driver_Composite extends Date_Holidays_Driver
     * </pre>
     *
     * @access   public
-    * @param    array   $restrict internal names of desired holidays
+    * @param    Date_Holidays_Filter    filter-object (or an array !DEPRECATED!)
     * @return   array   numeric array containing objects of Date_Holidays_Holiday on success, otherwise a PEAR_ErrorStack object
     * @throws   object PEAR_ErrorStack   DATE_HOLIDAYS_INVALID_INTERNAL_NAME
     */
-    function getHolidays($restrict = array())
+    function getHolidays($filter = null)
     {
-        if (empty($restrict)) {
-            foreach ($this->_driverIds as $id) {
-                $restrict = array_merge($this->_drivers[$id]->_internalNames, $restrict);
-            }
+        if (is_null($filter)) {
+            $filter = &new Date_Holidays_Filter_Blacklist(array());
+        } elseif (is_array($filter)) {
+            $filter = &new Date_Holidays_Filter_Whitelist($filter);
         }
-        $restrict   = array_unique($restrict);
 
         $errorStack = &Date_Holidays::getErrorStack();
         $holidays   = array();
         $notFound   = array();
-        foreach ($restrict as $internalName) {
+        
+        foreach ($this->_internalNames as $internalName) {
+            // check if the filter permits further processing
+            if (! $filter->accept($internalName)) {
+                continue;
+            }
+            
             foreach ($this->_driverIds as $id) {
                 $holiday = &$this->_drivers[$id]->getHoliday($internalName);
                 if (Date_Holidays::isError($holiday)) {
@@ -348,6 +369,7 @@ class Date_Holidays_Driver_Composite extends Date_Holidays_Driver
                 continue 2;
             }
         }
+        
         if (! empty($notFound)) {
             foreach ($notFound as $internalName) {
                 $errorStack->push(DATE_HOLIDAYS_INVALID_INTERNAL_NAME, 'error', array(), 
@@ -390,24 +412,29 @@ class Date_Holidays_Driver_Composite extends Date_Holidays_Driver
     * Returns localized titles of all holidays or those specififed in $restrict array
     *
     * @access   public
-    * @param    array   $restrict   internal names of desired holidays
+    * @param    Date_Holidays_Filter    filter-object (or an array !DEPRECATED!)
     * @param    string  $locale     locale setting that shall be used by this method
-    * @return   array with localized holiday titles on success, otherwise a PEAR_Error object
+    * @return   array   array with localized holiday titles on success, otherwise a PEAR_Error object
     * @throws   object PEAR_Error   DATE_HOLIDAYS_INVALID_INTERNAL_NAME
     */
-    function getHolidayTitles($restrict = array(), $locale = null)
+    function getHolidayTitles($filter = null, $locale = null)
     {
-        if (empty($restrict)) {
-            foreach ($this->_driverIds as $id) {
-                $restrict = array_merge($this->_drivers[$id]->_internalNames, $restrict);
-            }
+        if (is_null($filter)) {
+            $filter = &new Date_Holidays_Filter_Blacklist(array());
+        } elseif (is_array($filter)) {
+            $filter = &new Date_Holidays_Filter_Whitelist($filter);
         }
-        $restrict   = array_unique($restrict);
 
         $errorStack = &Date_Holidays::getErrorStack();
         $titles     = array();
         $notFound   = array();
-        foreach ($restrict as $internalName) {
+        
+        foreach ($this->_internalNames as $internalName) {
+            // check if the filter permits further processing
+            if (! $filter->accept($internalName)) {
+                continue;
+            }
+            
             foreach ($this->_driverIds as $id) {
                 $title = $this->_drivers[$id]->getHolidayTitle($internalName, $locale);
                 if (Date_Holidays::isError($title)) {
@@ -429,6 +456,7 @@ class Date_Holidays_Driver_Composite extends Date_Holidays_Driver
                 continue 2;
             }
         }
+        
         if (! empty($notFound)) {
             foreach ($notFound as $internalName) {
                 $errorStack->push(DATE_HOLIDAYS_INVALID_INTERNAL_NAME, 'error', array(), 
@@ -443,25 +471,7 @@ class Date_Holidays_Driver_Composite extends Date_Holidays_Driver
     }
     
    /**
-    * Returns the internal names of holidays that were calculated 
-    *
-    * If two or more drivers in the compound have equal internal-names, then
-    * those ones of the highest priorized driver will be taken.
-    *
-    * @access   public
-    * @return   array
-    */
-    function getInternalHolidayNames()
-    {
-        $names      = array();
-        foreach ($this->_driverIds as $id) {
-            $names  = array_merge($this->_drivers[$id]->_internalNames, $names);
-        }
-        return array_values(array_unique($names));
-    }
-    
-   /**
-    * Using this method doesn't affect anything. If you have bben able to add your driver to this compound,
+    * Using this method doesn't affect anything. If you have been able to add your driver to this compound,
     * you should also be able to directly execute this action. 
     * This method is only available to keep abstraction working.
     *
