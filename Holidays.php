@@ -195,7 +195,7 @@ class Date_Holidays
     * <pre>
     * DIE_ON_MISSING_LOCALE = boolean
     *   false: if no localized holiday-title is found an error will be returned
-    *   true: if no localized holiday-title is found the internal translation (English) will be used
+    *   true: if no localized holiday-title is found the default translation (English) will be used
     * </pre>
     * 
     * @static
