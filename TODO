@@ -1,2 +1,4 @@
 - investigate whether it would be useful to add properties to a holiday
     -> string-prop, obj-prop ???
+- improve doc-comments (remove old stuff)
+- enable factory to add custom drivers that don't belong to DH

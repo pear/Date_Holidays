@@ -42,6 +42,16 @@ class Date_Holidays_Filter_Whitelist extends Date_Holidays_Filter
         parent::__construct($holidays);
     }
     
+    /**
+     * Constructor.
+     * 
+     * @param   array   numerical array that contains internal names of holidays
+     */
+    function Date_Holidays_Filter_Whitelist($holidays)
+    {
+        $this->__construct($holidays);
+    }
+    
    /**
     * Lets the filter decide whether a holiday shall be processed or not.
     * 
