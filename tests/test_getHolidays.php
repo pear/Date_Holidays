@@ -2,23 +2,20 @@
 error_reporting(E_ALL);
 
 require_once 'Date/Holidays.php';
-setlocale(LC_TIME, 'de_DE');
 
-$driver     = &Date_Holidays::factory('Germany', 2004, 'de');
+$driver = &Date_Holidays::factory('Germany', date('Y', time()), 'de');
 
-$driver->addTranslationFile('/var/www/devel/pear/Date_Holidays/lang/Christian/de_DE.ini', 'de');
-$driver->addTranslationFile('/var/www/devel/pear/Date_Holidays/lang/Germany/de_DE.ini', 'de');
+$f1     = &new Date_Holidays_Filter_Blacklist(array('easter', 'xmas'));
+$f2     = &new Date_Holidays_Filter_Blacklist(array('day1', 'day2', 'd-day'));
+$f3     = &new Date_Holidays_Filter_Whitelist(array('abc', 'acb', 'bca', 'cbc'));
 
-$holidays   = $driver->getHolidays();
+$driver->addFilter($f1);
+$driver->addFilter($f2);
+$driver->addFilter($f3);
 
-$driver->isHoliday( '2004-12-12' );
+$driver->removeFilter($f2);
 
-echo '<table>';
-foreach (array_keys($holidays) as $internalName) {
-    $title  = $holidays[$internalName]->getTitle();
-    $date   = &$holidays[$internalName]->getDate();
-    
-    echo sprintf('<tr> <td>%s</td> <td>%s</td></tr>', $title, strftime('%x', $date->getTime()));
-}
-echo '</table';
+$driver->unsetFilters();
+
+
 ?>

@@ -19,28 +19,43 @@
     </maintainer>
   </maintainers>
   <release>
-    <version>0.12.0</version>
-    <date>2004-12-29</date>
+    <version>0.13.0</version>
+    <date>2005-02-09</date>
     <license>PHP License</license>
     <state>alpha</state>
-    <notes>- added Italian languagefile for Christian holidays (thx 2 quipo)
-- added performance-fix for getHolidayForDate() (thx 2 quipo)
-- added German translation for USA-holidays</notes>
+    <notes>- added Filters (Blacklist, Whitelist)
+- some cosmetic changes</notes>
     <deps>
       <dep type="pkg" rel="ge" version="1.3.1" optional="no">PEAR</dep>
       <dep type="pkg" rel="has" optional="no">Date</dep>
     </deps>
     <filelist>
       <dir baseinstalldir="Date" name="/">
+       <dir name="CVS">
+        <file role="data" name="Entries"/>
+        <file role="data" name="Repository"/>
+        <file role="data" name="Root"/>
+       </dir> <!-- CVS -->
        <dir name="examples">
         <file role="doc" name="addingTranslations.php"/>
         <file role="doc" name="creating_drivers.php"/>
         <file role="doc" name="usingCompositeDriver.php"/>
         <file role="doc" name="usingStandaloneDriver.php"/>
+        <dir name="CVS">
+         <file role="doc" name="Entries"/>
+         <file role="doc" name="Repository"/>
+         <file role="doc" name="Root"/>
+        </dir> <!-- examples/CVS -->
        </dir> <!-- examples -->
        <dir name="Holidays">
         <file role="php" name="Driver.php"/>
+        <file role="php" name="Filter.php"/>
         <file role="php" name="Holiday.php"/>
+        <dir name="CVS">
+         <file role="data" name="Entries"/>
+         <file role="data" name="Repository"/>
+         <file role="data" name="Root"/>
+        </dir> <!-- Holidays/CVS -->
         <dir name="Driver">
          <file role="php" name="Christian.php"/>
          <file role="php" name="Composite.php"/>
@@ -48,7 +63,16 @@
          <file role="php" name="Jewish.php"/>
          <file role="php" name="UNO.php"/>
          <file role="php" name="USA.php"/>
+         <dir name="CVS">
+          <file role="data" name="Entries"/>
+          <file role="data" name="Repository"/>
+          <file role="data" name="Root"/>
+         </dir> <!-- Holidays/Driver/CVS -->
         </dir> <!-- Holidays/Driver -->
+        <dir name="Filter">
+         <file role="php" name="Blacklist.php"/>
+         <file role="php" name="Whitelist.php"/>
+        </dir> <!-- Holidays/Filter -->
        </dir> <!-- Holidays -->
        <dir name="lang">
         <dir name="Christian">
@@ -56,35 +80,61 @@
          <file role="data" name="en_EN.ini"/>
          <file role="data" name="fr_FR.ini"/>
          <file role="data" name="it_IT.ini"/>
+         <dir name="CVS">
+          <file role="data" name="Entries"/>
+          <file role="data" name="Repository"/>
+          <file role="data" name="Root"/>
+         </dir> <!-- lang/Christian/CVS -->
         </dir> <!-- lang/Christian -->
+        <dir name="CVS">
+         <file role="data" name="Entries"/>
+         <file role="data" name="Repository"/>
+         <file role="data" name="Root"/>
+        </dir> <!-- lang/CVS -->
         <dir name="Germany">
          <file role="data" name="de_DE.ini"/>
          <file role="data" name="en_EN.ini"/>
          <file role="data" name="fr_FR.ini"/>
+         <dir name="CVS">
+          <file role="data" name="Entries"/>
+          <file role="data" name="Repository"/>
+          <file role="data" name="Root"/>
+         </dir> <!-- lang/Germany/CVS -->
         </dir> <!-- lang/Germany -->
         <dir name="UNO">
          <file role="data" name="de_DE.ini"/>
          <file role="data" name="en_EN.ini"/>
          <file role="data" name="fr_FR.ini"/>
+         <dir name="CVS">
+          <file role="data" name="Entries"/>
+          <file role="data" name="Repository"/>
+          <file role="data" name="Root"/>
+         </dir> <!-- lang/UNO/CVS -->
         </dir> <!-- lang/UNO -->
         <dir name="USA">
          <file role="data" name="de_DE.ini"/>
          <file role="data" name="en_EN.ini"/>
+         <dir name="CVS">
+          <file role="data" name="Entries"/>
+          <file role="data" name="Repository"/>
+          <file role="data" name="Root"/>
+         </dir> <!-- lang/USA/CVS -->
         </dir> <!-- lang/USA -->
        </dir> <!-- lang -->
+       <file role="data" name="Date_Holidays-0.13.0.tgz"/>
        <file role="php" name="Holidays.php"/>
+       <file role="data" name="script_update-pear.sh~"/>
       </dir> <!-- / -->
     </filelist>
   </release>
   <changelog>
     <release>
-      <version>0.12.0</version>
-      <date>2004-12-29</date>
+      <version>0.13.0</version>
+      <date>2005-02-09</date>
       <license>PHP License</license>
       <state>alpha</state>
-      <notes>- added Italian languagefile for Christian holidays (thx 2 quipo)
-- added performance-fix for getHolidayForDate() (thx 2 quipo)
-- added German translation for USA-holidays</notes>
+      <notes>- added Filters (Blacklist, Whitelist)
+- some cosmetic changes</notes>
     </release>
   </changelog>
 </package>

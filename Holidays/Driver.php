@@ -139,6 +139,14 @@ class Date_Holidays_Driver
     var $_titles = array();
     
    /**
+    * Filters used to manipulate calculations.
+    * 
+    * @access   private
+    * @var      array
+    */
+    var $_filters = array();
+    
+   /**
     * Constructor
     *
     * Use the Date_Holidays::factory() method to construct an object of a certain driver
@@ -724,6 +732,42 @@ class Date_Holidays_Driver
     function setLocale($locale)
     {
         $this->_locale  =   $locale;
+    }
+    
+   /**
+    * Adds a filter to filter stack.
+    * 
+    * @access   public
+    * @param    Date_Holidays_Filter    filter-object
+    */
+    function addFilter($filter) 
+    {
+        $this->_filters[] =& $filter;
+    }
+    
+   /**
+    * Removes a filter from filter stack.
+    * 
+    * @access   public
+    * @param    Date_Holidays_Filter    filter-object
+    */
+    function removeFilter($filter) {
+        for ($i; $i = 0; $i < count($this->_filters)) {
+            if ($this->_filters[$i] == $filter) {
+                unset($this->_filters[$i]);
+            }
+        }
+        $this->_filters = array_values($this->_filters);
+    }
+    
+   /**
+    * Unsets the applied filters.
+    * 
+    * @access public
+    */
+    function unsetFilters()
+    {
+        $this->_filters = array();
     }
 }
 ?>

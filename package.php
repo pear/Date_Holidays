@@ -18,7 +18,7 @@ require_once 'PEAR/PackageFileManager.php';
 /**
  * current version
  */
-$version = '0.12.0';
+$version = '0.13.0';
 
 /**
  * current state
@@ -29,9 +29,8 @@ $state = 'alpha';
  * release notes
  */
 $notes = <<<EOT
-- added Italian languagefile for Christian holidays (thx 2 quipo)
-- added performance-fix for getHolidayForDate() (thx 2 quipo)
-- added German translation for USA-holidays
+- added Filters (Blacklist, Whitelist)
+- some cosmetic changes
 EOT;
 
 /**
@@ -50,7 +49,7 @@ $result = $package->setOptions(array(
     'version'           => $version,
     'state'             => $state,
     'license'           => 'PHP License',
-    'filelistgenerator' => 'cvs',
+    'filelistgenerator' => 'file',
     'ignore'            => array('mkSource.php', 'package.php', '*.xml', 'test.php', 'docs/', 'tests/',
 	'test2.php', '*.zargo', '*.pdf', '*.sh', 'data/', 'TODO'),
     'notes'             => $notes,
@@ -82,7 +81,10 @@ if (isset($_GET['make']) || (isset($_SERVER['argv'][1]) && $_SERVER['argv'][1] =
 }
 
 if (PEAR::isError($result)) {
+    echo 'ERROR: ';
     echo $result->getMessage();
     die();
 }
+
+echo 'INFO: Date_Holidays-' . $version . '.tgz';
 ?>
