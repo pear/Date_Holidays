@@ -20,7 +20,7 @@
   </maintainers>
   <release>
     <version>0.13.0</version>
-    <date>2005-02-10</date>
+    <date>2005-02-11</date>
     <license>PHP License</license>
     <state>alpha</state>
     <notes>- added Filters (Blacklist, Whitelist)
@@ -84,7 +84,7 @@
   <changelog>
     <release>
       <version>0.13.0</version>
-      <date>2005-02-10</date>
+      <date>2005-02-11</date>
       <license>PHP License</license>
       <state>alpha</state>
       <notes>- added Filters (Blacklist, Whitelist)

@@ -119,6 +119,11 @@ class Date_Holidays_Driver_PHPdotNet extends Date_Holidays_Driver
             'mcglinn'   => array(
                 'date'          => '01-10',
                 'title'         => 'James McGlinn'
+            ),
+            // Wilfredo Ignacio Pachón López: 31 July 1977, Colombia
+            'lopez'   => array(
+                'date'          => '07-31',
+                'title'         => 'Wilfredo Ignacio Pachón López'
             )
         );
 

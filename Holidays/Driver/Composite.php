@@ -482,14 +482,29 @@ class Date_Holidays_Driver_Composite extends Date_Holidays_Driver
     }
     
    /**
-    * Using this method doesn't affect anything. If you have bben able to add your driver to this compound,
-    * you should also be able to directly execute this action. 
-    * This method is only available to keep abstraction working.
-    *
+    * This (re)sets the year of every driver-object in the compound.
+    * 
+    * Note that this will cause every attached driver to recalculate the holidays!
+    * 
     * @access   public 
+    * @param    int     year
+    * @return   boolean true on success, otherwise a PEAR_ErrorStack object
+    * @throws   object PEAR_ErrorStack
     */
     function setYear($year)
     {
+        $errors = false;
+        
+        foreach ($this->_driverIds as $id) {
+            if ($this->_drivers[$id]->setYear($year) != true) {
+                $errors = true;
+            }
+        }
+        
+        if ($errors) {
+            return Date_Holidays::getErrorStack();
+        }
+        return true;
     }
     
    /**
