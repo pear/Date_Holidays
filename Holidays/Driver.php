@@ -80,6 +80,7 @@ define('DATE_HOLIDAYS_LANGUAGEFILE_NOT_FOUND', 56);
  * @abstract
  * @category    Date
  * @package     Date_Holidays
+ * @subpackage  Driver
  * @version     $Id$
  * @author      Carsten Lucke <luckec@tool-garage.de>
  */

@@ -29,8 +29,9 @@ $state = 'alpha';
  * release notes
  */
 $notes = <<<EOT
-- added Filters (Blacklist, Whitelist)
-- some cosmetic changes
+- added Filters (Blacklist, Whitelist, Composite)
+- added new driver PHPdotNet
+- several cosmetic changes
 EOT;
 
 /**
@@ -86,5 +87,5 @@ if (PEAR::isError($result)) {
     die();
 }
 
-echo 'INFO: Date_Holidays-' . $version . '.tgz' . "\n";
+echo '[INFO]: Date_Holidays-' . $version . '.tgz' . "\n";
 ?>

@@ -29,9 +29,14 @@ require_once 'PEAR.php';
 require_once 'Date.php';
 
 /**
- * Class that wraps a holidays data
+ * Class that wraps a holiday's data
  */
 require_once 'Date/Holidays/Holiday.php';
+
+/**
+ * Driver baseclass
+ */
+require_once 'Date/Holidays/Driver.php';
     
 /**
  * could not find file of driver-class
@@ -83,7 +88,6 @@ class Date_Holidays
             $driverFile     =   'Date' . DIRECTORY_SEPARATOR . 'Holidays' . DIRECTORY_SEPARATOR . 
                 'Driver' . DIRECTORY_SEPARATOR . $driverId . '.php';
 
-            require_once 'Date/Holidays/Driver.php';
             @include_once $driverFile;
             if (! class_exists($driverClass)) {
                 return Date_Holidays::raiseError(DATE_HOLIDAYS_ERROR_DRIVERFILE_NOT_FOUND, 

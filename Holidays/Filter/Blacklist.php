@@ -22,10 +22,11 @@
  * Class that represents a filter which has knowledge about the
  * holidays that must be excluded from driver-calculations.
  *
- * @category Date
- * @package  Date_Holidays
- * @version  $Id$
- * @author   Carsten Lucke <luckec@tool-garage.de>
+ * @category    Date
+ * @package     Date_Holidays
+ * @subpackage  Filter
+ * @version     $Id$
+ * @author      Carsten Lucke <luckec@tool-garage.de>
  */
 class Date_Holidays_Filter_Blacklist extends Date_Holidays_Filter 
 {

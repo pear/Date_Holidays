@@ -19,8 +19,7 @@
 //    $Id$
 
 /**
- * Class that represents a filter which has knowledge about the
- * holidays that driver-calculations are limited to.
+ * Filter that only accepts official German holidays.
  *
  * @category    Date
  * @package     Date_Holidays
@@ -28,40 +27,38 @@
  * @version     $Id$
  * @author      Carsten Lucke <luckec@tool-garage.de>
  */
-class Date_Holidays_Filter_Whitelist extends Date_Holidays_Filter 
+class Date_Holidays_Filter_Germany_Official extends Date_Holidays_Filter_Whitelist 
 {
     /**
      * Constructor.
-     *
-     * Creates a filter which has knowledge about the
-     * holidays that driver-calculations are limited to.
      * 
      * @param   array   numerical array that contains internal names of holidays
      */
-    function __construct($holidays) 
+    function __construct() 
     {
-        parent::__construct($holidays);
+        parent::__construct(
+            array(
+                'newYearsDay',
+                'goodFriday',
+                'easterMonday',
+                'dayOfWork',
+                'ascensionDay',
+                'whitMonday',
+                'germanUnificationDay',
+                'xmasDay',
+                'boxingDay'
+            )
+        );
     }
     
     /**
      * Constructor.
      * 
-     * @param   array   numerical array that contains internal names of holidays
+     * Only accepts official German holidays (that are valid for entire Germany).
      */
-    function Date_Holidays_Filter_Whitelist($holidays)
+    function Date_Holidays_Filter_Germany_Official()
     {
-        $this->__construct($holidays);
-    }
-    
-   /**
-    * Lets the filter decide whether a holiday shall be processed or not.
-    * 
-    * @param    string  a holidays' internal name
-    * @return   boolean true, if a holidays shall be processed, false otherwise
-    */
-    function accept($holiday) 
-    {
-        return (in_array($holiday, $this->_internalNames));
+        $this->__construct();
     }
 }
 ?>

@@ -29,10 +29,11 @@ define('DATE_HOLIDAYS_FILTER_NOT_FOUND', 200);
  * Class that acts like a single filter but actually is a compound of 
  * an arbitrary number of filters.
  *
- * @category Date
- * @package  Date_Holidays
- * @version  $Id$
- * @author   Carsten Lucke <luckec@tool-garage.de>
+ * @category    Date
+ * @package     Date_Holidays
+ * @subpackage  Filter
+ * @version     $Id$
+ * @author      Carsten Lucke <luckec@tool-garage.de>
  */
 class Date_Holidays_Filter_Composite extends Date_Holidays_Filter 
 {
@@ -82,7 +83,7 @@ class Date_Holidays_Filter_Composite extends Date_Holidays_Filter
     * @access   public
     * @param    Date_Holidays_Filter    filterobject
     */
-    public function addFilter($filter) 
+    function addFilter($filter) 
     {
         $id                     = md5(serialize($filter));
         $this->_filters[$id]    = &$filter;
@@ -96,7 +97,7 @@ class Date_Holidays_Filter_Composite extends Date_Holidays_Filter
     * @return   boolean     true on success, otherwise a PEAR_Error object
     * @throws   PEAR_Error  DATE_HOLIDAYS_FILTER_NOT_FOUND
     */
-    public function removeFilter($filter) 
+    function removeFilter($filter) 
     {
         $id = md5(serialize($filter));
         // unset filter object
@@ -104,6 +105,7 @@ class Date_Holidays_Filter_Composite extends Date_Holidays_Filter
             return Date_Holidays::raiseError(DATE_HOLIDAYS_FILTER_NOT_FOUND, 'Filter not found');
         }
         unset($this->_drivers[$id]);
+        return true;
     }
 }
 ?>
