@@ -528,7 +528,6 @@ class Date_Holidays_Driver
     * @access   protected
     * @param    array       $holidays   static holidays' data
     * @uses     _addHoliday()
-    * @uses     _addTranslationForHoliday()
     */
     function _addStaticHolidays($holidays)
     {
