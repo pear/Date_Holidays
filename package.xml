@@ -20,10 +20,11 @@
   </maintainers>
   <release>
     <version>0.13.0</version>
-    <date>2005-02-13</date>
+    <date>2005-02-14</date>
     <license>PHP License</license>
     <state>alpha</state>
-    <notes>- added Filters (Blacklist, Whitelist, Composite)
+    <notes>- added Filters (Blacklist, Whitelist, Composite, Germany_Official)
+- improved Date_Holidays_Driver_Composite (allows executing setYear() now) 
 - added new driver PHPdotNet
 - several cosmetic changes</notes>
     <deps>
@@ -55,6 +56,9 @@
          <file role="php" name="Blacklist.php"/>
          <file role="php" name="Composite.php"/>
          <file role="php" name="Whitelist.php"/>
+         <dir name="Germany">
+          <file role="php" name="Official.php"/>
+         </dir> <!-- Holidays/Filter/Germany -->
         </dir> <!-- Holidays/Filter -->
        </dir> <!-- Holidays -->
        <dir name="lang">
@@ -86,10 +90,11 @@
   <changelog>
     <release>
       <version>0.13.0</version>
-      <date>2005-02-13</date>
+      <date>2005-02-14</date>
       <license>PHP License</license>
       <state>alpha</state>
-      <notes>- added Filters (Blacklist, Whitelist, Composite)
+      <notes>- added Filters (Blacklist, Whitelist, Composite, Germany_Official)
+- improved Date_Holidays_Driver_Composite (allows executing setYear() now) 
 - added new driver PHPdotNet
 - several cosmetic changes</notes>
     </release>

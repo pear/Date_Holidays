@@ -29,7 +29,8 @@ $state = 'alpha';
  * release notes
  */
 $notes = <<<EOT
-- added Filters (Blacklist, Whitelist, Composite)
+- added Filters (Blacklist, Whitelist, Composite, Germany_Official)
+- improved Date_Holidays_Driver_Composite (allows executing setYear() now) 
 - added new driver PHPdotNet
 - several cosmetic changes
 EOT;
