@@ -49,7 +49,7 @@ $result = $package->setOptions(array(
     'version'           => $version,
     'state'             => $state,
     'license'           => 'PHP License',
-    'filelistgenerator' => 'file',
+    'filelistgenerator' => 'cvs',
     'ignore'            => array('mkSource.php', 'package.php', '*.xml', 'test.php', 'docs/', 'tests/',
 	'test2.php', '*.zargo', '*.pdf', '*.sh', 'data/', 'TODO'),
     'notes'             => $notes,
@@ -86,5 +86,5 @@ if (PEAR::isError($result)) {
     die();
 }
 
-echo 'INFO: Date_Holidays-' . $version . '.tgz';
+echo 'INFO: Date_Holidays-' . $version . '.tgz' . "\n";
 ?>

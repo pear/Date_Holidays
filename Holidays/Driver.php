@@ -22,6 +22,9 @@
  * uses PEAR_Errorstack
  */
 require_once 'PEAR/ErrorStack.php';
+require_once 'Date/Holidays/Filter.php';
+require_once 'Date/Holidays/Filter/Whitelist.php';
+require_once 'Date/Holidays/Filter/Blacklist.php';
 
 /**
  * invalid internal name
@@ -238,26 +241,32 @@ class Date_Holidays_Driver
     * Returns localized titles of all holidays or those specififed in $restrict array
     *
     * @access   public
-    * @param    array   $restrict   internal names of desired holidays
-    * @param    string  $locale     locale setting that shall be used by this method
-    * @return   array with localized holiday titles on success, otherwise a PEAR_Error object
+    * @param    Date_Holidays_Filter    filter-object (or an array !DEPRECATED!)
+    * @param    string  $locale         locale setting that shall be used by this method
+    * @return   array   array with localized holiday titles on success, otherwise a PEAR_Error object
     * @throws   object PEAR_Error   DATE_HOLIDAYS_INVALID_INTERNAL_NAME
     * @uses     getHolidayTitle()
     */
-    function getHolidayTitles($restrict = array(), $locale = null)
+    function getHolidayTitles($filter = null, $locale = null)
     {
-        if (empty($restrict)) {
-            $restrict   = $this->_internalNames;
+        if (is_null($filter)) {
+            $filter = &new Date_Holidays_Filter_Blacklist(array());
+        } elseif (is_array($filter)) {
+            $filter = &new Date_Holidays_Filter_Whitelist($filter);
         }
         
         $titles =   array();
-        foreach ($restrict as $internalName) {
-            $title  = $this->getHolidayTitle($internalName, $locale);
-            if (Date_Holidays::isError($title)) {
-                return $title;
+        
+        foreach ($this->_internalNames as $internalName) {
+            if ($filter->accept($internalName)) {
+                $title = $this->getHolidayTitle($internalName, $locale);
+                if (Date_Holidays::isError($title)) {
+                    return $title;
+                }
+                $titles[$internalName] = $title;
             }
-            $titles[$internalName]  = $title;
         }
+        
         return $titles;
     }
     
@@ -309,25 +318,32 @@ class Date_Holidays_Driver
     * </pre>
     *
     * @access   public
-    * @param    array   $restrict   internal names of desired holidays
+    * @param    Date_Holidays_Filter    filter-object (or an array !DEPRECATED!)
     * @return   array   numeric array containing objects of Date_Holidays_Holiday on success, otherwise a PEAR_Error object
     * @throws   object PEAR_Error   DATE_HOLIDAYS_INVALID_INTERNAL_NAME
     * @see      getHoliday()
     * @uses     getHoliday()
     */
-    function getHolidays($restrict = array())
+    function getHolidays($filter = null)
     {
-        if (empty($restrict)) {
-            $restrict   = $this->_internalNames;
+        if (is_null($filter)) {
+            $filter = &new Date_Holidays_Filter_Blacklist(array());
+        } elseif (is_array($filter)) {
+            $filter = &new Date_Holidays_Filter_Whitelist($filter);
         }
         
         $holidays       = array();
-        foreach ($restrict as $internalName) {
-            if (! in_array($internalName, $this->_internalNames)) {
-                return Date_Holidays::raiseError(DATE_HOLIDAYS_INVALID_INTERNAL_NAME, 'Invalid internal name: ' . $internalName);
+        
+        foreach ($this->_internalNames as $internalName) {
+            if ($filter->accept($internalName)) {
+                if (! in_array($internalName, $this->_internalNames)) {
+                    return Date_Holidays::raiseError(DATE_HOLIDAYS_INVALID_INTERNAL_NAME, 
+                            'Invalid internal name: ' . $internalName);
+                }
+                $holidays[$internalName] = &$this->getHoliday($internalName);
             }
-            $holidays[$internalName]    = &$this->getHoliday($internalName);
         }
+        
         return $holidays;
     }
     
@@ -701,24 +717,29 @@ class Date_Holidays_Driver
     * </pre>
     *
     * @access   public
-    * @param    array   $restrict   internal names of desired holidays
+    * @param    Date_Holidays_Filter    filter-object (or an array !DEPRECATED!)
     * @return   array with holidays' dates on success, otherwise a PEAR_Error object
     * @throws   object PEAR_Error   DATE_HOLIDAYS_INVALID_INTERNAL_NAME
     * @uses     getHolidayDate()
     */
-    function getHolidayDates($restrict = array())
+    function getHolidayDates($filter = null)
     {
-        if (empty($restrict)) {
-            $restrict               = $this->_internalNames;
+        if (is_null($filter)) {
+            $filter = &new Date_Holidays_Filter_Blacklist(array());
+        } elseif (is_array($filter)) {
+            $filter = &new Date_Holidays_Filter_Whitelist($filter);
         }
         
-        $dates                      =   array();
-        foreach ($restrict as $internalName) {
-            $date                   = &$this->getHolidayDate($internalName);
-            if (Date_Holidays::isError($date)) {
-                return $date;
+        $dates = array();
+        
+        foreach ($this->_internalNames as $internalName) {
+            if ($filter->accept($internalName)) {
+                $date = &$this->getHolidayDate($internalName);
+                if (Date_Holidays::isError($date)) {
+                    return $date;
+                }
+                $dates[$internalName] = &$this->getHolidayDate($internalName);
             }
-            $dates[$internalName]   = &$this->getHolidayDate($internalName);
         }
         return $dates;
     }
@@ -752,7 +773,7 @@ class Date_Holidays_Driver
     * @param    Date_Holidays_Filter    filter-object
     */
     function removeFilter($filter) {
-        for ($i; $i = 0; $i < count($this->_filters)) {
+        for ($i = 0; $i < count($this->_filters); $i++) {
             if ($this->_filters[$i] == $filter) {
                 unset($this->_filters[$i]);
             }

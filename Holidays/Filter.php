@@ -64,7 +64,7 @@ class Date_Holidays_Filter
      */
     function Date_Holidays_Filter($holidays)
     {
-        return $this->__construct();
+        $this->__construct($holidays);
     }
     
    /**

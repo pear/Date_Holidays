@@ -39,7 +39,7 @@ class Date_Holidays_Filter_Whitelist extends Date_Holidays_Filter
      */
     function __construct($holidays) 
     {
-        parent::__construct();
+        parent::__construct($holidays);
     }
     
    /**
