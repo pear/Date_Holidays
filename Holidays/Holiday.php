@@ -31,26 +31,34 @@ class Date_Holidays_Holiday
    /**
     * Internal name
     *
-    * @access   public
+    * @access   private
     * @var      string
     */
-    var $internalName;
+    var $_internalName;
     
    /**
     * Title
     *
-    * @access   public
+    * @access   private
     * @var      string
     */
-    var $title;
+    var $_title;
     
    /**
     * Date
     *
-    * @access   public
+    * @access   private
     * @var      object Date
     */
-    var $date;
+    var $_date;
+    
+   /**
+    * Additional holiday properties like a more detailed description, etc.
+    * 
+    * @access   private
+    * @var      array
+    */
+    var $_properties = array();
     
    /**
     * Constructor
@@ -59,12 +67,14 @@ class Date_Holidays_Holiday
     * @param    string      $internalName   internal name
     * @param    string      $title          title
     * @param    object Date $date           date
+    * @param    array       properties for this holiday
     */
-    function Date_Holidays_Holiday($internalName, $title, &$date)
+    function Date_Holidays_Holiday($internalName, $title, &$date, $properties)
     {
-        $this->internalName = $internalName;
-        $this->title        = $title;
-        $this->date         = &$date;
+        $this->_internalName = $internalName;
+        $this->_title        = $title;
+        $this->_date         = &$date;
+        $this->_properties   = $properties;
     }
     
    /**
@@ -75,7 +85,7 @@ class Date_Holidays_Holiday
     */
     function getInternalName()
     {
-        return $this->internalName;
+        return $this->_internalName;
     }
     
    /**
@@ -86,7 +96,7 @@ class Date_Holidays_Holiday
     */
     function getTitle()
     {
-        return $this->title;
+        return $this->_title;
     }
     
    /**
@@ -97,7 +107,7 @@ class Date_Holidays_Holiday
     */
     function getDate()
     {
-        return $this->date;
+        return $this->_date;
     }
     
    /**
@@ -108,7 +118,7 @@ class Date_Holidays_Holiday
     */
     function setInternalName($internalName)
     {
-        $this->internalName = $internalName;
+        $this->_internalName = $internalName;
     }
     
    /**
@@ -119,7 +129,7 @@ class Date_Holidays_Holiday
     */
     function setTitle($title)
     {
-        $this->title = $title;
+        $this->_title = $title;
     }
     
    /**
@@ -130,7 +140,7 @@ class Date_Holidays_Holiday
     */
     function setDate(&$date)
     {
-        $this->date = &$date;
+        $this->_date = &$date;
     }
     
    /**
@@ -148,13 +158,24 @@ class Date_Holidays_Holiday
     * @access   public
     * @return   array   holiday-data
     */
-    function toArray()
+    function &toArray()
     {
         $data                   = array();
-        $data['internalName']   = $this->internalName;
-        $data['title']          = $this->title;
-        $data['date']           = &$this->date;
+        $data['internalName']   = $this->_internalName;
+        $data['title']          = $this->_title;
+        $data['date']           = &$this->_date;
         return $data;
+    }
+    
+   /**
+    * Returns the holidays additional properties that contain information like a more detailed description, etc.
+    * 
+    * @access   public
+    * @return   array   associative array with corresponding pairs of propertyName => $propertyValue
+    */
+    function getProperties() 
+    {
+        return $this->_properties;
     }
 }
 ?>

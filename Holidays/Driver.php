@@ -143,6 +143,26 @@ class Date_Holidays_Driver
     var $_titles = array();
     
    /**
+    * Array of holiday-properties indexed by internal-names and furthermore by locales.
+    * 
+    * <code>
+    * $_holidayProperties = array(
+    *       'internalName1' =>  array(
+    *                               'de_DE' => array(),
+    *                               'en_US' => array(),
+    *                               'fr_FR' => array()
+    *                           )
+    *       'internalName2' =>  array(
+    *                               'de_DE' => array(),
+    *                               'en_US' => array(),
+    *                               'fr_FR' => array()
+    *                           )
+    * );
+    * </code>
+    */
+    var $_holidayProperties = array();
+    
+   /**
     * Constructor
     *
     * Use the Date_Holidays::factory() method to construct an object of a certain driver
@@ -378,7 +398,12 @@ class Date_Holidays_Driver
             return $date;
         }
         
-        return new Date_Holidays_Holiday($internalName, $title, $date);
+        $properties = null;
+        if (isset($this->_holidayProperties[$internalName][$locale])) {
+            $properties = $this->_holidayProperties[$internalName][$locale];
+        }
+        
+        return new Date_Holidays_Holiday($internalName, $title, $date, $properties);
     }
     
    /**
@@ -586,6 +611,61 @@ class Date_Holidays_Driver
         return true;
     }
     
+    
+   /**
+    * Adds a localized (regrading translation etc.) string-property for a holiday.
+    *  
+    * @access   public
+    * @param    string  internal-name
+    * @param    string  locale-setting
+    * @param    string  property-identifier
+    * @param    mixed   property-value
+    * @return   boolean true on success, false otherwise
+    * @throws   PEAR_ErrorStack if internal-name does not exist
+    */ 
+    function _addStringPropertyForHoliday($internalName, $locale, $propId, $propVal) 
+    {
+        if (! in_array($internalName, $this->_internalNames)) {
+            return Date_Holidays::raiseError(DATE_HOLIDAYS_INVALID_INTERNAL_NAME, 
+                'Couldn\'t add property (locale: ' . $locale . ') for holiday with this internal name: ' . $internalName);
+        }
+        
+        if (!isset($this->_holidayProperties[$internalName]) || 
+                !is_array($this->_holidayProperties[$internalName])) {
+
+            $this->_holidayProperties[$internalName] = array();
+        }
+        
+        if (! isset($this->_holidayProperties[$internalName][$locale]) ||
+                !is_array($this->_holidayProperties[$internalName][$locale])) {
+                    
+            $this->_holidayProperties[$internalName][$locale] = array();
+        }
+        
+        $this->_holidayProperties[$internalName][$locale][$propId] = $propVal;
+        return true;
+    }
+    
+   /**
+    * Adds a arbitrary number of localized string-properties for the specified holiday.
+    * 
+    * @access   public
+    * @param    string  internal-name
+    * @param    string  locale-setting
+    * @param    array   associative array: array(propId1 => value1, propid2 => value2, ...)
+    * @return   boolean true on success, false otherwise
+    * @throws   PEAR_ErrorStack if internal-name does not exist
+    */
+    function _addStringPropertiesForHoliday($internalName, $locale, $properties) 
+    {        
+        foreach ($properties as $propId => $propValue) {
+        	return $this->_addStringPropertyForHoliday($internalName, $locale, 
+        	       $propId, $propValue);
+        }
+        
+        return true;
+    }
+    
    /**
     * Add a translation-file's content
     * 
@@ -613,6 +693,61 @@ class Date_Holidays_Driver
         if (Date_Holidays::errorsOccurred()) {
             return Date_Holidays::getErrorStack();
         }
+        return true;
+    }
+    
+   /**
+    * Add a language-file's content
+    * 
+    * The language-file's content will be parsed and translations, properties, etc. for
+    * holidays will be made available with the specified locale.
+    * 
+    * @access   public
+    * @param    string  $file   filename of the language file
+    * @param    string  $locale locale-code of the translation
+    * @return   boolean true on success, otherwise a PEAR_ErrorStack object
+    * @throws   object PEAR_Errorstack
+    * @todo     Could also accept a Unserializer object as parameter
+    */
+    function addLanguageFile($file, $locale)
+    {
+        if (! file_exists($file)) {
+            Date_Holidays::raiseError(DATE_HOLIDAYS_LANGUAGEFILE_NOT_FOUND, 'Language-file not found');
+            return Date_Holidays::getErrorStack();
+        }
+        
+        require_once 'XML/Unserializer.php';
+        $options = array(
+                            'parseAttributes'   =>  false,
+                            'attributesArray'   =>  false,
+                            'keyAttribute'      => array('property' => 'id')
+                        );
+        $unserializer = &new XML_Unserializer($options);
+    
+        // userialize the document
+        $status = $unserializer->unserialize($file, true);    
+    
+        if (PEAR::isError($status)) {
+            return Date_Holidays::raiseError($status->getCode(), $status->getMessage());
+        } else {
+            $content = $unserializer->getUnserializedData();
+            
+            foreach ($content['holidays']['holiday'] as $holiday) {
+                $this->_addTranslationForHoliday($holiday['internal-name'], $locale, 
+                        $holiday['translation']);
+                    
+                foreach ($holiday['properties'] as $propId => $propVal) {
+                    $this->_addStringPropertyForHoliday($holiday['internal-name'], $locale, 
+                        $propId, $propVal);
+                }
+                
+            }
+        }
+        
+        if (Date_Holidays::errorsOccurred()) {
+            return Date_Holidays::getErrorStack();
+        }
+        
         return true;
     }
     
