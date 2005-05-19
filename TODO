@@ -1,4 +1,12 @@
-- investigate whether it would be useful to add properties to a holiday
+- investigate whether it would be useful to add properties to a holiday [OK]
     -> string-prop, obj-prop ???
+	-> Properties:
+		- Description
+		- History
+		- Origin
+		- Calculation
+		- Importance
+		- related holidays
 - improve doc-comments (remove old stuff)
 - enable factory to add custom drivers that don't belong to DH
+- add caching?

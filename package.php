@@ -18,7 +18,7 @@ require_once 'PEAR/PackageFileManager.php';
 /**
  * current version
  */
-$version = '0.13.0';
+$version = '0.14.0';
 
 /**
  * current state
@@ -29,10 +29,8 @@ $state = 'alpha';
  * release notes
  */
 $notes = <<<EOT
-- added Filters (Blacklist, Whitelist, Composite, Germany_Official)
-- improved Date_Holidays_Driver_Composite (allows executing setYear() now) 
-- added new driver PHPdotNet
-- several cosmetic changes
+- Switched from using INI-files for translation to XML files
+- Holidays can now have various properties (see xml-files in examples-directory)
 EOT;
 
 /**
@@ -75,6 +73,7 @@ $package->addMaintainer('schst', 'helper', 'Stephan Schmidt', 'schst@php-tools.n
 
 $package->addDependency('PEAR', '1.3.1', 'ge', 'pkg', false);
 $package->addDependency('Date', '', 'has', 'pkg', false);
+$package->addDependency('XML_Serializer', '', 'has', 'pkg', false);
 
 if (isset($_GET['make']) || (isset($_SERVER['argv'][1]) && $_SERVER['argv'][1] == 'make')) {
     $result = $package->writePackageFile();

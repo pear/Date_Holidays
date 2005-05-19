@@ -19,17 +19,16 @@
     </maintainer>
   </maintainers>
   <release>
-    <version>0.13.0</version>
-    <date>2005-02-14</date>
+    <version>0.14.0</version>
+    <date>2005-05-06</date>
     <license>PHP License</license>
     <state>alpha</state>
-    <notes>- added Filters (Blacklist, Whitelist, Composite, Germany_Official)
-- improved Date_Holidays_Driver_Composite (allows executing setYear() now) 
-- added new driver PHPdotNet
-- several cosmetic changes</notes>
+    <notes>- Switched from using INI-files for translation to XML files
+- Holidays can now have various properties (see xml-files in examples-directory)</notes>
     <deps>
       <dep type="pkg" rel="ge" version="1.3.1" optional="no">PEAR</dep>
       <dep type="pkg" rel="has" optional="no">Date</dep>
+      <dep type="pkg" rel="has" optional="no">XML_Serializer</dep>
     </deps>
     <filelist>
       <dir baseinstalldir="Date" name="/">
@@ -89,14 +88,12 @@
   </release>
   <changelog>
     <release>
-      <version>0.13.0</version>
-      <date>2005-02-14</date>
+      <version>0.14.0</version>
+      <date>2005-05-06</date>
       <license>PHP License</license>
       <state>alpha</state>
-      <notes>- added Filters (Blacklist, Whitelist, Composite, Germany_Official)
-- improved Date_Holidays_Driver_Composite (allows executing setYear() now) 
-- added new driver PHPdotNet
-- several cosmetic changes</notes>
+      <notes>- Switched from using INI-files for translation to XML files
+- Holidays can now have various properties (see xml-files in examples-directory)</notes>
     </release>
   </changelog>
 </package>
