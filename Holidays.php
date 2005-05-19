@@ -77,16 +77,23 @@ class Date_Holidays
     * @return   object  Date_Holidays driver-object on success, otherwise a PEAR_Error object
     * @throws   object PEAR_Error   
     */
-    function factory($driverId, $year = null, $locale = null)
+    function factory($driverId, $year = null, $locale = null, $external = false)
     {
         if (! isset($GLOBALS['_DATE_HOLIDAYS']['DIE_ON_MISSING_LOCALE'])) {
             Date_Holidays::staticSetProperty('DIE_ON_MISSING_LOCALE', true);
         }
         
-        $driverClass        =   'Date_Holidays_Driver_' . $driverId;
+        $driverClass        = 'Date_Holidays_Driver_' . $driverId;
+        if ($external) {
+            $driverClass    = $driverId;
+        }
+        
         if (! class_exists($driverClass)) {
-            $driverFile     =   'Date' . DIRECTORY_SEPARATOR . 'Holidays' . DIRECTORY_SEPARATOR . 
-                'Driver' . DIRECTORY_SEPARATOR . $driverId . '.php';
+            $driverFile     = 'Date' . DIRECTORY_SEPARATOR . 'Holidays' . DIRECTORY_SEPARATOR . 
+                    'Driver' . DIRECTORY_SEPARATOR . $driverId . '.php';
+            if ($external) {
+                $driverFile = str_replace('_', DIRECTORY_SEPARATOR, $driverClass) . '.php';
+            }
 
             @include_once $driverFile;
             if (! class_exists($driverClass)) {
