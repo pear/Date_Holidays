@@ -440,23 +440,15 @@ class Date_Holidays_Driver
     }
     
    /**
-    * Returns the title of the holiday, if any was found, matching the specified date.
+    * Returns a <code>Date_Holidays_Holiday</code> object, if any was found, 
+    * matching the specified date.
     *
-    * Normally the method will return the title/data for the first holiday matching the date.
-    * If you want the mthod to continue searching holidays for the specified date, set the 4th param to true
-    * If multiple holidays match your date, the return value will be an array of the titles/data.
-    * <pre>
-    * array(
-    *   array(
-    *       'title' => 'New Year',
-    *       'date'  => Object of type Date
-    *   ),
-    *   array(
-    *       'title' => 'Circumcision of Jesus',
-    *       'date'  => Object of type Date
-    *   )
-    * )
-    * </pre>
+    * Normally the method will return the object of the first holiday matching the date.
+    * If you want the method to continue searching holidays for the specified date, 
+    * set the 4th param to true. 
+    *
+    * If multiple holidays match your date, the return value will be an array containing a number 
+    * of <code>Date_Holidays_Holiday</code> items.
     *
     * @access   public
     * @param    mixed   $date       date (timestamp | string | PEAR::Date object)
@@ -478,7 +470,7 @@ class Date_Holidays_Driver
                 return $date;
             }
         }
-        $isodate = $date->format('%Y-%m-%d');
+        $isodate = mktime(0, 0, 0, $date->getMonth(), $date->getDay(), $date->getYear());
         unset($date);
         if (is_null($locale)) {
             $locale = $this->_locale;
@@ -502,6 +494,50 @@ class Date_Holidays_Driver
             return $data;
         }
         return null;
+    }
+    
+   /**
+    * Returns an array containing a number of <code>Date_Holidays_Holiday</code> items.
+    * 
+    * If no items have been found the returned array will be empty.
+    * 
+    * @access   public
+    * @param    mixed   $start  date (timestamp | string | PEAR::Date object)
+    * @param    mixed   $end    date (timestamp | string | PEAR::Date object)
+    * @param    string  $locale locale setting that shall be used by this method
+    * @throws   object PEAR_Error   DATE_HOLIDAYS_INVALID_DATE, DATE_HOLIDAYS_INVALID_DATE_FORMAT
+    * @return   array   an array containing a number of <code>Date_Holidays_Holiday</code> items
+    */
+    function getHolidaysForDatespan($start, $end, $locale = null)
+    {
+        if (!is_a($date, 'Date')) {
+            $date = &$this->_convertDate($date);
+            if (Date_Holidays::isError($date)) {
+                return $date;
+            }
+        }
+        $isodateStart   = mktime(0, 0, 0, $start->getMonth(), $start->getDay(), $start->getYear());
+        unset($start);
+        $isodateEnd     = mktime(0, 0, 0, $end->getMonth(), $end->getDay(), $end->getYear());
+        unset($end);
+        if (is_null($locale)) {
+            $locale = $this->_locale;
+        }
+    
+        $internalNames = array();
+        
+        foreach ($this->_holidays as $isoDateTS => $arHolidays) {
+            if ($isoDateTS >= $isodateStart && $isoDateTS <= $isodateEnd) {
+                array_merge($internalNames, $arHolidays);
+            }
+        }
+        
+        $retval = array();
+        foreach ($internalNames as $internalName) {
+            $retval[] = &$this->getHoliday($internalName, $locale);
+        }
+        return $retval;
+        
     }
     
    /**
@@ -579,7 +615,7 @@ class Date_Holidays_Driver
         
         $this->_dates[$internalName]        = &$date;
         $this->_titles['C'][$internalName]  = $title;
-        $isodate = $date->format('%Y-%m-%d');
+        $isodate = mktime(0, 0, 0, $date->getMonth(), $date->getDay(), $date->getYear());
         if (!isset($this->_holidays[$isodate])) {
             $this->_holidays[$isodate] = array();
         }
