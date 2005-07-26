@@ -510,12 +510,19 @@ class Date_Holidays_Driver
     */
     function getHolidaysForDatespan($start, $end, $locale = null)
     {
-        if (!is_a($date, 'Date')) {
-            $date = &$this->_convertDate($date);
-            if (Date_Holidays::isError($date)) {
-                return $date;
+        if (!is_a($start, 'Date')) {
+            $start = &$this->_convertDate($start);
+            if (Date_Holidays::isError($start)) {
+                return $start;
             }
         }
+        if (!is_a($end, 'Date')) {
+            $end = &$this->_convertDate($end);
+            if (Date_Holidays::isError($end)) {
+                return $end;
+            }
+        }
+        
         $isodateStart   = mktime(0, 0, 0, $start->getMonth(), $start->getDay(), $start->getYear());
         unset($start);
         $isodateEnd     = mktime(0, 0, 0, $end->getMonth(), $end->getDay(), $end->getYear());
