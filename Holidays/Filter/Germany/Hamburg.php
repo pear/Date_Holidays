@@ -20,23 +20,23 @@
 //    $Id$
 
 /**
-* Filter that only accepts official holidays in North Rhine-Westphalia.
-*
-* @category    Date
-* @package     Date_Holidays
-* @subpackage  Filter
-* @version     $Id$
-* @author      Carsten Lucke <luckec@tool-garage.de>
-* @author      Mark Wiesemann <wiesemann@php.net>
-*/
-class Date_Holidays_Filter_Germany_NRW extends Date_Holidays_Filter_Whitelist
+ * Filter that only accepts official holidays in Hamburg.
+ *
+ * @category    Date
+ * @package     Date_Holidays
+ * @subpackage  Filter
+ * @version     $Id$
+ * @author      Carsten Lucke <luckec@tool-garage.de>
+ * @author      Mark Wiesemann <wiesemann@php.net>
+ */
+class Date_Holidays_Filter_Germany_Hamburg extends Date_Holidays_Filter_Whitelist 
 {
     /**
      * Constructor.
-     *
+     * 
      * @param   array   numerical array that contains internal names of holidays
      */
-    function __construct()
+    function __construct() 
     {
         parent::__construct(
             array(
@@ -46,9 +46,7 @@ class Date_Holidays_Filter_Germany_NRW extends Date_Holidays_Filter_Whitelist
                 'dayOfWork',
                 'ascensionDay',
                 'whitMonday',
-                'corpusChristi',
                 'germanUnificationDay',
-                'allSaintsDay',
                 'xmasDay',
                 'boxingDay'
             )
@@ -57,13 +55,12 @@ class Date_Holidays_Filter_Germany_NRW extends Date_Holidays_Filter_Whitelist
     
     /**
      * Constructor.
-     *
-     * Only accepts official holidays in North Rhine-Westphalia.
+     * 
+     * Only accepts official holidays in Hamburg.
      */
-    function Date_Holidays_Filter_Germany_NRW()
+    function Date_Holidays_Filter_Germany_Hamburg()
     {
         $this->__construct();
     }
 }
 ?>
-
