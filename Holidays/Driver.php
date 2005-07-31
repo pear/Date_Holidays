@@ -535,7 +535,7 @@ class Date_Holidays_Driver
         
         foreach ($this->_holidays as $isoDateTS => $arHolidays) {
             if ($isoDateTS >= $isodateStart && $isoDateTS <= $isodateEnd) {
-                array_merge($internalNames, $arHolidays);
+                $internalNames = array_merge($internalNames, $arHolidays);
             }
         }
         
