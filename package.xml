@@ -20,7 +20,7 @@
   </maintainers>
   <release>
     <version>0.14.0</version>
-    <date>2005-05-06</date>
+    <date>2005-07-31</date>
     <license>PHP License</license>
     <state>alpha</state>
     <notes>- Switched from using INI-files for translation to XML files
@@ -56,40 +56,70 @@
          <file role="php" name="Composite.php"/>
          <file role="php" name="Whitelist.php"/>
          <dir name="Germany">
+          <file role="php" name="BadenWuerttemberg.php"/>
+          <file role="php" name="Bavaria.php"/>
+          <file role="php" name="Berlin.php"/>
+          <file role="php" name="Brandenburg.php"/>
+          <file role="php" name="Bremen.php"/>
+          <file role="php" name="Hamburg.php"/>
+          <file role="php" name="Hesse.php"/>
+          <file role="php" name="LowerSaxony.php"/>
+          <file role="php" name="MecklenburgWesternPomerania.php"/>
+          <file role="php" name="NorthRhineWestphalia.php"/>
           <file role="php" name="Official.php"/>
+          <file role="php" name="RhinelandPalatinate.php"/>
+          <file role="php" name="Saarland.php"/>
+          <file role="php" name="Saxony.php"/>
+          <file role="php" name="SaxonyAnhalt.php"/>
+          <file role="php" name="SchleswigHolstein.php"/>
+          <file role="php" name="Thuringia.php"/>
          </dir> <!-- Holidays/Filter/Germany -->
         </dir> <!-- Holidays/Filter -->
        </dir> <!-- Holidays -->
        <dir name="lang">
         <dir name="Christian">
          <file role="data" name="de_DE.ini"/>
+         <file role="data" name="de_DE.xml"/>
          <file role="data" name="en_EN.ini"/>
+         <file role="data" name="en_EN.xml"/>
          <file role="data" name="fr_FR.ini"/>
+         <file role="data" name="fr_FR.xml"/>
          <file role="data" name="it_IT.ini"/>
+         <file role="data" name="it_IT.xml"/>
         </dir> <!-- lang/Christian -->
         <dir name="Germany">
          <file role="data" name="de_DE.ini"/>
+         <file role="data" name="de_DE.xml"/>
          <file role="data" name="en_EN.ini"/>
+         <file role="data" name="en_EN.xml"/>
          <file role="data" name="fr_FR.ini"/>
+         <file role="data" name="fr_FR.xml"/>
         </dir> <!-- lang/Germany -->
         <dir name="UNO">
          <file role="data" name="de_DE.ini"/>
+         <file role="data" name="de_DE.xml"/>
          <file role="data" name="en_EN.ini"/>
+         <file role="data" name="en_EN.xml"/>
          <file role="data" name="fr_FR.ini"/>
+         <file role="data" name="fr_FR.xml"/>
         </dir> <!-- lang/UNO -->
         <dir name="USA">
          <file role="data" name="de_DE.ini"/>
+         <file role="data" name="de_DE.xml"/>
          <file role="data" name="en_EN.ini"/>
+         <file role="data" name="en_EN.xml"/>
         </dir> <!-- lang/USA -->
        </dir> <!-- lang -->
+       <file role="data" name="changelog"/>
        <file role="php" name="Holidays.php"/>
+       <file role="php" name="updatePear.php"/>
       </dir> <!-- / -->
     </filelist>
   </release>
   <changelog>
     <release>
       <version>0.14.0</version>
-      <date>2005-05-06</date>
+      <date>2005-07-31</date>
       <license>PHP License</license>
       <state>alpha</state>
       <notes>- Switched from using INI-files for translation to XML files
