@@ -44,6 +44,13 @@ require_once 'Date/Holidays/Driver.php';
  * @access  public
  */
 define('DATE_HOLIDAYS_ERROR_DRIVERFILE_NOT_FOUND', 1);
+    
+/**
+ * invalid argument was passed to a method
+ *
+ * @access  public
+ */
+define('DATE_HOLIDAYS_ERROR_INVALID_ARGUMENT', 2);
 
 /**
  * class that helps you to locate holidays for a year

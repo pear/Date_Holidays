@@ -315,6 +315,38 @@ class Date_Holidays_Driver
             $this->_titles[$locale][$internalName] : $this->_titles['C'][$internalName];
     }
     
+    
+   /**
+    * Returns the localized properties of a holiday. If no properties have been stored an empty 
+    * array will be returned.
+    *
+    * @access   public
+    * @param    string  $internalName   internal name for holiday
+    * @param    string  $locale         locale setting that shall be used by this method
+    * @return   array   array of properties on success, otherwise a PEAR_Error object
+    * @throws   object PEAR_Error   DATE_HOLIDAYS_INVALID_INTERNAL_NAME
+    */
+    function getHolidayProperties($internalName, $locale = null)
+    {
+        if (! in_array($internalName, $this->_internalNames)) {
+            return Date_Holidays::raiseError(DATE_HOLIDAYS_INVALID_INTERNAL_NAME, 'Invalid internal name: ' . $internalName);
+        }
+        
+        if (is_null($locale)) {
+            $locale =   $this->_findBestLocale($this->_locale);
+        } else {
+            $locale =   $this->_findBestLocale($locale);
+        }
+
+        
+        $properties = array();
+        if (isset($this->_holidayProperties[$internalName][$locale])) {
+            $properties = $this->_holidayProperties[$internalName][$locale];
+        }
+        return $properties;
+    }
+    
+    
    /**
     * Returns all holidays that the driver knows.
     *
@@ -349,10 +381,7 @@ class Date_Holidays_Driver
         
         foreach ($this->_internalNames as $internalName) {
             if ($filter->accept($internalName)) {
-                if (! in_array($internalName, $this->_internalNames)) {
-                    return Date_Holidays::raiseError(DATE_HOLIDAYS_INVALID_INTERNAL_NAME, 
-                            'Invalid internal name: ' . $internalName);
-                }
+                // no need to check for valid internal-name, will be done by #getHoliday()
                 $holidays[$internalName] = &$this->getHoliday($internalName);
             }
         }
@@ -397,10 +426,9 @@ class Date_Holidays_Driver
         if (Date_Holidays::isError($date)) {
             return $date;
         }
-        
-        $properties = null;
-        if (isset($this->_holidayProperties[$internalName][$locale])) {
-            $properties = $this->_holidayProperties[$internalName][$locale];
+        $properties = &$this->getHolidayProperties($internalName, $locale);
+        if (Date_Holidays::isError($properties)) {
+            return $properties;
         }
         
         return new Date_Holidays_Holiday($internalName, $title, $date, $properties);
@@ -710,36 +738,6 @@ class Date_Holidays_Driver
     }
     
    /**
-    * Add a translation-file's content
-    * 
-    * The translation-file's content will be parsed and translations for
-    * holidays will be made available with the specified locale.
-    * 
-    * @access   public
-    * @param    string  $file   filename of the language file
-    * @param    string  $locale locale-code of the translation
-    * @return   boolean true on success, otherwise a PEAR_ErrorStack object
-    * @throws   object PEAR_Errorstack
-    */
-    function addTranslationFile($file, $locale)
-    {
-        if (! file_exists($file)) {
-            Date_Holidays::raiseError(DATE_HOLIDAYS_LANGUAGEFILE_NOT_FOUND, 'Language-file not found');
-            return Date_Holidays::getErrorStack();
-        }
-        
-        $content    = parse_ini_file($file);
-        foreach ($content as $internalName => $translation) {
-        	$this->_addTranslationForHoliday($internalName, $locale, $translation);
-        }
-        
-        if (Date_Holidays::errorsOccurred()) {
-            return Date_Holidays::getErrorStack();
-        }
-        return true;
-    }
-    
-   /**
     * Add a language-file's content
     * 
     * The language-file's content will be parsed and translations, properties, etc. for
@@ -750,9 +748,9 @@ class Date_Holidays_Driver
     * @param    string  $locale locale-code of the translation
     * @return   boolean true on success, otherwise a PEAR_ErrorStack object
     * @throws   object PEAR_Errorstack
-    * @todo     Could also accept a Unserializer object as parameter
+    * @todo     Could also accept an Unserializer object as parameter
     */
-    function addLanguageFile($file, $locale)
+    function addTranslationFile($file, $locale)
     {
         if (! file_exists($file)) {
             Date_Holidays::raiseError(DATE_HOLIDAYS_LANGUAGEFILE_NOT_FOUND, 'Language-file not found');
@@ -779,9 +777,11 @@ class Date_Holidays_Driver
                 $this->_addTranslationForHoliday($holiday['internal-name'], $locale, 
                         $holiday['translation']);
                     
-                foreach ($holiday['properties'] as $propId => $propVal) {
-                    $this->_addStringPropertyForHoliday($holiday['internal-name'], $locale, 
-                        $propId, $propVal);
+                if (isset($holiday['properties']) && is_array($holiday['properties'])) {
+                    foreach ($holiday['properties'] as $propId => $propVal) {
+                        $this->_addStringPropertyForHoliday($holiday['internal-name'], $locale, 
+                            $propId, $propVal);
+                    }
                 }
                 
             }

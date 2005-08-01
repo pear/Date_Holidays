@@ -58,7 +58,7 @@ class Date_Holidays_Holiday
     * @access   private
     * @var      array
     */
-    var $_properties = array();
+    var $_properties;
     
    /**
     * Constructor
@@ -73,8 +73,16 @@ class Date_Holidays_Holiday
     {
         $this->_internalName = $internalName;
         $this->_title        = $title;
-        $this->_date         = &$date;
-        $this->_properties   = $properties;
+        $this->_date         = null;
+        $this->_properties   = array();
+        
+        if (is_a($date, 'Date')) {
+            $this->_date = &$date;
+        }
+        
+        if (is_array($properties)) {
+            $this->_properties   = $properties;
+        }
     }
     
    /**
