@@ -178,10 +178,12 @@ class Date_Holidays_Driver_Christian extends Date_Holidays_Driver
         $this->_addHoliday('corpusChristi', $corpusChristiDate, 'Feast of Corpus Christi');
         
        /**
-        * Heart of Jesus
+        * Heart of Jesus 
+        *
+        * Friday of the 3rd week past Whitsun
         */
         $heartJesusDate     = &new Date($whitsunDate);
-        $heartJesusDate->addSpan(new Date_Span('14, 0, 0, 0'));
+        $heartJesusDate->addSpan(new Date_Span('19, 0, 0, 0'));
         $this->_addHoliday('heartJesus', $heartJesusDate, 'Heart of Jesus celebration');
         
        /**
@@ -192,7 +194,7 @@ class Date_Holidays_Driver_Christian extends Date_Holidays_Driver
        /**
         * Petrus and Paulus
         */
-        $this->_addHoliday('petrusAndPaulus', $this->_year . '-06-27', 'Petrus and Paulus');
+        $this->_addHoliday('petrusAndPaulus', $this->_year . '-06-29', 'Petrus and Paulus');
         
        /**
         * Ascension of Maria
@@ -206,14 +208,19 @@ class Date_Holidays_Driver_Christian extends Date_Holidays_Driver
         
        /**
         * Thanks Giving
+        * 
+        * Sunday past Michaelis (29. September)
         */
         $michaelisDate      = &new Date($this->_year . '-09-29');
         $dayOfWeek          = $michaelisDate->getDayOfWeek();
-        $thanksGivingDate   = &new Date($michaelisDate->addSpan(new Date_Span(sprintf('%d, 0, 0, 0', 7 - $dayOfWeek))));
+        $michaelisDate->addSpan(new Date_Span(sprintf('%d, 0, 0, 0', 7 - $dayOfWeek)));
+        $thanksGivingDate   = &$michaelisDate;
         $this->_addHoliday('thanksGiving', $thanksGivingDate, 'Thanks Giving');
         
        /**
         * Kermis
+        *
+        * 3rd Sunday in October
         */
         $kermisDate         = &new Date($this->_year . '-10-01');
         $dayOfWeek          = $kermisDate->getDayOfWeek();
