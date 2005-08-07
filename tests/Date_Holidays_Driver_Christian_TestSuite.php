@@ -1,6 +1,6 @@
-<?
-require 'PHPUnit.php';
-require 'Date/Holidays.php';
+<?php
+require_once 'PHPUnit.php';
+require_once 'Date/Holidays.php';
 
 class Date_Holidays_Driver_Christian_TestSuite extends PHPUnit_TestCase {
 
@@ -547,7 +547,4 @@ class Date_Holidays_Driver_Christian_TestSuite extends PHPUnit_TestCase {
 
 }
 
-$suite  = new PHPUnit_TestSuite('Date_Holidays_Driver_Christian_TestSuite');
-$result = PHPUnit::run($suite);
-echo $result->toString(); 
-
+?>
