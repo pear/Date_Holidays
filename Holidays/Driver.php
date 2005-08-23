@@ -75,6 +75,13 @@ define('DATE_HOLIDAYS_DATE_UNAVAILABLE', 55);
 define('DATE_HOLIDAYS_LANGUAGEFILE_NOT_FOUND', 56);
 
 /**
+ * unable to read language-file
+ *
+ * @access  public
+ */
+define('DATE_HOLIDAYS_UNABLE_TO_READ_TRANSLATIONDATA', 57);
+
+/**
  * class that helps you to locate holidays for a year
  *
  * @abstract
@@ -748,7 +755,6 @@ class Date_Holidays_Driver
     * @param    string  $locale locale-code of the translation
     * @return   boolean true on success, otherwise a PEAR_ErrorStack object
     * @throws   object PEAR_Errorstack
-    * @todo     Could also accept an Unserializer object as parameter
     */
     function addTranslationFile($file, $locale)
     {
@@ -770,21 +776,66 @@ class Date_Holidays_Driver
     
         if (PEAR::isError($status)) {
             return Date_Holidays::raiseError($status->getCode(), $status->getMessage());
-        } else {
-            $content = $unserializer->getUnserializedData();
-            
-            foreach ($content['holidays']['holiday'] as $holiday) {
-                $this->_addTranslationForHoliday($holiday['internal-name'], $locale, 
-                        $holiday['translation']);
-                    
-                if (isset($holiday['properties']) && is_array($holiday['properties'])) {
-                    foreach ($holiday['properties'] as $propId => $propVal) {
-                        $this->_addStringPropertyForHoliday($holiday['internal-name'], $locale, 
-                            $propId, $propVal);
-                    }
-                }
+        } 
+        
+        $content = $unserializer->getUnserializedData();
+        return $this->_addTranslationData($content, $locale);
+    }
+    
+   /**
+    * Add a compiled language-file's content
+    * 
+    * The language-file's content will be unserialized and translations, properties, etc. for
+    * holidays will be made available with the specified locale.
+    * 
+    * @access   public
+    * @param    string  $file   filename of the compiled language file
+    * @param    string  $locale locale-code of the translation
+    * @return   boolean true on success, otherwise a PEAR_ErrorStack object
+    * @throws   object PEAR_Errorstack
+    */
+    function addCompiledTranslationFile($file, $locale)
+    {
+        if (! file_exists($file)) {
+            Date_Holidays::raiseError(DATE_HOLIDAYS_LANGUAGEFILE_NOT_FOUND, 'Language-file not found');
+            return Date_Holidays::getErrorStack();
+        }
+        
+        $content = file_get_contents($file);
+        if ($content === false) {
+            return false;
+        }
+        $data = unserialize($content);
+        if ($data === false) {
+            return Date_Holidays::raiseError(DATE_HOLIDAYS_UNABLE_TO_READ_TRANSLATIONDATA, 
+                    'Unable to read translation-data - file maybe damaged: ' . $file);
+        }
+        return $this->_addTranslationData($data, $locale);
+    }
+    
+   /**
+    * Add a language-file's content. Translations, properties, etc. for
+    * holidays will be made available with the specified locale.
+    * 
+    * @access   public
+    * @param    array   $data   translated data
+    * @param    string  $locale locale-code of the translation
+    * @return   boolean true on success, otherwise a PEAR_ErrorStack object
+    * @throws   object PEAR_Errorstack
+    */
+    function _addTranslationData($data, $locale)
+    {
+        foreach ($data['holidays']['holiday'] as $holiday) {
+            $this->_addTranslationForHoliday($holiday['internal-name'], $locale, 
+                    $holiday['translation']);
                 
+            if (isset($holiday['properties']) && is_array($holiday['properties'])) {
+                foreach ($holiday['properties'] as $propId => $propVal) {
+                    $this->_addStringPropertyForHoliday($holiday['internal-name'], $locale, 
+                        $propId, $propVal);
+                }
             }
+            
         }
         
         if (Date_Holidays::errorsOccurred()) {

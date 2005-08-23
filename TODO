@@ -10,4 +10,6 @@
 - improve doc-comments (remove old stuff)
 - enable factory to add custom drivers that don't belong to DH [OK]
 - separate Christian driver into Catholic and Evangelic, let Germany extend none of these but use delegates instead
-
+- performance:
+ `- addCompiledTranslationFile()
+ `- drivers with pre-built holidays???

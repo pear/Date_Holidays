@@ -20,7 +20,7 @@
   </maintainers>
   <release>
     <version>0.14.0</version>
-    <date>2005-08-07</date>
+    <date>2005-08-22</date>
     <license>PHP License</license>
     <state>alpha</state>
     <notes>- Switched from using INI-files for translation to XML files
@@ -32,6 +32,9 @@
     </deps>
     <filelist>
       <dir baseinstalldir="Date" name="/">
+       <dir name="doc">
+        <file role="data" name="Christian.txt"/>
+       </dir> <!-- doc -->
        <dir name="examples">
         <file role="doc" name="addingTranslations.php"/>
         <file role="doc" name="creating_drivers.php"/>
@@ -119,7 +122,7 @@
   <changelog>
     <release>
       <version>0.14.0</version>
-      <date>2005-08-07</date>
+      <date>2005-08-22</date>
       <license>PHP License</license>
       <state>alpha</state>
       <notes>- Switched from using INI-files for translation to XML files
