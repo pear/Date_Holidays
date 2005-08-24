@@ -20,7 +20,7 @@
   </maintainers>
   <release>
     <version>0.14.0</version>
-    <date>2005-08-22</date>
+    <date>2005-08-24</date>
     <license>PHP License</license>
     <state>alpha</state>
     <notes>- Switched from using INI-files for translation to XML files
@@ -82,34 +82,46 @@
        <dir name="lang">
         <dir name="Christian">
          <file role="data" name="de_DE.ini"/>
+         <file role="data" name="de_DE.ser"/>
          <file role="data" name="de_DE.xml"/>
          <file role="data" name="en_EN.ini"/>
+         <file role="data" name="en_EN.ser"/>
          <file role="data" name="en_EN.xml"/>
          <file role="data" name="fr_FR.ini"/>
+         <file role="data" name="fr_FR.ser"/>
          <file role="data" name="fr_FR.xml"/>
          <file role="data" name="it_IT.ini"/>
+         <file role="data" name="it_IT.ser"/>
          <file role="data" name="it_IT.xml"/>
         </dir> <!-- lang/Christian -->
         <dir name="Germany">
          <file role="data" name="de_DE.ini"/>
+         <file role="data" name="de_DE.ser"/>
          <file role="data" name="de_DE.xml"/>
          <file role="data" name="en_EN.ini"/>
+         <file role="data" name="en_EN.ser"/>
          <file role="data" name="en_EN.xml"/>
          <file role="data" name="fr_FR.ini"/>
+         <file role="data" name="fr_FR.ser"/>
          <file role="data" name="fr_FR.xml"/>
         </dir> <!-- lang/Germany -->
         <dir name="UNO">
          <file role="data" name="de_DE.ini"/>
+         <file role="data" name="de_DE.ser"/>
          <file role="data" name="de_DE.xml"/>
          <file role="data" name="en_EN.ini"/>
+         <file role="data" name="en_EN.ser"/>
          <file role="data" name="en_EN.xml"/>
          <file role="data" name="fr_FR.ini"/>
+         <file role="data" name="fr_FR.ser"/>
          <file role="data" name="fr_FR.xml"/>
         </dir> <!-- lang/UNO -->
         <dir name="USA">
          <file role="data" name="de_DE.ini"/>
+         <file role="data" name="de_DE.ser"/>
          <file role="data" name="de_DE.xml"/>
          <file role="data" name="en_EN.ini"/>
+         <file role="data" name="en_EN.ser"/>
          <file role="data" name="en_EN.xml"/>
         </dir> <!-- lang/USA -->
        </dir> <!-- lang -->
@@ -122,7 +134,7 @@
   <changelog>
     <release>
       <version>0.14.0</version>
-      <date>2005-08-22</date>
+      <date>2005-08-24</date>
       <license>PHP License</license>
       <state>alpha</state>
       <notes>- Switched from using INI-files for translation to XML files

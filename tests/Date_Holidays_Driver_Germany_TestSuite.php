@@ -7,7 +7,12 @@ class Date_Holidays_Driver_Germany_TestSuite extends PHPUnit_TestCase {
     function setUp() {} 
    
     function testHolidays2005() {
-    /*
+         $drv = &Date_Holidays::factory('Germany', 2005);
+         $this->assertFalse(Date_Holidays::isError($drv));
+         if (Date_Holidays::isError($drv)) {
+            die($drv->getMessage());
+         }
+        
         // test newYearsDay 
         $day = &$drv->getHoliday('newYearsDay');
         $this->assertFalse(Date_Holidays::isError($day));
@@ -16,8 +21,8 @@ class Date_Holidays_Driver_Germany_TestSuite extends PHPUnit_TestCase {
         }
         $this->assertEquals('newYearsDay', $day->getInternalName());
         $date = &$day->getDate();
-        $this->assertEquals(, $date->getDay(), 'newYearsDay');
-        $this->assertEquals(, $date->getMonth(), 'newYearsDay');
+        $this->assertEquals(1, $date->getDay(), 'newYearsDay');
+        $this->assertEquals(1, $date->getMonth(), 'newYearsDay');
         $this->assertEquals(2005, $date->getYear(), 'newYearsDay');
         
         // test valentinesDay 
@@ -28,8 +33,8 @@ class Date_Holidays_Driver_Germany_TestSuite extends PHPUnit_TestCase {
         }
         $this->assertEquals('valentinesDay', $day->getInternalName());
         $date = &$day->getDate();
-        $this->assertEquals(, $date->getDay(), 'valentinesDay');
-        $this->assertEquals(, $date->getMonth(), 'valentinesDay');
+        $this->assertEquals(14, $date->getDay(), 'valentinesDay');
+        $this->assertEquals(2, $date->getMonth(), 'valentinesDay');
         $this->assertEquals(2005, $date->getYear(), 'valentinesDay');
         
         // test womenFasnet 
@@ -40,8 +45,8 @@ class Date_Holidays_Driver_Germany_TestSuite extends PHPUnit_TestCase {
         }
         $this->assertEquals('womenFasnet', $day->getInternalName());
         $date = &$day->getDate();
-        $this->assertEquals(, $date->getDay(), 'womenFasnet');
-        $this->assertEquals(, $date->getMonth(), 'womenFasnet');
+        $this->assertEquals(3, $date->getDay(), 'womenFasnet');
+        $this->assertEquals(2, $date->getMonth(), 'womenFasnet');
         $this->assertEquals(2005, $date->getYear(), 'womenFasnet');
         
         // test fasnet 
@@ -52,10 +57,10 @@ class Date_Holidays_Driver_Germany_TestSuite extends PHPUnit_TestCase {
         }
         $this->assertEquals('fasnet', $day->getInternalName());
         $date = &$day->getDate();
-        $this->assertEquals(, $date->getDay(), 'fasnet');
-        $this->assertEquals(, $date->getMonth(), 'fasnet');
+        $this->assertEquals(8, $date->getDay(), 'fasnet');
+        $this->assertEquals(2, $date->getMonth(), 'fasnet');
         $this->assertEquals(2005, $date->getYear(), 'fasnet');
-        
+
         // test roseMonday 
         $day = &$drv->getHoliday('roseMonday');
         $this->assertFalse(Date_Holidays::isError($day));
@@ -64,8 +69,8 @@ class Date_Holidays_Driver_Germany_TestSuite extends PHPUnit_TestCase {
         }
         $this->assertEquals('roseMonday', $day->getInternalName());
         $date = &$day->getDate();
-        $this->assertEquals(, $date->getDay(), 'roseMonday');
-        $this->assertEquals(, $date->getMonth(), 'roseMonday');
+        $this->assertEquals(7, $date->getDay(), 'roseMonday');
+        $this->assertEquals(2, $date->getMonth(), 'roseMonday');
         $this->assertEquals(2005, $date->getYear(), 'roseMonday');
         
         // test womensDay 
@@ -76,8 +81,8 @@ class Date_Holidays_Driver_Germany_TestSuite extends PHPUnit_TestCase {
         }
         $this->assertEquals('womensDay', $day->getInternalName());
         $date = &$day->getDate();
-        $this->assertEquals(, $date->getDay(), 'womensDay');
-        $this->assertEquals(, $date->getMonth(), 'womensDay');
+        $this->assertEquals(8, $date->getDay(), 'womensDay');
+        $this->assertEquals(3, $date->getMonth(), 'womensDay');
         $this->assertEquals(2005, $date->getYear(), 'womensDay');
         
         // test april1st 
@@ -88,8 +93,8 @@ class Date_Holidays_Driver_Germany_TestSuite extends PHPUnit_TestCase {
         }
         $this->assertEquals('april1st', $day->getInternalName());
         $date = &$day->getDate();
-        $this->assertEquals(, $date->getDay(), 'april1st');
-        $this->assertEquals(, $date->getMonth(), 'april1st');
+        $this->assertEquals(1, $date->getDay(), 'april1st');
+        $this->assertEquals(4, $date->getMonth(), 'april1st');
         $this->assertEquals(2005, $date->getYear(), 'april1st');
         
         // test girlsDay 
@@ -100,8 +105,8 @@ class Date_Holidays_Driver_Germany_TestSuite extends PHPUnit_TestCase {
         }
         $this->assertEquals('girlsDay', $day->getInternalName());
         $date = &$day->getDate();
-        $this->assertEquals(, $date->getDay(), 'girlsDay');
-        $this->assertEquals(, $date->getMonth(), 'girlsDay');
+        $this->assertEquals(28, $date->getDay(), 'girlsDay');
+        $this->assertEquals(4, $date->getMonth(), 'girlsDay');
         $this->assertEquals(2005, $date->getYear(), 'girlsDay');
         
         // test earthDay 
@@ -112,8 +117,8 @@ class Date_Holidays_Driver_Germany_TestSuite extends PHPUnit_TestCase {
         }
         $this->assertEquals('earthDay', $day->getInternalName());
         $date = &$day->getDate();
-        $this->assertEquals(, $date->getDay(), 'earthDay');
-        $this->assertEquals(, $date->getMonth(), 'earthDay');
+        $this->assertEquals(22, $date->getDay(), 'earthDay');
+        $this->assertEquals(4, $date->getMonth(), 'earthDay');
         $this->assertEquals(2005, $date->getYear(), 'earthDay');
         
         // test beersDay 
@@ -124,8 +129,8 @@ class Date_Holidays_Driver_Germany_TestSuite extends PHPUnit_TestCase {
         }
         $this->assertEquals('beersDay', $day->getInternalName());
         $date = &$day->getDate();
-        $this->assertEquals(, $date->getDay(), 'beersDay');
-        $this->assertEquals(, $date->getMonth(), 'beersDay');
+        $this->assertEquals(23, $date->getDay(), 'beersDay');
+        $this->assertEquals(4, $date->getMonth(), 'beersDay');
         $this->assertEquals(2005, $date->getYear(), 'beersDay');
         
         // test againstNoiseDay 
@@ -136,8 +141,8 @@ class Date_Holidays_Driver_Germany_TestSuite extends PHPUnit_TestCase {
         }
         $this->assertEquals('againstNoiseDay', $day->getInternalName());
         $date = &$day->getDate();
-        $this->assertEquals(, $date->getDay(), 'againstNoiseDay');
-        $this->assertEquals(, $date->getMonth(), 'againstNoiseDay');
+        $this->assertEquals(20, $date->getDay(), 'againstNoiseDay');
+        $this->assertEquals(4, $date->getMonth(), 'againstNoiseDay');
         $this->assertEquals(2005, $date->getYear(), 'againstNoiseDay');
         
         // test walpurgisNight 
@@ -148,8 +153,8 @@ class Date_Holidays_Driver_Germany_TestSuite extends PHPUnit_TestCase {
         }
         $this->assertEquals('walpurgisNight', $day->getInternalName());
         $date = &$day->getDate();
-        $this->assertEquals(, $date->getDay(), 'walpurgisNight');
-        $this->assertEquals(, $date->getMonth(), 'walpurgisNight');
+        $this->assertEquals(30, $date->getDay(), 'walpurgisNight');
+        $this->assertEquals(4, $date->getMonth(), 'walpurgisNight');
         $this->assertEquals(2005, $date->getYear(), 'walpurgisNight');
         
         // test dayOfWork 
@@ -160,8 +165,8 @@ class Date_Holidays_Driver_Germany_TestSuite extends PHPUnit_TestCase {
         }
         $this->assertEquals('dayOfWork', $day->getInternalName());
         $date = &$day->getDate();
-        $this->assertEquals(, $date->getDay(), 'dayOfWork');
-        $this->assertEquals(, $date->getMonth(), 'dayOfWork');
+        $this->assertEquals(1, $date->getDay(), 'dayOfWork');
+        $this->assertEquals(5, $date->getMonth(), 'dayOfWork');
         $this->assertEquals(2005, $date->getYear(), 'dayOfWork');
         
         // test laughingDay 
@@ -172,8 +177,8 @@ class Date_Holidays_Driver_Germany_TestSuite extends PHPUnit_TestCase {
         }
         $this->assertEquals('laughingDay', $day->getInternalName());
         $date = &$day->getDate();
-        $this->assertEquals(, $date->getDay(), 'laughingDay');
-        $this->assertEquals(, $date->getMonth(), 'laughingDay');
+        $this->assertEquals(1, $date->getDay(), 'laughingDay');
+        $this->assertEquals(5, $date->getMonth(), 'laughingDay');
         $this->assertEquals(2005, $date->getYear(), 'laughingDay');
         
         // test europeDay 
@@ -184,8 +189,8 @@ class Date_Holidays_Driver_Germany_TestSuite extends PHPUnit_TestCase {
         }
         $this->assertEquals('europeDay', $day->getInternalName());
         $date = &$day->getDate();
-        $this->assertEquals(, $date->getDay(), 'europeDay');
-        $this->assertEquals(, $date->getMonth(), 'europeDay');
+        $this->assertEquals(5, $date->getDay(), 'europeDay');
+        $this->assertEquals(5, $date->getMonth(), 'europeDay');
         $this->assertEquals(2005, $date->getYear(), 'europeDay');
         
         // test mothersDay 
@@ -196,8 +201,8 @@ class Date_Holidays_Driver_Germany_TestSuite extends PHPUnit_TestCase {
         }
         $this->assertEquals('mothersDay', $day->getInternalName());
         $date = &$day->getDate();
-        $this->assertEquals(, $date->getDay(), 'mothersDay');
-        $this->assertEquals(, $date->getMonth(), 'mothersDay');
+        $this->assertEquals(8, $date->getDay(), 'mothersDay');
+        $this->assertEquals(5, $date->getMonth(), 'mothersDay');
         $this->assertEquals(2005, $date->getYear(), 'mothersDay');
         
         // test endOfWWar2 
@@ -208,8 +213,8 @@ class Date_Holidays_Driver_Germany_TestSuite extends PHPUnit_TestCase {
         }
         $this->assertEquals('endOfWWar2', $day->getInternalName());
         $date = &$day->getDate();
-        $this->assertEquals(, $date->getDay(), 'endOfWWar2');
-        $this->assertEquals(, $date->getMonth(), 'endOfWWar2');
+        $this->assertEquals(8, $date->getDay(), 'endOfWWar2');
+        $this->assertEquals(5, $date->getMonth(), 'endOfWWar2');
         $this->assertEquals(2005, $date->getYear(), 'endOfWWar2');
         
         // test fathersDay 
@@ -220,8 +225,8 @@ class Date_Holidays_Driver_Germany_TestSuite extends PHPUnit_TestCase {
         }
         $this->assertEquals('fathersDay', $day->getInternalName());
         $date = &$day->getDate();
-        $this->assertEquals(, $date->getDay(), 'fathersDay');
-        $this->assertEquals(, $date->getMonth(), 'fathersDay');
+        $this->assertEquals(5, $date->getDay(), 'fathersDay');
+        $this->assertEquals(5, $date->getMonth(), 'fathersDay');
         $this->assertEquals(2005, $date->getYear(), 'fathersDay');
         
         // test aiDay 
@@ -232,8 +237,8 @@ class Date_Holidays_Driver_Germany_TestSuite extends PHPUnit_TestCase {
         }
         $this->assertEquals('aiDay', $day->getInternalName());
         $date = &$day->getDate();
-        $this->assertEquals(, $date->getDay(), 'aiDay');
-        $this->assertEquals(, $date->getMonth(), 'aiDay');
+        $this->assertEquals(28, $date->getDay(), 'aiDay');
+        $this->assertEquals(5, $date->getMonth(), 'aiDay');
         $this->assertEquals(2005, $date->getYear(), 'aiDay');
         
         // test intChildrenDay 
@@ -244,8 +249,8 @@ class Date_Holidays_Driver_Germany_TestSuite extends PHPUnit_TestCase {
         }
         $this->assertEquals('intChildrenDay', $day->getInternalName());
         $date = &$day->getDate();
-        $this->assertEquals(, $date->getDay(), 'intChildrenDay');
-        $this->assertEquals(, $date->getMonth(), 'intChildrenDay');
+        $this->assertEquals(1, $date->getDay(), 'intChildrenDay');
+        $this->assertEquals(6, $date->getMonth(), 'intChildrenDay');
         $this->assertEquals(2005, $date->getYear(), 'intChildrenDay');
         
         // test organDonationDay 
@@ -256,8 +261,8 @@ class Date_Holidays_Driver_Germany_TestSuite extends PHPUnit_TestCase {
         }
         $this->assertEquals('organDonationDay', $day->getInternalName());
         $date = &$day->getDate();
-        $this->assertEquals(, $date->getDay(), 'organDonationDay');
-        $this->assertEquals(, $date->getMonth(), 'organDonationDay');
+        $this->assertEquals(4, $date->getDay(), 'organDonationDay');
+        $this->assertEquals(6, $date->getMonth(), 'organDonationDay');
         $this->assertEquals(2005, $date->getYear(), 'organDonationDay');
         
         // test dormouseDay 
@@ -268,8 +273,8 @@ class Date_Holidays_Driver_Germany_TestSuite extends PHPUnit_TestCase {
         }
         $this->assertEquals('dormouseDay', $day->getInternalName());
         $date = &$day->getDate();
-        $this->assertEquals(, $date->getDay(), 'dormouseDay');
-        $this->assertEquals(, $date->getMonth(), 'dormouseDay');
+        $this->assertEquals(27, $date->getDay(), 'dormouseDay');
+        $this->assertEquals(6, $date->getMonth(), 'dormouseDay');
         $this->assertEquals(2005, $date->getYear(), 'dormouseDay');
         
         // test christopherStreetDay 
@@ -280,8 +285,8 @@ class Date_Holidays_Driver_Germany_TestSuite extends PHPUnit_TestCase {
         }
         $this->assertEquals('christopherStreetDay', $day->getInternalName());
         $date = &$day->getDate();
-        $this->assertEquals(, $date->getDay(), 'christopherStreetDay');
-        $this->assertEquals(, $date->getMonth(), 'christopherStreetDay');
+        $this->assertEquals(27, $date->getDay(), 'christopherStreetDay');
+        $this->assertEquals(6, $date->getMonth(), 'christopherStreetDay');
         $this->assertEquals(2005, $date->getYear(), 'christopherStreetDay');
         
         // test hiroshimaCommemorationDay 
@@ -292,8 +297,8 @@ class Date_Holidays_Driver_Germany_TestSuite extends PHPUnit_TestCase {
         }
         $this->assertEquals('hiroshimaCommemorationDay', $day->getInternalName());
         $date = &$day->getDate();
-        $this->assertEquals(, $date->getDay(), 'hiroshimaCommemorationDay');
-        $this->assertEquals(, $date->getMonth(), 'hiroshimaCommemorationDay');
+        $this->assertEquals(6, $date->getDay(), 'hiroshimaCommemorationDay');
+        $this->assertEquals(8, $date->getMonth(), 'hiroshimaCommemorationDay');
         $this->assertEquals(2005, $date->getYear(), 'hiroshimaCommemorationDay');
         
         // test augsburgPeaceCelebration 
@@ -304,8 +309,8 @@ class Date_Holidays_Driver_Germany_TestSuite extends PHPUnit_TestCase {
         }
         $this->assertEquals('augsburgPeaceCelebration', $day->getInternalName());
         $date = &$day->getDate();
-        $this->assertEquals(, $date->getDay(), 'augsburgPeaceCelebration');
-        $this->assertEquals(, $date->getMonth(), 'augsburgPeaceCelebration');
+        $this->assertEquals(8, $date->getDay(), 'augsburgPeaceCelebration');
+        $this->assertEquals(8, $date->getMonth(), 'augsburgPeaceCelebration');
         $this->assertEquals(2005, $date->getYear(), 'augsburgPeaceCelebration');
         
         // test leftHandedDay 
@@ -316,8 +321,8 @@ class Date_Holidays_Driver_Germany_TestSuite extends PHPUnit_TestCase {
         }
         $this->assertEquals('leftHandedDay', $day->getInternalName());
         $date = &$day->getDate();
-        $this->assertEquals(, $date->getDay(), 'leftHandedDay');
-        $this->assertEquals(, $date->getMonth(), 'leftHandedDay');
+        $this->assertEquals(13, $date->getDay(), 'leftHandedDay');
+        $this->assertEquals(8, $date->getMonth(), 'leftHandedDay');
         $this->assertEquals(2005, $date->getYear(), 'leftHandedDay');
         
         // test antiWarDay 
@@ -328,8 +333,8 @@ class Date_Holidays_Driver_Germany_TestSuite extends PHPUnit_TestCase {
         }
         $this->assertEquals('antiWarDay', $day->getInternalName());
         $date = &$day->getDate();
-        $this->assertEquals(, $date->getDay(), 'antiWarDay');
-        $this->assertEquals(, $date->getMonth(), 'antiWarDay');
+        $this->assertEquals(1, $date->getDay(), 'antiWarDay');
+        $this->assertEquals(9, $date->getMonth(), 'antiWarDay');
         $this->assertEquals(2005, $date->getYear(), 'antiWarDay');
         
         // test germanLanguageDay 
@@ -340,8 +345,8 @@ class Date_Holidays_Driver_Germany_TestSuite extends PHPUnit_TestCase {
         }
         $this->assertEquals('germanLanguageDay', $day->getInternalName());
         $date = &$day->getDate();
-        $this->assertEquals(, $date->getDay(), 'germanLanguageDay');
-        $this->assertEquals(, $date->getMonth(), 'germanLanguageDay');
+        $this->assertEquals(10, $date->getDay(), 'germanLanguageDay');
+        $this->assertEquals(9, $date->getMonth(), 'germanLanguageDay');
         $this->assertEquals(2005, $date->getYear(), 'germanLanguageDay');
         
         // test diabetesDay 
@@ -352,8 +357,8 @@ class Date_Holidays_Driver_Germany_TestSuite extends PHPUnit_TestCase {
         }
         $this->assertEquals('diabetesDay', $day->getInternalName());
         $date = &$day->getDate();
-        $this->assertEquals(, $date->getDay(), 'diabetesDay');
-        $this->assertEquals(, $date->getMonth(), 'diabetesDay');
+        $this->assertEquals(14, $date->getDay(), 'diabetesDay');
+        $this->assertEquals(11, $date->getMonth(), 'diabetesDay');
         $this->assertEquals(2005, $date->getYear(), 'diabetesDay');
         
         // test germanUnificationDay 
@@ -364,8 +369,8 @@ class Date_Holidays_Driver_Germany_TestSuite extends PHPUnit_TestCase {
         }
         $this->assertEquals('germanUnificationDay', $day->getInternalName());
         $date = &$day->getDate();
-        $this->assertEquals(, $date->getDay(), 'germanUnificationDay');
-        $this->assertEquals(, $date->getMonth(), 'germanUnificationDay');
+        $this->assertEquals(3, $date->getDay(), 'germanUnificationDay');
+        $this->assertEquals(10, $date->getMonth(), 'germanUnificationDay');
         $this->assertEquals(2005, $date->getYear(), 'germanUnificationDay');
         
         // test librariesDay 
@@ -376,8 +381,8 @@ class Date_Holidays_Driver_Germany_TestSuite extends PHPUnit_TestCase {
         }
         $this->assertEquals('librariesDay', $day->getInternalName());
         $date = &$day->getDate();
-        $this->assertEquals(, $date->getDay(), 'librariesDay');
-        $this->assertEquals(, $date->getMonth(), 'librariesDay');
+        $this->assertEquals(24, $date->getDay(), 'librariesDay');
+        $this->assertEquals(10, $date->getMonth(), 'librariesDay');
         $this->assertEquals(2005, $date->getYear(), 'librariesDay');
         
         // test savingsDay 
@@ -388,8 +393,8 @@ class Date_Holidays_Driver_Germany_TestSuite extends PHPUnit_TestCase {
         }
         $this->assertEquals('savingsDay', $day->getInternalName());
         $date = &$day->getDate();
-        $this->assertEquals(, $date->getDay(), 'savingsDay');
-        $this->assertEquals(, $date->getMonth(), 'savingsDay');
+        $this->assertEquals(30, $date->getDay(), 'savingsDay');
+        $this->assertEquals(10, $date->getMonth(), 'savingsDay');
         $this->assertEquals(2005, $date->getYear(), 'savingsDay');
         
         // test halloween 
@@ -400,8 +405,8 @@ class Date_Holidays_Driver_Germany_TestSuite extends PHPUnit_TestCase {
         }
         $this->assertEquals('halloween', $day->getInternalName());
         $date = &$day->getDate();
-        $this->assertEquals(, $date->getDay(), 'halloween');
-        $this->assertEquals(, $date->getMonth(), 'halloween');
+        $this->assertEquals(31, $date->getDay(), 'halloween');
+        $this->assertEquals(10, $date->getMonth(), 'halloween');
         $this->assertEquals(2005, $date->getYear(), 'halloween');
         
         // test stampsDay 
@@ -412,8 +417,8 @@ class Date_Holidays_Driver_Germany_TestSuite extends PHPUnit_TestCase {
         }
         $this->assertEquals('stampsDay', $day->getInternalName());
         $date = &$day->getDate();
-        $this->assertEquals(, $date->getDay(), 'stampsDay');
-        $this->assertEquals(, $date->getMonth(), 'stampsDay');
+        $this->assertEquals(30, $date->getDay(), 'stampsDay');
+        $this->assertEquals(10, $date->getMonth(), 'stampsDay');
         $this->assertEquals(2005, $date->getYear(), 'stampsDay');
         
         // test mensDay 
@@ -424,8 +429,8 @@ class Date_Holidays_Driver_Germany_TestSuite extends PHPUnit_TestCase {
         }
         $this->assertEquals('mensDay', $day->getInternalName());
         $date = &$day->getDate();
-        $this->assertEquals(, $date->getDay(), 'mensDay');
-        $this->assertEquals(, $date->getMonth(), 'mensDay');
+        $this->assertEquals(3, $date->getDay(), 'mensDay');
+        $this->assertEquals(11, $date->getMonth(), 'mensDay');
         $this->assertEquals(2005, $date->getYear(), 'mensDay');
         
         // test wallOfBerlin 
@@ -436,8 +441,8 @@ class Date_Holidays_Driver_Germany_TestSuite extends PHPUnit_TestCase {
         }
         $this->assertEquals('wallOfBerlin', $day->getInternalName());
         $date = &$day->getDate();
-        $this->assertEquals(, $date->getDay(), 'wallOfBerlin');
-        $this->assertEquals(, $date->getMonth(), 'wallOfBerlin');
+        $this->assertEquals(9, $date->getDay(), 'wallOfBerlin');
+        $this->assertEquals(11, $date->getMonth(), 'wallOfBerlin');
         $this->assertEquals(2005, $date->getYear(), 'wallOfBerlin');
         
         // test carnivalBeginning 
@@ -448,8 +453,8 @@ class Date_Holidays_Driver_Germany_TestSuite extends PHPUnit_TestCase {
         }
         $this->assertEquals('carnivalBeginning', $day->getInternalName());
         $date = &$day->getDate();
-        $this->assertEquals(, $date->getDay(), 'carnivalBeginning');
-        $this->assertEquals(, $date->getMonth(), 'carnivalBeginning');
+        $this->assertEquals(11, $date->getDay(), 'carnivalBeginning');
+        $this->assertEquals(11, $date->getMonth(), 'carnivalBeginning');
         $this->assertEquals(2005, $date->getYear(), 'carnivalBeginning');
         
         // test dayOfMourning 
@@ -460,10 +465,41 @@ class Date_Holidays_Driver_Germany_TestSuite extends PHPUnit_TestCase {
         }
         $this->assertEquals('dayOfMourning', $day->getInternalName());
         $date = &$day->getDate();
-        $this->assertEquals(, $date->getDay(), 'dayOfMourning');
-        $this->assertEquals(, $date->getMonth(), 'dayOfMourning');
+        $this->assertEquals(13, $date->getDay(), 'dayOfMourning');
+        $this->assertEquals(11, $date->getMonth(), 'dayOfMourning');
         $this->assertEquals(2005, $date->getYear(), 'dayOfMourning');
-    */
+    }
+    
+    function testHolidays2006() {
+         $drv = &Date_Holidays::factory('Germany', 2006);
+         $this->assertFalse(Date_Holidays::isError($drv));
+         if (Date_Holidays::isError($drv)) {
+            die($drv->getMessage());
+         }
+         
+        // test girlsDay 
+        $day = &$drv->getHoliday('girlsDay');
+        $this->assertFalse(Date_Holidays::isError($day));
+        if (Date_Holidays::isError($day)) {
+            die($day->getMessage());
+        }
+        $this->assertEquals('girlsDay', $day->getInternalName());
+        $date = &$day->getDate();
+        $this->assertEquals(27, $date->getDay(), 'girlsDay');
+        $this->assertEquals(4, $date->getMonth(), 'girlsDay');
+        $this->assertEquals(2006, $date->getYear(), 'girlsDay');
+        
+        // test christopherStreetDay 
+        $day = &$drv->getHoliday('christopherStreetDay');
+        $this->assertFalse(Date_Holidays::isError($day));
+        if (Date_Holidays::isError($day)) {
+            die($day->getMessage());
+        }
+        $this->assertEquals('christopherStreetDay', $day->getInternalName());
+        $date = &$day->getDate();
+        $this->assertEquals(27, $date->getDay(), 'christopherStreetDay');
+        $this->assertEquals(6, $date->getMonth(), 'christopherStreetDay');
+        $this->assertEquals(2006, $date->getYear(), 'christopherStreetDay');
     }
 
 }

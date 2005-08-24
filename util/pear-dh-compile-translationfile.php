@@ -35,7 +35,7 @@ $config = array(
 );
 
 $args = &Console_Getargs::factory($config);
-if (PEAR::isError($args) || ! is_array($args->getValue(CONSOLE_GETARGS_PARAMS))) {
+if (PEAR::isError($args) || is_null($args->getValue(CONSOLE_GETARGS_PARAMS))) {
     $header = "Date_Holidays language-file compiler\n--\n".
               'Usage: '.basename($_SERVER['SCRIPT_NAME'])." [options] filename(s)\n\n";
     if (is_a($args, 'PEAR_Error') && $args->getCode() === CONSOLE_GETARGS_ERROR_USER) {
@@ -47,6 +47,9 @@ if (PEAR::isError($args) || ! is_array($args->getValue(CONSOLE_GETARGS_PARAMS)))
 }
 
 $files = $args->getValue(CONSOLE_GETARGS_PARAMS);
+if (is_string($files)) {
+    $files = array($files);
+}
 $outputDir = $args->getValue('outputdir');
 
 

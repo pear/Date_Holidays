@@ -105,23 +105,23 @@ class Date_Holidays_Driver_Germany extends Date_Holidays_Driver_Christian
         $this->_addHoliday('april1st', $this->_year . '-04-01', 'April 1st');
         
        /**
-        * Girls' Day
+        * Girls' Day (fourth Thursday in April)
         */
-        $girlsDayDate       = &new Date($this->_year . '-04-01');
-        $dayOfWeek          = $girlsDayDate->getDayOfWeek();
+        $girlsDayDate   = &new Date($this->_year . '-04-01');
+        $dayOfWeek      = $girlsDayDate->getDayOfWeek();
         switch ($dayOfWeek) {
             case 0:
             case 1:
             case 2:
             case 3:
-                $span       = &new Date_Span(sprintf('%d, 0, 0, 0', $dayOfWeek + 3 + 21));
+                $span       = &new Date_Span(sprintf('%d, 0, 0, 0', 4 - $dayOfWeek + 21));
                 breaK;
             case 4:
                 $span       = &new Date_Span('21, 0, 0, 0');
                 breaK;
             case 5:
             case 6:
-                $span       = &new Date_Span(sprintf('%d, 0, 0, 0', $dayOfWeek - 4 + 21));
+                $span       = &new Date_Span(sprintf('%d, 0, 0, 0', -1 * $dayOfWeek + 11 + 21));
                 breaK;
         }
         $girlsDayDate->addSpan($span);
@@ -176,7 +176,7 @@ class Date_Holidays_Driver_Germany extends Date_Holidays_Driver_Christian
        /**
         * End of World War 2 in Germany
         */
-        $this->_addHoliday('endOfWWar2', $this->_year . '-05-09', 'End of World War 2 in Germany');
+        $this->_addHoliday('endOfWWar2', $this->_year . '-05-08', 'End of World War 2 in Germany');
         
        /**
         * Fathers' Day
@@ -245,7 +245,7 @@ class Date_Holidays_Driver_Germany extends Date_Holidays_Driver_Christian
        /**
         * International diabetes day
         */
-        $this->_addHoliday('diabetesDay', $this->_year . '-09-14', 'International diabetes day');
+        $this->_addHoliday('diabetesDay', $this->_year . '-11-14', 'International diabetes day');
         
        /**
         * German Unification Day
@@ -269,10 +269,21 @@ class Date_Holidays_Driver_Germany extends Date_Holidays_Driver_Christian
         
        /**
         * Stamp's Day
+        * 
+        * year <= 1948: 7th of January
+        * year > 1948: last Sunday in October
         */
-        $stampsDayDate      = &new Date($this->_year . '-10-31');
-        while ($stampsDayDate->getDayOfWeek() != 0) {
-            $stampsDayDate  = &$stampsDayDate->getPrevDay();
+        $stampsDayDate = null;
+        if ($this->_year <= 1948) {
+            $stampsDayDate      = &new Date($this->_year . '-01-07');
+            while ($stampsDayDate->getDayOfWeek() != 0) {
+                $stampsDayDate  = &$stampsDayDate->getNextDay();
+            }
+        } else {
+            $stampsDayDate      = &new Date($this->_year . '-10-31');
+            while ($stampsDayDate->getDayOfWeek() != 0) {
+                $stampsDayDate  = &$stampsDayDate->getPrevDay();
+            }
         }
         $this->_addHoliday('stampsDay', $stampsDayDate, 'Stamp\'s Day');
         
