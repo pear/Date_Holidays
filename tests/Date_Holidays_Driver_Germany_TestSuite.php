@@ -133,18 +133,6 @@ class Date_Holidays_Driver_Germany_TestSuite extends PHPUnit_TestCase {
         $this->assertEquals(4, $date->getMonth(), 'beersDay');
         $this->assertEquals(2005, $date->getYear(), 'beersDay');
         
-        // test againstNoiseDay 
-        $day = &$drv->getHoliday('againstNoiseDay');
-        $this->assertFalse(Date_Holidays::isError($day));
-        if (Date_Holidays::isError($day)) {
-            die($day->getMessage());
-        }
-        $this->assertEquals('againstNoiseDay', $day->getInternalName());
-        $date = &$day->getDate();
-        $this->assertEquals(20, $date->getDay(), 'againstNoiseDay');
-        $this->assertEquals(4, $date->getMonth(), 'againstNoiseDay');
-        $this->assertEquals(2005, $date->getYear(), 'againstNoiseDay');
-        
         // test walpurgisNight 
         $day = &$drv->getHoliday('walpurgisNight');
         $this->assertFalse(Date_Holidays::isError($day));

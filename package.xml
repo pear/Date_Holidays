@@ -20,7 +20,7 @@
   </maintainers>
   <release>
     <version>0.14.0</version>
-    <date>2005-08-24</date>
+    <date>2005-09-11</date>
     <license>PHP License</license>
     <state>alpha</state>
     <notes>- Switched from using INI-files for translation to XML files
@@ -112,9 +112,6 @@
          <file role="data" name="en_EN.ini"/>
          <file role="data" name="en_EN.ser"/>
          <file role="data" name="en_EN.xml"/>
-         <file role="data" name="fr_FR.ini"/>
-         <file role="data" name="fr_FR.ser"/>
-         <file role="data" name="fr_FR.xml"/>
         </dir> <!-- lang/UNO -->
         <dir name="USA">
          <file role="data" name="de_DE.ini"/>
@@ -134,7 +131,7 @@
   <changelog>
     <release>
       <version>0.14.0</version>
-      <date>2005-08-24</date>
+      <date>2005-09-11</date>
       <license>PHP License</license>
       <state>alpha</state>
       <notes>- Switched from using INI-files for translation to XML files

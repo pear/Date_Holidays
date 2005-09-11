@@ -138,11 +138,6 @@ class Date_Holidays_Driver_Germany extends Date_Holidays_Driver_Christian
         $this->_addHoliday('beersDay', $this->_year . '-04-23', 'German Beer\'s Day');
         
        /**
-        * Day against Noise
-        */
-        $this->_addHoliday('againstNoiseDay', $this->_year . '-04-28', 'Day against Noise');
-        
-       /**
         * Walpurgis Night
         */
         $this->_addHoliday('walpurgisNight', $this->_year . '-04-30', 'Walpurgis Night');

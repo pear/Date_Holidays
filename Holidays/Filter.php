@@ -93,9 +93,9 @@ class Date_Holidays_Filter
     * Lets the filter decide whether a holiday shall be processed or not.
     * 
     * @abstract 
-    * @param    string  a holidays' internal name
+    * @param    string $internalName  a holidays' internal name
     * @return   boolean true, if a holidays shall be processed, false otherwise
     */
-    function accept($holiday) {}
+    function accept($internalName) {}
 }
 ?>

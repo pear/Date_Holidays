@@ -258,7 +258,7 @@ class Date_Holidays_Driver
     }
     
    /**
-    * Returns localized titles of all holidays or those specififed in $restrict array
+    * Returns localized titles of all holidays or those accepted by the filter
     *
     * @access   public
     * @param    Date_Holidays_Filter    filter-object (or an array !DEPRECATED!)
@@ -357,8 +357,8 @@ class Date_Holidays_Driver
    /**
     * Returns all holidays that the driver knows.
     *
-    * You can limit the holidays by setting the $restrict array, then only those
-    * will be returned, whose internal name occurrs in this array.
+    * You can limit the holidays by passing a filter, then only those
+    * holidays accepted by the filter will be returned.
     *
     * Return format:
     * <pre>
@@ -370,13 +370,14 @@ class Date_Holidays_Driver
     * </pre>
     *
     * @access   public
-    * @param    Date_Holidays_Filter    filter-object (or an array !DEPRECATED!)
-    * @return   array   numeric array containing objects of Date_Holidays_Holiday on success, otherwise a PEAR_Error object
+    * @param    Date_Holidays_Filter $filter    filter-object (or an array !DEPRECATED!)
+    * @param    string  $locale     locale setting that shall be used by this method
+    * @return   array   numeric array containing objects of Date_Holidays_Holiday on success, 
+    *       otherwise a PEAR_Error object
     * @throws   object PEAR_Error   DATE_HOLIDAYS_INVALID_INTERNAL_NAME
     * @see      getHoliday()
-    * @uses     getHoliday()
     */
-    function getHolidays($filter = null)
+    function getHolidays($filter = null, $locale = null)
     {
         if (is_null($filter)) {
             $filter = &new Date_Holidays_Filter_Blacklist(array());
@@ -384,12 +385,16 @@ class Date_Holidays_Driver
             $filter = &new Date_Holidays_Filter_Whitelist($filter);
         }
         
+        if (is_null($locale)) {
+            $locale = $this->_locale;
+        }
+        
         $holidays       = array();
         
         foreach ($this->_internalNames as $internalName) {
             if ($filter->accept($internalName)) {
                 // no need to check for valid internal-name, will be done by #getHoliday()
-                $holidays[$internalName] = &$this->getHoliday($internalName);
+                $holidays[$internalName] = &$this->getHoliday($internalName, $locale);
             }
         }
         
@@ -446,11 +451,11 @@ class Date_Holidays_Driver
     *
     * @access   public
     * @param    mixed   $date       date (can be a timestamp, string or PEAR::Date object)
-    * @param    array   $restrict   internal-names of holidays to limit search on
+    * @param    Date_Holidays_Filter $filter    filter-object (or an array !DEPRECATED!)
     * @return   boolean true if date represents a holiday, otherwise false
     * @throws   object PEAR_Error   DATE_HOLIDAYS_INVALID_DATE, DATE_HOLIDAYS_INVALID_DATE_FORMAT
     */
-    function isHoliday($date, $restrict = array())
+    function isHoliday($date, $filter = null)
     {
         if (! is_a($date, 'Date')) {
             $date   =& $this->_convertDate($date);
@@ -459,13 +464,16 @@ class Date_Holidays_Driver
             }
         }
 
-        if (empty($restrict)) {
-            $restrict = $this->_internalNames;
+        if (is_null($filter)) {
+            $filter = &new Date_Holidays_Filter_Blacklist(array());
+        } elseif (is_array($filter)) {
+            $filter = &new Date_Holidays_Filter_Whitelist($filter);
         }
         
         foreach (array_keys($this->_dates) as $internalName) {
-            if (in_array($internalName, $restrict)) {
-                if ($date->compare($date, $this->_dates[$internalName]) != 0) {
+            if ($filter->accept($internalName)) {
+                if (Date_Holidays_Driver::dateSloppyCompare(
+                        $date, $this->_dates[$internalName]) != 0) {
                     continue;
                 }
                 return true;
@@ -974,6 +982,27 @@ class Date_Holidays_Driver
     function setLocale($locale)
     {
         $this->_locale  =   $locale;
+    }
+    
+   /**
+    * Sloppily compares two date objects (only year, month and day are compared).
+    * 
+    * @static 
+    * @access private
+    * @param Date $d1 a date object
+    * @param Date $d2 another date object
+    * @return int 0 if the dates are equal, -1 if d1 is before d2, 1 if d1 is after d2
+    * 
+    */
+    function dateSloppyCompare(&$d1, &$d2) 
+    {
+        $d1->convertTZ(new Date_TimeZone('UTC'));
+        $d2->convertTZ(new Date_TimeZone('UTC'));
+        $days1 = Date_Calc::dateToDays($d1->day, $d1->month, $d1->year);
+        $days2 = Date_Calc::dateToDays($d2->day, $d2->month, $d2->year);
+        if ($days1 < $days2) return -1;
+        if ($days1 > $days2) return 1;
+        return 0;
     }
 }
 ?>
