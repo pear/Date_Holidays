@@ -13,3 +13,8 @@
 - performance:
  `- addCompiledTranslationFile()
  `- drivers with pre-built holidays???
+- check if it's a filter in Date_Holidays_Filter_Composite::addFilter(); same for composite drivers
+- filtering bugfix for isHoliday()
+- $locale for getHolidays()
+- remove ??? from translation-files
+- build a tool that shows missing translations in language files

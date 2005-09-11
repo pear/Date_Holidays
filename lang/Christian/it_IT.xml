@@ -44,11 +44,6 @@
         </holiday>
             
         <holiday>
-            <internal-name>painfulFriday</internal-name>
-            <translation>???</translation>
-        </holiday>
-            
-        <holiday>
             <internal-name>whiteSunday</internal-name>
             <translation>Domenica 'in albis'</translation>
         </holiday>
@@ -136,11 +131,6 @@
         <holiday>
             <internal-name>thanksGiving</internal-name>
             <translation>Giorno del Ringraziamento</translation>
-        </holiday>
-            
-        <holiday>
-            <internal-name>kermis</internal-name>
-            <translation>???</translation>
         </holiday>
             
         <holiday>

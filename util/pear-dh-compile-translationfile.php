@@ -71,7 +71,7 @@ foreach ($files as $file) {
             fwrite($fp, serialize($content));
             fclose($fp);
             if ($args->isDefined('v')) {
-                echo 'Written compiled data to: ' . $filename . "\n";
+                echo 'Writing compiled data to: ' . $filename . "\n";
             }
         } else  {
             die('Could not write compiled file' . "\n");

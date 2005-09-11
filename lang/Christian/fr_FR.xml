@@ -44,11 +44,6 @@
         </holiday>
             
         <holiday>
-            <internal-name>painfulFriday</internal-name>
-            <translation>???</translation>
-        </holiday>
-            
-        <holiday>
             <internal-name>whiteSunday</internal-name>
             <translation>Pâques-closes</translation>
         </holiday>
@@ -79,23 +74,8 @@
         </holiday>
             
         <holiday>
-            <internal-name>requestSunday</internal-name>
-            <translation>???</translation>
-        </holiday>
-            
-        <holiday>
             <internal-name>ascensionDay</internal-name>
             <translation>Ascension</translation>
-        </holiday>
-            
-        <holiday>
-            <internal-name>whitMonday</internal-name>
-            <translation>???</translation>
-        </holiday>
-            
-        <holiday>
-            <internal-name>mariaHaunting</internal-name>
-            <translation>???</translation>
         </holiday>
             
         <holiday>
@@ -106,21 +86,6 @@
         <holiday>
             <internal-name>corpusChristi</internal-name>
             <translation>Fête-Dieu</translation>
-        </holiday>
-            
-        <holiday>
-            <internal-name>heartJesus</internal-name>
-            <translation>???</translation>
-        </holiday>
-            
-        <holiday>
-            <internal-name>johannisCelebration</internal-name>
-            <translation>???</translation>
-        </holiday>
-            
-        <holiday>
-            <internal-name>petrusAndPaulus</internal-name>
-            <translation>???</translation>
         </holiday>
             
         <holiday>
@@ -139,16 +104,6 @@
         </holiday>
             
         <holiday>
-            <internal-name>kermis</internal-name>
-            <translation>???</translation>
-        </holiday>
-            
-        <holiday>
-            <internal-name>reformationDay</internal-name>
-            <translation>???</translation>
-        </holiday>
-            
-        <holiday>
             <internal-name>allSaintsDay</internal-name>
             <translation>Toussaint</translation>
         </holiday>
@@ -161,36 +116,6 @@
         <holiday>
             <internal-name>martinsDay</internal-name>
             <translation>Saint Martin</translation>
-        </holiday>
-            
-        <holiday>
-            <internal-name>advent4</internal-name>
-            <translation>???</translation>
-        </holiday>
-            
-        <holiday>
-            <internal-name>advent1</internal-name>
-            <translation>???</translation>
-        </holiday>
-            
-        <holiday>
-            <internal-name>advent2</internal-name>
-            <translation>???</translation>
-        </holiday>
-            
-        <holiday>
-            <internal-name>advent3</internal-name>
-            <translation>???</translation>
-        </holiday>
-            
-        <holiday>
-            <internal-name>deathSunday</internal-name>
-            <translation>???</translation>
-        </holiday>
-            
-        <holiday>
-            <internal-name>dayOfRepentance</internal-name>
-            <translation>???</translation>
         </holiday>
             
         <holiday>

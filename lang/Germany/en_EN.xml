@@ -14,11 +14,6 @@
         </holiday>
             
         <holiday>
-            <internal-name>womenFasnet</internal-name>
-            <translation>???</translation>
-        </holiday>
-            
-        <holiday>
             <internal-name>fasnet</internal-name>
             <translation>Carnival</translation>
         </holiday>

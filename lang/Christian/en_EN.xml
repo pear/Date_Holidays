@@ -6,9 +6,6 @@
         <holiday>
             <internal-name>jesusCircumcision</internal-name>
             <translation>Circumcision of Jesus</translation>
-            <properties>
-                <property id="type">static</property>
-            </properties>
         </holiday>
             
         <holiday>

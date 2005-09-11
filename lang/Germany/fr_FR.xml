@@ -14,18 +14,8 @@
         </holiday>
             
         <holiday>
-            <internal-name>womenFasnet</internal-name>
-            <translation>???</translation>
-        </holiday>
-            
-        <holiday>
             <internal-name>fasnet</internal-name>
             <translation>Carnaval</translation>
-        </holiday>
-            
-        <holiday>
-            <internal-name>roseMonday</internal-name>
-            <translation>???</translation>
         </holiday>
             
         <holiday>
@@ -59,18 +49,8 @@
         </holiday>
             
         <holiday>
-            <internal-name>walpurgisNight</internal-name>
-            <translation>???</translation>
-        </holiday>
-            
-        <holiday>
             <internal-name>dayOfWork</internal-name>
             <translation>Journée du Travail</translation>
-        </holiday>
-            
-        <holiday>
-            <internal-name>laughingDay</internal-name>
-            <translation>???</translation>
         </holiday>
             
         <holiday>
@@ -109,23 +89,8 @@
         </holiday>
             
         <holiday>
-            <internal-name>dormouseDay</internal-name>
-            <translation>???</translation>
-        </holiday>
-            
-        <holiday>
             <internal-name>christopherStreetDay</internal-name>
             <translation>Fête de la rue Christophe</translation>
-        </holiday>
-            
-        <holiday>
-            <internal-name>hiroshimaCommemorationDay</internal-name>
-            <translation>???</translation>
-        </holiday>
-            
-        <holiday>
-            <internal-name>augsburgPeaceCelebration</internal-name>
-            <translation>???</translation>
         </holiday>
             
         <holiday>
@@ -139,43 +104,8 @@
         </holiday>
             
         <holiday>
-            <internal-name>germanLanguageDay</internal-name>
-            <translation>???</translation>
-        </holiday>
-            
-        <holiday>
-            <internal-name>diabetesDay</internal-name>
-            <translation>???</translation>
-        </holiday>
-            
-        <holiday>
-            <internal-name>germanUnificationDay</internal-name>
-            <translation>???</translation>
-        </holiday>
-            
-        <holiday>
-            <internal-name>librariesDay</internal-name>
-            <translation>???</translation>
-        </holiday>
-            
-        <holiday>
-            <internal-name>savingsDay</internal-name>
-            <translation>???</translation>
-        </holiday>
-            
-        <holiday>
             <internal-name>halloween</internal-name>
             <translation>Halloween</translation>
-        </holiday>
-            
-        <holiday>
-            <internal-name>stampsDay</internal-name>
-            <translation>???</translation>
-        </holiday>
-            
-        <holiday>
-            <internal-name>mensDay</internal-name>
-            <translation>???</translation>
         </holiday>
             
         <holiday>
@@ -186,11 +116,6 @@
         <holiday>
             <internal-name>carnivalBeginning</internal-name>
             <translation>Carnaval commence</translation>
-        </holiday>
-            
-        <holiday>
-            <internal-name>dayOfMourning</internal-name>
-            <translation>???</translation>
         </holiday>
         
         
