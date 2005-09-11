@@ -300,7 +300,7 @@ class Date_Holidays_Driver_Composite extends Date_Holidays_Driver
             }
             
             if (is_array($holiday)) {
-                for ($i = 0; $i < count($holiday); $i++) {
+                for ($i = 0; $i < count($holiday); ++$i) {
                     $holidays[] = &$holiday[$i];
                 }
             } else {

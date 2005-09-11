@@ -81,6 +81,8 @@ class Date_Holidays
     * @static
     * @access   public
     * @param    string  $driverId   driver-name
+    * @param    string  $year       year    
+    * @param    string  $locale     locale name
     * @return   object  Date_Holidays driver-object on success, otherwise a PEAR_Error object
     * @throws   object PEAR_Error   
     */
@@ -233,9 +235,6 @@ class Date_Holidays
                     $GLOBALS['_DATE_HOLIDAYS'][$prop] = $value;
                 }
                 break;
-                
-            default:
-                break;
         }
     }
     
@@ -258,13 +257,9 @@ class Date_Holidays
                 if (isset($GLOBALS['_DATE_HOLIDAYS'][$prop])) {
                     return $GLOBALS['_DATE_HOLIDAYS'][$prop];
                 }
-                return null;
-                break;
-                
-            default:
-                return null;
-                break;
         }
+        
+        return null;
     }
 }
 ?>

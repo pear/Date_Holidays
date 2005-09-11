@@ -1,5 +1,7 @@
 <?php
 
+error_reporting(E_ALL);
+
 require_once 'PHPUnit.php';
 require_once 'Date_Holidays_Driver_TestSuite.php';
 require_once 'Date_Holidays_Driver_Christian_TestSuite.php';

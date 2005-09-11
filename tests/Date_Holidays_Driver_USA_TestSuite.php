@@ -42,7 +42,7 @@ class Date_Holidays_Driver_USA_TestSuite extends PHPUnit_TestCase {
 
      // Test Memorial Day Luther King Day 
      $day = &$holidays->getHolidayDate('memorialDay');
-     if (Date_Holidays::isError($mem)) {
+     if (Date_Holidays::isError($day)) {
          die('Factory was unable to create memorialDay day');
      }
      $this->assertEquals(5,$day->getMonth());
@@ -50,7 +50,7 @@ class Date_Holidays_Driver_USA_TestSuite extends PHPUnit_TestCase {
 
      // Test 4th of July, It was on sunday this year
      $day = &$holidays->getHolidayDate('independenceDay');
-     if (Date_Holidays::isError($ind)) {
+     if (Date_Holidays::isError($day)) {
          die('Factory was unable to create independenceDay day');
      }
      $this->assertEquals(7,$day->getMonth());
@@ -127,7 +127,7 @@ class Date_Holidays_Driver_USA_TestSuite extends PHPUnit_TestCase {
 
      // Test Memorial Day Luther King Day 
      $day = &$holidays->getHolidayDate('memorialDay');
-     if (Date_Holidays::isError($mem)) {
+     if (Date_Holidays::isError($day)) {
          die('Factory was unable to create memorialDay day');
      }
      $this->assertEquals(5,$day->getMonth());
@@ -135,7 +135,7 @@ class Date_Holidays_Driver_USA_TestSuite extends PHPUnit_TestCase {
 
      // Test 4th of July, It was on sunday this year
      $day = &$holidays->getHolidayDate('independenceDay');
-     if (Date_Holidays::isError($ind)) {
+     if (Date_Holidays::isError($day)) {
          die('Factory was unable to create independenceDay day');
      }
      $this->assertEquals(7,$day->getMonth());
@@ -218,7 +218,7 @@ class Date_Holidays_Driver_USA_TestSuite extends PHPUnit_TestCase {
 
      // Test Memorial Day 
      $day = &$holidays->getHolidayDate('memorialDay');
-     if (Date_Holidays::isError($mem)) {
+     if (Date_Holidays::isError($day)) {
          die('Factory was unable to create memorialDay day');
      }
      $this->assertEquals(5,$day->getMonth());
@@ -226,7 +226,7 @@ class Date_Holidays_Driver_USA_TestSuite extends PHPUnit_TestCase {
 
      // Test 4th of July, It was on sunday this year
      $day = &$holidays->getHolidayDate('independenceDay');
-     if (Date_Holidays::isError($ind)) {
+     if (Date_Holidays::isError($day)) {
          die('Factory was unable to create independenceDay day');
      }
      $this->assertEquals(7,$day->getMonth());
