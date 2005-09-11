@@ -82,11 +82,17 @@ class Date_Holidays_Filter_Composite extends Date_Holidays_Filter
     * 
     * @access   public
     * @param    Date_Holidays_Filter    filterobject
+    * @return   boolean true on success, false otherwise
     */
     function addFilter($filter) 
     {
+        if (! is_a($filter, 'Date_Holidays_Filter')) {
+            return false;
+        }
+        
         $id                     = md5(serialize($filter));
         $this->_filters[$id]    = &$filter;
+        return true;
     }
     
    /**
@@ -99,6 +105,10 @@ class Date_Holidays_Filter_Composite extends Date_Holidays_Filter
     */
     function removeFilter($filter) 
     {
+        if (! is_a($filter, 'Date_Holidays_Filter')) {
+            return false;
+        }
+        
         $id = md5(serialize($filter));
         // unset filter object
         if (! isset($this->_filters[$id])) {

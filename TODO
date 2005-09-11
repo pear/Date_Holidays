@@ -1,5 +1,3 @@
 - improve doc-comments (remove old stuff)
 - separate Christian driver into Catholic and Evangelic, let Germany extend none of these but use delegates instead
-- check if it's a filter in Date_Holidays_Filter_Composite::addFilter(); same for composite drivers
 - build a tool that shows missing translations in language files
-- bugfix: Dates passed with a time-value different from 00:00:00 will cause negative comparison results in some functions

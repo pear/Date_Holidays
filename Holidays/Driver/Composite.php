@@ -79,14 +79,21 @@ class Date_Holidays_Driver_Composite extends Date_Holidays_Driver
     *
     * @access   public
     * @param    object Date_Holidays_Driver $driver driver-object
+    * @return   boolean true on success, false otherwise
     */
     function addDriver($driver)
     {
+        if (! is_a($filter, 'Date_Holidays_Driver')) {
+            return false;
+        }
+        
         $id                     = md5(serialize($driver));
         $this->_drivers[$id]    = &$driver;
         array_push($this->_driverIds, $id);
         
-        $this->_internalNames   = array_merge($driver->getInternalHolidayNames(), $this->_internalNames);
+        $this->_internalNames   = array_merge(
+                $driver->getInternalHolidayNames(), $this->_internalNames);
+        return true;
     }
     
    /**
@@ -99,6 +106,10 @@ class Date_Holidays_Driver_Composite extends Date_Holidays_Driver
     */
     function removeDriver($driver)
     {
+        if (! is_a($filter, 'Date_Holidays_Driver')) {
+            return false;
+        }
+        
         $id = md5(serialize($driver));
         // unset driver object
         if (! isset($this->_drivers[$id])) {
@@ -113,9 +124,9 @@ class Date_Holidays_Driver_Composite extends Date_Holidays_Driver
         // rebuild the internal-names array
         $this->_internalNames = array();
         foreach ($this->_driverIds as $id) {
-            $this->_internalNames = array_merge($this->_drivers[$id]->_internalNames, $this->_internalNames);
+            $this->_internalNames = 
+                    array_merge($this->_drivers[$id]->_internalNames, $this->_internalNames);
         }
-//        $this->_internalNames = array_values(array_unique($this->_internalNames));
         
         return true;
     }
