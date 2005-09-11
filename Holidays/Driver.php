@@ -547,12 +547,19 @@ class Date_Holidays_Driver
     * @access   public
     * @param    mixed   $start  date (timestamp | string | PEAR::Date object)
     * @param    mixed   $end    date (timestamp | string | PEAR::Date object)
+    * @param    Date_Holidays_Filter $filter    filter-object (or an array !DEPRECATED!)
     * @param    string  $locale locale setting that shall be used by this method
     * @throws   object PEAR_Error   DATE_HOLIDAYS_INVALID_DATE, DATE_HOLIDAYS_INVALID_DATE_FORMAT
     * @return   array   an array containing a number of <code>Date_Holidays_Holiday</code> items
     */
-    function getHolidaysForDatespan($start, $end, $locale = null)
+    function getHolidaysForDatespan($start, $end, $filter = null, $locale = null)
     {
+        if (is_null($filter)) {
+            $filter = &new Date_Holidays_Filter_Blacklist(array());
+        } elseif (is_array($filter)) {
+            $filter = &new Date_Holidays_Filter_Whitelist($filter);
+        }
+        
         if (!is_a($start, 'Date')) {
             $start = &$this->_convertDate($start);
             if (Date_Holidays::isError($start)) {
@@ -566,7 +573,8 @@ class Date_Holidays_Driver
             }
         }
         
-        $isodateStart   = mktime(0, 0, 0, $start->getMonth(), $start->getDay(), $start->getYear());
+        $isodateStart   = mktime(0, 0, 0, $start->getMonth(), $start->getDay(), 
+                $start->getYear());
         unset($start);
         $isodateEnd     = mktime(0, 0, 0, $end->getMonth(), $end->getDay(), $end->getYear());
         unset($end);
@@ -584,7 +592,9 @@ class Date_Holidays_Driver
         
         $retval = array();
         foreach ($internalNames as $internalName) {
-            $retval[] = &$this->getHoliday($internalName, $locale);
+            if ($filter->accept($internalName)) {
+                $retval[] = &$this->getHoliday($internalName, $locale);
+            }
         }
         return $retval;
         
@@ -674,7 +684,7 @@ class Date_Holidays_Driver
     }
     
    /**
-    * Add a localized translation for a holiday's title
+    * Add a localized translation for a holiday's title. Overwrites existing data.
     *
     * @access   protected
     * @param    string  $internalName   internal name of an existing holiday
@@ -700,6 +710,7 @@ class Date_Holidays_Driver
     
    /**
     * Adds a localized (regrading translation etc.) string-property for a holiday.
+    * Overwrites existing data.
     *  
     * @access   public
     * @param    string  internal-name
@@ -767,7 +778,8 @@ class Date_Holidays_Driver
     function addTranslationFile($file, $locale)
     {
         if (! file_exists($file)) {
-            Date_Holidays::raiseError(DATE_HOLIDAYS_LANGUAGEFILE_NOT_FOUND, 'Language-file not found');
+            Date_Holidays::raiseError(DATE_HOLIDAYS_LANGUAGEFILE_NOT_FOUND, 
+                    'Language-file not found: ' . $file);
             return Date_Holidays::getErrorStack();
         }
         
@@ -775,11 +787,12 @@ class Date_Holidays_Driver
         $options = array(
                             'parseAttributes'   =>  false,
                             'attributesArray'   =>  false,
-                            'keyAttribute'      => array('property' => 'id')
+                            'keyAttribute'      => array('property' => 'id'),
+                            'forceEnum'      => array('holiday')
                         );
         $unserializer = &new XML_Unserializer($options);
     
-        // userialize the document
+        // unserialize the document
         $status = $unserializer->unserialize($file, true);    
     
         if (PEAR::isError($status)) {
@@ -805,7 +818,8 @@ class Date_Holidays_Driver
     function addCompiledTranslationFile($file, $locale)
     {
         if (! file_exists($file)) {
-            Date_Holidays::raiseError(DATE_HOLIDAYS_LANGUAGEFILE_NOT_FOUND, 'Language-file not found');
+            Date_Holidays::raiseError(DATE_HOLIDAYS_LANGUAGEFILE_NOT_FOUND, 
+                    'Language-file not found: ' . $file);
             return Date_Holidays::getErrorStack();
         }
         
@@ -836,7 +850,7 @@ class Date_Holidays_Driver
         foreach ($data['holidays']['holiday'] as $holiday) {
             $this->_addTranslationForHoliday($holiday['internal-name'], $locale, 
                     $holiday['translation']);
-                
+    
             if (isset($holiday['properties']) && is_array($holiday['properties'])) {
                 foreach ($holiday['properties'] as $propId => $propVal) {
                     $this->_addStringPropertyForHoliday($holiday['internal-name'], $locale, 

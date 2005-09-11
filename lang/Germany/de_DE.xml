@@ -54,11 +54,6 @@
         </holiday>
             
         <holiday>
-            <internal-name>againstNoiseDay</internal-name>
-            <translation>Tag gegen Lärm</translation>
-        </holiday>
-            
-        <holiday>
             <internal-name>walpurgisNight</internal-name>
             <translation>Walpurgisnacht</translation>
         </holiday>

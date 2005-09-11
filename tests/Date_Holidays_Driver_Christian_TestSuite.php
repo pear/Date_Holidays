@@ -8,11 +8,12 @@ class Date_Holidays_Driver_Christian_TestSuite extends PHPUnit_TestCase {
    
     function testHolidays2005() {
           
-         $drvChristian = &Date_Holidays::factory('Christian', 2005, 'en_EN');
-         $this->assertFalse(Date_Holidays::isError($drvChristian));
-         if (Date_Holidays::isError($drvChristian)) {
+        $drvChristian = &Date_Holidays::factory('Christian', 2005, 'en_EN');
+        $this->assertFalse(Date_Holidays::isError($drvChristian));
+        if (Date_Holidays::isError($drvChristian)) {
+            print_r($drvChristian);
             die($drvChristian->getMessage());
-         }
+        }
     
          
         // test jesusCircumcision 

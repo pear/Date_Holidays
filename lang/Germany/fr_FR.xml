@@ -44,11 +44,6 @@
         </holiday>
             
         <holiday>
-            <internal-name>againstNoiseDay</internal-name>
-            <translation>Journée contre le bruit</translation>
-        </holiday>
-            
-        <holiday>
             <internal-name>dayOfWork</internal-name>
             <translation>Journée du Travail</translation>
         </holiday>
