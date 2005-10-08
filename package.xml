@@ -20,11 +20,13 @@
   </maintainers>
   <release>
     <version>0.14.0</version>
-    <date>2005-10-08</date>
+    <date>2005-10-09</date>
     <license>PHP License</license>
-    <state>alpha</state>
-    <notes>- Switched from using INI-files for translation to XML files
-- Holidays can now have various properties (see xml-files in examples-directory)</notes>
+    <state>devel</state>
+    <notes>- Switched from using INI files for translation to XML files
+- Added script to convert INI files to XML files
+- Added script to compile XML based language files
+- Holidays can now have various properties (see &quot;languagefile-with-properties.xml&quot; in examples-directory)</notes>
     <deps>
       <dep type="pkg" rel="ge" version="1.3.1" optional="no">PEAR</dep>
       <dep type="pkg" rel="has" optional="no">Date</dep>
@@ -38,6 +40,7 @@
        <dir name="examples">
         <file role="doc" name="addingTranslations.php"/>
         <file role="doc" name="creating_drivers.php"/>
+        <file role="doc" name="languagefile-with-properties.xml"/>
         <file role="doc" name="usingCompositeDriver.php"/>
         <file role="doc" name="usingStandaloneDriver.php"/>
        </dir> <!-- examples -->
@@ -122,18 +125,64 @@
          <file role="data" name="en_EN.xml"/>
         </dir> <!-- lang/USA -->
        </dir> <!-- lang -->
+       <dir name="scripts">
+        <file role="script" name="pear-dh-compile-ini2xml.php"/>
+        <file role="script" name="pear-dh-compile-translationfile.php"/>
+       </dir> <!-- scripts -->
        <file role="php" name="Holidays.php"/>
       </dir> <!-- / -->
     </filelist>
   </release>
   <changelog>
     <release>
-      <version>0.14.0</version>
-      <date>2005-10-08</date>
+      <version>0.9.0</version>
+      <date>2004-08-20</date>
       <license>PHP License</license>
       <state>alpha</state>
-      <notes>- Switched from using INI-files for translation to XML files
-- Holidays can now have various properties (see xml-files in examples-directory)</notes>
+      <notes>initial pear release</notes>
+    </release>
+    <release>
+      <version>0.10.0</version>
+      <date>2004-08-30</date>
+      <license>PHP License</license>
+      <state>alpha</state>
+      <notes>added optional $restrict-param for Date_Holidays_Driver::isHoliday()</notes>
+    </release>
+    <release>
+      <version>0.11.0</version>
+      <date>2004-11-03</date>
+      <license>PHP License</license>
+      <state>alpha</state>
+      <notes>Added driver and English languagefile for USA built by Kevin English.</notes>
+    </release>
+    <release>
+      <version>0.12.0</version>
+      <date>2004-12-29</date>
+      <license>PHP License</license>
+      <state>alpha</state>
+      <notes>- added Italian languagefile for Christian holidays (thx 2 quipo)
+- added performance-fix for getHolidayForDate() (thx 2 quipo)
+- added German translation for USA-holidays</notes>
+    </release>
+    <release>
+      <version>0.13.0</version>
+      <date>2005-02-14</date>
+      <license>PHP License</license>
+      <state>alpha</state>
+      <notes>- added Filters (Blacklist, Whitelist, Composite, Germany_Official)
+- improved Date_Holidays_Driver_Composite (allows executing setYear() now) 
+- added new driver PHPdotNet
+- several cosmetic changes</notes>
+    </release>
+    <release>
+      <version>0.14.0</version>
+      <date>2005-10-09</date>
+      <license>PHP License</license>
+      <state>devel</state>
+      <notes>- Switched from using INI files for translation to XML files
+- Added script to convert INI files to XML files
+- Added script to compile XML based language files
+- Holidays can now have various properties (see &quot;languagefile-with-properties.xml&quot; in examples-directory)</notes>
     </release>
   </changelog>
 </package>

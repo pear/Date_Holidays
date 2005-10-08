@@ -23,14 +23,16 @@ $version = '0.14.0';
 /**
  * current state
  */
-$state = 'alpha';
+$state = 'devel';
 
 /**
  * release notes
  */
 $notes = <<<EOT
-- Switched from using INI-files for translation to XML files
-- Holidays can now have various properties (see xml-files in examples-directory)
+- Switched from using INI files for translation to XML files
+- Added script to convert INI files to XML files
+- Added script to compile XML based language files
+- Holidays can now have various properties (see "languagefile-with-properties.xml" in examples-directory)
 EOT;
 
 /**
@@ -75,6 +77,11 @@ $package->addMaintainer('schst', 'helper', 'Stephan Schmidt', 'schst@php-tools.n
 $package->addDependency('PEAR', '1.3.1', 'ge', 'pkg', false);
 $package->addDependency('Date', '', 'has', 'pkg', false);
 $package->addDependency('XML_Serializer', '', 'has', 'pkg', false);
+
+$package->addReplacement('scripts/pear-dh-ini2xml.php', 'php-const', '/usr/local/bin', 'PHP_BINDIR');
+$package->addReplacement('scripts/pear-dh-ini2xml.php', 'pear-config', '@php_dir@', 'php_dir');
+$package->addReplacement('scripts/pear-dh-compile-translationfile.php', 'php-const', '/usr/local/bin', 'PHP_BINDIR');
+$package->addReplacement('scripts/pear-dh-compile-translationfile.php', 'pear-config', '@php_dir@', 'php_dir');
 
 if (isset($_GET['make']) || (isset($_SERVER['argv'][1]) && $_SERVER['argv'][1] == 'make')) {
     $result = $package->writePackageFile();

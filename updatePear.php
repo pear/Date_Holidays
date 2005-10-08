@@ -11,10 +11,6 @@ $PEARCMD = '/usr/bin/pear';
 $ret = null;
 $output = array();
 
-echo 'Deleting old package.xml ';
-exec('rm package.xml', $output, $ret);
-echo printStatus($ret) . "\n";
-
 echo 'Generating package.xml ';
 exec('php package.php make', $output, $ret);
 echo printStatus($ret) . "\n";
