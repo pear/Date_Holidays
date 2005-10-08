@@ -32,7 +32,6 @@ exec($PEARCMD . ' install ' . $lastLine, $output, $ret);
 echo printStatus($ret) . "\n";
 
 
-
 function printStatus($returnCode) 
 {
     if ($ret == 0) {
@@ -41,4 +40,3 @@ function printStatus($returnCode)
     return '[FAILED]';
 }
 ?>
-

@@ -51,7 +51,7 @@ $result = $package->setOptions(array(
     'license'           => 'PHP License',
     'filelistgenerator' => 'cvs',
     'ignore'            => array('mkSource.php', 'package.php', 'package.xml', 'package2.xml', 'test.php', 'docs/', 'tests/',
-	'test2.php', '*.zargo', '*.pdf', '*.sh', 'data/', 'util/', 'TODO'),
+	'test2.php', '*.zargo', '*.pdf', '*.sh', 'data/', 'util/', 'TODO', 'updatePear.php', 'changelog'),
     'notes'             => $notes,
     'simpleoutput'      => true,
     'baseinstalldir'    => 'Date',

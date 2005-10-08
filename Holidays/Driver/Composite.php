@@ -83,7 +83,7 @@ class Date_Holidays_Driver_Composite extends Date_Holidays_Driver
     */
     function addDriver($driver)
     {
-        if (! is_a($filter, 'Date_Holidays_Driver')) {
+        if (! is_a($driver, 'Date_Holidays_Driver')) {
             return false;
         }
         
@@ -106,7 +106,7 @@ class Date_Holidays_Driver_Composite extends Date_Holidays_Driver
     */
     function removeDriver($driver)
     {
-        if (! is_a($filter, 'Date_Holidays_Driver')) {
+        if (! is_a($driver, 'Date_Holidays_Driver')) {
             return false;
         }
         

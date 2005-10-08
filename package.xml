@@ -20,7 +20,7 @@
   </maintainers>
   <release>
     <version>0.14.0</version>
-    <date>2005-09-11</date>
+    <date>2005-09-29</date>
     <license>PHP License</license>
     <state>alpha</state>
     <notes>- Switched from using INI-files for translation to XML files
@@ -122,16 +122,14 @@
          <file role="data" name="en_EN.xml"/>
         </dir> <!-- lang/USA -->
        </dir> <!-- lang -->
-       <file role="data" name="changelog"/>
        <file role="php" name="Holidays.php"/>
-       <file role="php" name="updatePear.php"/>
       </dir> <!-- / -->
     </filelist>
   </release>
   <changelog>
     <release>
       <version>0.14.0</version>
-      <date>2005-09-11</date>
+      <date>2005-09-29</date>
       <license>PHP License</license>
       <state>alpha</state>
       <notes>- Switched from using INI-files for translation to XML files
