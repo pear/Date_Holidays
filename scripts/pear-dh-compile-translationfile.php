@@ -1,6 +1,12 @@
 #!/usr/bin/php
 
 <?php
+/**
+ * Script that can be used to compile xml-based language-files.
+ * 
+ * @version     $Id$
+ * @author      Carsten Lucke <luckec@php.net>
+ */
 
 require_once 'Console/Getargs.php';
 require_once 'XML/Unserializer.php';

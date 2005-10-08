@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="yes" ?>
+<driver-data>
+    <holidays>
+        <holiday>
+          <internal-name>jesusCircumcision</internal-name>
+          <translation>Circoncision de Jésus</translation>
+        
+          <properties>
+            <property id="type">static</property>
+            <property id="since">4th century</property>
+          </properties>
+        </holiday>
+    </holidays>
+</driver-data>

@@ -58,8 +58,9 @@ $result = $package->setOptions(array(
     'packagedirectory'  => './',
     'dir_roles'         => array(//'docs' => 'doc',
                                  'examples' => 'doc',
-                                 //'tests' => 'test',
-                                 'lang' => 'data'
+                                 'tests' => 'test',
+                                 'lang' => 'data',
+                                 'scripts' => 'script'
                                  )
     ));
 

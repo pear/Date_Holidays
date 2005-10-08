@@ -20,7 +20,7 @@
   </maintainers>
   <release>
     <version>0.14.0</version>
-    <date>2005-09-29</date>
+    <date>2005-10-08</date>
     <license>PHP License</license>
     <state>alpha</state>
     <notes>- Switched from using INI-files for translation to XML files
@@ -129,7 +129,7 @@
   <changelog>
     <release>
       <version>0.14.0</version>
-      <date>2005-09-29</date>
+      <date>2005-10-08</date>
       <license>PHP License</license>
       <state>alpha</state>
       <notes>- Switched from using INI-files for translation to XML files

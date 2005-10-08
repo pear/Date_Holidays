@@ -4,8 +4,6 @@
  * Converts the old-style INI-language files into XML-files that
  * are used from version 0.14.0+.
  * 
- * Call this file from command line: ini2xml.php file-to-convert
- * 
  * @version     $Id$
  * @author      Carsten Lucke <luckec@php.net>
  */
