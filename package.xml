@@ -20,7 +20,7 @@
   </maintainers>
   <release>
     <version>0.14.0</version>
-    <date>2005-10-09</date>
+    <date>2005-10-14</date>
     <license>PHP License</license>
     <state>devel</state>
     <notes>- Switched from using INI files for translation to XML files
@@ -125,12 +125,13 @@
          <file role="data" name="en_EN.xml"/>
         </dir> <!-- lang/USA -->
        </dir> <!-- lang -->
-       <dir name="scripts">
-        <file role="script" name="pear-dh-compile-ini2xml.php"/>
-        <file role="script" name="pear-dh-compile-translationfile.php"/>
-       </dir> <!-- scripts -->
        <file role="php" name="Holidays.php"/>
       </dir> <!-- / -->
+      
+      <dir name="/" baseinstalldir="/">
+        <file role="script" name="pear-dh-compile-translationfile" />
+        <file role="script" name="pear-dh-ini2xml"/>
+      </dir>
     </filelist>
   </release>
   <changelog>
@@ -176,7 +177,7 @@
     </release>
     <release>
       <version>0.14.0</version>
-      <date>2005-10-09</date>
+      <date>2005-10-14</date>
       <license>PHP License</license>
       <state>devel</state>
       <notes>- Switched from using INI files for translation to XML files
