@@ -14,19 +14,31 @@
     <maintainer>
       <user>schst</user>
       <name>Stephan Schmidt</name>
-      <email>schst@php-tools.net</email>
+      <email>schst@php.net</email>
       <role>helper</role>
+    </maintainer>
+    <maintainer>
+      <user>wiesemann</user>
+      <name>Mark Wiesemann</name>
+      <email>wiesemann@php.net</email>
+      <role>contributor</role>
     </maintainer>
   </maintainers>
   <release>
     <version>0.14.0</version>
     <date>2005-10-16</date>
     <license>PHP License</license>
-    <state>devel</state>
+    <state>alpha</state>
     <notes>- Switched from using INI files for translation to XML files
 - Added script to convert INI files to XML files
 - Added script to compile XML based language files
-- Holidays can now have various properties (see &quot;languagefile-with-properties.xml&quot; in examples-directory)</notes>
+- Holidays can now have various properties (see &quot;languagefile-with-properties.xml&quot; in examples-directory)
+- removed &quot;againstNoiseDay&quot; !BC break! from Germany driver, cannot be calculated automatically
+- new driver-methods:
+   = addCompiledTranslationFile(), allows adding compiled language-data files for performance improvements
+   = getHolidaysForDatespan(), returns holidays within a given time span
+- several bugfixes
+- Added filters for german federal states (contributed by Mark Wiesemann)</notes>
     <deps>
       <dep type="pkg" rel="ge" version="1.3.1" optional="no">PEAR</dep>
       <dep type="pkg" rel="has" optional="no">Date</dep>
@@ -35,9 +47,6 @@
     </deps>
     <filelist>
       <dir baseinstalldir="Date" name="/">
-       <dir name="doc">
-        <file role="data" name="Christian.txt"/>
-       </dir> <!-- doc -->
        <dir name="examples">
         <file role="doc" name="addingTranslations.php"/>
         <file role="doc" name="creating_drivers.php"/>
@@ -85,50 +94,42 @@
        </dir> <!-- Holidays -->
        <dir name="lang">
         <dir name="Christian">
-         <file role="data" name="de_DE.ini"/>
          <file role="data" name="de_DE.ser"/>
          <file role="data" name="de_DE.xml"/>
-         <file role="data" name="en_EN.ini"/>
          <file role="data" name="en_EN.ser"/>
          <file role="data" name="en_EN.xml"/>
-         <file role="data" name="fr_FR.ini"/>
          <file role="data" name="fr_FR.ser"/>
          <file role="data" name="fr_FR.xml"/>
-         <file role="data" name="it_IT.ini"/>
          <file role="data" name="it_IT.ser"/>
          <file role="data" name="it_IT.xml"/>
         </dir> <!-- lang/Christian -->
         <dir name="Germany">
-         <file role="data" name="de_DE.ini"/>
          <file role="data" name="de_DE.ser"/>
          <file role="data" name="de_DE.xml"/>
-         <file role="data" name="en_EN.ini"/>
          <file role="data" name="en_EN.ser"/>
          <file role="data" name="en_EN.xml"/>
-         <file role="data" name="fr_FR.ini"/>
          <file role="data" name="fr_FR.ser"/>
          <file role="data" name="fr_FR.xml"/>
         </dir> <!-- lang/Germany -->
         <dir name="UNO">
-         <file role="data" name="de_DE.ini"/>
          <file role="data" name="de_DE.ser"/>
          <file role="data" name="de_DE.xml"/>
-         <file role="data" name="en_EN.ini"/>
          <file role="data" name="en_EN.ser"/>
          <file role="data" name="en_EN.xml"/>
         </dir> <!-- lang/UNO -->
         <dir name="USA">
-         <file role="data" name="de_DE.ini"/>
          <file role="data" name="de_DE.ser"/>
          <file role="data" name="de_DE.xml"/>
-         <file role="data" name="en_EN.ini"/>
          <file role="data" name="en_EN.ser"/>
          <file role="data" name="en_EN.xml"/>
         </dir> <!-- lang/USA -->
        </dir> <!-- lang -->
        <file role="php" name="Holidays.php"/>
-       <file role="data" name="pear-dh-compile-translationfile"/>
-       <file role="data" name="pear-dh-ini2xml"/>
+      </dir><!-- / -->
+      
+      <dir name="/" baseinstalldir="/">
+       <file role="script" name="pear-dh-compile-translationfile"/>
+       <file role="script" name="pear-dh-ini2xml"/>
       </dir> <!-- / -->
     </filelist>
   </release>
@@ -177,11 +178,17 @@
       <version>0.14.0</version>
       <date>2005-10-16</date>
       <license>PHP License</license>
-      <state>devel</state>
+      <state>alpha</state>
       <notes>- Switched from using INI files for translation to XML files
 - Added script to convert INI files to XML files
 - Added script to compile XML based language files
-- Holidays can now have various properties (see &quot;languagefile-with-properties.xml&quot; in examples-directory)</notes>
+- Holidays can now have various properties (see &quot;languagefile-with-properties.xml&quot; in examples-directory)
+- removed &quot;againstNoiseDay&quot; !BC break! from Germany driver, cannot be calculated automatically
+- new driver-methods:
+   = addCompiledTranslationFile(), allows adding compiled language-data files for performance improvements
+   = getHolidaysForDatespan(), returns holidays within a given time span
+- several bugfixes
+- Added filters for german federal states (contributed by Mark Wiesemann)</notes>
     </release>
   </changelog>
 </package>

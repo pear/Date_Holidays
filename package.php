@@ -23,7 +23,7 @@ $version = '0.14.0';
 /**
  * current state
  */
-$state = 'beta';
+$state = 'alpha';
 
 /**
  * release notes
@@ -33,6 +33,12 @@ $notes = <<<EOT
 - Added script to convert INI files to XML files
 - Added script to compile XML based language files
 - Holidays can now have various properties (see "languagefile-with-properties.xml" in examples-directory)
+- removed "againstNoiseDay" !BC break! from Germany driver, cannot be calculated automatically
+- new driver-methods:
+   = addCompiledTranslationFile(), allows adding compiled language-data files for performance improvements
+   = getHolidaysForDatespan(), returns holidays within a given time span
+- several bugfixes
+- Added filters for german federal states (contributed by Mark Wiesemann)
 EOT;
 
 /**
@@ -52,17 +58,16 @@ $result = $package->setOptions(array(
     'state'             => $state,
     'license'           => 'PHP License',
     'filelistgenerator' => 'cvs',
-    'ignore'            => array('mkSource.php', 'package.php', 'package.xml', 'package2.xml', 'test.php', 'docs/', 'tests/',
+    'ignore'            => array('mkSource.php', 'package.php', 'package.xml', 'package2.xml', 'test.php', 'doc/', 'tests/',
 	'test2.php', '*.zargo', '*.pdf', '*.sh', 'data/', 'util/', 'TODO', 'updatePear.php', 'changelog'),
     'notes'             => $notes,
     'simpleoutput'      => true,
     'baseinstalldir'    => 'Date',
     'packagedirectory'  => './',
-    'dir_roles'         => array(//'docs' => 'doc',
+    'dir_roles'         => array(
                                  'examples' => 'doc',
                                  'tests' => 'test',
-                                 'lang' => 'data',
-                                 'scripts' => 'script'
+                                 'lang' => 'data'
                                  )
     ));
 
@@ -73,7 +78,7 @@ if (PEAR::isError($result)) {
 
 $package->addMaintainer('luckec', 'lead', 'Carsten Lucke', 'luckec@php.net');
 $package->addMaintainer('schst', 'helper', 'Stephan Schmidt', 'schst@php.net');
-$package->addMaintainer('schst', 'contributor', 'Mark Wiesemann', 'wiesemann@php.net');
+$package->addMaintainer('wiesemann', 'contributor', 'Mark Wiesemann', 'wiesemann@php.net');
 
 $package->addDependency('PEAR', '1.3.1', 'ge', 'pkg', false);
 $package->addDependency('Date', '', 'has', 'pkg', false);
