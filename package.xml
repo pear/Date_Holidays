@@ -20,7 +20,7 @@
   </maintainers>
   <release>
     <version>0.14.0</version>
-    <date>2005-10-14</date>
+    <date>2005-10-16</date>
     <license>PHP License</license>
     <state>devel</state>
     <notes>- Switched from using INI files for translation to XML files
@@ -31,6 +31,7 @@
       <dep type="pkg" rel="ge" version="1.3.1" optional="no">PEAR</dep>
       <dep type="pkg" rel="has" optional="no">Date</dep>
       <dep type="pkg" rel="has" optional="no">XML_Serializer</dep>
+      <dep type="pkg" rel="has" optional="yes">Console_Getargs</dep>
     </deps>
     <filelist>
       <dir baseinstalldir="Date" name="/">
@@ -126,12 +127,9 @@
         </dir> <!-- lang/USA -->
        </dir> <!-- lang -->
        <file role="php" name="Holidays.php"/>
+       <file role="data" name="pear-dh-compile-translationfile"/>
+       <file role="data" name="pear-dh-ini2xml"/>
       </dir> <!-- / -->
-      
-      <dir name="/" baseinstalldir="/">
-        <file role="script" name="pear-dh-compile-translationfile" />
-        <file role="script" name="pear-dh-ini2xml"/>
-      </dir>
     </filelist>
   </release>
   <changelog>
@@ -177,7 +175,7 @@
     </release>
     <release>
       <version>0.14.0</version>
-      <date>2005-10-14</date>
+      <date>2005-10-16</date>
       <license>PHP License</license>
       <state>devel</state>
       <notes>- Switched from using INI files for translation to XML files

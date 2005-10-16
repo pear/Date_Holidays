@@ -23,7 +23,7 @@ $version = '0.14.0';
 /**
  * current state
  */
-$state = 'devel';
+$state = 'beta';
 
 /**
  * release notes
@@ -72,16 +72,13 @@ if (PEAR::isError($result)) {
 }
 
 $package->addMaintainer('luckec', 'lead', 'Carsten Lucke', 'luckec@php.net');
-$package->addMaintainer('schst', 'helper', 'Stephan Schmidt', 'schst@php-tools.net');
+$package->addMaintainer('schst', 'helper', 'Stephan Schmidt', 'schst@php.net');
+$package->addMaintainer('schst', 'contributor', 'Mark Wiesemann', 'wiesemann@php.net');
 
 $package->addDependency('PEAR', '1.3.1', 'ge', 'pkg', false);
 $package->addDependency('Date', '', 'has', 'pkg', false);
 $package->addDependency('XML_Serializer', '', 'has', 'pkg', false);
-
-$package->addReplacement('scripts/pear-dh-ini2xml.php', 'php-const', '/usr/local/bin', 'PHP_BINDIR');
-$package->addReplacement('scripts/pear-dh-ini2xml.php', 'pear-config', '@php_dir@', 'php_dir');
-$package->addReplacement('scripts/pear-dh-compile-translationfile.php', 'php-const', '/usr/local/bin', 'PHP_BINDIR');
-$package->addReplacement('scripts/pear-dh-compile-translationfile.php', 'pear-config', '@php_dir@', 'php_dir');
+$package->addDependency('Console_Getargs', '', 'has', 'pkg', true);
 
 if (isset($_GET['make']) || (isset($_SERVER['argv'][1]) && $_SERVER['argv'][1] == 'make')) {
     $result = $package->writePackageFile();
