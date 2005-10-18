@@ -443,7 +443,8 @@ class Date_Holidays_Driver
             return $properties;
         }
         
-        return new Date_Holidays_Holiday($internalName, $title, $date, $properties);
+        $holiday = &new Date_Holidays_Holiday($internalName, $title, $date, $properties);
+        return $holiday;
     }
     
    /**
@@ -616,11 +617,13 @@ class Date_Holidays_Driver
                 return Date_Holidays::raiseError(DATE_HOLIDAYS_INVALID_DATE_FORMAT, 
                     'Date-string has wrong format (must be YYYY-MM-DD)');
             }
-            return new Date($date);
+            $date = &new Date($date);
+            return $date;
         }
         
         if (is_int($date)) {
-            return new Date($date);
+            $date = &new Date($date);
+            return $date;
         }
         
         return Date_Holidays::raiseError(DATE_HOLIDAYS_INVALID_DATE, 
@@ -1000,6 +1003,7 @@ class Date_Holidays_Driver
     
    /**
     * Sloppily compares two date objects (only year, month and day are compared).
+    * Does not take the date's timezone into account.
     * 
     * @static 
     * @access private
@@ -1008,10 +1012,10 @@ class Date_Holidays_Driver
     * @return int 0 if the dates are equal, -1 if d1 is before d2, 1 if d1 is after d2
     * 
     */
-    function dateSloppyCompare(&$d1, &$d2) 
+    function dateSloppyCompare($d1, $d2) 
     {
-        $d1->convertTZ(new Date_TimeZone('UTC'));
-        $d2->convertTZ(new Date_TimeZone('UTC'));
+        $d1->setTZ(new Date_TimeZone('UTC'));
+        $d2->setTZ(new Date_TimeZone('UTC'));
         $days1 = Date_Calc::dateToDays($d1->day, $d1->month, $d1->year);
         $days2 = Date_Calc::dateToDays($d2->day, $d2->month, $d2->year);
         if ($days1 < $days2) return -1;

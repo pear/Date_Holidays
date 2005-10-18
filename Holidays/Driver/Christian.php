@@ -368,7 +368,8 @@ class Date_Holidays_Driver_Christian extends Date_Holidays_Driver
         $month  = 3 + floor(($l + 40) / 44);
         $day    = $l + 28 - 31 * floor($month / 4);
         
-        return new Date(sprintf('%04d-%02d-%02d', $year, $month, $day));
+        $date = &new Date(sprintf('%04d-%02d-%02d', $year, $month, $day));
+        return $date;
     }
 }
 ?>
