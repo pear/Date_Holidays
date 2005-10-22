@@ -1,4 +1,0 @@
-- improve doc-comments (remove old stuff)
-- separate Christian driver into Catholic and Evangelic, let Germany extend none of these but use delegates instead
-- build a tool that shows missing translations in language files
-- locale information for holiday objects :: Date_Holidays_Holiday::getLocale()
