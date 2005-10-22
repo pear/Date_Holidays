@@ -32,14 +32,14 @@ if (Date_Holidays::isError($germany)) {
 }
 
 // translations for the christian holidays
-$germany->addTranslationFile('/var/lib/pear/data/Date_Holidays/lang/Christian/de_DE.ini', 'de_DE');
-$germany->addTranslationFile('/var/lib/pear/data/Date_Holidays/lang/Christian/en_EN.ini', 'en_EN');
-$germany->addTranslationFile('/var/lib/pear/data/Date_Holidays/lang/Christian/fr_FR.ini', 'fr_FR');
+$germany->addTranslationFile('/var/lib/pear/data/Date_Holidays/lang/Christian/de_DE.xml', 'de_DE');
+$germany->addTranslationFile('/var/lib/pear/data/Date_Holidays/lang/Christian/en_EN.xml', 'en_EN');
+$germany->addTranslationFile('/var/lib/pear/data/Date_Holidays/lang/Christian/fr_FR.xml', 'fr_FR');
 
 // translations for the german holidays
-$germany->addTranslationFile('/var/lib/pear/data/Date_Holidays/lang/Germany/de_DE.ini', 'de_DE');
-$germany->addTranslationFile('/var/lib/pear/data/Date_Holidays/lang/Germany/en_EN.ini', 'en_EN');
-$germany->addTranslationFile('/var/lib/pear/data/Date_Holidays/lang/Germany/fr_FR.ini', 'fr_FR');
+$germany->addCompiledTranslationFile('/var/lib/pear/data/Date_Holidays/lang/Germany/de_DE.ser', 'de_DE');
+$germany->addCompiledTranslationFile('/var/lib/pear/data/Date_Holidays/lang/Germany/en_EN.ser', 'en_EN');
+$germany->addCompiledTranslationFile('/var/lib/pear/data/Date_Holidays/lang/Germany/fr_FR.ser', 'fr_FR');
 
 $easter = $germany->getHoliday('easter');
 if (Date_Holidays::isError($easter)) {
