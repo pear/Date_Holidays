@@ -130,11 +130,7 @@ class Date_Holidays_Driver_TestSuite extends PHPUnit_TestCase {
         }
         
         $germany =& Date_Holidays::factory('Germany', 2005, 'de_DE');
-//        $holidays = $germany->getHolidayForDate('2005-10-30', null, true);
-        $holidays = $germany->getHolidayForDate(1130623200, null, true);
-        
-//        print_r(date('Y-m-d', 1130623200));
-//        print_r(new Date(1130623200));
+        $holidays = $germany->getHolidayForDate(mktime(0, 0, 0, 10, 30, 2005), null, true);
         
         $this->assertEquals(2, count($holidays));
         for ($i = 0; $i < count($holidays); ++$i) {
