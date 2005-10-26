@@ -622,7 +622,7 @@ class Date_Holidays_Driver
         }
         
         if (is_int($date)) {
-            $date = &new Date($date);
+            $date = &new Date(date('Y-m-d', $date));
             return $date;
         }
         
