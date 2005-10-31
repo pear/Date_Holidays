@@ -30,7 +30,7 @@ echo printStatus($ret) . "\n";
 
 function printStatus($returnCode) 
 {
-    if ($ret == 0) {
+    if ($returnCode == 0) {
         return '[OK]';
     } 
     return '[FAILED]';
