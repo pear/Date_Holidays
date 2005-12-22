@@ -58,10 +58,10 @@ class Date_Holidays_Driver_Germany extends Date_Holidays_Driver_Christian
     {
         parent::_buildHolidays();
 
-        $easterDate         = &$this->getHolidayDate('easter');
-        $ashWednesdayDate   = &$this->getHolidayDate('ashWednesday');
-        $ascensionDayDate   = &$this->getHolidayDate('ascensionDay');
-        $advent1Date        = &$this->getHolidayDate('advent1');
+        $easterDate         = $this->getHolidayDate('easter');
+        $ashWednesdayDate   = $this->getHolidayDate('ashWednesday');
+        $ascensionDayDate   = $this->getHolidayDate('ascensionDay');
+        $advent1Date        = $this->getHolidayDate('advent1');
         
        /**
         * New Year's Day
@@ -76,21 +76,21 @@ class Date_Holidays_Driver_Germany extends Date_Holidays_Driver_Christian
        /**
         * "Weiberfastnacht"
         */
-        $wFasnetDate        = &new Date($ashWednesdayDate);
+        $wFasnetDate        = new Date($ashWednesdayDate);
         $wFasnetDate->subtractSpan(new Date_Span('6, 0, 0, 0'));
         $this->_addHoliday('womenFasnet', $wFasnetDate, 'Carnival');
         
        /**
         * Carnival / "Fastnacht"
         */
-        $fasnetDate         = &new Date($easterDate);
+        $fasnetDate         = new Date($easterDate);
         $fasnetDate->subtractSpan(new Date_Span('47, 0, 0, 0'));
         $this->_addHoliday('fasnet', $fasnetDate, 'Carnival');
         
        /**
         * Rose Monday
         */
-        $roseMondayDate     = &new Date($easterDate);
+        $roseMondayDate     = new Date($easterDate);
         $roseMondayDate->subtractSpan(new Date_Span('48, 0, 0, 0'));
         $this->_addHoliday('roseMonday', $roseMondayDate, 'Rose Monday');
         
@@ -107,21 +107,21 @@ class Date_Holidays_Driver_Germany extends Date_Holidays_Driver_Christian
        /**
         * Girls' Day (fourth Thursday in April)
         */
-        $girlsDayDate   = &new Date($this->_year . '-04-01');
+        $girlsDayDate   = new Date($this->_year . '-04-01');
         $dayOfWeek      = $girlsDayDate->getDayOfWeek();
         switch ($dayOfWeek) {
             case 0:
             case 1:
             case 2:
             case 3:
-                $span       = &new Date_Span(sprintf('%d, 0, 0, 0', 4 - $dayOfWeek + 21));
+                $span       = new Date_Span(sprintf('%d, 0, 0, 0', 4 - $dayOfWeek + 21));
                 breaK;
             case 4:
-                $span       = &new Date_Span('21, 0, 0, 0');
+                $span       = new Date_Span('21, 0, 0, 0');
                 breaK;
             case 5:
             case 6:
-                $span       = &new Date_Span(sprintf('%d, 0, 0, 0', -1 * $dayOfWeek + 11 + 21));
+                $span       = new Date_Span(sprintf('%d, 0, 0, 0', -1 * $dayOfWeek + 11 + 21));
                 breaK;
         }
         $girlsDayDate->addSpan($span);
@@ -150,9 +150,9 @@ class Date_Holidays_Driver_Germany extends Date_Holidays_Driver_Christian
        /**
         * World's Laughing Day
         */
-        $laughingDayDate    = &new Date($this->_year . '-05-01');
+        $laughingDayDate    = new Date($this->_year . '-05-01');
         while ($laughingDayDate->getDayOfWeek() != 0) {
-            $laughingDayDate    = &$laughingDayDate->getNextDay();
+            $laughingDayDate    = $laughingDayDate->getNextDay();
         }
         $this->_addHoliday('laughingDay', $laughingDayDate, 'World\'s Laughing Day');
         
@@ -164,7 +164,7 @@ class Date_Holidays_Driver_Germany extends Date_Holidays_Driver_Christian
        /**
         * Mothers' Day
         */
-        $mothersDay         = &new Date($laughingDayDate);
+        $mothersDay         = new Date($laughingDayDate);
         $mothersDay->addSpan(new Date_Span('7, 0, 0, 0'));
         $this->_addHoliday('mothersDay', $mothersDay, 'Mothers\' Day');
         
@@ -191,9 +191,9 @@ class Date_Holidays_Driver_Germany extends Date_Holidays_Driver_Christian
        /**
         * Day of organ donation
         */
-        $organDonationDate  = &new Date($this->_year . '-06-01');
+        $organDonationDate  = new Date($this->_year . '-06-01');
         while ($organDonationDate->getDayOfWeek() != 6) {
-            $organDonationDate  = &$organDonationDate->getNextDay();
+            $organDonationDate  = $organDonationDate->getNextDay();
         }
         $this->_addHoliday('organDonationDay', $organDonationDate, 'Day of organ donation');
         
@@ -230,9 +230,9 @@ class Date_Holidays_Driver_Germany extends Date_Holidays_Driver_Christian
        /**
         * Day of German Language
         */
-        $germanLangDayDate  = &new Date($this->_year . '-09-01');
+        $germanLangDayDate  = new Date($this->_year . '-09-01');
         while ($germanLangDayDate->getDayOfWeek() != 6) {
-            $germanLangDayDate  = &$germanLangDayDate->getNextDay();
+            $germanLangDayDate  = $germanLangDayDate->getNextDay();
         }
         $germanLangDayDate->addSpan(new Date_Span('7, 0, 0, 0'));
         $this->_addHoliday('germanLanguageDay', $germanLangDayDate, 'Day of German Language');
@@ -270,14 +270,14 @@ class Date_Holidays_Driver_Germany extends Date_Holidays_Driver_Christian
         */
         $stampsDayDate = null;
         if ($this->_year <= 1948) {
-            $stampsDayDate      = &new Date($this->_year . '-01-07');
+            $stampsDayDate      = new Date($this->_year . '-01-07');
             while ($stampsDayDate->getDayOfWeek() != 0) {
-                $stampsDayDate  = &$stampsDayDate->getNextDay();
+                $stampsDayDate  = $stampsDayDate->getNextDay();
             }
         } else {
-            $stampsDayDate      = &new Date($this->_year . '-10-31');
+            $stampsDayDate      = new Date($this->_year . '-10-31');
             while ($stampsDayDate->getDayOfWeek() != 0) {
-                $stampsDayDate  = &$stampsDayDate->getPrevDay();
+                $stampsDayDate  = $stampsDayDate->getPrevDay();
             }
         }
         $this->_addHoliday('stampsDay', $stampsDayDate, 'Stamp\'s Day');
@@ -300,7 +300,7 @@ class Date_Holidays_Driver_Germany extends Date_Holidays_Driver_Christian
        /**
         * People's Day of Mourning
         */
-        $dayOfMourning      = &$advent1Date;
+        $dayOfMourning      = $advent1Date;
         $dayOfMourning->subtractSpan(new Date_Span('14, 0, 0, 0'));
         $this->_addHoliday('dayOfMourning', $dayOfMourning, 'People\'s Day of Mourning');
         

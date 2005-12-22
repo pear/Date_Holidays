@@ -77,7 +77,7 @@ class Date_Holidays_Holiday
         $this->_properties   = array();
         
         if (is_a($date, 'Date')) {
-            $this->_date = &$date;
+            $this->_date = $date;
         }
         
         if (is_array($properties)) {
@@ -148,7 +148,7 @@ class Date_Holidays_Holiday
     */
     function setDate(&$date)
     {
-        $this->_date = &$date;
+        $this->_date = $date;
     }
     
    /**
@@ -166,12 +166,12 @@ class Date_Holidays_Holiday
     * @access   public
     * @return   array   holiday-data
     */
-    function &toArray()
+    function toArray()
     {
         $data                   = array();
         $data['internalName']   = $this->_internalName;
         $data['title']          = $this->_title;
-        $data['date']           = &$this->_date;
+        $data['date']           = $this->_date;
         return $data;
     }
     

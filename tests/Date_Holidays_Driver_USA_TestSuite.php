@@ -9,13 +9,13 @@ class Date_Holidays_Driver_USA_TestSuite extends PHPUnit_TestCase {
    } 
    function test_holidays_2005() {
       
-     $holidays = &Date_Holidays::factory('USA', 2005, 'en_EN');
+     $holidays = Date_Holidays::factory('USA', 2005, 'en_EN');
      if (Date_Holidays::isError($holidays)) {
        die('Factory was unable to produce driver-object');
      }
 
      // Test New Year Day -- it comes a day early this year
-     $day = &$holidays->getHolidayDate('newYearsDay');
+     $day = $holidays->getHolidayDate('newYearsDay');
      if (Date_Holidays::isError($day)) {
          die('Factory was unable to make newYearsDay');
      } 
@@ -24,7 +24,7 @@ class Date_Holidays_Driver_USA_TestSuite extends PHPUnit_TestCase {
      $this->assertEquals(2004, $day->getYear());
 
      // Test Martin Luther King Day 
-     $day = &$holidays->getHolidayDate('mlkDay');
+     $day = $holidays->getHolidayDate('mlkDay');
      if (Date_Holidays::isError($day)) {
          die('Factory was unable to that day');
      }
@@ -33,7 +33,7 @@ class Date_Holidays_Driver_USA_TestSuite extends PHPUnit_TestCase {
      $this->assertEquals(17,$day->getDay());
  
      // Test Prez Day Luther King Day 
-     $day = &$holidays->getHolidayDate('presidentsDay');
+     $day = $holidays->getHolidayDate('presidentsDay');
      if (Date_Holidays::isError($day)) {
          die('Factory was unable to that day');
      }
@@ -41,7 +41,7 @@ class Date_Holidays_Driver_USA_TestSuite extends PHPUnit_TestCase {
      $this->assertEquals(21,$day->getDay());
 
      // Test Memorial Day Luther King Day 
-     $day = &$holidays->getHolidayDate('memorialDay');
+     $day = $holidays->getHolidayDate('memorialDay');
      if (Date_Holidays::isError($day)) {
          die('Factory was unable to create memorialDay day');
      }
@@ -49,7 +49,7 @@ class Date_Holidays_Driver_USA_TestSuite extends PHPUnit_TestCase {
      $this->assertEquals(30,$day->getDay());
 
      // Test 4th of July, It was on sunday this year
-     $day = &$holidays->getHolidayDate('independenceDay');
+     $day = $holidays->getHolidayDate('independenceDay');
      if (Date_Holidays::isError($day)) {
          die('Factory was unable to create independenceDay day');
      }
@@ -57,7 +57,7 @@ class Date_Holidays_Driver_USA_TestSuite extends PHPUnit_TestCase {
      $this->assertEquals(4,$day->getDay());
 
      // Test Labor Day, end of summer
-     $day = &$holidays->getHolidayDate('laborDay');
+     $day = $holidays->getHolidayDate('laborDay');
      if (Date_Holidays::isError($day)) {
          die('Factory was unable to create laborDay day');
      }
@@ -65,7 +65,7 @@ class Date_Holidays_Driver_USA_TestSuite extends PHPUnit_TestCase {
      $this->assertEquals(5,$day->getDay());
      
      // Test Columbus Day, end of summer
-     $day = &$holidays->getHolidayDate('columbusDay');
+     $day = $holidays->getHolidayDate('columbusDay');
      if (Date_Holidays::isError($day)) {
          die('Factory was unable to create columbusDay day');
      }
@@ -73,7 +73,7 @@ class Date_Holidays_Driver_USA_TestSuite extends PHPUnit_TestCase {
      $this->assertEquals(10,$day->getDay());
 
      // Test Veteran's Day
-     $day = &$holidays->getHolidayDate('veteransDay');
+     $day = $holidays->getHolidayDate('veteransDay');
      if (Date_Holidays::isError($day)) {
          die('Factory was unable to create veteransDay day');
      }
@@ -81,7 +81,7 @@ class Date_Holidays_Driver_USA_TestSuite extends PHPUnit_TestCase {
      $this->assertEquals(14,$day->getDay());
 
      // Test Thanksgiving Day
-     $day = &$holidays->getHolidayDate('thanksgivingDay');
+     $day = $holidays->getHolidayDate('thanksgivingDay');
      if (Date_Holidays::isError($day)) {
          die('Factory was unable to create thanksgivingDay day');
      }
@@ -89,7 +89,7 @@ class Date_Holidays_Driver_USA_TestSuite extends PHPUnit_TestCase {
      $this->assertEquals(24,$day->getDay());
 
      // Test Christmas Day
-     $day = &$holidays->getHolidayDate('christmasDay');
+     $day = $holidays->getHolidayDate('christmasDay');
      if (Date_Holidays::isError($day)) {
          die('Factory was unable to create christmasDay day');
      }
@@ -101,14 +101,14 @@ class Date_Holidays_Driver_USA_TestSuite extends PHPUnit_TestCase {
 
    function test_holidays_2004() {
       
-     $holidays = &Date_Holidays::factory('USA', 2004, 'en_EN');
+     $holidays = Date_Holidays::factory('USA', 2004, 'en_EN');
      if (Date_Holidays::isError($holidays)) {
        die('Factory was unable to produce driver-object');
      }
 
 
      // Test Martin Luther King Day 
-     $day = &$holidays->getHolidayDate('mlkDay');
+     $day = $holidays->getHolidayDate('mlkDay');
      if (Date_Holidays::isError($day)) {
          die('Factory was unable to that day');
      }
@@ -118,7 +118,7 @@ class Date_Holidays_Driver_USA_TestSuite extends PHPUnit_TestCase {
      $this->assertEquals(19,$day->getDay());
  
      // Test Prez Day Luther King Day 
-     $day = &$holidays->getHolidayDate('presidentsDay');
+     $day = $holidays->getHolidayDate('presidentsDay');
      if (Date_Holidays::isError($day)) {
          die('Factory was unable to that day');
      }
@@ -126,7 +126,7 @@ class Date_Holidays_Driver_USA_TestSuite extends PHPUnit_TestCase {
      $this->assertEquals(16,$day->getDay());
 
      // Test Memorial Day Luther King Day 
-     $day = &$holidays->getHolidayDate('memorialDay');
+     $day = $holidays->getHolidayDate('memorialDay');
      if (Date_Holidays::isError($day)) {
          die('Factory was unable to create memorialDay day');
      }
@@ -134,7 +134,7 @@ class Date_Holidays_Driver_USA_TestSuite extends PHPUnit_TestCase {
      $this->assertEquals(31,$day->getDay());
 
      // Test 4th of July, It was on sunday this year
-     $day = &$holidays->getHolidayDate('independenceDay');
+     $day = $holidays->getHolidayDate('independenceDay');
      if (Date_Holidays::isError($day)) {
          die('Factory was unable to create independenceDay day');
      }
@@ -142,7 +142,7 @@ class Date_Holidays_Driver_USA_TestSuite extends PHPUnit_TestCase {
      $this->assertEquals(5,$day->getDay());
 
      // Test Labor Day, end of summer
-     $day = &$holidays->getHolidayDate('laborDay');
+     $day = $holidays->getHolidayDate('laborDay');
      if (Date_Holidays::isError($day)) {
          die('Factory was unable to create laborDay day');
      }
@@ -150,7 +150,7 @@ class Date_Holidays_Driver_USA_TestSuite extends PHPUnit_TestCase {
      $this->assertEquals(6,$day->getDay());
      
      // Test Columbus Day, end of summer
-     $day = &$holidays->getHolidayDate('columbusDay');
+     $day = $holidays->getHolidayDate('columbusDay');
      if (Date_Holidays::isError($day)) {
          die('Factory was unable to create columbusDay day');
      }
@@ -158,7 +158,7 @@ class Date_Holidays_Driver_USA_TestSuite extends PHPUnit_TestCase {
      $this->assertEquals(11,$day->getDay());
 
      // Test Veteran's Day
-     $day = &$holidays->getHolidayDate('veteransDay');
+     $day = $holidays->getHolidayDate('veteransDay');
      if (Date_Holidays::isError($day)) {
          die('Factory was unable to create veteransDay day');
      }
@@ -166,7 +166,7 @@ class Date_Holidays_Driver_USA_TestSuite extends PHPUnit_TestCase {
      $this->assertEquals(8,$day->getDay());
 
      // Test Thanksgiving Day
-     $day = &$holidays->getHolidayDate('thanksgivingDay');
+     $day = $holidays->getHolidayDate('thanksgivingDay');
      if (Date_Holidays::isError($day)) {
          die('Factory was unable to create thanksgivingDay day');
      }
@@ -174,7 +174,7 @@ class Date_Holidays_Driver_USA_TestSuite extends PHPUnit_TestCase {
      $this->assertEquals(25,$day->getDay());
 
      // Test Christmas Day
-     $day = &$holidays->getHolidayDate('christmasDay');
+     $day = $holidays->getHolidayDate('christmasDay');
      if (Date_Holidays::isError($day)) {
          die('Factory was unable to create christmasDay day');
      }
@@ -185,13 +185,13 @@ class Date_Holidays_Driver_USA_TestSuite extends PHPUnit_TestCase {
    
    function test_holidays_2006() {
       
-     $holidays = &Date_Holidays::factory('USA', 2006, 'en_EN');
+     $holidays = Date_Holidays::factory('USA', 2006, 'en_EN');
      if (Date_Holidays::isError($holidays)) {
        die('Factory was unable to produce driver-object');
      }
 
      // Test New Year Day -- it comes a day late this year
-     $day = &$holidays->getHolidayDate('newYearsDay');
+     $day = $holidays->getHolidayDate('newYearsDay');
      if (Date_Holidays::isError($day)) {
          die('Factory was unable to make newYearsDay');
      } 
@@ -200,7 +200,7 @@ class Date_Holidays_Driver_USA_TestSuite extends PHPUnit_TestCase {
      $this->assertEquals(2006, $day->getYear());
 
      // Test Martin Luther King Day 
-     $day = &$holidays->getHolidayDate('mlkDay');
+     $day = $holidays->getHolidayDate('mlkDay');
      if (Date_Holidays::isError($day)) {
          die('Factory was unable to that day');
      }
@@ -209,7 +209,7 @@ class Date_Holidays_Driver_USA_TestSuite extends PHPUnit_TestCase {
      $this->assertEquals(16,$day->getDay());
  
      // Test Prez Day Luther King Day 
-     $day = &$holidays->getHolidayDate('presidentsDay');
+     $day = $holidays->getHolidayDate('presidentsDay');
      if (Date_Holidays::isError($day)) {
          die('Factory was unable to that day');
      }
@@ -217,7 +217,7 @@ class Date_Holidays_Driver_USA_TestSuite extends PHPUnit_TestCase {
      $this->assertEquals(20,$day->getDay());
 
      // Test Memorial Day 
-     $day = &$holidays->getHolidayDate('memorialDay');
+     $day = $holidays->getHolidayDate('memorialDay');
      if (Date_Holidays::isError($day)) {
          die('Factory was unable to create memorialDay day');
      }
@@ -225,7 +225,7 @@ class Date_Holidays_Driver_USA_TestSuite extends PHPUnit_TestCase {
      $this->assertEquals(29,$day->getDay());
 
      // Test 4th of July, It was on sunday this year
-     $day = &$holidays->getHolidayDate('independenceDay');
+     $day = $holidays->getHolidayDate('independenceDay');
      if (Date_Holidays::isError($day)) {
          die('Factory was unable to create independenceDay day');
      }
@@ -233,7 +233,7 @@ class Date_Holidays_Driver_USA_TestSuite extends PHPUnit_TestCase {
      $this->assertEquals(4,$day->getDay());
 
      // Test Labor Day, end of summer
-     $day = &$holidays->getHolidayDate('laborDay');
+     $day = $holidays->getHolidayDate('laborDay');
      if (Date_Holidays::isError($day)) {
          die('Factory was unable to create laborDay day');
      }
@@ -241,7 +241,7 @@ class Date_Holidays_Driver_USA_TestSuite extends PHPUnit_TestCase {
      $this->assertEquals(4,$day->getDay());
      
      // Test Columbus Day, end of summer
-     $day = &$holidays->getHolidayDate('columbusDay');
+     $day = $holidays->getHolidayDate('columbusDay');
      if (Date_Holidays::isError($day)) {
          die('Factory was unable to create columbusDay day');
      }
@@ -249,7 +249,7 @@ class Date_Holidays_Driver_USA_TestSuite extends PHPUnit_TestCase {
      $this->assertEquals(9,$day->getDay());
 
      // Test Veteran's Day
-     $day = &$holidays->getHolidayDate('veteransDay');
+     $day = $holidays->getHolidayDate('veteransDay');
      if (Date_Holidays::isError($day)) {
          die('Factory was unable to create veteransDay day');
      }
@@ -257,7 +257,7 @@ class Date_Holidays_Driver_USA_TestSuite extends PHPUnit_TestCase {
      $this->assertEquals(13,$day->getDay());
 
      // Test Thanksgiving Day
-     $day = &$holidays->getHolidayDate('thanksgivingDay');
+     $day = $holidays->getHolidayDate('thanksgivingDay');
      if (Date_Holidays::isError($day)) {
          die('Factory was unable to create thanksgivingDay day');
      }
@@ -265,7 +265,7 @@ class Date_Holidays_Driver_USA_TestSuite extends PHPUnit_TestCase {
      $this->assertEquals(23,$day->getDay());
 
      // Test Christmas Day
-     $day = &$holidays->getHolidayDate('christmasDay');
+     $day = $holidays->getHolidayDate('christmasDay');
      if (Date_Holidays::isError($day)) {
          die('Factory was unable to create christmasDay day');
      }
@@ -275,7 +275,7 @@ class Date_Holidays_Driver_USA_TestSuite extends PHPUnit_TestCase {
 
    }
    function test_holidays() {
-     $holidays = &Date_Holidays::factory('USA', 2004, 'en_EN');
+     $holidays = Date_Holidays::factory('USA', 2004, 'en_EN');
      if (Date_Holidays::isError($holidays)) {
        die('Factory was unable to produce driver-object');
 

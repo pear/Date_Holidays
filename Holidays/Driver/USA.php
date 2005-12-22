@@ -56,18 +56,18 @@ class Date_Holidays_Driver_USA extends Date_Holidays_Driver
         $this->_addHoliday('newYearsDay', $newYearsDay, 'New Year\'s Day');
     
 
-        $thirdMondayInJanuaryDate  = &$this->_calcNthMondayInMonth(1,3);
+        $thirdMondayInJanuaryDate  = $this->_calcNthMondayInMonth(1,3);
         $this->_addHoliday('mlkDay', $thirdMondayInJanuaryDate, 'Dr. Martin Luther King Jr\'s Birthday');
 
        /**
         * President's Day
         */
-        $thirdMondayInFebruaryDate  = &$this->_calcNthMondayInMonth(2,3);
+        $thirdMondayInFebruaryDate  = $this->_calcNthMondayInMonth(2,3);
         $this->_addHoliday('presidentsDay', $thirdMondayInFebruaryDate, 'President\'s Day');
        /**
         * Memorial Day 
         */
-        $lastMondayInMayDate = &$this->_calcLastMondayInMonth(5);
+        $lastMondayInMayDate = $this->_calcLastMondayInMonth(5);
         $this->_addHoliday('memorialDay',$lastMondayInMayDate,'Memorial Day');
        /**
         * 4th of July
@@ -131,9 +131,9 @@ class Date_Holidays_Driver_USA extends Date_Holidays_Driver
         } 
         $month=sprintf("%02d",$month);
 
-        $date   = &new Date($this->_year . '-' . $month . '-' . $startday);
+        $date   = new Date($this->_year . '-' . $month . '-' . $startday);
         while ($date->getDayOfWeek() != 1) {
-            $date  = &$date->getNextDay();
+            $date  = $date->getNextDay();
         }
         return $date;
     }
@@ -160,9 +160,9 @@ class Date_Holidays_Driver_USA extends Date_Holidays_Driver
         }
         $month=sprintf("%02d",$month);
                                                                                                                                              
-        $date   = &new Date($this->_year . '-' . $month . '-' . $startday);
+        $date   = new Date($this->_year . '-' . $month . '-' . $startday);
         while ($date->getDayOfWeek() != 4) {
-            $date  = &$date->getNextDay();
+            $date  = $date->getNextDay();
         }
         return $date;
     }
@@ -176,11 +176,11 @@ class Date_Holidays_Driver_USA extends Date_Holidays_Driver
     */
     function _calcLastMondayInMonth($month) {
         $month =sprintf("%02d",$month); 
-        $date   = &new Date($this->_year . '-' . $month . '-01');
+        $date   = new Date($this->_year . '-' . $month . '-01');
         $daysInMonth=$date->getDaysInMonth();
-        $date   = &new Date($this->_year . '-' . $month . '-' . $daysInMonth );
+        $date   = new Date($this->_year . '-' . $month . '-' . $daysInMonth );
         while ($date->getDayOfWeek() != 1) {
-            $date = &$date->getPrevDay();
+            $date = $date->getPrevDay();
         }
        
         return $date;
@@ -197,17 +197,17 @@ class Date_Holidays_Driver_USA extends Date_Holidays_Driver
     function _calcNearestWorkDay($month,$day) {
         $month =sprintf("%02d",$month); 
         $day  =sprintf("%02d",$day);       
-      $date   = &new Date($this->_year . '-' . $month . '-' . $day); 
+      $date   = new Date($this->_year . '-' . $month . '-' . $day); 
 
       // When one of these holidays falls on a Saturday, the previous day is also a holiday
       // When New Year's Day, Independence Day, or Christmas Day falls on a Sunday, the next day is also a holiday.
       if ($date->getDayOfWeek() == 0 ) { 
         // bump it up one
-         $date   = &$date->getNextDay();
+         $date   = $date->getNextDay();
       } 
       if ($date->getDayOfWeek() == 6 ) { 
         // push it back one
-         $date   = &$date->getPrevDay();
+         $date   = $date->getPrevDay();
       } 
 
       return $date; 

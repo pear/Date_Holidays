@@ -77,48 +77,48 @@ class Date_Holidays_Driver_Christian extends Date_Holidays_Driver
        /**
         * Easter Sunday
         */
-        $easterDate         = &Date_Holidays_Driver_Christian::_calcEaster($this->_year);
+        $easterDate         = Date_Holidays_Driver_Christian::_calcEaster($this->_year);
         $this->_addHoliday('easter', $easterDate, 'Easter Sunday');
         
        /**
         * Palm Sunday
         */
-        $palmSundayDate     = &new Date($easterDate);
+        $palmSundayDate     = new Date($easterDate);
         $palmSundayDate->subtractSpan(new Date_Span('7, 0, 0, 0'));
         $this->_addHoliday('palmSunday', $palmSundayDate, 'Palm Sunday');
         
        /**
         * Passion Sunday
         */
-        $passionSundayDate  = &new Date($palmSundayDate);
+        $passionSundayDate  = new Date($palmSundayDate);
         $passionSundayDate->subtractSpan(new Date_Span('7, 0, 0, 0'));
         $this->_addHoliday('passionSunday', $passionSundayDate, 'Passion Sunday');
         
        /**
         * Painful Friday
         */
-        $painfulFridayDate  = &new Date($palmSundayDate);
+        $painfulFridayDate  = new Date($palmSundayDate);
         $painfulFridayDate->subtractSpan(new Date_Span('2, 0, 0, 0'));
         $this->_addHoliday('painfulFriday', $painfulFridayDate, 'Painful Friday');
         
        /**
         * White Sunday
         */
-        $whiteSundayDate    = &new Date($easterDate);
+        $whiteSundayDate    = new Date($easterDate);
         $whiteSundayDate->addSpan(new Date_Span('7, 0, 0, 0'));
         $this->_addHoliday('whiteSunday', $whiteSundayDate, 'White Sunday');
         
        /**
         * Ash Wednesday
         */
-        $ashWednesdayDate   = &new Date($easterDate);
+        $ashWednesdayDate   = new Date($easterDate);
         $ashWednesdayDate->subtractSpan(new Date_Span('46, 0, 0, 0'));
         $this->_addHoliday('ashWednesday', $ashWednesdayDate, 'Ash Wednesday');
         
        /**
         * Good Friday / Black Friday
         */
-        $goodFridayDate     = &new Date($easterDate);
+        $goodFridayDate     = new Date($easterDate);
         $goodFridayDate->subtractSpan(new Date_Span('2, 0, 0, 0'));
         $this->_addHoliday('goodFriday', $goodFridayDate, 'Good Friday');
         
@@ -135,21 +135,21 @@ class Date_Holidays_Driver_Christian extends Date_Holidays_Driver
        /**
         * Whitsun (determines Whit Monday, Ascension Day and Feast of Corpus Christi)
         */
-        $whitsunDate        = &new Date($easterDate);
+        $whitsunDate        = new Date($easterDate);
         $whitsunDate->addSpan(new Date_Span('49, 0, 0, 0'));
         $this->_addHoliday('whitsun', $whitsunDate, 'Whitsun');
         
        /**
         * Request Sunday
         */
-        $requestSunday      = &new Date($whitsunDate);
+        $requestSunday      = new Date($whitsunDate);
         $requestSunday->subtractSpan(new Date_Span('14, 0, 0, 0'));
         $this->_addHoliday('requestSunday', $requestSunday, 'Request Sunday');
         
        /**
         * Ascension Day
         */
-        $ascensionDayDate   = &new Date($whitsunDate);
+        $ascensionDayDate   = new Date($whitsunDate);
         $ascensionDayDate->subtractSpan(new Date_Span('10, 0, 0, 0'));
         $this->_addHoliday('ascensionDay', $ascensionDayDate, 'Ascension Day');
         
@@ -166,14 +166,14 @@ class Date_Holidays_Driver_Christian extends Date_Holidays_Driver
        /**
         * Trinitatis
         */
-        $trinitatisDate     = &new Date($whitsunDate);
+        $trinitatisDate     = new Date($whitsunDate);
         $trinitatisDate->addSpan(new Date_Span('7, 0, 0, 0'));
         $this->_addHoliday('trinitatis', $trinitatisDate, 'Trinitatis');
         
        /**
         * Feast of Corpus Christi
         */
-        $corpusChristiDate  = &new Date($whitsunDate);
+        $corpusChristiDate  = new Date($whitsunDate);
         $corpusChristiDate->addSpan(new Date_Span('11, 0, 0, 0'));
         $this->_addHoliday('corpusChristi', $corpusChristiDate, 'Feast of Corpus Christi');
         
@@ -182,7 +182,7 @@ class Date_Holidays_Driver_Christian extends Date_Holidays_Driver
         *
         * Friday of the 3rd week past Whitsun
         */
-        $heartJesusDate     = &new Date($whitsunDate);
+        $heartJesusDate     = new Date($whitsunDate);
         $heartJesusDate->addSpan(new Date_Span('19, 0, 0, 0'));
         $this->_addHoliday('heartJesus', $heartJesusDate, 'Heart of Jesus celebration');
         
@@ -211,10 +211,10 @@ class Date_Holidays_Driver_Christian extends Date_Holidays_Driver
         * 
         * Sunday past Michaelis (29. September)
         */
-        $michaelisDate      = &new Date($this->_year . '-09-29');
+        $michaelisDate      = new Date($this->_year . '-09-29');
         $dayOfWeek          = $michaelisDate->getDayOfWeek();
         $michaelisDate->addSpan(new Date_Span(sprintf('%d, 0, 0, 0', 7 - $dayOfWeek)));
-        $thanksGivingDate   = &$michaelisDate;
+        $thanksGivingDate   = $michaelisDate;
         $this->_addHoliday('thanksGiving', $thanksGivingDate, 'Thanks Giving');
         
        /**
@@ -222,7 +222,7 @@ class Date_Holidays_Driver_Christian extends Date_Holidays_Driver
         *
         * 3rd Sunday in October
         */
-        $kermisDate         = &new Date($this->_year . '-10-01');
+        $kermisDate         = new Date($this->_year . '-10-01');
         $dayOfWeek          = $kermisDate->getDayOfWeek();
         if ($dayOfWeek != 0) {
             $kermisDate->addSpan(new Date_Span(sprintf('%d, 0, 0, 0', 7 - $dayOfWeek)));
@@ -253,7 +253,7 @@ class Date_Holidays_Driver_Christian extends Date_Holidays_Driver
        /**
         * 4th Advent
         */
-        $Advent4Date        = &new Date($this->_year . '-12-24');
+        $Advent4Date        = new Date($this->_year . '-12-24');
         $dayOfWeek          = $Advent4Date->getDayOfWeek();
         if ($dayOfWeek == 0) {
             $dayOfWeek      = 7;
@@ -264,35 +264,35 @@ class Date_Holidays_Driver_Christian extends Date_Holidays_Driver
        /**
         * 1st Advent
         */
-        $Advent1Date        = &new Date($Advent4Date);
+        $Advent1Date        = new Date($Advent4Date);
         $Advent1Date->subtractSpan(new Date_Span('21, 0, 0, 0'));
         $this->_addHoliday('advent1', $Advent1Date, '1st Advent');
         
        /**
         * 2nd Advent
         */
-        $Advent2Date        = &new Date($Advent4Date);
+        $Advent2Date        = new Date($Advent4Date);
         $Advent2Date->subtractSpan(new Date_Span('14, 0, 0, 0'));
         $this->_addHoliday('advent2', $Advent2Date, '2nd Advent');
         
        /**
         * 3rd Advent
         */
-        $Advent3Date        = &new Date($Advent4Date);
+        $Advent3Date        = new Date($Advent4Date);
         $Advent3Date->subtractSpan(new Date_Span('7, 0, 0, 0'));
         $this->_addHoliday('advent3', $Advent3Date, '3rd Advent');
         
        /**
         * Death' Sunday
         */
-        $deathSundayDate    = &new Date($Advent1Date);
+        $deathSundayDate    = new Date($Advent1Date);
         $deathSundayDate->subtractSpan(new Date_Span('7, 0, 0, 0'));
         $this->_addHoliday('deathSunday', $deathSundayDate, 'Death\' Sunday');
         
        /**
         * Day of Repentance
         */
-        $dayOfRepentance    = &new Date($deathSundayDate);
+        $dayOfRepentance    = new Date($deathSundayDate);
         $dayOfRepentance->subtractSpan(new Date_Span('4, 0, 0, 0'));
         $this->_addHoliday('dayOfRepentance', $dayOfRepentance, 'Day of Repentance');
         
@@ -340,7 +340,7 @@ class Date_Holidays_Driver_Christian extends Date_Holidays_Driver
     * @param    int     $year   year
     * @return   object Date
     */
-    function &_calcEaster($year)
+    function _calcEaster($year)
     {
         // golden number
         $golden     = null;
@@ -368,7 +368,7 @@ class Date_Holidays_Driver_Christian extends Date_Holidays_Driver
         $month  = 3 + floor(($l + 40) / 44);
         $day    = $l + 28 - 31 * floor($month / 4);
         
-        $date = &new Date(sprintf('%04d-%02d-%02d', $year, $month, $day));
+        $date = new Date(sprintf('%04d-%02d-%02d', $year, $month, $day));
         return $date;
     }
 }

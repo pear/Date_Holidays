@@ -63,7 +63,7 @@ class Date_Holidays_Driver_Example extends Date_Holidays_Driver
         
         // a calculated holiday
         // if you are using helper methods to calculate movable holidays is your own decision
-        $fooDate    = &$this->_calcFirstMondayInJanuary();
+        $fooDate    = $this->_calcFirstMondayInJanuary();
         $this->_addHoliday('firstMondayInJan', $fooDate, 'First monday in January');
         
        /*
@@ -94,9 +94,9 @@ class Date_Holidays_Driver_Example extends Date_Holidays_Driver
     */
     function _calcFirstMondayInJanuary()
     {
-        $date   = &new Date($this->_year . '-01-01');
+        $date   = new Date($this->_year . '-01-01');
         while ($date->getDayOfWeek() != 1) {
-            $date   = &$date->getNextDay();
+            $date   = $date->getNextDay();
         }
         return $date;
     }

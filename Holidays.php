@@ -110,7 +110,7 @@ class Date_Holidays
                     'Couldn\'t find file of the driver-class,  filename: ' . $driverFile);
             }
         }
-        $driver             =&  new $driverClass;
+        $driver             = new $driverClass;
         
         if (is_null($year)) {
             $year           =   date('Y');

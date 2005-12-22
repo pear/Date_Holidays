@@ -91,7 +91,7 @@ class Date_Holidays_Filter_Composite extends Date_Holidays_Filter
         }
         
         $id                     = md5(serialize($filter));
-        $this->_filters[$id]    = &$filter;
+        $this->_filters[$id]    = $filter;
         return true;
     }
     

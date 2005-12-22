@@ -88,7 +88,7 @@ class Date_Holidays_Driver_Composite extends Date_Holidays_Driver
         }
         
         $id                     = md5(serialize($driver));
-        $this->_drivers[$id]    = &$driver;
+        $this->_drivers[$id]    = $driver;
         array_push($this->_driverIds, $id);
         
         $this->_internalNames   = array_merge(
@@ -199,9 +199,9 @@ class Date_Holidays_Driver_Composite extends Date_Holidays_Driver
     function getHolidayDates($filter = null)
     {
         if (is_null($filter)) {
-            $filter = &new Date_Holidays_Filter_Blacklist(array());
+            $filter = new Date_Holidays_Filter_Blacklist(array());
         } elseif (is_array($filter)) {
-            $filter = &new Date_Holidays_Filter_Whitelist($filter);
+            $filter = new Date_Holidays_Filter_Whitelist($filter);
         }
 
         $errorStack = &Date_Holidays::getErrorStack();
@@ -215,7 +215,7 @@ class Date_Holidays_Driver_Composite extends Date_Holidays_Driver
             }
             
             foreach ($this->_driverIds as $id) {
-                $date = &$this->_drivers[$id]->getHolidayDate($internalName);
+                $date = $this->_drivers[$id]->getHolidayDate($internalName);
                 if (Date_Holidays::isError($date)) {
                     if ($date->getCode() == DATE_HOLIDAYS_DATE_UNAVAILABLE) {
                        /**
@@ -241,7 +241,7 @@ class Date_Holidays_Driver_Composite extends Date_Holidays_Driver
                 if (in_array($internalName, $notFound)) {
                     unset($notFound[array_search($internalName, $notFound)]);
                 }
-                $dates[$internalName]   = &$date;
+                $dates[$internalName]   = $date;
                 continue 2;
             }
         }
@@ -291,7 +291,7 @@ class Date_Holidays_Driver_Composite extends Date_Holidays_Driver
     {
         $holidays = array();
         foreach ($this->_driverIds as $id) {
-            $holiday = &$this->_drivers[$id]->getHolidayForDate($date, $locale, $multiple);
+            $holiday = $this->_drivers[$id]->getHolidayForDate($date, $locale, $multiple);
             if (is_null($holiday)) {
                /**
                 * No holiday found for this date in the current driver, trying next one
@@ -301,10 +301,10 @@ class Date_Holidays_Driver_Composite extends Date_Holidays_Driver
             
             if (is_array($holiday)) {
                 for ($i = 0; $i < count($holiday); ++$i) {
-                    $holidays[] = &$holiday[$i];
+                    $holidays[] = $holiday[$i];
                 }
             } else {
-                $holidays[]     = &$holiday;
+                $holidays[]     = $holiday;
             }
             
             if (! $multiple) {
@@ -344,9 +344,9 @@ class Date_Holidays_Driver_Composite extends Date_Holidays_Driver
     function getHolidays($filter = null)
     {
         if (is_null($filter)) {
-            $filter = &new Date_Holidays_Filter_Blacklist(array());
+            $filter = new Date_Holidays_Filter_Blacklist(array());
         } elseif (is_array($filter)) {
-            $filter = &new Date_Holidays_Filter_Whitelist($filter);
+            $filter = new Date_Holidays_Filter_Whitelist($filter);
         }
 
         $errorStack = &Date_Holidays::getErrorStack();
@@ -360,7 +360,7 @@ class Date_Holidays_Driver_Composite extends Date_Holidays_Driver
             }
             
             foreach ($this->_driverIds as $id) {
-                $holiday = &$this->_drivers[$id]->getHoliday($internalName);
+                $holiday = $this->_drivers[$id]->getHoliday($internalName);
                 if (Date_Holidays::isError($holiday)) {
                    /**
                     * current driver doesn't have this internalName, trying next driver
@@ -376,7 +376,7 @@ class Date_Holidays_Driver_Composite extends Date_Holidays_Driver
                 if (in_array($internalName, $notFound)) {
                     unset($notFound[array_search($internalName, $notFound)]);
                 }
-                $holidays[$internalName] = &$holiday;
+                $holidays[$internalName] = $holiday;
                 continue 2;
             }
         }
@@ -431,9 +431,9 @@ class Date_Holidays_Driver_Composite extends Date_Holidays_Driver
     function getHolidayTitles($filter = null, $locale = null)
     {
         if (is_null($filter)) {
-            $filter = &new Date_Holidays_Filter_Blacklist(array());
+            $filter = new Date_Holidays_Filter_Blacklist(array());
         } elseif (is_array($filter)) {
-            $filter = &new Date_Holidays_Filter_Whitelist($filter);
+            $filter = new Date_Holidays_Filter_Whitelist($filter);
         }
 
         $errorStack = &Date_Holidays::getErrorStack();

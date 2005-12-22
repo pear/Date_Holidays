@@ -26,7 +26,7 @@ Date_Holidays::staticSetProperty('DIE_ON_MISSING_LOCALE', true);
  * If you don't specify a locale, your system's locale will be used.
  * If you don't specify a year, the current one will be used.
  */
-$germany    = &Date_Holidays::factory('Germany', 2004, 'fr_FR');
+$germany    = Date_Holidays::factory('Germany', 2004, 'fr_FR');
 if (Date_Holidays::isError($germany)) {
     die('Factory was unable to produce driver-object');
 }

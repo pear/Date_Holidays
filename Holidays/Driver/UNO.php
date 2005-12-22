@@ -206,9 +206,9 @@ class Date_Holidays_Driver_UNO extends Date_Holidays_Driver
        /**
         * International Cooperative Societies' Day
         */
-        $coopDayDate        = &new Date($this->_year . '-07-01');
+        $coopDayDate        = new Date($this->_year . '-07-01');
         while ($coopDayDate->getDayOfWeek() != 6) {
-            $coopDayDate    = &$coopDayDate->getNextDay();
+            $coopDayDate    = $coopDayDate->getNextDay();
         }
         $this->_addHoliday('intCoopDay', $coopDayDate, 'International Cooperative Societies\' Day');
         
@@ -245,9 +245,9 @@ class Date_Holidays_Driver_UNO extends Date_Holidays_Driver
        /**
         * International day of peace
         */
-        $peaceDayDate       = &new Date($this->_year . '-09-01');
+        $peaceDayDate       = new Date($this->_year . '-09-01');
         while ($peaceDayDate->getDayOfWeek() != 2) {
-            $peaceDayDate   = &$peaceDayDate->getNextDay();
+            $peaceDayDate   = $peaceDayDate->getNextDay();
         }
         $peaceDayDate->addSpan(new Date_Span('14, 0, 0, 0'));
         $this->_addHoliday('intPeaceDay', $peaceDayDate, 'International day of peace');
@@ -280,9 +280,9 @@ class Date_Holidays_Driver_UNO extends Date_Holidays_Driver
        /**
         * World's Habitat Day
         */
-        $habitatDayDate     = &new Date($this->_year . '-10-01');
+        $habitatDayDate     = new Date($this->_year . '-10-01');
         while ($habitatDayDate->getDayOfWeek() != 1) {
-            $habitatDayDate = &$habitatDayDate->getNextDay();
+            $habitatDayDate = $habitatDayDate->getNextDay();
         }
         $this->_addHoliday('habitatDay', $coopDayDate, 'World\'s Habitat Day');
         

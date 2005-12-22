@@ -8,9 +8,9 @@ class Date_Holidays_Driver_TestSuite extends PHPUnit_TestCase {
 
     function setUp() 
     {
-        $this->driver = &Date_Holidays::factory('Germany', 2005, 'C');
+        $this->driver = Date_Holidays::factory('Germany', 2005, 'C');
         if (Date_Holidays::isError($this->driver)) {
-            return false;
+            die('Driver creation failed: ' . $this->driver->getMessage());
         }
         
         $this->driver->addCompiledTranslationFile(
@@ -45,10 +45,10 @@ class Date_Holidays_Driver_TestSuite extends PHPUnit_TestCase {
         $this->assertTrue($this->driver->isHoliday('2005-05-05'));
         
         // ascension day
-        $date = &new Date('2005-05-05 12:03:10');
+        $date = new Date('2005-05-05 12:03:10');
         $this->assertTrue($this->driver->isHoliday($date));
         
-        $filter = &new Date_Holidays_Filter_Whitelist(array('ascensionDay'));
+        $filter = new Date_Holidays_Filter_Whitelist(array('ascensionDay'));
         $this->assertTrue($this->driver->isHoliday('2005-05-05', $filter));
     }
     
@@ -59,11 +59,11 @@ class Date_Holidays_Driver_TestSuite extends PHPUnit_TestCase {
             $this->assertTrue(is_a($holiday, 'Date_Holidays_Holiday'));
         }
         
-        $filter = &new Date_Holidays_Filter_Whitelist(array('ascensionDay', 'easter'));
+        $filter = new Date_Holidays_Filter_Whitelist(array('ascensionDay', 'easter'));
         $holidays = $this->driver->getHolidays($filter);
         $this->assertEquals(2,count($holidays));
         
-        $filter = &new Date_Holidays_Filter_Blacklist(array('ascensionDay', 'easter'));
+        $filter = new Date_Holidays_Filter_Blacklist(array('ascensionDay', 'easter'));
         $holidays = $this->driver->getHolidays($filter);
         $this->assertNotContains('ascensionDay', array_keys($holidays));
         $this->assertNotContains('easter', array_keys($holidays));
@@ -71,20 +71,21 @@ class Date_Holidays_Driver_TestSuite extends PHPUnit_TestCase {
     
     function testGetHoliday() 
     {
-        $holiday = &$this->driver->getHoliday('ascensionDay');
+        $holiday = $this->driver->getHoliday('ascensionDay');
         $this->assertTrue(is_a($holiday, 'Date_Holidays_Holiday'));
         
         $this->assertEquals('ascensionDay', $holiday->getInternalName());
         
         $result = $this->driver->addCompiledTranslationFile(
                 '/var/lib/pear/data/Date_Holidays/lang/Germany/de_DE.ser', 'de_DE');
-        $holiday = &$this->driver->getHoliday('ascensionDay', 'de_DE');
+        $this->assertTrue($result, 'Adding compiled translation file');
+        $holiday = $this->driver->getHoliday('ascensionDay', 'de_DE');
         $this->assertEquals('Christi Himmelfahrt', $holiday->getTitle());
     }
     
     function testGetHolidayDate() 
     {
-        $date = &$this->driver->getHolidayDate('ascensionDay');
+        $date = $this->driver->getHolidayDate('ascensionDay');
         $this->assertTrue(is_a($date, 'Date'));
         $this->assertTrue($date->equals(new Date('2005-05-05')));
     }
@@ -97,14 +98,14 @@ class Date_Holidays_Driver_TestSuite extends PHPUnit_TestCase {
         }
         
         $restrict = array('ascensionDay', 'easter');
-        $filter = &new Date_Holidays_Filter_Whitelist($restrict);
+        $filter = new Date_Holidays_Filter_Whitelist($restrict);
         $dates = $this->driver->getHolidayDates($filter);
         $this->assertEquals(2, count($dates));
         foreach ($dates as $internalName => $_tmp) {
             $this->assertContains($internalName, $restrict);
         }
         
-        $filter = &new Date_Holidays_Filter_Blacklist($restrict);
+        $filter = new Date_Holidays_Filter_Blacklist($restrict);
         $holidays = $this->driver->getHolidayDates($filter);
         foreach ($restrict as $internalName) {
             $this->assertNotContains($internalName, array_keys($holidays));
@@ -118,7 +119,7 @@ class Date_Holidays_Driver_TestSuite extends PHPUnit_TestCase {
         
         $result = $this->driver->addCompiledTranslationFile(
                 '/var/lib/pear/data/Date_Holidays/lang/Germany/de_DE.ser', 'de_DE');
-        $holiday = &$this->driver->getHolidayForDate('2005-05-05', 'de_DE');
+        $holiday = $this->driver->getHolidayForDate('2005-05-05', 'de_DE');
         $this->assertEquals('Christi Himmelfahrt', $holiday->getTitle());
 
         $result = $this->driver->getHolidayForDate('2005-05-05', null, $multiple = true);
@@ -129,7 +130,7 @@ class Date_Holidays_Driver_TestSuite extends PHPUnit_TestCase {
             $this->assertTrue(is_a($holiday, 'Date_Holidays_Holiday'));
         }
         
-        $germany =& Date_Holidays::factory('Germany', 2005, 'de_DE');
+        $germany  = Date_Holidays::factory('Germany', 2005, 'de_DE');
         $holidays = $germany->getHolidayForDate(mktime(0, 0, 0, 10, 30, 2005), null, true);
         
         $this->assertEquals(2, count($holidays));
@@ -186,7 +187,7 @@ class Date_Holidays_Driver_TestSuite extends PHPUnit_TestCase {
         //        $holidays   = $this->driver->getHolidays();
         //        $dates      = array();
         //        foreach ($holidays as $holiday) {
-        //            $dates[$holiday->getInternalName()] =& $holiday->getDate();
+        //            $dates[$holiday->getInternalName()] = $holiday->getDate();
         //        }
         //        uasort($dates, array('Date', 'compare'));
         //        foreach ($dates as $k => $v) {
@@ -222,14 +223,14 @@ class Date_Holidays_Driver_TestSuite extends PHPUnit_TestCase {
         $this->assertContains('Christi Himmelfahrt', $titles);
         
         $restrict = array('ascensionDay', 'easter');
-        $filter = &new Date_Holidays_Filter_Whitelist($restrict);
+        $filter = new Date_Holidays_Filter_Whitelist($restrict);
         $titles = $this->driver->getHolidayTitles($filter);
         $this->assertEquals(2, count($titles));
         foreach ($titles as $internalName => $_tmp) {
             $this->assertContains($internalName, $restrict);
         }
         
-        $filter = &new Date_Holidays_Filter_Blacklist($restrict);
+        $filter = new Date_Holidays_Filter_Blacklist($restrict);
         $titles = $this->driver->getHolidayTitles($filter);
         foreach ($restrict as $internalName) {
             $this->assertNotContains($internalName, array_keys($titles));
@@ -247,9 +248,9 @@ class Date_Holidays_Driver_TestSuite extends PHPUnit_TestCase {
     
     function testSetYear() 
     {
-        $driver = &Date_Holidays::factory('Germany', 2005, 'C');
+        $driver = Date_Holidays::factory('Germany', 2005, 'C');
         if (Date_Holidays::isError($driver)) {
-            return false;
+            $this->fail('Driver creation failed: ' . $driver->getMessage());
         }
         
         $driver->setYear(1999);

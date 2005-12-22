@@ -19,13 +19,13 @@ if ($_SERVER['argc'] != 3) {
 $template = <<<EOT
 
 // test [%1] 
-\$day = &\$drv->getHoliday('[%1]');
+\$day = \$drv->getHoliday('[%1]');
 \$this->assertFalse(Date_Holidays::isError(\$day));
 if (Date_Holidays::isError(\$day)) {
     die(\$day->getMessage());
 }
 \$this->assertEquals('[%1]', \$day->getInternalName());
-\$date = &\$day->getDate();
+\$date = \$day->getDate();
 \$this->assertEquals(, \$date->getDay(), '[%1]');
 \$this->assertEquals(, \$date->getMonth(), '[%1]');
 \$this->assertEquals([%2], \$date->getYear(), '[%1]');
@@ -35,7 +35,7 @@ EOT;
 require_once 'Date/Holidays.php';
 $output = '';
 
-$driver = &Date_Holidays::factory($_SERVER['argv'][1], $_SERVER['argv'][2]);
+$driver = Date_Holidays::factory($_SERVER['argv'][1], $_SERVER['argv'][2]);
 if (Date_Holidays::isError($driver)) {
     die($driver->getMessage());
 }

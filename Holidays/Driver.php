@@ -270,9 +270,9 @@ class Date_Holidays_Driver
     function getHolidayTitles($filter = null, $locale = null)
     {
         if (is_null($filter)) {
-            $filter = &new Date_Holidays_Filter_Blacklist(array());
+            $filter = new Date_Holidays_Filter_Blacklist(array());
         } elseif (is_array($filter)) {
-            $filter = &new Date_Holidays_Filter_Whitelist($filter);
+            $filter = new Date_Holidays_Filter_Whitelist($filter);
         }
         
         $titles =   array();
@@ -380,9 +380,9 @@ class Date_Holidays_Driver
     function getHolidays($filter = null, $locale = null)
     {
         if (is_null($filter)) {
-            $filter = &new Date_Holidays_Filter_Blacklist(array());
+            $filter = new Date_Holidays_Filter_Blacklist(array());
         } elseif (is_array($filter)) {
-            $filter = &new Date_Holidays_Filter_Whitelist($filter);
+            $filter = new Date_Holidays_Filter_Whitelist($filter);
         }
         
         if (is_null($locale)) {
@@ -394,7 +394,7 @@ class Date_Holidays_Driver
         foreach ($this->_internalNames as $internalName) {
             if ($filter->accept($internalName)) {
                 // no need to check for valid internal-name, will be done by #getHoliday()
-                $holidays[$internalName] = &$this->getHoliday($internalName, $locale);
+                $holidays[$internalName] = $this->getHoliday($internalName, $locale);
             }
         }
         
@@ -434,16 +434,16 @@ class Date_Holidays_Driver
         if (Date_Holidays::isError($title)) {
             return $title;
         }
-        $date       = &$this->getHolidayDate($internalName);
+        $date       = $this->getHolidayDate($internalName);
         if (Date_Holidays::isError($date)) {
             return $date;
         }
-        $properties = &$this->getHolidayProperties($internalName, $locale);
+        $properties = $this->getHolidayProperties($internalName, $locale);
         if (Date_Holidays::isError($properties)) {
             return $properties;
         }
         
-        $holiday = &new Date_Holidays_Holiday($internalName, $title, $date, $properties);
+        $holiday = new Date_Holidays_Holiday($internalName, $title, $date, $properties);
         return $holiday;
     }
     
@@ -459,16 +459,16 @@ class Date_Holidays_Driver
     function isHoliday($date, $filter = null)
     {
         if (! is_a($date, 'Date')) {
-            $date   =& $this->_convertDate($date);
+            $date   = $this->_convertDate($date);
             if (Date_Holidays::isError($date)) {
                 return $date;
             }
         }
 
         if (is_null($filter)) {
-            $filter = &new Date_Holidays_Filter_Blacklist(array());
+            $filter = new Date_Holidays_Filter_Blacklist(array());
         } elseif (is_array($filter)) {
-            $filter = &new Date_Holidays_Filter_Whitelist($filter);
+            $filter = new Date_Holidays_Filter_Whitelist($filter);
         }
         
         foreach (array_keys($this->_dates) as $internalName) {
@@ -509,7 +509,7 @@ class Date_Holidays_Driver
     function getHolidayForDate($date, $locale = null, $multiple = false)
     {
         if (!is_a($date, 'Date')) {
-            $date = &$this->_convertDate($date);
+            $date = $this->_convertDate($date);
             if (Date_Holidays::isError($date)) {
                 return $date;
             }
@@ -523,17 +523,17 @@ class Date_Holidays_Driver
             if (!$multiple) {
                 //get only the first feast for this day
                 $internalName = $this->_holidays[$isodate][0];
-                $result = &$this->getHoliday($internalName, $locale);
+                $result = $this->getHoliday($internalName, $locale);
                 return Date_Holidays::isError($result) ? null : $result;
             }
             // array that collects data, if multiple searching is done
             $data = array();
             foreach($this->_holidays[$isodate] as $internalName) {
-                $result = &$this->getHoliday($internalName, $locale);
+                $result = $this->getHoliday($internalName, $locale);
                 if (Date_Holidays::isError($result)) {
                     continue;
                 }
-                $data[] =& $result;
+                $data[] = $result;
             }
             return $data;
         }
@@ -556,19 +556,19 @@ class Date_Holidays_Driver
     function getHolidaysForDatespan($start, $end, $filter = null, $locale = null)
     {
         if (is_null($filter)) {
-            $filter = &new Date_Holidays_Filter_Blacklist(array());
+            $filter = new Date_Holidays_Filter_Blacklist(array());
         } elseif (is_array($filter)) {
-            $filter = &new Date_Holidays_Filter_Whitelist($filter);
+            $filter = new Date_Holidays_Filter_Whitelist($filter);
         }
         
         if (!is_a($start, 'Date')) {
-            $start = &$this->_convertDate($start);
+            $start = $this->_convertDate($start);
             if (Date_Holidays::isError($start)) {
                 return $start;
             }
         }
         if (!is_a($end, 'Date')) {
-            $end = &$this->_convertDate($end);
+            $end = $this->_convertDate($end);
             if (Date_Holidays::isError($end)) {
                 return $end;
             }
@@ -594,7 +594,7 @@ class Date_Holidays_Driver
         $retval = array();
         foreach ($internalNames as $internalName) {
             if ($filter->accept($internalName)) {
-                $retval[] = &$this->getHoliday($internalName, $locale);
+                $retval[] = $this->getHoliday($internalName, $locale);
             }
         }
         return $retval;
@@ -617,12 +617,12 @@ class Date_Holidays_Driver
                 return Date_Holidays::raiseError(DATE_HOLIDAYS_INVALID_DATE_FORMAT, 
                     'Date-string has wrong format (must be YYYY-MM-DD)');
             }
-            $date = &new Date($date);
+            $date = new Date($date);
             return $date;
         }
         
         if (is_int($date)) {
-            $date = &new Date(date('Y-m-d', $date));
+            $date = new Date(date('Y-m-d', $date));
             return $date;
         }
         
@@ -673,10 +673,10 @@ class Date_Holidays_Driver
     function _addHoliday($internalName, $date, $title)
     {
         if (! is_a($date, 'Date')) {
-            $date   =&  new Date($date);
+            $date   = new Date($date);
         }
         
-        $this->_dates[$internalName]        = &$date;
+        $this->_dates[$internalName]        = $date;
         $this->_titles['C'][$internalName]  = $title;
         $isodate = mktime(0, 0, 0, $date->getMonth(), $date->getDay(), $date->getYear());
         if (!isset($this->_holidays[$isodate])) {
@@ -793,7 +793,7 @@ class Date_Holidays_Driver
                             'keyAttribute'      => array('property' => 'id'),
                             'forceEnum'      => array('holiday')
                         );
-        $unserializer = &new XML_Unserializer($options);
+        $unserializer = new XML_Unserializer($options);
     
         // unserialize the document
         $status = $unserializer->unserialize($file, true);    
@@ -971,20 +971,20 @@ class Date_Holidays_Driver
     function getHolidayDates($filter = null)
     {
         if (is_null($filter)) {
-            $filter = &new Date_Holidays_Filter_Blacklist(array());
+            $filter = new Date_Holidays_Filter_Blacklist(array());
         } elseif (is_array($filter)) {
-            $filter = &new Date_Holidays_Filter_Whitelist($filter);
+            $filter = new Date_Holidays_Filter_Whitelist($filter);
         }
         
         $dates = array();
         
         foreach ($this->_internalNames as $internalName) {
             if ($filter->accept($internalName)) {
-                $date = &$this->getHolidayDate($internalName);
+                $date = $this->getHolidayDate($internalName);
                 if (Date_Holidays::isError($date)) {
                     return $date;
                 }
-                $dates[$internalName] = &$this->getHolidayDate($internalName);
+                $dates[$internalName] = $this->getHolidayDate($internalName);
             }
         }
         return $dates;

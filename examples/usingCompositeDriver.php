@@ -18,10 +18,10 @@ require_once 'Date/Holidays.php';
  * If you don't specify a locale, your system's locale will be used.
  * If you don't specify a year, the current one will be used.
  */
-$comp       = &Date_Holidays::factory('Composite');
-$germany03  = &Date_Holidays::factory('Germany', 2003, 'en_EN');
-$germany    = &Date_Holidays::factory('Germany', 2004, 'en_EN');
-$uno        = &Date_Holidays::factory('UNO', 2004, 'en_EN');
+$comp       = Date_Holidays::factory('Composite');
+$germany03  = Date_Holidays::factory('Germany', 2003, 'en_EN');
+$germany    = Date_Holidays::factory('Germany', 2004, 'en_EN');
+$uno        = Date_Holidays::factory('UNO', 2004, 'en_EN');
 if (Date_Holidays::isError($comp) || 
         Date_Holidays::isError($germany03) || 
         Date_Holidays::isError($germany) || 
@@ -75,7 +75,7 @@ print_r($internalNames);
  * You may specify a locale that differs from the driver's one
  * to get data in other languages for single method calls.
  */
-$easter     = &$comp->getHoliday('easter', 'de_DE');
+$easter     = $comp->getHoliday('easter', 'de_DE');
 if (! Date_Holidays::isError($easter)) {
     print_r($easter->toArray());
 }

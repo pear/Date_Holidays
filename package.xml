@@ -25,20 +25,13 @@
     </maintainer>
   </maintainers>
   <release>
-    <version>0.14.0</version>
-    <date>2005-10-16</date>
+    <version>0.15.0</version>
+    <date>2005-10-31</date>
     <license>PHP License</license>
-    <state>alpha</state>
-    <notes>- Switched from using INI files for translation to XML files
-- Added script to convert INI files to XML files
-- Added script to compile XML based language files
-- Holidays can now have various properties (see &quot;languagefile-with-properties.xml&quot; in examples-directory)
-- removed &quot;againstNoiseDay&quot; !BC break! from Germany driver, cannot be calculated automatically
-- new driver-methods:
-   = addCompiledTranslationFile(), allows adding compiled language-data files for performance improvements
-   = getHolidaysForDatespan(), returns holidays within a given time span
-- several bugfixes
-- Added filters for german federal states (contributed by Mark Wiesemann)</notes>
+    <state>devel</state>
+    <notes>
+- improved PHP4.4 and PHP5 compatibility
+    </notes>
     <deps>
       <dep type="pkg" rel="ge" version="1.3.1" optional="no">PEAR</dep>
       <dep type="pkg" rel="has" optional="no">Date</dep>
@@ -189,6 +182,15 @@
    = getHolidaysForDatespan(), returns holidays within a given time span
 - several bugfixes
 - Added filters for german federal states (contributed by Mark Wiesemann)</notes>
+    </release>
+    <release>
+      <version>0.15.0</version>
+      <date>2005-10-31</date>
+      <license>PHP License</license>
+      <state>devel</state>
+      <notes>
+- improved PHP4.4 and PHP5 compatibility
+      </notes>
     </release>
   </changelog>
 </package>

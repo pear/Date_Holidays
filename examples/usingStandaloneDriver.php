@@ -16,7 +16,7 @@ require_once 'Date/Holidays.php';
  * If you don't specify a locale, your system's locale will be used.
  * If you don't specify a year, the current one will be used.
  */
-$germany = &Date_Holidays::factory('Germany', 2004, 'en_EN');
+$germany = Date_Holidays::factory('Germany', 2004, 'en_EN');
 if (Date_Holidays::isError($germany)) {
     die('Factory was unable to produce driver-object');
 }
@@ -44,7 +44,7 @@ print_r($internalNames);
  * You may specify a locale that differs from the driver's one
  * to get data in other languages for single method calls.
  */
-$easter         = &$germany->getHoliday('easter', 'de_DE');
+$easter         = $germany->getHoliday('easter', 'de_DE');
 if (! Date_Holidays::isError($easter)) {
     print_r($easter->toArray());
 }
@@ -96,12 +96,12 @@ if (! Date_Holidays::isError($titles)) {
  * When doing so, the driver-class will automatically calculate the new year's holidays.
  */
 echo $germany->getYear() . "\n";
-$whitsun2004    = &$germany->getHoliday('whitsun');
+$whitsun2004    = $germany->getHoliday('whitsun');
 if (! Date_Holidays::isError($whitsun2004)) {
     print_r($whitsun2004->toArray());
 }
 $germany->setYear(2005);
-$whitsun2005    = &$germany->getHoliday('whitsun');
+$whitsun2005    = $germany->getHoliday('whitsun');
 if (! Date_Holidays::isError($whitsun2005)) {
     print_r($whitsun2005->toArray());
 }
