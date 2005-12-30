@@ -18,7 +18,7 @@ require_once 'PEAR/PackageFileManager.php';
 /**
  * current version
  */
-$version = '0.14.0';
+$version = '0.15.0';
 
 /**
  * current state
@@ -29,16 +29,7 @@ $state = 'alpha';
  * release notes
  */
 $notes = <<<EOT
-- Switched from using INI files for translation to XML files
-- Added script to convert INI files to XML files
-- Added script to compile XML based language files
-- Holidays can now have various properties (see "languagefile-with-properties.xml" in examples-directory)
-- removed "againstNoiseDay" !BC break! from Germany driver, cannot be calculated automatically
-- new driver-methods:
-   = addCompiledTranslationFile(), allows adding compiled language-data files for performance improvements
-   = getHolidaysForDatespan(), returns holidays within a given time span
-- several bugfixes
-- Added filters for german federal states (contributed by Mark Wiesemann)
+- Implemented request #5764 : Methods to get installed drivers and filters (schst)
 EOT;
 
 /**
@@ -77,7 +68,7 @@ if (PEAR::isError($result)) {
 }
 
 $package->addMaintainer('luckec', 'lead', 'Carsten Lucke', 'luckec@php.net');
-$package->addMaintainer('schst', 'helper', 'Stephan Schmidt', 'schst@php.net');
+$package->addMaintainer('schst', 'contributor', 'Stephan Schmidt', 'schst@php.net');
 $package->addMaintainer('wiesemann', 'contributor', 'Mark Wiesemann', 'wiesemann@php.net');
 
 $package->addDependency('PEAR', '1.3.1', 'ge', 'pkg', false);

@@ -53,6 +53,20 @@ define('DATE_HOLIDAYS_ERROR_DRIVERFILE_NOT_FOUND', 1);
 define('DATE_HOLIDAYS_ERROR_INVALID_ARGUMENT', 2);
 
 /**
+ * Driver directory does not exist
+ *
+ * @access  public
+ */
+define('DATE_HOLIDAYS_ERROR_MISSING_DRIVER_DIR', 3);
+
+/**
+ * Filter directory does not exist
+ *
+ * @access  public
+ */
+define('DATE_HOLIDAYS_ERROR_MISSING_FILTER_DIR', 4);
+
+/**
  * class that helps you to locate holidays for a year
  *
  * @abstract
@@ -126,6 +140,74 @@ class Date_Holidays
         }
         $driver->setLocale($locale);
         return $driver;
+    }
+
+   /**
+    * Returns a list of the installed drivers
+    *
+    * @access public
+    * @static 
+    * @param  string      directory, where the drivers are installed
+    * @return array
+    */
+    function getInstalledDrivers($directory = null)
+    {
+        $drivers = array();
+        if ($directory === null) {
+            $directory = dirname(__FILE__) . '/Holidays/Driver';
+        }
+        if (!file_exists($directory) || !is_dir($directory)) {
+        	return PEAR::raiseError(DATE_HOLIDAYS_ERROR_MISSING_DRIVER_DIR, 'The driver directory "'.$directory.'" does not exist');
+        }
+        return Date_Holidays::_getModulesFromDir($directory);
+    }
+
+   /**
+    * Returns a list of the installed filters
+    *
+    * @access public
+    * @static 
+    * @param  string      directory, where the filters are installed
+    * @return array
+    */
+    function getInstalledFilters($directory = null)
+    {
+        $filters = array();
+        if ($directory === null) {
+            $directory = dirname(__FILE__) . '/Holidays/Filter';
+        }
+        if (!file_exists($directory) || !is_dir($directory)) {
+        	return PEAR::raiseError(DATE_HOLIDAYS_ERROR_MISSING_FILTER_DIR, 'The filter directory "'.$directory.'" does not exist');
+        }
+        return Date_Holidays::_getModulesFromDir($directory);
+    }
+
+   /**
+    * Fetch all modules from a directory and its subdirectories
+    *
+    * @static 
+    * @access protected
+    * @param  string        directory
+    * @param  string        prefix for the class names, will be used in recursive calls
+    */
+    function _getModulesFromDir($dir, $prefix = '')
+    {
+        $modules = array();
+        $d = dir($dir);
+        while (false !== $moduleFile = $d->read()) {
+            if ($moduleFile === '.' || $moduleFile === '..' || $moduleFile === 'CVS') {
+            	continue;
+            }
+            if (is_dir($dir.'/'.$moduleFile)) {
+            	$modules = array_merge($modules, Date_Holidays::_getModulesFromDir($dir.'/'.$moduleFile, $prefix.$moduleFile.'_'));
+            	continue;
+            }
+            $matches = array();
+            if (preg_match('/(.*)\.php$/', $moduleFile, $matches)) {
+            	array_push($modules, array('id' => $prefix.$matches[1], 'title' => $prefix.$matches[1]));
+            }
+        }
+        return $modules;
     }
     
    /**
