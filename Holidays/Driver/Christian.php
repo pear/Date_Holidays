@@ -77,7 +77,7 @@ class Date_Holidays_Driver_Christian extends Date_Holidays_Driver
        /**
         * Easter Sunday
         */
-        $easterDate         = Date_Holidays_Driver_Christian::_calcEaster($this->_year);
+        $easterDate         = Date_Holidays_Driver_Christian::calcEaster($this->_year);
         $this->_addHoliday('easter', $easterDate, 'Easter Sunday');
         
        /**
@@ -333,14 +333,14 @@ class Date_Holidays_Driver_Christian extends Date_Holidays_Driver
     }
     
    /**
-    * calculates date for Easter
+    * Calculates date for Easter using the Gaussian algorithm.
     *
     * @static
-    * @access   private
+    * @access   public
     * @param    int     $year   year
     * @return   object Date
     */
-    function _calcEaster($year)
+    function calcEaster($year)
     {
         // golden number
         $golden     = null;
