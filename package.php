@@ -49,12 +49,15 @@ $result = $package->setOptions(array(
     'state'             => $state,
     'license'           => 'PHP License',
     'filelistgenerator' => 'cvs',
-    'ignore'            => array('mkSource.php', 'package.php', 'package.xml', 'package2.xml', 'test.php', 'doc/', 'tests/',
-	'test2.php', '*.zargo', '*.pdf', '*.sh', 'data/', 'util/', 'TODO', 'updatePear.php', 'changelog'),
+    'ignore'            => array(
+            'mkSource.php', 'package.php', 'package.xml', 'package2.xml', 'test.php', 'docs/',
+            'tests/test_missingLocale.php', 'tests/test_getHolidays.php', 
+            'tests/testHolidays2005stampsAndSavingsDay.php', '*.zargo', '*.pdf', '*.sh', 'data/', 
+            'util/', 'TODO', 'updatePear.php', 'changelog'),
     'notes'             => $notes,
     'simpleoutput'      => true,
     'baseinstalldir'    => 'Date',
-    'packagedirectory'  => './',
+    'packagedirectory'  => dirname(__FILE__),
     'dir_roles'         => array(
                                  'examples' => 'doc',
                                  'tests' => 'test',
