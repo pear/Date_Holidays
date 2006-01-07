@@ -88,7 +88,7 @@ class Date_Holidays_Driver_Sweden extends Date_Holidays_Driver
         */
         $pentecostDate = new Date($easterDate);
         $pentecostDate->addSpan(new Date_Span('49, 0, 0, 0'));
-        $this->_addHoliday('pentecost', $pentecostDate, 'pentecost');
+        $this->_addHoliday('pentecost', $pentecostDate, 'Pentecost');
 
        /**
         * Ascension Day
@@ -159,7 +159,7 @@ class Date_Holidays_Driver_Sweden extends Date_Holidays_Driver
     */
     function calcEaster($year)
     {
-        Date_Holidays_Driver_Christian::calcEaster($year);
+        return Date_Holidays_Driver_Christian::calcEaster($year);
     }
 }
 ?>

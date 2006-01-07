@@ -2,8 +2,8 @@
 <?php
 
 $PACKAGENAME    = 'Date_Holidays';
-$PEARCMD        = 'C:\Programme\php\php-5.1.1\pear.bat';
-$PHPCMD         = 'C:\Programme\php\php-5.1.1\php.exe';
+$PEARCMD        = 'C:\Programme\php\php-5.0.5\pear.bat';
+$PHPCMD         = 'C:\Programme\php\php-5.0.5\php.exe';
 
 
 
@@ -12,9 +12,9 @@ $PHPCMD         = 'C:\Programme\php\php-5.1.1\php.exe';
 $ret = null;
 $output = array();
 
-echo 'Generating package.xml ';
-exec($PHPCMD . ' package.php make', $output, $ret);
-echo printStatus($ret) . "\n";
+//echo 'Generating package.xml ';
+//exec($PHPCMD . ' package.php make', $output, $ret);
+//echo printStatus($ret) . "\n";
 
 echo 'Removing old pear-package-version ';
 exec($PEARCMD . ' uninstall ' . $PACKAGENAME, $output, $ret);

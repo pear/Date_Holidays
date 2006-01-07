@@ -1,8 +1,7 @@
 <?php
 require_once 'PHPUnit.php';
+require_once dirname(__FILE__) . DIRECTORY_SEPARATOR . 'AllTests.php';
 require_once 'Date/Holidays.php';
-
-define('PEAR_DATADIR', 'C:/php5/pear/data');
 
 class Date_Holidays_Driver_TestSuite extends PHPUnit_TestCase {
     

@@ -32,6 +32,7 @@
   <state>alpha</state>
   <notes>- Implemented request #5764 : Methods to get installed drivers and filters (schst)
 - Added driver for calculation of Swedish holidays, feature-request: #6350  (luckec)
+- Added unit-tests to package, added dynamic replacement of PEAR data-dir for language-files (luckec)
   </notes>
   <deps>
    <dep type="pkg" rel="ge" version="1.3.1" optional="no">PEAR</dep>
@@ -121,7 +122,9 @@
      </dir> <!-- /lang/USA -->
     </dir> <!-- /lang -->
     <dir name="tests">
-     <file role="test" name="AllTests.php"/>
+     <file role="test" name="AllTests.php">
+      <replace from="@data_dir@"  to="data_dir"  type="pear-config" /> 
+     </file>
      <file role="test" name="Date_Holidays_Driver_Christian_TestSuite.php"/>
      <file role="test" name="Date_Holidays_Driver_Germany_TestSuite.php"/>
      <file role="test" name="Date_Holidays_Driver_Jewish_TestSuite.php"/>
@@ -131,13 +134,13 @@
      <file role="test" name="Date_Holidays_Driver_UNO_TestSuite.php"/>
      <file role="test" name="Date_Holidays_Driver_USA_TestSuite.php"/>
      <file role="test" name="Example.php"/>
-     <file role="test" name="testHolidays2005stampsAndSavingsDay.php"/>
-     <file role="test" name="test_getHolidays.php"/>
-     <file role="test" name="test_missingLocale.php"/>
     </dir> <!-- /tests -->
     <file role="php" name="Holidays.php"/>
-    <file role="data" name="pear-dh-compile-translationfile"/>
-    <file role="data" name="pear-dh-ini2xml"/>
+   </dir> <!-- / -->
+   
+   <dir name="/" baseinstalldir="/">
+    <file role="script" name="pear-dh-compile-translationfile"/>
+    <file role="script" name="pear-dh-ini2xml"/>
    </dir> <!-- / -->
   </filelist>
  </release>
@@ -211,6 +214,7 @@
     <state>alpha</state>
     <notes>- Implemented request #5764 : Methods to get installed drivers and filters (schst)
 - Added driver for calculation of Swedish holidays, feature-request: #6350  (luckec)
+- Added unit-tests to package, added dynamic replacement of PEAR data-dir for language-files (luckec)
     </notes>
    </release>
  </changelog>
