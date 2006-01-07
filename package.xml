@@ -31,6 +31,7 @@
   <license>PHP License</license>
   <state>alpha</state>
   <notes>- Implemented request #5764 : Methods to get installed drivers and filters (schst)
+- Added driver for calculation of Swedish holidays, feature-request: #6350  (luckec)
   </notes>
   <deps>
    <dep type="pkg" rel="ge" version="1.3.1" optional="no">PEAR</dep>
@@ -55,6 +56,7 @@
       <file role="php" name="Germany.php"/>
       <file role="php" name="Jewish.php"/>
       <file role="php" name="PHPdotNet.php"/>
+      <file role="php" name="Sweden.php"/>
       <file role="php" name="UNO.php"/>
       <file role="php" name="USA.php"/>
      </dir> <!-- /Holidays/Driver -->
@@ -129,6 +131,9 @@
      <file role="test" name="Date_Holidays_Driver_UNO_TestSuite.php"/>
      <file role="test" name="Date_Holidays_Driver_USA_TestSuite.php"/>
      <file role="test" name="Example.php"/>
+     <file role="test" name="testHolidays2005stampsAndSavingsDay.php"/>
+     <file role="test" name="test_getHolidays.php"/>
+     <file role="test" name="test_missingLocale.php"/>
     </dir> <!-- /tests -->
     <file role="php" name="Holidays.php"/>
     <file role="data" name="pear-dh-compile-translationfile"/>
@@ -205,6 +210,7 @@
     <license>PHP License</license>
     <state>alpha</state>
     <notes>- Implemented request #5764 : Methods to get installed drivers and filters (schst)
+- Added driver for calculation of Swedish holidays, feature-request: #6350  (luckec)
     </notes>
    </release>
  </changelog>

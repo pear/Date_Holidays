@@ -30,6 +30,7 @@ $state = 'alpha';
  */
 $notes = <<<EOT
 - Implemented request #5764 : Methods to get installed drivers and filters (schst)
+- Added driver for calculation of Swedish holidays, feature-request: #6350  (luckec)
 EOT;
 
 /**
