@@ -139,10 +139,20 @@ class Date_Holidays_Driver_TestSuite extends PHPUnit_TestCase {
         $holidays = $germany->getHolidayForDate(mktime(0, 0, 0, 10, 30, 2005), null, true);
         
         $this->assertEquals(2, count($holidays));
-        for ($i = 0; $i < count($holidays); ++$i) {
-            $this->assertContains(
-                    $holidays[$i]->getInternalName(), 
-                    array('savingsDay', 'stampsDay'));
+        $holiday1 = $holidays[0];
+        $holiday2 = $holidays[1];
+        $this->assertTrue($holiday1->getInternalName() === 'stampsDay'
+                || $holiday1->getInternalName() === 'savingsDay');
+        switch ($holiday1->getInternalName()) {
+            case 'stampsDay': 
+                    $this->assertEquals('savingsDay', $holiday2->getInternalName(), 
+                            'stampsDay and savingsDay test failed');
+                    break;
+            case 'savingsDay':
+                    $this->assertEquals('stampsDay', $holiday2->getInternalName(), 
+                            'stampsDay and savingsDay test failed');
+                    break;
+            default: $this->fail('2005-10-30 must be stampsDay and savingsDay');
         }
     }
     
