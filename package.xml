@@ -108,6 +108,12 @@
       <file role="data" name="fr_FR.ser"/>
       <file role="data" name="fr_FR.xml"/>
      </dir> <!-- /lang/Germany -->
+     <dir name="Sweden">
+      <file role="data" name="de_DE.ser"/>
+      <file role="data" name="de_DE.xml"/>
+      <file role="data" name="en_EN.ser"/>
+      <file role="data" name="en_EN.xml"/>
+     </dir> <!-- /lang/Sweden -->
      <dir name="UNO">
       <file role="data" name="de_DE.ser"/>
       <file role="data" name="de_DE.xml"/>
@@ -129,6 +135,7 @@
      <file role="test" name="Date_Holidays_Driver_Germany_TestSuite.php"/>
      <file role="test" name="Date_Holidays_Driver_Jewish_TestSuite.php"/>
      <file role="test" name="Date_Holidays_Driver_PHPdotNet_TestSuite.php"/>
+     <file role="test" name="Date_Holidays_Driver_Sweden_TestSuite.php"/>
      <file role="test" name="Date_Holidays_Driver_TestSuite.php"/>
      <file role="test" name="Date_Holidays_Driver_TestSuite.xml"/>
      <file role="test" name="Date_Holidays_Driver_UNO_TestSuite.php"/>
