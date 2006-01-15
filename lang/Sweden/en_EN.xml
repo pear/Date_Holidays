@@ -53,6 +53,11 @@
         </holiday>
         
         <holiday>
+            <internal-name>midSummerEve</internal-name>
+            <translation>Midsummer Eve</translation>
+        </holiday>
+        
+        <holiday>
             <internal-name>allSaintsDay</internal-name>
             <translation>All Saints' Day</translation>
         </holiday>

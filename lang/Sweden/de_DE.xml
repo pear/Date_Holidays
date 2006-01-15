@@ -59,6 +59,11 @@
         </holiday>
         
         <holiday>
+            <internal-name>midSummerEve</internal-name>
+            <translation>Mittsommerabend</translation>
+        </holiday>
+        
+        <holiday>
             <internal-name>allSaintsDay</internal-name>
             <translation>Allerheiligen</translation>
         </holiday>

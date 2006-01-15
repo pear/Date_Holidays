@@ -55,16 +55,16 @@ class Date_Holidays_Driver_Germany_TestSuite extends PHPUnit_TestCase {
     } 
    
     function testHolidays2005() {
-        $drvChristian = Date_Holidays::factory('Germany', 2005, 'en_EN');
-        $this->assertFalse(Date_Holidays::isError($drvChristian));
-        if (Date_Holidays::isError($drvChristian)) {
-            print_r($drvChristian);
-            die($drvChristian->getMessage());
+        $drv = Date_Holidays::factory('Germany', 2005, 'en_EN');
+        $this->assertFalse(Date_Holidays::isError($drv));
+        if (Date_Holidays::isError($drv)) {
+            print_r($drv);
+            die($drv->getMessage());
         }
         
         
         foreach ($this->testDates2005 as $name => $dateInfo) {
-            $day = $drvChristian->getHoliday($name);
+            $day = $drv->getHoliday($name);
             $this->assertFalse(Date_Holidays::isError($day));
             if (Date_Holidays::isError($day)) {
                 die($day->getMessage());
@@ -79,16 +79,16 @@ class Date_Holidays_Driver_Germany_TestSuite extends PHPUnit_TestCase {
     
     
     function testHolidays2006() {
-        $drvChristian = Date_Holidays::factory('Germany', 2006, 'en_EN');
-        $this->assertFalse(Date_Holidays::isError($drvChristian));
-        if (Date_Holidays::isError($drvChristian)) {
-            print_r($drvChristian);
-            die($drvChristian->getMessage());
+        $drv = Date_Holidays::factory('Germany', 2006, 'en_EN');
+        $this->assertFalse(Date_Holidays::isError($drv));
+        if (Date_Holidays::isError($drv)) {
+            print_r($drv);
+            die($drv->getMessage());
         }
         
         
         foreach ($this->testDates2006 as $name => $dateInfo) {
-            $day = $drvChristian->getHoliday($name);
+            $day = $drv->getHoliday($name);
             $this->assertFalse(Date_Holidays::isError($day));
             if (Date_Holidays::isError($day)) {
                 die($day->getMessage());

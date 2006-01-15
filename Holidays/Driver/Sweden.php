@@ -112,6 +112,12 @@ class Date_Holidays_Driver_Sweden extends Date_Holidays_Driver
         $juneDate->addSpan(new Date_Span(sprintf('%d, 0, 0, 0', 6 - $dayOfWeek)));
         $midSummerDate  = $juneDate;
         $this->_addHoliday('midSummer', $midSummerDate, 'Midsummer Day');
+        
+        /**
+         * Midsummer Eve
+         * Day before Midsummer.
+         */
+        $this->_addHoliday('midSummerEve', $midSummerDate->getPrevDay(), 'Midsummer Eve'); 
 
        /**
         * All Saints' Day
