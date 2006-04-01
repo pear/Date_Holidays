@@ -12,13 +12,13 @@
 
 /**
  * uses PackageFileManager
- */ 
+ */
 require_once 'PEAR/PackageFileManager.php';
 
 /**
  * current version
  */
-$version = '0.15.0';
+$version = '0.16.0';
 
 /**
  * current state
@@ -29,8 +29,7 @@ $state = 'alpha';
  * release notes
  */
 $notes = <<<EOT
-- Implemented request #5764 : Methods to get installed drivers and filters (schst)
-- Added driver for calculation of Swedish holidays, feature-request: #6350  (luckec)
+- Fixed bug #7193 : signature of isHoliday() in composite driver was incorrect (schst)
 EOT;
 
 /**
@@ -52,8 +51,8 @@ $result = $package->setOptions(array(
     'filelistgenerator' => 'cvs',
     'ignore'            => array(
             'mkSource.php', 'package.php', 'package.xml', 'package2.xml', 'test.php', 'docs/',
-            'tests/test_missingLocale.php', 'tests/test_getHolidays.php', 
-            'tests/testHolidays2005stampsAndSavingsDay.php', '*.zargo', '*.pdf', '*.sh', 'data/', 
+            'tests/test_missingLocale.php', 'tests/test_getHolidays.php',
+            'tests/testHolidays2005stampsAndSavingsDay.php', '*.zargo', '*.pdf', '*.sh', 'data/',
             'util/', 'TODO', 'updatePear.php', 'changelog'),
     'notes'             => $notes,
     'simpleoutput'      => true,
