@@ -30,6 +30,7 @@ $state = 'alpha';
  */
 $notes = <<<EOT
 - Fixed bug #7193 : signature of isHoliday() in composite driver was incorrect (schst)
+- Fixed bug #6729 : Veteran's Day wrong (schst)
 EOT;
 
 /**

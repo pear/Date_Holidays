@@ -27,7 +27,7 @@
  * @version     $Id$
  * @author      Kevin English <kevin@x5dev.com>
  */
-class Date_Holidays_Driver_USA extends Date_Holidays_Driver 
+class Date_Holidays_Driver_USA extends Date_Holidays_Driver
 {
    /**
     * Constructor
@@ -39,7 +39,7 @@ class Date_Holidays_Driver_USA extends Date_Holidays_Driver
     function Date_Holidays_Driver_USA()
     {
     }
-    
+
    /**
     * Build the internal arrays that contain data about the calculated holidays
     *
@@ -54,7 +54,6 @@ class Date_Holidays_Driver_USA extends Date_Holidays_Driver
         */
         $newYearsDay = $this->_calcNearestWorkDay('01','01');
         $this->_addHoliday('newYearsDay', $newYearsDay, 'New Year\'s Day');
-    
 
         $thirdMondayInJanuaryDate  = $this->_calcNthMondayInMonth(1,3);
         $this->_addHoliday('mlkDay', $thirdMondayInJanuaryDate, 'Dr. Martin Luther King Jr\'s Birthday');
@@ -64,15 +63,16 @@ class Date_Holidays_Driver_USA extends Date_Holidays_Driver
         */
         $thirdMondayInFebruaryDate  = $this->_calcNthMondayInMonth(2,3);
         $this->_addHoliday('presidentsDay', $thirdMondayInFebruaryDate, 'President\'s Day');
+
        /**
-        * Memorial Day 
+        * Memorial Day
         */
         $lastMondayInMayDate = $this->_calcLastMondayInMonth(5);
         $this->_addHoliday('memorialDay',$lastMondayInMayDate,'Memorial Day');
+
        /**
         * 4th of July
         */
-
         $independenceDay = $this->_calcNearestWorkDay('07','04');
         $this->_addHoliday('independenceDay',$independenceDay,'Independence Day');
 
@@ -81,44 +81,43 @@ class Date_Holidays_Driver_USA extends Date_Holidays_Driver
         */
         $laborDay = $this->_calcNthMondayInMonth(9,1);
         $this->_addHoliday('laborDay',$laborDay,'Labor Day');
+
        /**
         * Columbus Day
         */
         $columbusDay = $this->_calcNthMondayInMonth(10,2);
         $this->_addHoliday('columbusDay',$columbusDay,'Columbus Day');
+
        /**
         * Veteran's  Day
         */
+        $this->_addHoliday('veteransDay',$this->_year.'-11-11','Veteran\'s Day');
 
-        $columbusDay = $this->_calcNthMondayInMonth(11,2);
-        $this->_addHoliday('veteransDay',$columbusDay,'Veteran\'s Day');
        /**
         * Thanksgiving  Day
         */
-
         $tday= $this->_calcNthThursdayInMonth(11,4);
         $this->_addHoliday('thanksgivingDay',$tday,'Thanksgiving Day');
- 
+
        /**
         * Christmas  Day
         */
+        $cday= $this->_calcNearestWorkDay('12','25');
+        $this->_addHoliday('christmasDay',$cday,'Christmas Day');
 
-        $tday= $this->_calcNearestWorkDay('12','25');
-        $this->_addHoliday('christmasDay',$tday,'Christmas Day');
-        
         return true;
     }
 
    /**
     * Calculate Nth monday in a month
-    * 
+    *
     * @access   private
     * @param    int $month      month
     * @param    int $position   position
     * @return   object Date date
     */
     function _calcNthMondayInMonth($month, $position) {
-        if ($position  ==1) { 
+        if ($position  ==1) {
           $startday='01';
         } elseif ($position==2) {
           $startday='08';
@@ -128,7 +127,7 @@ class Date_Holidays_Driver_USA extends Date_Holidays_Driver
           $startday='22';
         } elseif ($position==5) {
           $startday='29';
-        } 
+        }
         $month=sprintf("%02d",$month);
 
         $date   = new Date($this->_year . '-' . $month . '-' . $startday);
@@ -140,7 +139,7 @@ class Date_Holidays_Driver_USA extends Date_Holidays_Driver
 
    /**
     * Calculate Nth thursday in a month
-    * 
+    *
     * @access   private
     * @param    int $month      month
     * @param    int $position   position
@@ -159,7 +158,7 @@ class Date_Holidays_Driver_USA extends Date_Holidays_Driver
           $startday='29';
         }
         $month=sprintf("%02d",$month);
-                                                                                                                                             
+
         $date   = new Date($this->_year . '-' . $month . '-' . $startday);
         while ($date->getDayOfWeek() != 4) {
             $date  = $date->getNextDay();
@@ -169,49 +168,48 @@ class Date_Holidays_Driver_USA extends Date_Holidays_Driver
 
    /**
     * Calculate last monday in a month
-    * 
+    *
     * @access   private
     * @param    int $month  month
     * @return   object Date date
     */
     function _calcLastMondayInMonth($month) {
-        $month =sprintf("%02d",$month); 
+        $month =sprintf("%02d",$month);
         $date   = new Date($this->_year . '-' . $month . '-01');
         $daysInMonth=$date->getDaysInMonth();
         $date   = new Date($this->_year . '-' . $month . '-' . $daysInMonth );
         while ($date->getDayOfWeek() != 1) {
             $date = $date->getPrevDay();
         }
-       
+
         return $date;
     }
 
    /**
-    * Calculate nearest workday for a certain day 
-    * 
+    * Calculate nearest workday for a certain day
+    *
     * @access   private
     * @param    int $month  month
     * @param    int $day    day
     * @return   object Date date
     */
     function _calcNearestWorkDay($month,$day) {
-        $month =sprintf("%02d",$month); 
-        $day  =sprintf("%02d",$day);       
-      $date   = new Date($this->_year . '-' . $month . '-' . $day); 
+        $month =sprintf("%02d",$month);
+        $day  =sprintf("%02d",$day);
+      $date   = new Date($this->_year . '-' . $month . '-' . $day);
 
       // When one of these holidays falls on a Saturday, the previous day is also a holiday
       // When New Year's Day, Independence Day, or Christmas Day falls on a Sunday, the next day is also a holiday.
-      if ($date->getDayOfWeek() == 0 ) { 
+      if ($date->getDayOfWeek() == 0 ) {
         // bump it up one
          $date   = $date->getNextDay();
-      } 
-      if ($date->getDayOfWeek() == 6 ) { 
+      }
+      if ($date->getDayOfWeek() == 6 ) {
         // push it back one
          $date   = $date->getPrevDay();
-      } 
+      }
 
-      return $date; 
-    } 
-
+      return $date;
+    }
 }
 ?>
