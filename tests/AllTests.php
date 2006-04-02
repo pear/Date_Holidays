@@ -16,6 +16,7 @@ define('PEAR_DATADIR', '@data_dir@');
 
 $allTestsSuite = new PHPUnit_TestSuite();
 
+$allTestsSuite->addTestSuite('Date_Holidays_TestSuite');
 $allTestsSuite->addTestSuite('Date_Holidays_Driver_TestSuite');
 
 $allTestsSuite->addTestSuite('Date_Holidays_Driver_Christian_TestSuite');
