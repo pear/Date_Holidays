@@ -1,20 +1,14 @@
-#!/usr/bin/php
+#!/usr/local/bin/php-5.1.2
 <?php
 
 $PACKAGENAME    = 'Date_Holidays';
-$PEARCMD        = 'C:\Programme\php\php-5.0.5\pear.bat';
-$PHPCMD         = 'C:\Programme\php\php-5.0.5\php.exe';
-
-
-
+$PEARCMD        = '/usr/local/bin/pear-5.1.2';
+$PHPCMD         = '/usr/local/bin/php-5.1.2';
 
 
 $ret = null;
 $output = array();
 
-//echo 'Generating package.xml ';
-//exec($PHPCMD . ' package.php make', $output, $ret);
-//echo printStatus($ret) . "\n";
 
 echo 'Removing old pear-package-version ';
 exec($PEARCMD . ' uninstall ' . $PACKAGENAME, $output, $ret);
@@ -31,9 +25,6 @@ echo printStatus($ret) . "\n";
 
 function printStatus($returnCode) 
 {
-    if ($returnCode == 0) {
-        return '[OK]';
-    } 
-    return '[FAILED]';
+    return 0 == $returnCode ? '[OK]' : '[FAILED]';
 }
 ?>

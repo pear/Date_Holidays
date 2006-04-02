@@ -255,10 +255,8 @@ class Date_Holidays
         switch (strtolower($errorClass)) {
             case 'pear_error':
                 return PEAR::isError($data, $code);
-                break;
             case 'pear_errorstack':
                 return $data->hasErrors();
-                break;
         }
         return false;
     }

@@ -18,7 +18,7 @@ require_once 'PEAR/PackageFileManager.php';
 /**
  * current version
  */
-$version = '0.16.0';
+$version = '0.15.2';
 
 /**
  * current state
@@ -31,6 +31,7 @@ $state = 'alpha';
 $notes = <<<EOT
 - Fixed bug #7193 : signature of isHoliday() in composite driver was incorrect (schst)
 - Fixed bug #6729 : Veteran's Day wrong (schst)
+- minor refactorings (luckec)
 EOT;
 
 /**
@@ -72,7 +73,7 @@ if (PEAR::isError($result)) {
 }
 
 $package->addMaintainer('luckec', 'lead', 'Carsten Lucke', 'luckec@php.net');
-$package->addMaintainer('schst', 'contributor', 'Stephan Schmidt', 'schst@php.net');
+$package->addMaintainer('schst', 'developer', 'Stephan Schmidt', 'schst@php.net');
 $package->addMaintainer('wiesemann', 'contributor', 'Mark Wiesemann', 'wiesemann@php.net');
 
 $package->addDependency('PEAR', '1.3.1', 'ge', 'pkg', false);

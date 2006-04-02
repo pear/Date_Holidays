@@ -78,7 +78,7 @@ class Date_Holidays_Driver_USA_TestSuite extends PHPUnit_TestCase {
          die('Factory was unable to create veteransDay day');
      }
      $this->assertEquals(11,$day->getMonth());
-     $this->assertEquals(14,$day->getDay());
+     $this->assertEquals(11,$day->getDay());
 
      // Test Thanksgiving Day
      $day = $holidays->getHolidayDate('thanksgivingDay');
@@ -163,7 +163,7 @@ class Date_Holidays_Driver_USA_TestSuite extends PHPUnit_TestCase {
          die('Factory was unable to create veteransDay day');
      }
      $this->assertEquals(11,$day->getMonth());
-     $this->assertEquals(8,$day->getDay());
+     $this->assertEquals(11,$day->getDay());
 
      // Test Thanksgiving Day
      $day = $holidays->getHolidayDate('thanksgivingDay');
@@ -254,7 +254,7 @@ class Date_Holidays_Driver_USA_TestSuite extends PHPUnit_TestCase {
          die('Factory was unable to create veteransDay day');
      }
      $this->assertEquals(11,$day->getMonth());
-     $this->assertEquals(13,$day->getDay());
+     $this->assertEquals(11,$day->getDay());
 
      // Test Thanksgiving Day
      $day = $holidays->getHolidayDate('thanksgivingDay');
