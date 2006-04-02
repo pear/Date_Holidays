@@ -141,6 +141,65 @@ class Date_Holidays
         $driver->setLocale($locale);
         return $driver;
     }
+    
+   /**
+    * Factory method that creates a driver-object
+    *
+    * @static
+    * @access   public
+    * @param    string  $isoCode    ISO3166 code identifying the driver
+    * @param    string  $year       year    
+    * @param    string  $locale     locale name
+    * @return   object  Date_Holidays driver-object on success, otherwise a PEAR_Error object
+    * @throws   object PEAR_Error   
+    */
+    function factoryISO3166($isoCode, $year = null, $locale = null, $external = false)
+    {
+        $driverDir = dirname(__FILE__) . DIRECTORY_SEPARATOR . 'Holidays' . DIRECTORY_SEPARATOR . 'Driver';
+        if (! is_dir($driverDir)) {
+            return Date_Holidays::raiseError(
+                    DATE_HOLIDAYS_ERROR_DRIVERFILE_NOT_FOUND, 
+                    'Date_Holidays driver directory does not exist');
+        }
+        
+        $driverFiles    = scandir($driverDir);
+        $driverMappings = array();
+        foreach ($driverFiles as $driverFileName) {
+            
+            $file = dirname(__FILE__) . DIRECTORY_SEPARATOR . 'Holidays' 
+                    . DIRECTORY_SEPARATOR . 'Driver' 
+                    . DIRECTORY_SEPARATOR . $driverFileName;
+            if (! is_file($file)) {
+                continue;
+            }
+            
+            $driverId       = str_replace('.php', '', $driverFileName);
+            $driverClass    = 'Date_Holidays_Driver_' . $driverId;
+            $driverFilePath = $driverDir . DIRECTORY_SEPARATOR . $driverFileName;
+            
+            @include_once $driverFilePath;
+            if (! class_exists($driverClass)) {
+                return Date_Holidays::raiseError(
+                        DATE_HOLIDAYS_ERROR_DRIVERFILE_NOT_FOUND, 
+                        'Couldn\'t find file of the driver-class ' . $driverClass 
+                                . ',  filename: ' . $driverFilePath);
+            }
+            
+            $isoCodes = call_user_func(
+                    array(
+                            $driverClass, 
+                            Date_Holidays_Driver::DATE_HOLIDAYS_DRIVER_IDENTIFY_ISO3166_METHOD));
+                           
+            foreach ($isoCodes as $code) {
+                if (strtolower($code) === $isoCode) {
+                    return self::factory($driverId, $year, $locale, $external);
+                }
+            }
+        }
+        
+        return null;
+        
+    }
 
    /**
     * Returns a list of the installed drivers

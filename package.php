@@ -18,7 +18,7 @@ require_once 'PEAR/PackageFileManager.php';
 /**
  * current version
  */
-$version = '0.15.2';
+$version = '0.16.0';
 
 /**
  * current state
@@ -29,9 +29,7 @@ $state = 'alpha';
  * release notes
  */
 $notes = <<<EOT
-- Fixed bug #7193 : signature of isHoliday() in composite driver was incorrect (schst)
-- Fixed bug #6729 : Veteran's Day wrong (schst)
-- minor refactorings (luckec)
+- added method Date_Holidays::factoryISO3166() that allows to create drivers by a given ISO3166 code, this was request #6944 (luckec)
 EOT;
 
 /**

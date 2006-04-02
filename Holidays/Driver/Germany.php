@@ -309,5 +309,17 @@ class Date_Holidays_Driver_Germany extends Date_Holidays_Driver_Christian
         }
         return true;
     }
+    
+   /**
+    * Method that returns an array containing the ISO3166 codes that may possibly 
+    * identify a driver.
+    * 
+    * @static
+    * @access public
+    * @return array possible ISO3166 codes
+    */
+    function getISO3166Codes() {
+        return array('de', 'deu');
+    }
 }
 ?>

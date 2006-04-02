@@ -18,8 +18,13 @@ class Date_Holidays_TestSuite extends PHPUnit_TestCase {
     
     
     function testFactoryISO3166() {
-        $this->assertNotNull(Date_Holidays::factoryISO3166('de'));
-        
+        $this->assertNull(Date_Holidays::factoryISO3166('foobar'));
+        $this->assertTrue(is_a(Date_Holidays::factoryISO3166('de'), 'Date_Holidays_Driver'));
+        $this->assertTrue(is_a(Date_Holidays::factoryISO3166('deu'), 'Date_Holidays_Driver'));
+        $this->assertTrue(is_a(Date_Holidays::factoryISO3166('se'), 'Date_Holidays_Driver'));
+        $this->assertTrue(is_a(Date_Holidays::factoryISO3166('swe'), 'Date_Holidays_Driver'));
+        $this->assertTrue(is_a(Date_Holidays::factoryISO3166('us'), 'Date_Holidays_Driver'));
+        $this->assertTrue(is_a(Date_Holidays::factoryISO3166('usa'), 'Date_Holidays_Driver'));
     }
     
 }

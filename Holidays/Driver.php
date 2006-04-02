@@ -93,6 +93,15 @@ define('DATE_HOLIDAYS_UNABLE_TO_READ_TRANSLATIONDATA', 57);
  */
 class Date_Holidays_Driver
 {
+
+   /**
+    * Name of the static {@link Date_Holidays_Driver} method returning
+    * a array of possible ISO3166 codes that identify itself.
+    *
+    * @access  public
+    */
+    const DATE_HOLIDAYS_DRIVER_IDENTIFY_ISO3166_METHOD = 'getISO3166Codes';
+
    /**
     * locale setting for output
     *
@@ -178,6 +187,18 @@ class Date_Holidays_Driver
     */
     function Date_Holidays_Driver()
     {
+    }
+    
+   /**
+    * Method that returns an array containing the ISO3166 codes that may possibly 
+    * identify a driver.
+    * 
+    * @static
+    * @access public
+    * @return array possible ISO3166 codes
+    */
+    function getISO3166Codes() {
+        return array();
     }
     
    /**
