@@ -82,6 +82,14 @@ define('DATE_HOLIDAYS_LANGUAGEFILE_NOT_FOUND', 56);
 define('DATE_HOLIDAYS_UNABLE_TO_READ_TRANSLATIONDATA', 57);
 
 /**
+ * Name of the static {@link Date_Holidays_Driver} method returning
+ * a array of possible ISO3166 codes that identify itself.
+ *
+ * @access  public
+ */
+define('DATE_HOLIDAYS_DRIVER_IDENTIFY_ISO3166_METHOD', 'getISO3166Codes');
+
+/**
  * class that helps you to locate holidays for a year
  *
  * @abstract
@@ -93,14 +101,6 @@ define('DATE_HOLIDAYS_UNABLE_TO_READ_TRANSLATIONDATA', 57);
  */
 class Date_Holidays_Driver
 {
-
-   /**
-    * Name of the static {@link Date_Holidays_Driver} method returning
-    * a array of possible ISO3166 codes that identify itself.
-    *
-    * @access  public
-    */
-    const DATE_HOLIDAYS_DRIVER_IDENTIFY_ISO3166_METHOD = 'getISO3166Codes';
 
    /**
     * locale setting for output

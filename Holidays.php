@@ -162,8 +162,13 @@ class Date_Holidays
                     'Date_Holidays driver directory does not exist');
         }
         
-        $driverFiles    = scandir($driverDir);
         $driverMappings = array();
+        $driverFiles    = array();
+        $dh             = opendir($driverDir);
+        while (false !== ($filename = readdir($dh))) {
+            array_push($driverFiles, $filename);
+        }
+        
         foreach ($driverFiles as $driverFileName) {
             
             $file = dirname(__FILE__) . DIRECTORY_SEPARATOR . 'Holidays' 
@@ -188,11 +193,11 @@ class Date_Holidays
             $isoCodes = call_user_func(
                     array(
                             $driverClass, 
-                            Date_Holidays_Driver::DATE_HOLIDAYS_DRIVER_IDENTIFY_ISO3166_METHOD));
+                            DATE_HOLIDAYS_DRIVER_IDENTIFY_ISO3166_METHOD));
                            
             foreach ($isoCodes as $code) {
                 if (strtolower($code) === $isoCode) {
-                    return self::factory($driverId, $year, $locale, $external);
+                    return Date_Holidays::factory($driverId, $year, $locale, $external);
                 }
             }
         }
