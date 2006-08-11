@@ -1,10 +1,9 @@
 <?php
 require_once 'PHPUnit.php';
 require_once 'Date/Holidays.php';
-require_once dirname(__FILE__) . DIRECTORY_SEPARATOR . 'AllTests.php';
 
 class Date_Holidays_Driver_Sweden_TestSuite extends PHPUnit_TestCase {
-    
+
 
     var $testDates2005 = array(
         'newYearsDay'           => array('day'=>1,'month'=>1,'year'=>2005),
@@ -24,7 +23,7 @@ class Date_Holidays_Driver_Sweden_TestSuite extends PHPUnit_TestCase {
         'boxingDay'             => array('day'=>26,'month'=>12,'year'=>2005),
         'newYearsEve'           => array('day'=>31,'month'=>12,'year' => 2005)
     );
-    
+
     var $testDates2006 = array(
         'newYearsDay'           => array('day'=>1,'month'=>1,'year'=>2006),
         'epiphany'              => array('day' => 6,'month'=>1,'year'=>2006),
@@ -42,10 +41,10 @@ class Date_Holidays_Driver_Sweden_TestSuite extends PHPUnit_TestCase {
         'xmasDay'               => array('day'=>25,'month'=>12,'year'=>2006),
         'boxingDay'             => array('day'=>26,'month'=>12,'year'=>2006),
         'newYearsEve'           => array('day'=>31,'month'=>12,'year' => 2006)
-    ); 
+    );
 
-    function setUp() {} 
-   
+    function setUp() {}
+
     function testHolidays2005() {
         $drv = Date_Holidays::factory('Sweden', 2005, 'en_EN');
         $this->assertFalse(Date_Holidays::isError($drv));
@@ -53,8 +52,8 @@ class Date_Holidays_Driver_Sweden_TestSuite extends PHPUnit_TestCase {
             print_r($drv);
             die($drv->getMessage());
         }
-        
-        
+
+
         foreach ($this->testDates2005 as $name => $dateInfo) {
             $day = $drv->getHoliday($name);
             $this->assertFalse(Date_Holidays::isError($day));
@@ -68,7 +67,7 @@ class Date_Holidays_Driver_Sweden_TestSuite extends PHPUnit_TestCase {
             $this->assertEquals($dateInfo['year'], $date->getYear(), $name);
         }
     }
-   
+
     function testHolidays2006() {
         $drv = Date_Holidays::factory('Sweden', 2006, 'en_EN');
         $this->assertFalse(Date_Holidays::isError($drv));
@@ -76,8 +75,8 @@ class Date_Holidays_Driver_Sweden_TestSuite extends PHPUnit_TestCase {
             print_r($drv);
             die($drv->getMessage());
         }
-        
-        
+
+
         foreach ($this->testDates2006 as $name => $dateInfo) {
             $day = $drv->getHoliday($name);
             $this->assertFalse(Date_Holidays::isError($day));
@@ -91,40 +90,40 @@ class Date_Holidays_Driver_Sweden_TestSuite extends PHPUnit_TestCase {
             $this->assertEquals($dateInfo['year'], $date->getYear(), $name);
         }
     }
-    
+
     function testGermanTranslations() {
         $locale = 'de_DE';
-        
+
         $drv = Date_Holidays::factory('Sweden', 2005, $locale);
         $this->assertFalse(Date_Holidays::isError($drv));
         if (Date_Holidays::isError($drv)) {
             print_r($drv);
             die($drv->getMessage());
         }
-        
+
         $result = $drv->addTranslationFile(
                 PEAR_DATADIR . '/Date_Holidays/lang/Sweden/de_DE.xml', $locale);
-        
+
         $easter = $drv->getHoliday('easter');
         $this->assertEquals('Ostersonntag', $easter->getTitle(), 'Translated title for \'easter\'');
     }
-    
+
     function testcompiledGermanTranslations() {
         $locale = 'de_DE';
-        
+
         $drv = Date_Holidays::factory('Sweden', 2005, $locale);
         $this->assertFalse(Date_Holidays::isError($drv));
         if (Date_Holidays::isError($drv)) {
             print_r($drv);
             die($drv->getMessage());
         }
-        
+
         $result = $drv->addCompiledTranslationFile(
                 PEAR_DATADIR . '/Date_Holidays/lang/Sweden/de_DE.ser', $locale);
-        
+
         $easter = $drv->getHoliday('easter');
         $this->assertEquals('Ostersonntag', $easter->getTitle(), 'Translated title for \'easter\'');
-        
+
         $midsummerEve = $drv->getHoliday('midSummerEve');
         $this->assertEquals('Mittsommerabend', $midsummerEve->getTitle(), 'Translated title for \'midSummerEve\'');
     }

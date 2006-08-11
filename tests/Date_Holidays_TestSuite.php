@@ -1,10 +1,9 @@
 <?php
 require_once 'PHPUnit.php';
-require_once dirname(__FILE__) . DIRECTORY_SEPARATOR . 'AllTests.php';
 require_once 'Date/Holidays.php';
 
 class Date_Holidays_TestSuite extends PHPUnit_TestCase {
-    
+
     function testFactory() {
         $this->assertTrue(is_a(Date_Holidays::factory('Christian'), 'Date_Holidays_Driver'));
         $this->assertTrue(is_a(Date_Holidays::factory('Composite'), 'Date_Holidays_Driver'));
@@ -15,8 +14,8 @@ class Date_Holidays_TestSuite extends PHPUnit_TestCase {
         $this->assertTrue(is_a(Date_Holidays::factory('UNO'), 'Date_Holidays_Driver'));
         $this->assertTrue(is_a(Date_Holidays::factory('USA'), 'Date_Holidays_Driver'));
     }
-    
-    
+
+
     function testFactoryISO3166() {
         $this->assertNull(Date_Holidays::factoryISO3166('foobar'));
         $this->assertTrue(is_a(Date_Holidays::factoryISO3166('de'), 'Date_Holidays_Driver'));
@@ -26,7 +25,7 @@ class Date_Holidays_TestSuite extends PHPUnit_TestCase {
         $this->assertTrue(is_a(Date_Holidays::factoryISO3166('us'), 'Date_Holidays_Driver'));
         $this->assertTrue(is_a(Date_Holidays::factoryISO3166('usa'), 'Date_Holidays_Driver'));
     }
-    
+
 }
 
 ?>
