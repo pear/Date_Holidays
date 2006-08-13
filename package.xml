@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE package SYSTEM "http://pear.php.net/dtd/package-1.0">
-<package version="1.0" packagerversion="1.4.8">
+<package version="1.0" packagerversion="1.4.10">
  <name>Date_Holidays</name>
  <summary>Driver based class to calculate holidays.</summary>
  <description>Date_Holidays helps you calculating the dates and titles of holidays and other special celebrations. The calculation is driver-based so it is easy to add new drivers that calculate a country&apos;s holidays. The methods of the class can be used to get a holiday&apos;s date and title in various languages.
@@ -26,11 +26,11 @@
   </maintainer>
   </maintainers>
  <release>
-  <version>0.16.0</version>
-  <date>2006-04-03</date>
+  <version>0.16.1</version>
+  <date>2006-08-13</date>
   <license>PHP License</license>
   <state>alpha</state>
-  <notes>- added method Date_Holidays::factoryISO3166() that allows to create drivers by a given ISO3166 code, this was request #6944 (luckec)
+  <notes>- bugfix for Date_Holidays::factoryISO3166(), which did return null instead of a PEAR_Error on failure (luckec)
   </notes>
   <deps>
    <dep type="pkg" rel="ge" version="1.3.1" optional="no">PEAR</dep>
@@ -127,7 +127,7 @@
     </dir> <!-- /lang -->
     <dir name="tests">
      <file role="test" name="AllTests.php">
-      <replace from="@data_dir@"  to="data_dir"  type="pear-config" /> 
+      <replace from="@data_dir@"  to="data_dir"  type="pear-config" />
      </file>
      <file role="test" name="Date_Holidays_Driver_Christian_TestSuite.php"/>
      <file role="test" name="Date_Holidays_Driver_Germany_TestSuite.php"/>
@@ -143,7 +143,7 @@
     </dir> <!-- /tests -->
     <file role="php" name="Holidays.php"/>
    </dir> <!-- / -->
-   
+
    <dir name="/" baseinstalldir="/">
     <file role="script" name="pear-dh-compile-translationfile"/>
     <file role="script" name="pear-dh-ini2xml"/>
@@ -191,7 +191,7 @@
     <license>PHP License</license>
     <state>alpha</state>
     <notes>- added Filters (Blacklist, Whitelist, Composite, Germany_Official)
-- improved Date_Holidays_Driver_Composite (allows executing setYear() now) 
+- improved Date_Holidays_Driver_Composite (allows executing setYear() now)
 - added new driver PHPdotNet
 - several cosmetic changes
     </notes>
@@ -247,6 +247,14 @@
     <license>PHP License</license>
     <state>alpha</state>
     <notes>- added method Date_Holidays::factoryISO3166() that allows to create drivers by a given ISO3166 code, this was request #6944 (luckec)
+    </notes>
+   </release>
+   <release>
+    <version>0.16.1</version>
+    <date>2006-08-13</date>
+    <license>PHP License</license>
+    <state>alpha</state>
+    <notes>- bugfix for Date_Holidays::factoryISO3166(), which did return null instead of a PEAR_Error on failure (luckec)
     </notes>
    </release>
  </changelog>

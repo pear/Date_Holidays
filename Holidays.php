@@ -37,14 +37,14 @@ require_once 'Date/Holidays/Holiday.php';
  * Driver baseclass
  */
 require_once 'Date/Holidays/Driver.php';
-    
+
 /**
  * could not find file of driver-class
  *
  * @access  public
  */
 define('DATE_HOLIDAYS_ERROR_DRIVERFILE_NOT_FOUND', 1);
-    
+
 /**
  * invalid argument was passed to a method
  *
@@ -76,7 +76,7 @@ define('DATE_HOLIDAYS_ERROR_MISSING_FILTER_DIR', 4);
  * @author   Carsten Lucke <luckec@tool-garage.de>
  * @author   Stephan Schmidt <schst@php.net>
  */
-class Date_Holidays 
+class Date_Holidays
 {
   /**
     * Constructor
@@ -88,31 +88,31 @@ class Date_Holidays
     function Date_Holidays()
     {
     }
-    
+
    /**
     * Factory method that creates a driver-object
     *
     * @static
     * @access   public
     * @param    string  $driverId   driver-name
-    * @param    string  $year       year    
+    * @param    string  $year       year
     * @param    string  $locale     locale name
     * @return   object  Date_Holidays driver-object on success, otherwise a PEAR_Error object
-    * @throws   object PEAR_Error   
+    * @throws   object PEAR_Error
     */
     function factory($driverId, $year = null, $locale = null, $external = false)
     {
         if (! isset($GLOBALS['_DATE_HOLIDAYS']['DIE_ON_MISSING_LOCALE'])) {
             Date_Holidays::staticSetProperty('DIE_ON_MISSING_LOCALE', true);
         }
-        
+
         $driverClass        = 'Date_Holidays_Driver_' . $driverId;
         if ($external) {
             $driverClass    = $driverId;
         }
-        
+
         if (! class_exists($driverClass)) {
-            $driverFile     = 'Date' . DIRECTORY_SEPARATOR . 'Holidays' . DIRECTORY_SEPARATOR . 
+            $driverFile     = 'Date' . DIRECTORY_SEPARATOR . 'Holidays' . DIRECTORY_SEPARATOR .
                     'Driver' . DIRECTORY_SEPARATOR . $driverId . '.php';
             if ($external) {
                 $driverFile = str_replace('_', DIRECTORY_SEPARATOR, $driverClass) . '.php';
@@ -120,12 +120,12 @@ class Date_Holidays
 
             @include_once $driverFile;
             if (! class_exists($driverClass)) {
-                return Date_Holidays::raiseError(DATE_HOLIDAYS_ERROR_DRIVERFILE_NOT_FOUND, 
+                return Date_Holidays::raiseError(DATE_HOLIDAYS_ERROR_DRIVERFILE_NOT_FOUND,
                     'Couldn\'t find file of the driver-class,  filename: ' . $driverFile);
             }
         }
         $driver             = new $driverClass;
-        
+
         if (is_null($year)) {
             $year           =   date('Y');
         }
@@ -141,76 +141,81 @@ class Date_Holidays
         $driver->setLocale($locale);
         return $driver;
     }
-    
+
    /**
     * Factory method that creates a driver-object
     *
     * @static
     * @access   public
     * @param    string  $isoCode    ISO3166 code identifying the driver
-    * @param    string  $year       year    
+    * @param    string  $year       year
     * @param    string  $locale     locale name
     * @return   object  Date_Holidays driver-object on success, otherwise a PEAR_Error object
-    * @throws   object PEAR_Error   
+    * @throws   object PEAR_Error
     */
     function factoryISO3166($isoCode, $year = null, $locale = null, $external = false)
     {
         $driverDir = dirname(__FILE__) . DIRECTORY_SEPARATOR . 'Holidays' . DIRECTORY_SEPARATOR . 'Driver';
         if (! is_dir($driverDir)) {
             return Date_Holidays::raiseError(
-                    DATE_HOLIDAYS_ERROR_DRIVERFILE_NOT_FOUND, 
+                    DATE_HOLIDAYS_ERROR_DRIVERFILE_NOT_FOUND,
                     'Date_Holidays driver directory does not exist');
         }
-        
+
         $driverMappings = array();
         $driverFiles    = array();
         $dh             = opendir($driverDir);
         while (false !== ($filename = readdir($dh))) {
             array_push($driverFiles, $filename);
         }
-        
+
         foreach ($driverFiles as $driverFileName) {
-            
-            $file = dirname(__FILE__) . DIRECTORY_SEPARATOR . 'Holidays' 
-                    . DIRECTORY_SEPARATOR . 'Driver' 
+
+            $file = dirname(__FILE__) . DIRECTORY_SEPARATOR . 'Holidays'
+                    . DIRECTORY_SEPARATOR . 'Driver'
                     . DIRECTORY_SEPARATOR . $driverFileName;
             if (! is_file($file)) {
                 continue;
             }
-            
+
             $driverId       = str_replace('.php', '', $driverFileName);
             $driverClass    = 'Date_Holidays_Driver_' . $driverId;
             $driverFilePath = $driverDir . DIRECTORY_SEPARATOR . $driverFileName;
-            
+
             @include_once $driverFilePath;
             if (! class_exists($driverClass)) {
                 return Date_Holidays::raiseError(
-                        DATE_HOLIDAYS_ERROR_DRIVERFILE_NOT_FOUND, 
-                        'Couldn\'t find file of the driver-class ' . $driverClass 
+                        DATE_HOLIDAYS_ERROR_DRIVERFILE_NOT_FOUND,
+                        'Couldn\'t find file of the driver-class ' . $driverClass
                                 . ',  filename: ' . $driverFilePath);
             }
-            
+
             $isoCodes = call_user_func(
                     array(
-                            $driverClass, 
+                            $driverClass,
                             DATE_HOLIDAYS_DRIVER_IDENTIFY_ISO3166_METHOD));
-                           
+
             foreach ($isoCodes as $code) {
                 if (strtolower($code) === $isoCode) {
                     return Date_Holidays::factory($driverId, $year, $locale, $external);
                 }
             }
         }
-        
-        return null;
-        
+
+        /*
+         * If this line is reached the iso-code couldn't be mapped to
+         * a driver-class and an error will be thrown.
+         */
+        return Date_Holidays::raiseError(DATE_HOLIDAYS_ERROR_DRIVERFILE_NOT_FOUND,
+            'Couldn\'t find a driver for the given ISO 3166 code: ' . $isoCode);
+
     }
 
    /**
     * Returns a list of the installed drivers
     *
     * @access public
-    * @static 
+    * @static
     * @param  string      directory, where the drivers are installed
     * @return array
     */
@@ -230,7 +235,7 @@ class Date_Holidays
     * Returns a list of the installed filters
     *
     * @access public
-    * @static 
+    * @static
     * @param  string      directory, where the filters are installed
     * @return array
     */
@@ -249,7 +254,7 @@ class Date_Holidays
    /**
     * Fetch all modules from a directory and its subdirectories
     *
-    * @static 
+    * @static
     * @access protected
     * @param  string        directory
     * @param  string        prefix for the class names, will be used in recursive calls
@@ -273,7 +278,7 @@ class Date_Holidays
         }
         return $modules;
     }
-    
+
    /**
     * Returns the error-stack
     *
@@ -285,7 +290,7 @@ class Date_Holidays
     {
         return PEAR_ErrorStack::singleton('Date_Holidays', false, false, true);
     }
-    
+
    /**
     * Pushes a new error on the error-stack and returns a PEAR_Error object
     *
@@ -300,7 +305,7 @@ class Date_Holidays
         $errorStack = &Date_Holidays::getErrorStack();
         return $errorStack->push($code, 'error', array(), $msg, false, debug_backtrace());
     }
-    
+
    /**
     * Checks a variable to determine whether it represnts an error object or not
     *
@@ -324,7 +329,7 @@ class Date_Holidays
         }
         return false;
     }
-    
+
    /**
     * Checks whether errors occured
     *
@@ -337,10 +342,10 @@ class Date_Holidays
         $errorStack = &Date_Holidays::getErrorStack();
         return $errorStack->hasErrors();
     }
-    
+
    /**
     * Returns the errors the error-stack contains
-    * 
+    *
     * @static
     * @access   public
     * @param    boolean $purge  true if the stall shall be purged
@@ -351,7 +356,7 @@ class Date_Holidays
         $errorStack = &Date_Holidays::getErrorStack();
         return $errorStack->getErrors($purge);
     }
-    
+
    /**
     * Set a property for the Date_Holidays drivers
     *
@@ -361,7 +366,7 @@ class Date_Holidays
     *   false: if no localized holiday-title is found an error will be returned
     *   true: if no localized holiday-title is found the default translation (English) will be used
     * </pre>
-    * 
+    *
     * @static
     * @access   public
     * @param    string  $prop   property
@@ -372,7 +377,7 @@ class Date_Holidays
         if (! isset($GLOBALS['_DATE_HOLIDAYS'])) {
             $GLOBALS['_DATE_HOLIDAYS'] = array();
         }
-        
+
         switch ($prop) {
             case 'DIE_ON_MISSING_LOCALE':
                 if (is_bool($value)) {
@@ -381,7 +386,7 @@ class Date_Holidays
                 break;
         }
     }
-    
+
    /**
     * Returns an internal property value
     *
@@ -395,14 +400,14 @@ class Date_Holidays
         if (! isset($GLOBALS['_DATE_HOLIDAYS'])) {
             return null;
         }
-        
+
         switch ($prop) {
             case 'DIE_ON_MISSING_LOCALE':
                 if (isset($GLOBALS['_DATE_HOLIDAYS'][$prop])) {
                     return $GLOBALS['_DATE_HOLIDAYS'][$prop];
                 }
         }
-        
+
         return null;
     }
 }

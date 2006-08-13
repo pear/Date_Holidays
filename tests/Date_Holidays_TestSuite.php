@@ -17,7 +17,6 @@ class Date_Holidays_TestSuite extends PHPUnit_TestCase {
 
 
     function testFactoryISO3166() {
-        $this->assertNull(Date_Holidays::factoryISO3166('foobar'));
         $this->assertTrue(is_a(Date_Holidays::factoryISO3166('de'), 'Date_Holidays_Driver'));
         $this->assertTrue(is_a(Date_Holidays::factoryISO3166('deu'), 'Date_Holidays_Driver'));
         $this->assertTrue(is_a(Date_Holidays::factoryISO3166('se'), 'Date_Holidays_Driver'));

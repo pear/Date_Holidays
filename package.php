@@ -18,7 +18,7 @@ require_once 'PEAR/PackageFileManager.php';
 /**
  * current version
  */
-$version = '0.16.0';
+$version = '0.16.1';
 
 /**
  * current state
@@ -29,7 +29,7 @@ $state = 'alpha';
  * release notes
  */
 $notes = <<<EOT
-- added method Date_Holidays::factoryISO3166() that allows to create drivers by a given ISO3166 code, this was request #6944 (luckec)
+- bugfix for Date_Holidays::factoryISO3166(), which did return null instead of a PEAR_Error on failure (luckec)
 EOT;
 
 /**
