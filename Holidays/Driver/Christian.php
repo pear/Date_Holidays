@@ -253,7 +253,7 @@ class Date_Holidays_Driver_Christian extends Date_Holidays_Driver
        /**
         * 4th Advent
         */
-        $Advent4Date        = new Date($this->_year . '-12-24');
+        $Advent4Date        = new Date($this->_year . '-12-25');
         $dayOfWeek          = $Advent4Date->getDayOfWeek();
         if ($dayOfWeek == 0) {
             $dayOfWeek      = 7;

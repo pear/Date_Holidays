@@ -5,6 +5,7 @@ require_once 'Date/Holidays.php';
 class Date_Holidays_Driver_Christian_TestSuite extends PHPUnit_TestCase {
     
     var $testDates2005;
+    var $testDates2006;
 
     function setUp() {
         $this->testDates2005 = array(
@@ -53,6 +54,12 @@ class Date_Holidays_Driver_Christian_TestSuite extends PHPUnit_TestCase {
             'boxingDay'             => array('day' => 26, 'month' => 12, 'year' => 2005),
             'newYearsEve'           => array('day' => 31, 'month' => 12, 'year' => 2005)
         );
+        $this->testDates2006 = array(
+            'advent1'               => array('day' => 3,  'month' => 12, 'year' => 2006),
+            'advent2'               => array('day' => 10, 'month' => 12, 'year' => 2006),
+            'advent3'               => array('day' => 17, 'month' => 12, 'year' => 2006),
+            'advent4'               => array('day' => 24, 'month' => 12, 'year' => 2006),
+        );
     } 
     
     function testHolidays2005() {
@@ -78,7 +85,30 @@ class Date_Holidays_Driver_Christian_TestSuite extends PHPUnit_TestCase {
             $this->assertEquals($dateInfo['year'], $date->getYear(), $name);
         }
     }
+    
+    function testHolidays2006() {
 
+        $drvChristian = Date_Holidays::factory('Christian', 2006, 'en_EN');
+        $this->assertFalse(Date_Holidays::isError($drvChristian));
+        if (Date_Holidays::isError($drvChristian)) {
+            print_r($drvChristian);
+            die($drvChristian->getMessage());
+        }
+
+
+        foreach ($this->testDates2006 as $name => $dateInfo) {
+            $day = $drvChristian->getHoliday($name);
+            $this->assertFalse(Date_Holidays::isError($day));
+            if (Date_Holidays::isError($day)) {
+                die($day->getMessage());
+            }
+            $this->assertEquals($name, $day->getInternalName());
+            $date = $day->getDate();
+            $this->assertEquals($dateInfo['day'], $date->getDay(), $name);
+            $this->assertEquals($dateInfo['month'], $date->getMonth(), $name);
+            $this->assertEquals($dateInfo['year'], $date->getYear(), $name);
+        }
+    }
 }
 
 ?>
