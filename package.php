@@ -18,7 +18,7 @@ require_once 'PEAR/PackageFileManager.php';
 /**
  * current version
  */
-$version = '0.16.1';
+$version = '0.17.0';
 
 /**
  * current state
@@ -29,7 +29,10 @@ $state = 'alpha';
  * release notes
  */
 $notes = <<<EOT
-- bugfix for Date_Holidays::factoryISO3166(), which did return null instead of a PEAR_Error on failure (luckec)
+- Fixed bug #9319: 4th Advents Day not calculated right (quippo)
+- Added Danish holidays, contributed by Henrik Hansen
+- Added Slowenian holidays, contributed by Jakob Munih
+- Added Discordian holidays, contributed by Stephan 'Da:Sourcerer' Hohmann
 EOT;
 
 /**
