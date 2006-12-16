@@ -30,7 +30,7 @@
   <date>2006-12-16</date>
   <license>PHP License</license>
   <state>alpha</state>
-  <notes>- Fixed bug #9319: 4th Advents Day not calculated right (quippo)
+  <notes>- Fixed bug #9319: 4th Advents Day not calculated right (quipo)
 - Added Danish holidays, contributed by Henrik Hansen
 - Added Slowenian holidays, contributed by Jakob Munih
 - Added Discordian holidays, contributed by Stephan &apos;Da:Sourcerer&apos; Hohmann

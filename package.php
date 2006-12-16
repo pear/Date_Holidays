@@ -29,7 +29,7 @@ $state = 'alpha';
  * release notes
  */
 $notes = <<<EOT
-- Fixed bug #9319: 4th Advents Day not calculated right (quippo)
+- Fixed bug #9319: 4th Advents Day not calculated right (quipo)
 - Added Danish holidays, contributed by Henrik Hansen
 - Added Slowenian holidays, contributed by Jakob Munih
 - Added Discordian holidays, contributed by Stephan 'Da:Sourcerer' Hohmann
