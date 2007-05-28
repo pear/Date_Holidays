@@ -136,7 +136,7 @@ class Date_Holidays
         }
 
         if (is_null($locale)) {
-            $locale         =   setlocale(LC_ALL, null);
+            $locale         =   setlocale(LC_ALL, 0);
         }
         $driver->setLocale($locale);
         return $driver;
