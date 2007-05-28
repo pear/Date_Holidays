@@ -1,9 +1,12 @@
-#!/usr/local/bin/php5
 <?php
 
-$PACKAGENAME    = 'Date_Holidays';
-$PEARCMD        = '/usr/local/bin/pear5';
-$PHPCMD         = '/usr/local/bin/php5';
+if ($_SERVER['argc'] != 4) {
+    echo 'Wrong execution of file. Call like that: FILENAME <project-name> <php-interpreter path> <pear executable path>';
+    exit;
+}
+$PACKAGENAME    = $_SERVER['argv'][1];
+$PHPCMD         = $_SERVER['argv'][2];
+$PEARCMD        = $_SERVER['argv'][3];
 
 
 $ret = null;

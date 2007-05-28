@@ -18,21 +18,20 @@ require_once 'PEAR/PackageFileManager.php';
 /**
  * current version
  */
-$version = '0.17.0';
+$version = '0.18.0';
 
 /**
  * current state
  */
-$state = 'alpha';
+$state = 'beta';
 
 /**
  * release notes
  */
 $notes = <<<EOT
-- Fixed bug #9319: 4th Advents Day not calculated right (quipo)
-- Added Danish holidays, contributed by Henrik Hansen
-- Added Slowenian holidays, contributed by Jakob Munih
-- Added Discordian holidays, contributed by Stephan 'Da:Sourcerer' Hohmann
+- Fixed bug #10220: Don't set locale automatically
+- Added Irish holidays/filters, contributed by Ken Guest
+- Added Austrian holidays, contributed by Klemens Ullmann
 EOT;
 
 /**
