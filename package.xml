@@ -26,10 +26,10 @@
   </maintainer>
   </maintainers>
  <release>
-  <version>0.18.0</version>
-  <date>2007-05-28</date>
+  <version>0.17.1</version>
+  <date>2007-05-30</date>
   <license>PHP License</license>
-  <state>beta</state>
+  <state>alpha</state>
   <notes>- Fixed bug #10220: Don&apos;t set locale automatically
 - Added Irish holidays/filters, contributed by Ken Guest
 - Added Austrian holidays, contributed by Klemens Ullmann
@@ -57,6 +57,7 @@
       <file role="php" name="Composite.php"/>
       <file role="php" name="Denmark.php"/>
       <file role="php" name="Discordian.php"/>
+      <file role="php" name="EnglandWales.php"/>
       <file role="php" name="Germany.php"/>
       <file role="php" name="Ireland.php"/>
       <file role="php" name="Jewish.php"/>
@@ -141,7 +142,9 @@
      </file>
      <file role="test" name="AllTestsUndeployed.php"/>
      <file role="test" name="Date_Holidays_Driver_Christian_TestSuite.php"/>
+     <file role="test" name="Date_Holidays_Driver_EnglandWales_TestSuite.php"/>
      <file role="test" name="Date_Holidays_Driver_Germany_TestSuite.php"/>
+     <file role="test" name="Date_Holidays_Driver_Ireland_TestSuite.php"/>
      <file role="test" name="Date_Holidays_Driver_Jewish_TestSuite.php"/>
      <file role="test" name="Date_Holidays_Driver_PHPdotNet_TestSuite.php"/>
      <file role="test" name="Date_Holidays_Driver_Sweden_TestSuite.php"/>
@@ -283,10 +286,10 @@
     </notes>
    </release>
    <release>
-    <version>0.18.0</version>
-    <date>2007-05-28</date>
+    <version>0.17.1</version>
+    <date>2007-05-30</date>
     <license>PHP License</license>
-    <state>beta</state>
+    <state>alpha</state>
     <notes>- Fixed bug #10220: Don&apos;t set locale automatically
 - Added Irish holidays/filters, contributed by Ken Guest
 - Added Austrian holidays, contributed by Klemens Ullmann

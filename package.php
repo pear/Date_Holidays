@@ -18,12 +18,12 @@ require_once 'PEAR/PackageFileManager.php';
 /**
  * current version
  */
-$version = '0.18.0';
+$version = '0.17.1';
 
 /**
  * current state
  */
-$state = 'beta';
+$state = 'alpha';
 
 /**
  * release notes
