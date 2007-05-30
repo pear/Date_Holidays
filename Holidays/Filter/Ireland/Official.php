@@ -13,7 +13,7 @@
 // | obtain it through the world-wide-web, please send a note to          |
 // | license@php.net so we can mail you a copy immediately.               |
 // +----------------------------------------------------------------------+
-// | Authors:   Ken Guest <ken.guest@ipartners.ie>                        |
+// | Authors:   Ken Guest <ken@linux.ie>                                  |
 // +----------------------------------------------------------------------+
 //
 //    $Id$
@@ -25,7 +25,7 @@
  * @package     Date_Holidays
  * @subpackage  Filter
  * @version     $Id$
- * @author      Ken Guest <ken.guest@ipartners.ie>
+ * @author      Ken Guest <ken.guest@linux.ie>
  */
 class Date_Holidays_Filter_Ireland_Official extends Date_Holidays_Filter_Whitelist 
 {
@@ -55,7 +55,6 @@ class Date_Holidays_Filter_Ireland_Official extends Date_Holidays_Filter_Whiteli
      * Constructor.
      * 
      * Only accepts official Irish public holidays as described on http://www.citizensinformation.ie/
-     * (as provided by the Citizens Information Board).
      */
     function Date_Holidays_Filter_Ireland_Official()
     {

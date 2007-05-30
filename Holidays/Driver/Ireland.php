@@ -13,7 +13,7 @@
 // | obtain it through the world-wide-web, please send a note to          |
 // | license@php.net so we can mail you a copy immediately.               |
 // +----------------------------------------------------------------------+
-// | Authors:   Ken Guest <ken.guest@ipartners.ie>                        |
+// | Authors:   Ken Guest <ken@linux.ie>                                  |
 // +----------------------------------------------------------------------+
 //
 //    $Id$
