@@ -27,16 +27,17 @@ require_once 'Date/Holidays/Driver/USA.php';
  * @package Date_Holidays 
  * @subpackage Driver 
  * @version $Id$ 
- * @author Tim Dodge */ 
+ * @author Tim Dodge 
+ */ 
 class Date_Holidays_Driver_EnglandWales extends Date_Holidays_Driver 
-{ 
+{
     /** 
      * Constructor 
      * 
      * Use the Date_Holidays::factory() method to construct an object of a certain driver 
      * 
      * @access protected 
-     */ 
+     */
     function Date_Holidays_Driver_EnglandWales() {} 
     
     /** 
@@ -94,36 +95,48 @@ class Date_Holidays_Driver_EnglandWales extends Date_Holidays_Driver
          */ 
         $earlyMayDate = Date_Holidays_Driver_USA::_calcNthMondayInMonth(5, 1); 
         $this->_addHoliday('mayDay', $earlyMayDate, 'May Day Bank Holiday'); 
+        
+        /**
+         * Spring Bank Holiday 
+         */
+        $springBankDate = Date_Holidays_Driver_USA::_calcLastMondayInMonth(5);
+        $this->_addHoliday('springBank', $springBankDate, 'Spring Bank Holiday'); 
          
-         /** 
-          * Spring Bank Holiday 
-          */ 
-         $springBankDate = Date_Holidays_Driver_USA::_calcLastMondayInMonth(5);
-         $this->_addHoliday('springBank', $springBankDate, 'Spring Bank Holiday'); 
+        /** 
+         * Summer Bank Holiday 
+         */ 
+        $summerBankDate = Date_Holidays_Driver_USA::_calcLastMondayInMonth(8); 
+        $this->_addHoliday('summerBank', $summerBankDate, 'Summer Bank Holiday'); 
          
-         /** 
-          * Summer Bank Holiday 
-          */ 
-         $summerBankDate = Date_Holidays_Driver_USA::_calcLastMondayInMonth(8); 
-         $this->_addHoliday('summerBank', $summerBankDate, 'Summer Bank Holiday'); 
-         
-         /** 
-          * Christmas and Boxing Day 
-          */ 
-         $xmasDay = new Date($this->_year . '-12-25'); 
-         if ($xmasDay->getDayOfWeek() == 0) { 
-             $this->_addHoliday('boxingDay', $this->_year . '-12-26', 'Boxing Day'); 
-             $this->_addHoliday(
-                 'xmasDay', $this->_year . '-12-27', 'Substitute Bank Holiday in lieu of Christmas Day'); 
+        /** 
+         * Christmas and Boxing Day 
+         */ 
+        $xmasDay = new Date($this->_year . '-12-25'); 
+        if ($xmasDay->getDayOfWeek() == 0) { 
+            $this->_addHoliday('boxingDay', $this->_year . '-12-26', 'Boxing Day'); 
+            $this->_addHoliday(
+                    'xmasDay', 
+                    $this->_year . '-12-27', 
+                    'Substitute Bank Holiday in lieu of Christmas Day'
+            ); 
         } elseif ($xmasDay->getDayOfWeek() == 5) { 
             $this->_addHoliday('xmasDay', $xmasDay, 'Christmas Day'); 
             $this->_addHoliday(
-                'boxingDay', $this->_year . '-12-28', 'Substitute Bank Holiday in lieu of Boxing Day'); 
+                    'boxingDay', 
+                    $this->_year . '-12-28', 
+                    'Substitute Bank Holiday in lieu of Boxing Day'
+            ); 
         } elseif ($xmasDay->getDayOfWeek() == 6) { 
             $this->_addHoliday(
-                'xmasDay', $this->_year . '-12-28', 'Substitute Bank Holiday in lieu of Christmas Day'); 
+                    'xmasDay', 
+                    $this->_year . '-12-28', 
+                    'Substitute Bank Holiday in lieu of Christmas Day'
+            ); 
             $this->_addHoliday(
-                'boxingDay', $this->_year . '-12-27', 'Substitute Bank Holiday in lieu of Boxing Day'); 
+                    'boxingDay', 
+                    $this->_year . '-12-27', 
+                    'Substitute Bank Holiday in lieu of Boxing Day'
+            );
         } else { 
             $this->_addHoliday('xmasDay', $xmasDay, 'Christmas Day'); 
             $this->_addHoliday('boxingDay', $this->_year . '-12-26', 'Boxing Day'); 
