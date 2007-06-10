@@ -24,6 +24,12 @@
    <email>wiesemann@php.net</email>
    <role>contributor</role>
   </maintainer>
+  <maintainer>
+   <user>kguest</user>
+   <name>Ken Guest</name>
+   <email>ken@linux.ie</email>
+   <role>helper</role>
+  </maintainer>
   </maintainers>
  <release>
   <version>0.17.1</version>
@@ -141,6 +147,7 @@
       <replace from="@data_dir@"  to="data_dir"  type="pear-config" />
      </file>
      <file role="test" name="AllTestsUndeployed.php"/>
+     <file role="test" name="Date_Holidays_Driver_Austria_TestSuite.php"/>
      <file role="test" name="Date_Holidays_Driver_Christian_TestSuite.php"/>
      <file role="test" name="Date_Holidays_Driver_EnglandWales_TestSuite.php"/>
      <file role="test" name="Date_Holidays_Driver_Germany_TestSuite.php"/>

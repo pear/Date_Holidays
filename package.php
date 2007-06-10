@@ -75,6 +75,7 @@ if (PEAR::isError($result)) {
 $package->addMaintainer('luckec', 'lead', 'Carsten Lucke', 'luckec@php.net');
 $package->addMaintainer('schst', 'developer', 'Stephan Schmidt', 'schst@php.net');
 $package->addMaintainer('wiesemann', 'contributor', 'Mark Wiesemann', 'wiesemann@php.net');
+$package->addMaintainer('kguest', 'helper', 'Ken Guest', 'ken@linux.ie');
 
 $package->addDependency('PEAR', '1.3.1', 'ge', 'pkg', false);
 $package->addDependency('Date', '', 'has', 'pkg', false);
