@@ -5,6 +5,7 @@ error_reporting(E_ALL);
 require_once 'PHPUnit.php';
 require_once 'Date_Holidays_TestSuite.php';
 require_once 'Date_Holidays_Driver_TestSuite.php';
+require_once 'Date_Holidays_Driver_Austria_TestSuite.php';
 require_once 'Date_Holidays_Driver_Christian_TestSuite.php';
 require_once 'Date_Holidays_Driver_EnglandWales_TestSuite.php';
 require_once 'Date_Holidays_Driver_Germany_TestSuite.php';
@@ -22,6 +23,7 @@ $allTestsSuite = new PHPUnit_TestSuite();
 $allTestsSuite->addTestSuite('Date_Holidays_TestSuite');
 $allTestsSuite->addTestSuite('Date_Holidays_Driver_TestSuite');
 
+$allTestsSuite->addTestSuite('Date_Holidays_Driver_Austria_TestSuite');
 $allTestsSuite->addTestSuite('Date_Holidays_Driver_Christian_TestSuite');
 $allTestsSuite->addTestSuite('Date_Holidays_Driver_EnglandWales_TestSuite');
 $allTestsSuite->addTestSuite('Date_Holidays_Driver_Germany_TestSuite');
