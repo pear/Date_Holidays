@@ -22,36 +22,32 @@
 /**
  * Filter that only accepts official holidays in Brandenburg.
  *
- * @category    Date
- * @package     Date_Holidays
+ * @category Date
+ * @package  Date_Holidays
  * @subpackage  Filter
- * @version     $Id$
- * @author      Carsten Lucke <luckec@tool-garage.de>
- * @author      Mark Wiesemann <wiesemann@php.net>
+ * @author   Carsten Lucke <luckec@tool-garage.de>
+ * @author   Mark Wiesemann <wiesemann@php.net>
+ * @license  http://www.php.net/license/3_01.txt PHP License 3.0.1
+ * @version  $Id$
+ * @link     http://pear.php.net/package/Date_Holidays
  */
-class Date_Holidays_Filter_Germany_Brandenburg extends Date_Holidays_Filter_Whitelist 
+class Date_Holidays_Filter_Germany_Brandenburg extends Date_Holidays_Filter_Whitelist
 {
     /**
      * Constructor.
-     * 
-     * @param   array   numerical array that contains internal names of holidays
      */
     function __construct() 
     {
-        parent::__construct(
-            array(
-                'newYearsDay',
-                'goodFriday',
-                'easterMonday',
-                'dayOfWork',
-                'ascensionDay',
-                'whitMonday',
-                'germanUnificationDay',
-                'reformationDay',
-                'xmasDay',
-                'boxingDay'
-            )
-        );
+        parent::__construct(array('newYearsDay',
+                                  'goodFriday',
+                                  'easterMonday',
+                                  'dayOfWork',
+                                  'ascensionDay',
+                                  'whitMonday',
+                                  'germanUnificationDay',
+                                  'reformationDay',
+                                  'xmasDay',
+                                  'boxingDay'));
     }
     
     /**

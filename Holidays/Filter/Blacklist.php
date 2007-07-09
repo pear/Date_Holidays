@@ -22,13 +22,15 @@
  * Class that represents a filter which has knowledge about the
  * holidays that must be excluded from driver-calculations.
  *
- * @category    Date
- * @package     Date_Holidays
+ * @category Date
+ * @package  Date_Holidays
  * @subpackage  Filter
- * @version     $Id$
- * @author      Carsten Lucke <luckec@tool-garage.de>
+ * @author   Carsten Lucke <luckec@tool-garage.de>
+ * @license  http://www.php.net/license/3_01.txt PHP License 3.0.1
+ * @version  $Id$
+ * @link     http://pear.php.net/package/Date_Holidays
  */
-class Date_Holidays_Filter_Blacklist extends Date_Holidays_Filter 
+class Date_Holidays_Filter_Blacklist extends Date_Holidays_Filter
 {
     /**
      * Constructor.
@@ -36,7 +38,8 @@ class Date_Holidays_Filter_Blacklist extends Date_Holidays_Filter
      * Creates a filter which has knowledge about the
      * holidays that must be excluded from driver-calculations.
      * 
-     * @param   array   numerical array that contains internal names of holidays
+     * @param array $holidays numerical array that contains internal names 
+     *                          of holidays
      */
     function __construct($holidays) 
     {
@@ -46,19 +49,21 @@ class Date_Holidays_Filter_Blacklist extends Date_Holidays_Filter
     /**
      * Constructor.
      * 
-     * @param   array   numerical array that contains internal names of holidays
+     * @param array $holidays numerical array that contains internal names 
+     *                          of holidays
      */
     function Date_Holidays_Filter_Blacklist($holidays)
     {
         $this->__construct($holidays);
     }
     
-   /**
-    * Lets the filter decide whether a holiday shall be processed or not.
-    * 
-    * @param    string  a holidays' internal name
-    * @return   boolean true, if a holidays shall be processed, false otherwise
-    */
+    /**
+     * Lets the filter decide whether a holiday shall be processed or not.
+     * 
+     * @param string $holiday a holiday's internal name
+     *
+     * @return   boolean true, if a holidays shall be processed, false otherwise
+     */
     function accept($holiday) 
     {
         return !(in_array($holiday, $this->_internalNames));

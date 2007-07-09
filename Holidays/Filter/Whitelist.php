@@ -22,13 +22,15 @@
  * Class that represents a filter which has knowledge about the
  * holidays that driver-calculations are limited to.
  *
- * @category    Date
- * @package     Date_Holidays
+ * @category Date
+ * @package  Date_Holidays
  * @subpackage  Filter
- * @version     $Id$
- * @author      Carsten Lucke <luckec@tool-garage.de>
+ * @author   Carsten Lucke <luckec@tool-garage.de>
+ * @license  http://www.php.net/license/3_01.txt PHP License 3.0.1
+ * @version  $Id$
+ * @link     http://pear.php.net/package/Date_Holidays
  */
-class Date_Holidays_Filter_Whitelist extends Date_Holidays_Filter 
+class Date_Holidays_Filter_Whitelist extends Date_Holidays_Filter
 {
     /**
      * Constructor.
@@ -36,7 +38,7 @@ class Date_Holidays_Filter_Whitelist extends Date_Holidays_Filter
      * Creates a filter which has knowledge about the
      * holidays that driver-calculations are limited to.
      * 
-     * @param   array   numerical array that contains internal names of holidays
+     * @param array $holidays numerical array containing internal names of holidays
      */
     function __construct($holidays) 
     {
@@ -46,19 +48,22 @@ class Date_Holidays_Filter_Whitelist extends Date_Holidays_Filter
     /**
      * Constructor.
      * 
-     * @param   array   numerical array that contains internal names of holidays
+     * @param array $holidays numerical array containing internal names of holidays
+     *
+     * @return void
      */
     function Date_Holidays_Filter_Whitelist($holidays)
     {
         $this->__construct($holidays);
     }
     
-   /**
-    * Lets the filter decide whether a holiday shall be processed or not.
-    * 
-    * @param    string  a holidays' internal name
-    * @return   boolean true, if a holidays shall be processed, false otherwise
-    */
+    /**
+     * Lets the filter decide whether a holiday shall be processed or not.
+     * 
+     * @param string $holiday a holidays' internal name
+     *
+     * @return   boolean true, if a holidays shall be processed, false otherwise
+     */
     function accept($holiday) 
     {
         return (in_array($holiday, $this->_internalNames));

@@ -21,40 +21,40 @@
 /**
  * Filter that only accepts official Irish holidays.
  *
- * @category    Date
- * @package     Date_Holidays
+ * @category Date
+ * @package  Date_Holidays
  * @subpackage  Filter
- * @version     $Id$
- * @author      Ken Guest <ken.guest@linux.ie>
+ * @author   Ken Guest <ken.guest@linux.ie>
+ * @license  http://www.php.net/license/3_01.txt PHP License 3.0.1
+ * @version  $Id$
+ * @link     http://pear.php.net/package/Date_Holidays
  */
-class Date_Holidays_Filter_Ireland_Official extends Date_Holidays_Filter_Whitelist 
+class Date_Holidays_Filter_Ireland_Official extends Date_Holidays_Filter_Whitelist
 {
     /**
      * Constructor.
      * 
-     * @param   array   numerical array that contains internal names of holidays
      */
     function __construct() 
     {
-        parent::__construct(
-            array(
-                'newYearsDay',
-                'stPatricksDay',
-                'easterMonday',
-                'mayDayBankHoliday',
-                'juneBankHoliday',
-                'augustBankHoliday',
-                'octoberBankHoliday',
-                'xmasDay',
-                'boxingDay'
-            )
-        );
+        parent::__construct(array('newYearsDay',
+                                  'stPatricksDay',
+                                  'easterMonday',
+                                  'mayDayBankHoliday',
+                                  'juneBankHoliday',
+                                  'augustBankHoliday',
+                                  'octoberBankHoliday',
+                                  'xmasDay',
+                                  'boxingDay'));
     }
     
     /**
      * Constructor.
      * 
-     * Only accepts official Irish public holidays as described on http://www.citizensinformation.ie/
+     * Only accepts official Irish public holidays as described on 
+     * http://www.citizensinformation.ie/
+     *
+     * @link http://www.citizensinformation.ie/
      */
     function Date_Holidays_Filter_Ireland_Official()
     {

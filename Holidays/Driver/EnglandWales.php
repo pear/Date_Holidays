@@ -24,21 +24,26 @@ require_once 'Date/Holidays/Driver/USA.php';
  * Driver class that calculates Danish holidays 
  * 
  * @category Date 
- * @package Date_Holidays 
+ * @package  Date_Holidays 
+ * @author   Tim Dodge <timmy@invisibles.org>
  * @subpackage Driver 
- * @version $Id$ 
- * @author Tim Dodge 
+ * @license  http://www.php.net/license/3_01.txt PHP License 3.0.1
+ * @version  $Id$ 
+ * @link     http://pear.php.net/package/Date_Holidays
  */ 
-class Date_Holidays_Driver_EnglandWales extends Date_Holidays_Driver 
+class Date_Holidays_Driver_EnglandWales extends Date_Holidays_Driver
 {
     /** 
      * Constructor 
      * 
-     * Use the Date_Holidays::factory() method to construct an object of a certain driver 
+     * Use the Date_Holidays::factory() method to construct an object of a 
+     * certain driver 
      * 
      * @access protected 
      */
-    function Date_Holidays_Driver_EnglandWales() {} 
+    function Date_Holidays_Driver_EnglandWales()
+    {
+    } 
     
     /** 
      * Build the internal arrays that contain data about the calculated holidays 
@@ -54,23 +59,17 @@ class Date_Holidays_Driver_EnglandWales extends Date_Holidays_Driver
          */ 
         $newYearsDay = new Date($this->_year . '-01-01'); 
         if ($newYearsDay->getDayOfWeek() == 0) { 
-            $this->_addHoliday(
-                    'newYearsDay', 
-                    $this->_year . '-01-02', 
-                    'Substitute Bank Holiday in lieu of New Year\'s Day'
-            ); 
+            $this->_addHoliday('newYearsDay', 
+                               $this->_year . '-01-02',
+                               'Substitute Bank Holiday in lieu of New Year\'s Day');
         } elseif ($newYearsDay->getDayOfWeek() == 6) { 
-            $this->_addHoliday(
-                    'newYearsDay', 
-                    $this->_year . '-01-03', 
-                    'Substitute Bank Holiday in lieu of New Year\'s Day'
-            ); 
+            $this->_addHoliday('newYearsDay', 
+                               $this->_year . '-01-03',
+                               'Substitute Bank Holiday in lieu of New Year\'s Day');
         } else { 
-            $this->_addHoliday(
-                    'newYearsDay', 
-                    $newYearsDay, 
-                    'New Year\'s Day'
-            ); 
+            $this->_addHoliday('newYearsDay', 
+                               $newYearsDay,
+                               'New Year\'s Day'); 
         } 
         
         /** 
@@ -88,7 +87,9 @@ class Date_Holidays_Driver_EnglandWales extends Date_Holidays_Driver
         /** 
          * Easter Monday 
          */ 
-        $this->_addHoliday('easterMonday', $easterDate->getNextDay(), 'Easter Monday'); 
+        $this->_addHoliday('easterMonday', 
+                           $easterDate->getNextDay(),
+                           'Easter Monday'); 
         
         /** 
          * May Day Bank Holiday 
@@ -114,29 +115,21 @@ class Date_Holidays_Driver_EnglandWales extends Date_Holidays_Driver
         $xmasDay = new Date($this->_year . '-12-25'); 
         if ($xmasDay->getDayOfWeek() == 0) { 
             $this->_addHoliday('boxingDay', $this->_year . '-12-26', 'Boxing Day'); 
-            $this->_addHoliday(
-                    'xmasDay', 
-                    $this->_year . '-12-27', 
-                    'Substitute Bank Holiday in lieu of Christmas Day'
-            ); 
+            $this->_addHoliday('xmasDay',
+                               $this->_year . '-12-27',
+                               'Substitute Bank Holiday in lieu of Christmas Day');
         } elseif ($xmasDay->getDayOfWeek() == 5) { 
             $this->_addHoliday('xmasDay', $xmasDay, 'Christmas Day'); 
-            $this->_addHoliday(
-                    'boxingDay', 
-                    $this->_year . '-12-28', 
-                    'Substitute Bank Holiday in lieu of Boxing Day'
-            ); 
+            $this->_addHoliday('boxingDay',
+                               $this->_year . '-12-28',
+                               'Substitute Bank Holiday in lieu of Boxing Day'); 
         } elseif ($xmasDay->getDayOfWeek() == 6) { 
-            $this->_addHoliday(
-                    'xmasDay', 
-                    $this->_year . '-12-28', 
-                    'Substitute Bank Holiday in lieu of Christmas Day'
-            ); 
-            $this->_addHoliday(
-                    'boxingDay', 
-                    $this->_year . '-12-27', 
-                    'Substitute Bank Holiday in lieu of Boxing Day'
-            );
+            $this->_addHoliday('xmasDay', 
+                               $this->_year . '-12-28',
+                               'Substitute Bank Holiday in lieu of Christmas Day'); 
+            $this->_addHoliday('boxingDay', 
+                               $this->_year . '-12-27',
+                               'Substitute Bank Holiday in lieu of Boxing Day');
         } else { 
             $this->_addHoliday('xmasDay', $xmasDay, 'Christmas Day'); 
             $this->_addHoliday('boxingDay', $this->_year . '-12-26', 'Boxing Day'); 
@@ -157,7 +150,8 @@ class Date_Holidays_Driver_EnglandWales extends Date_Holidays_Driver
      * @access public 
      * @return array possible ISO3166 codes 
      */ 
-    function getISO3166Codes() { 
+    function getISO3166Codes()
+    { 
         return array('gb', 'gbr'); 
     } 
 } 
