@@ -19,6 +19,18 @@
 //    $Id$s
 
 /**
+ * DriverClass and associated defines.
+ *
+ * @abstract 
+ * @category Date
+ * @package  Date_Holidays
+ * @author   Carsten Lucke <luckec@tool-garage.de>
+ * @license  http://www.php.net/license/3_01.txt PHP License 3.0.1
+ * @version  $Id$
+ * @link     http://pear.php.net/package/Date_Holidays
+ */
+
+/**
  * uses PEAR_Errorstack
  */
 require_once 'PEAR/ErrorStack.php';
@@ -97,6 +109,7 @@ define('DATE_HOLIDAYS_DRIVER_IDENTIFY_ISO3166_METHOD', 'getISO3166Codes');
  * @package  Date_Holidays
  * @author   Carsten Lucke <luckec@tool-garage.de>
  * @subpackage Driver
+ * @license  http://www.php.net/license/3_01.txt PHP License 3.0.1
  * @version  $Id$
  * @link     http://pear.php.net/package/Date_Holidays
  */
@@ -341,9 +354,9 @@ class Date_Holidays_Driver
         }
         
         if (is_null($locale)) {
-            $locale =   $this->_findBestLocale($this->_locale);
+            $locale = $this->_findBestLocale($this->_locale);
         } else {
-            $locale =   $this->_findBestLocale($locale);
+            $locale = $this->_findBestLocale($locale);
         }
         
         if (! isset($this->_titles[$locale][$internalName])) {
@@ -356,8 +369,11 @@ class Date_Holidays_Driver
             }
         }
 
-        return isset($this->_titles[$locale][$internalName]) ? 
-            $this->_titles[$locale][$internalName] : $this->_titles['C'][$internalName];
+        if (isset($this->_titles[$locale][$internalName])) {
+            return $this->_titles[$locale][$internalName];
+        } else {
+            return $this->_titles['C'][$internalName];
+        }
     }
     
     
