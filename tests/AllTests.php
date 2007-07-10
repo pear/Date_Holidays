@@ -1,8 +1,12 @@
 <?php
+if (!defined('PHPUnit_MAIN_METHOD')) {
+	define('PHPUnit_MAIN_METHOD', 'Date_Holidays_AllTests::main');
+}
 
-error_reporting(E_ALL);
+require_once 'PHPUnit/Framework/TestSuite.php';
+require_once 'PHPUnit/TextUI/TestRunner.php';
 
-require_once 'PHPUnit.php';
+//require_once 'Date_HolidaysTest.php';
 require_once 'Date_Holidays_TestSuite.php';
 require_once 'Date_Holidays_Driver_TestSuite.php';
 require_once 'Date_Holidays_Driver_Austria_TestSuite.php';
@@ -16,25 +20,39 @@ require_once 'Date_Holidays_Driver_UNO_TestSuite.php';
 require_once 'Date_Holidays_Driver_USA_TestSuite.php';
 require_once 'Date_Holidays_Driver_Sweden_TestSuite.php';
 
-define('PEAR_DATADIR', '@data_dir@');
 
-$allTestsSuite = new PHPUnit_TestSuite();
+class Date_Holidays_AllTests
+{
+	public static function main()
+	{
 
-$allTestsSuite->addTestSuite('Date_Holidays_TestSuite');
-$allTestsSuite->addTestSuite('Date_Holidays_Driver_TestSuite');
+		PHPUnit_TextUI_TestRunner::run(self::suite());
+	}
 
-$allTestsSuite->addTestSuite('Date_Holidays_Driver_Austria_TestSuite');
-$allTestsSuite->addTestSuite('Date_Holidays_Driver_Christian_TestSuite');
-$allTestsSuite->addTestSuite('Date_Holidays_Driver_EnglandWales_TestSuite');
-$allTestsSuite->addTestSuite('Date_Holidays_Driver_Germany_TestSuite');
-$allTestsSuite->addTestSuite('Date_Holidays_Driver_Ireland_TestSuite');
-$allTestsSuite->addTestSuite('Date_Holidays_Driver_Jewish_TestSuite');
-$allTestsSuite->addTestSuite('Date_Holidays_Driver_PHPdotNet_TestSuite');
-$allTestsSuite->addTestSuite('Date_Holidays_Driver_Sweden_TestSuite');
-$allTestsSuite->addTestSuite('Date_Holidays_Driver_UNO_TestSuite');
-$allTestsSuite->addTestSuite('Date_Holidays_Driver_USA_TestSuite');
+	public static function suite()
+	{
+		$suite = new PHPUnit_Framework_TestSuite('Date_HolidaysTest');
+		/** Add testsuites.  */
 
-$result = PHPUnit::run($allTestsSuite);
-echo $result->toString(); 
+		$suite->addTestSuite('Date_Holidays_TestSuite');
+		$suite->addTestSuite('Date_Holidays_Driver_TestSuite');
 
+		$suite->addTestSuite('Date_Holidays_Driver_Austria_TestSuite');
+		$suite->addTestSuite('Date_Holidays_Driver_Christian_TestSuite');
+		$suite->addTestSuite('Date_Holidays_Driver_EnglandWales_TestSuite');
+		$suite->addTestSuite('Date_Holidays_Driver_Germany_TestSuite');
+		$suite->addTestSuite('Date_Holidays_Driver_Ireland_TestSuite');
+		$suite->addTestSuite('Date_Holidays_Driver_Jewish_TestSuite');
+		$suite->addTestSuite('Date_Holidays_Driver_PHPdotNet_TestSuite');
+		$suite->addTestSuite('Date_Holidays_Driver_Sweden_TestSuite');
+		$suite->addTestSuite('Date_Holidays_Driver_UNO_TestSuite');
+		$suite->addTestSuite('Date_Holidays_Driver_USA_TestSuite');
+
+		return $suite;
+	}
+}
+
+if (PHPUnit_MAIN_METHOD == 'Date_Holidays_AllTests::main') {
+	Date_Holidays_AllTests::main();
+}
 ?>

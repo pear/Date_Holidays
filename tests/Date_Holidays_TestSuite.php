@@ -1,8 +1,16 @@
 <?php
-require_once 'PHPUnit.php';
+if (!defined("PHPUnit_MAIN_METHOD")) {
+    define("PHPUnit_MAIN_METHOD", "Date_HolidaysTest::main");
+}
+
+//make cvs testing work
+chdir(dirname(__FILE__) . '/../');
 require_once 'Date/Holidays.php';
 
-class Date_Holidays_TestSuite extends PHPUnit_TestCase {
+require_once "PHPUnit/Framework/TestCase.php";
+require_once "PHPUnit/Framework/TestSuite.php";
+
+class Date_Holidays_TestSuite extends PHPUnit_Framework_TestCase {
 
     function testFactory() {
         $this->assertTrue(is_a(Date_Holidays::factory('Christian'), 'Date_Holidays_Driver'));
