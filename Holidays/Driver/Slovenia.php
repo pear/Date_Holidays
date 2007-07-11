@@ -29,7 +29,7 @@ require_once 'Date/Holidays/Driver/Christian.php';
  * @author   Jakob Munih <jakob.munih@obala.si>
  * @subpackage  Driver
  * @license  http://www.php.net/license/3_01.txt PHP License 3.0.1
- * @version  $Id$
+ * @version  CVS: $Id$
  * @link     http://www.uvi.si/slo/slovenija/kratka-predstavitev/prazniki/
  */
 class Date_Holidays_Driver_Slovenia extends Date_Holidays_Driver

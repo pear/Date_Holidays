@@ -26,7 +26,7 @@
  * @author   Kevin English <kevin@x5dev.com>
  * @subpackage  Driver
  * @license  http://www.php.net/license/3_01.txt PHP License 3.0.1
- * @version  $Id$
+ * @version  CVS: $Id$
  * @link     http://pear.php.net/package/Date_Holidays
  */
 class Date_Holidays_Driver_USA extends Date_Holidays_Driver

@@ -72,7 +72,7 @@ define('DATE_HOLIDAYS_ERROR_MISSING_FILTER_DIR', 4);
  * @abstract
  * @category Date
  * @package  Date_Holidays
- * @version  $Id$
+ * @version  CVS: $Id$
  * @author   Carsten Lucke <luckec@tool-garage.de>
  * @author   Stephan Schmidt <schst@php.net>
  */

@@ -26,7 +26,7 @@
  * @subpackage  Filter
  * @author   Ken Guest <ken.guest@linux.ie>
  * @license  http://www.php.net/license/3_01.txt PHP License 3.0.1
- * @version  $Id$
+ * @version  CVS: $Id$
  * @link     http://pear.php.net/package/Date_Holidays
  */
 class Date_Holidays_Filter_Ireland_Official extends Date_Holidays_Filter_Whitelist
