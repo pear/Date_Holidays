@@ -1,22 +1,27 @@
 <?php
 /* vim: set expandtab tabstop=4 shiftwidth=4: */
-// +----------------------------------------------------------------------+
-// | PHP Version 4                                                        |
-// +----------------------------------------------------------------------+
-// | Copyright (c) 1997-2002 The PHP Group                                |
-// +----------------------------------------------------------------------+
-// | This source file is subject to version 2.0 of the PHP license,       |
-// | that is bundled with this package in the file LICENSE, and is        |
-// | available at through the world-wide-web at                           |
-// | http://www.php.net/license/2_02.txt.                                 |
-// | If you did not receive a copy of the PHP license and are unable to   |
-// | obtain it through the world-wide-web, please send a note to          |
-// | license@php.net so we can mail you a copy immediately.               |
-// +----------------------------------------------------------------------+
-// | Authors:   Carsten Lucke <luckec@tool-garage.de>                     |
-// +----------------------------------------------------------------------+
-//
-//    $Id$
+/**
+ * Driver for Christian holidays 
+ *
+ * PHP Version 4
+ *
+ * Copyright (c) 1997-2002 The PHP Group
+ *
+ * This source file is subject to version 3.0 of the PHP license,
+ * that is bundled with this package in the file LICENSE, and is
+ * available at through the world-wide-web at
+ * http://www.php.net/license/3_01.txt.
+ * If you did not receive a copy of the PHP license and are unable to
+ * obtain it through the world-wide-web, please send a note to
+ * license@php.net so we can mail you a copy immediately.
+ *
+ * @category Date
+ * @package  Date_Holidays
+ * @author   Carsten Lucke <luckec@tool-garage.de>
+ * @license  http://www.php.net/license/3_01.txt PHP License 3.0.1
+ * @version  CVS: $Id$
+ * @link     http://pear.php.net/package/Date_Holidays
+ */
 
 /**
  * class that calculates Christian holidays
@@ -399,13 +404,20 @@ class Date_Holidays_Driver_Christian extends Date_Holidays_Driver
         $i = null;
         // weekday of the Full Moon (0=Sunday,...)
         $j = null; 
+        $x = 0; //temporary 
+        $y = 0; //temporary 
+        $z = 0; //temporary 
         
         if ($year > 1582) {
             $golden  = $year % 19;
             $century = floor($year / 100);
-            $epact   = ($century - floor($century / 4) - floor((8 * $century + 13) / 25)+ 19 * $golden + 15) % 30;
-            $i       = $epact - floor($epact / 28) * (1 - floor($epact / 28) * floor(29 / ($epact + 1)) * floor((21 - $golden) / 11));
-            $j       = ($year + floor($year / 3) + $i + 2 - $century + floor($century / 4));
+            $leap    = floor($century / 4);
+            $y       = floor((8 * $century + 13) / 25);
+            $epact   = ($century - $leap - $y  + 19 * $golden + 15) % 30;
+            $x       = floor($epact / 28);
+            $z       = floor((21 - $golden) / 11)
+            $i       = $epact - $x * (1 - $x * floor(29 / ($epact + 1)) * $z);
+            $j       = ($year + floor($year / 3) + $i + 2 - $century + $leap);
             $j       = $j % 7;
         } else {
             $golden = $year % 19;
