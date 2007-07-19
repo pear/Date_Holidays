@@ -2,19 +2,26 @@
 /**
  * Example that shows how to get localized holiday titles
  *
- * @author      Carsten Lucke <luckec@tool-garage.de>
- * @package     Date_Holidays
- * @subpackage  Examples
+ * PHP Version 4
+ *
+ * @category Date
+ * @package  Date_Holidays
+ * @author   Carsten Lucke <luckec@tool-garage.de>
+ * @license  http://www.php.net/license/3_01.txt PHP License 3.0.1
+ * @link     http://pear.php.net/package/Date_Holidays
  */ 
 
 require_once 'Date/Holidays.php';
 
 /**
- * Set static property concerning the behaviour when translations for a holiday-title is missing
+ * Set static property concerning the behaviour when translations for a 
+ * holiday-title is missing
  * 
- * If DIE_ON_MISSING_LOCALE is true, you will get an error if you request a holiday/ holiday-title.
- * If this is set false, the driver's internal default title (English) will be returned. When you 
- * are using another locale-setting than English, you could get mixed translations. 
+ * If DIE_ON_MISSING_LOCALE is true, you will get an error if you request a 
+ * holiday/ holiday-title.
+ * If this is set false, the driver's internal default title (English) will be 
+ * returned. When you are using another locale-setting than English, you could 
+ * get mixed translations. 
  * Default this option is set true.
  */
 Date_Holidays::staticSetProperty('DIE_ON_MISSING_LOCALE', true);
@@ -26,7 +33,7 @@ Date_Holidays::staticSetProperty('DIE_ON_MISSING_LOCALE', true);
  * If you don't specify a locale, your system's locale will be used.
  * If you don't specify a year, the current one will be used.
  */
-$germany    = Date_Holidays::factory('Germany', 2004, 'fr_FR');
+$germany = Date_Holidays::factory('Germany', 2004, 'fr_FR');
 if (Date_Holidays::isError($germany)) {
     die('Factory was unable to produce driver-object');
 }
