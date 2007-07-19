@@ -415,7 +415,7 @@ class Date_Holidays_Driver_Christian extends Date_Holidays_Driver
             $y       = floor((8 * $century + 13) / 25);
             $epact   = ($century - $leap - $y  + 19 * $golden + 15) % 30;
             $x       = floor($epact / 28);
-            $z       = floor((21 - $golden) / 11)
+            $z       = floor((21 - $golden) / 11);
             $i       = $epact - $x * (1 - $x * floor(29 / ($epact + 1)) * $z);
             $j       = ($year + floor($year / 3) + $i + 2 - $century + $leap);
             $j       = $j % 7;

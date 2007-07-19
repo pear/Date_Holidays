@@ -1,22 +1,32 @@
 <?php
 /* vim: set expandtab tabstop=4 shiftwidth=4: */
-// +----------------------------------------------------------------------+
-// | PHP Version 4                                                        |
-// +----------------------------------------------------------------------+
-// | Copyright (c) 1997-2002 The PHP Group                                |
-// +----------------------------------------------------------------------+
-// | This source file is subject to version 2.0 of the PHP license,       |
-// | that is bundled with this package in the file LICENSE, and is        |
-// | available at through the world-wide-web at                           |
-// | http://www.php.net/license/2_02.txt.                                 |
-// | If you did not receive a copy of the PHP license and are unable to   |
-// | obtain it through the world-wide-web, please send a note to          |
-// | license@php.net so we can mail you a copy immediately.               |
-// +----------------------------------------------------------------------+
-// | Authors:   Carsten Lucke <luckec@tool-garage.de>                     |
-// +----------------------------------------------------------------------+
-//
-//    $Id$
+/**
+ * Holidays.php
+ *
+ * PHP Version 4
+ *
+ * Copyright (c) 1997-2002 The PHP Group
+ *
+ * This source file is subject to version 2.0 of the PHP license,
+ * that is bundled with this package in the file LICENSE, and is
+ * available at through the world-wide-web at
+ * http://www.php.net/license/2_02.txt.
+ * If you did not receive a copy of the PHP license and are unable to
+ * obtain it through the world-wide-web, please send a note to
+ * license@php.net so we can mail you a copy immediately.
+ *
+ * Authors:   Carsten Lucke <luckec@tool-garage.de>
+ *
+ * CVS file id: $Id$
+ *
+ * @category Date
+ * @package  Date_Holidays
+ * @author   Carsten Lucke <luckec@tool-garage.de>
+ * @author   Stephan Schmidt <schst@php.net>
+ * @license  http://www.php.net/license/3_01.txt PHP License 3.0.1
+ * @version  CVS: $Id$
+ * @link     http://pear.php.net/package/Date_Holidays
+ */
 
 /**
  * uses PEAR errors
@@ -69,12 +79,14 @@ define('DATE_HOLIDAYS_ERROR_MISSING_FILTER_DIR', 4);
 /**
  * class that helps you to locate holidays for a year
  *
- * @abstract
  * @category Date
  * @package  Date_Holidays
- * @version  CVS: $Id$
  * @author   Carsten Lucke <luckec@tool-garage.de>
  * @author   Stephan Schmidt <schst@php.net>
+ * @license  http://www.php.net/license/3_01.txt PHP License 3.0.1
+ * @version  CVS: $Id$
+ * @link     http://pear.php.net/package/Date_Holidays
+ * @abstract
  */
 class Date_Holidays
 {
@@ -164,11 +176,12 @@ class Date_Holidays
      * @throws   object PEAR_Error
      */
     function factoryISO3166($isoCode, 
-                            $year     = null, 
-                            $locale   = null, 
+                            $year = null, 
+                            $locale = null, 
                             $external = false)
     {
-        $driverDir = dirname(__FILE__) . DIRECTORY_SEPARATOR . 'Holidays' . DIRECTORY_SEPARATOR . 'Driver';
+        $driverDir = dirname(__FILE__) . DIRECTORY_SEPARATOR . 
+                     'Holidays' . DIRECTORY_SEPARATOR . 'Driver';
         if (! is_dir($driverDir)) {
             return Date_Holidays::raiseError(DATE_HOLIDAYS_ERROR_DRIVERFILE_NOT_FOUND,
                     'Date_Holidays driver directory does not exist');
@@ -281,7 +294,7 @@ class Date_Holidays
     function _getModulesFromDir($directory, $prefix = '')
     {
         $modules = array();
-        $d = dir($directory);
+        $d       = dir($directory);
         while (false !== $moduleFile = $d->read()) {
             if ($moduleFile === '.' || 
                 $moduleFile === '..' || 
@@ -339,13 +352,14 @@ class Date_Holidays
     /**
      * Checks a variable to determine whether it represnts an error object or not
      *
-     * @static
-     * @access   public
      * @param mixed $data variable to test
      * @param int   $code if $data is an PEAR_Error object, return true
      *                    only if $code is a string and
      *                    $obj->getMessage() == $code or
      *                    $code is an integer and $obj->getCode() == $code
+     *
+     * @static
+     * @access   public
      * @return   boolean true if $subject is an error object
      */
     function isError($data, $code = null)

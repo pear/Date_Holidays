@@ -916,16 +916,14 @@ class Date_Holidays_Driver
         }
         
         include_once 'XML/Unserializer.php';
-        $options = array(
-                            'parseAttributes'   =>  false,
-                            'attributesArray'   =>  false,
-                            'keyAttribute'      => array('property' => 'id'),
-                            'forceEnum'      => array('holiday')
-                        );
-        $unserializer = new XML_Unserializer($options);
+        $options = array('parseAttributes' => false,
+                         'attributesArray' => false,
+                         'keyAttribute'    => array('property' => 'id'),
+                         'forceEnum'       => array('holiday'));
     
         // unserialize the document
-        $status = $unserializer->unserialize($file, true);    
+        $unserializer = new XML_Unserializer($options);
+        $status       = $unserializer->unserialize($file, true);    
     
         if (PEAR::isError($status)) {
             return Date_Holidays::raiseError($status->getCode(), 
