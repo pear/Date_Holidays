@@ -1,4 +1,16 @@
 <?php
+/**
+ * a test class for running all undeployed Date_Holidays unit tests
+ * 
+ * PHP versions 4 and 5
+ *
+ * @category Date
+ * @package  Date_Holidays
+ * @author   Carsten Lucke <luckec@tool-garage.de>
+ * @license  http://www.php.net/license/3_01.txt PHP License 3.0.1
+ * @version  CVS: $Id$
+ * @link     http://pear.php.net/package/Date_Holidays
+ */
 
 error_reporting(E_ALL);
 

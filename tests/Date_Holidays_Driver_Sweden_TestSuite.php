@@ -1,4 +1,16 @@
 <?php
+/**
+ * Test class for running unit tests related to the driver for holidays in Sweden
+ *
+ * PHP Versions 4 and 5
+ * 
+ * @category Date
+ * @package  Date_Holidays
+ * @author   Carsten Lucke <luckec@tool-garage.de>
+ * @license  http://www.php.net/license/3_01.txt PHP License 3.0.1
+ * @version  CVS: $Id$
+ * @link     http://pear.php.net/package/Date_Holidays
+ */
 if (!defined("PHPUnit_MAIN_METHOD")) {
     define("PHPUnit_MAIN_METHOD", "Date_HolidaysTest::main");
 }
@@ -7,50 +19,140 @@ if (!defined("PHPUnit_MAIN_METHOD")) {
 chdir(dirname(__FILE__) . '/../');
 require_once 'Date/Holidays.php';
 
-class Date_Holidays_Driver_Sweden_TestSuite extends PHPUnit_Framework_TestCase {
+/**
+ * Test class for running unit tests related to the driver for holidays in Sweden
+ * 
+ * @uses PHPUnit_Framework_TestCase
+ * @category Date
+ * @package  Date_Holidays
+ * @author   Carsten Lucke <luckec@tool-garage.de>
+ * @license  http://www.php.net/license/3_01.txt PHP License 3.0.1
+ * @version  CVS: $Id$
+ * @link     http://pear.php.net/package/Date_Holidays
+ */
+class Date_Holidays_Driver_Sweden_TestSuite extends PHPUnit_Framework_TestCase
+{
 
 
     var $testDates2005 = array(
-        'newYearsDay'           => array('day'=>1,'month'=>1,'year'=>2005),
-        'epiphany'              => array('day' => 6,'month'=>1,'year'=>2005),
-        'goodFriday'            => array('day'=>25,'month'=>3,'year'=>2005),
-        'easter'                => array('day'=>27,'month'=>3,'year'=>2005),
-        'easterMonday'          => array('day'=>28,'month'=>3,'year'=>2005),
-        'mayDay'                => array('day'=>1,'month'=>5,'year'=>2005),
-        'ascensionDay'          => array('day'=>5,'month'=>5,'year'=>2005),
-        'pentecost'             => array('day'=>15,'month'=>5,'year'=>2005),
-        'swedenNationalDay'     => array('day'=>6,'month'=>6,'year'=>2005),
-        'midSummerEve'          => array('day'=>24,'month'=>6,'year'=>2005),
-        'midSummer'             => array('day'=>25,'month'=>6,'year'=>2005),
-        'allSaintsDay'          => array('day'=>5,'month'=>11,'year'=>2005),
-        'xmasEve'               => array('day'=>24,'month'=>12,'year'=>2005),
-        'xmasDay'               => array('day'=>25,'month'=>12,'year'=>2005),
-        'boxingDay'             => array('day'=>26,'month'=>12,'year'=>2005),
-        'newYearsEve'           => array('day'=>31,'month'=>12,'year' => 2005)
+        'newYearsDay'           => array('day'=>1,
+                                         'month'=>1,
+                                         'year'=>2005),
+        'epiphany'              => array('day' => 6,
+                                         'month'=>1,
+                                         'year'=>2005),
+        'goodFriday'            => array('day'=>25,
+                                         'month'=>3,
+                                         'year'=>2005),
+        'easter'                => array('day'=>27,
+                                         'month'=>3,
+                                         'year'=>2005),
+        'easterMonday'          => array('day'=>28,
+                                         'month'=>3,
+                                         'year'=>2005),
+        'mayDay'                => array('day'=>1,
+                                         'month'=>5,
+                                         'year'=>2005),
+        'ascensionDay'          => array('day'=>5,
+                                         'month'=>5,
+                                         'year'=>2005),
+        'pentecost'             => array('day'=>15,
+                                         'month'=>5,
+                                         'year'=>2005),
+        'swedenNationalDay'     => array('day'=>6,
+                                         'month'=>6,
+                                         'year'=>2005),
+        'midSummerEve'          => array('day'=>24,
+                                         'month'=>6,
+                                         'year'=>2005),
+        'midSummer'             => array('day'=>25,
+                                         'month'=>6,
+                                         'year'=>2005),
+        'allSaintsDay'          => array('day'=>5,
+                                         'month'=>11,
+                                         'year'=>2005),
+        'xmasEve'               => array('day'=>24,
+                                         'month'=>12,
+                                         'year'=>2005),
+        'xmasDay'               => array('day'=>25,
+                                         'month'=>12,
+                                         'year'=>2005),
+        'boxingDay'             => array('day'=>26,
+                                         'month'=>12,
+                                         'year'=>2005),
+        'newYearsEve'           => array('day'=>31,
+                                         'month'=>12,
+                                         'year' => 2005)
     );
 
     var $testDates2006 = array(
-        'newYearsDay'           => array('day'=>1,'month'=>1,'year'=>2006),
-        'epiphany'              => array('day' => 6,'month'=>1,'year'=>2006),
-        'goodFriday'            => array('day'=>14,'month'=>4,'year'=>2006),
-        'easter'                => array('day'=>16,'month'=>4,'year'=>2006),
-        'easterMonday'          => array('day'=>17,'month'=>4,'year'=>2006),
-        'mayDay'                => array('day'=>1,'month'=>5,'year'=>2006),
-        'ascensionDay'          => array('day'=>25,'month'=>5,'year'=>2006),
-        'pentecost'             => array('day'=>4,'month'=>6,'year'=>2006),
-        'swedenNationalDay'     => array('day'=>6,'month'=>6,'year'=>2006),
-        'midSummerEve'          => array('day'=>23,'month'=>6,'year'=>2006),
-        'midSummer'             => array('day'=>24,'month'=>6,'year'=>2006),
-        'allSaintsDay'          => array('day'=>4,'month'=>11,'year'=>2006),
-        'xmasEve'               => array('day'=>24,'month'=>12,'year'=>2006),
-        'xmasDay'               => array('day'=>25,'month'=>12,'year'=>2006),
-        'boxingDay'             => array('day'=>26,'month'=>12,'year'=>2006),
-        'newYearsEve'           => array('day'=>31,'month'=>12,'year' => 2006)
-    );
+        'newYearsDay'           => array('day'=>1,
+                                         'month'=>1,
+                                         'year'=>2006),
+        'epiphany'              => array('day' => 6,
+                                         'month'=>1,
+                                         'year'=>2006),
+        'goodFriday'            => array('day'=>14,
+                                         'month'=>4,
+                                         'year'=>2006),
+        'easter'                => array('day'=>16,
+                                         'month'=>4,
+                                         'year'=>2006),
+        'easterMonday'          => array('day'=>17,
+                                         'month'=>4,
+                                         'year'=>2006),
+        'mayDay'                => array('day'=>1,
+                                         'month'=>5,
+                                         'year'=>2006),
+        'ascensionDay'          => array('day'=>25,
+                                         'month'=>5,
+                                         'year'=>2006),
+        'pentecost'             => array('day'=>4,
+                                         'month'=>6,
+                                         'year'=>2006),
+        'swedenNationalDay'     => array('day'=>6,
+                                         'month'=>6,
+                                         'year'=>2006),
+        'midSummerEve'          => array('day'=>23,
+                                         'month'=>6,
+                                         'year'=>2006),
+        'midSummer'             => array('day'=>24,
+                                         'month'=>6,
+                                         'year'=>2006),
+        'allSaintsDay'          => array('day'=>4,
+                                         'month'=>11,
+                                         'year'=>2006),
+        'xmasEve'               => array('day'=>24,
+                                         'month'=>12,
+                                         'year'=>2006),
+        'xmasDay'               => array('day'=>25,
+                                         'month'=>12,
+                                         'year'=>2006),
+        'boxingDay'             => array('day'=>26,
+                                         'month'=>12,
+                                         'year'=>2006),
+        'newYearsEve'           => array('day'=>31,
+                                         'month'=>12,
+                                         'year' => 2006));
 
-    function setUp() {}
+    /**
+     * setup 
+     * 
+     * @access public
+     * @return void
+     */
+    function setUp()
+    {
+    }
 
-    function testHolidays2005() {
+    /**
+     * test Holidays for 2005 
+     * 
+     * @access public
+     * @return void
+     */
+    function testHolidays2005()
+    {
         $drv = Date_Holidays::factory('Sweden', 2005, 'en_EN');
         $this->assertFalse(Date_Holidays::isError($drv));
         if (Date_Holidays::isError($drv)) {
@@ -71,9 +173,16 @@ class Date_Holidays_Driver_Sweden_TestSuite extends PHPUnit_Framework_TestCase {
             $this->assertEquals($dateInfo['month'], $date->getMonth(), $name);
             $this->assertEquals($dateInfo['year'], $date->getYear(), $name);
         }
-    }
+    } 
 
-    function testHolidays2006() {
+    /**
+     * test Holidays for 2006 
+     * 
+     * @access public
+     * @return void
+     */
+    function testHolidays2006()
+    {
         $drv = Date_Holidays::factory('Sweden', 2006, 'en_EN');
         $this->assertFalse(Date_Holidays::isError($drv));
         if (Date_Holidays::isError($drv)) {
@@ -96,7 +205,14 @@ class Date_Holidays_Driver_Sweden_TestSuite extends PHPUnit_Framework_TestCase {
         }
     }
 
-    function testGermanTranslations() {
+    /**
+     * test German translations of Swedish Holidays.
+     * 
+     * @access public
+     * @return void
+     */
+    function testGermanTranslations()
+    {
         $locale = 'de_DE';
 
         $drv = Date_Holidays::factory('Sweden', 2005, $locale);
@@ -105,15 +221,23 @@ class Date_Holidays_Driver_Sweden_TestSuite extends PHPUnit_Framework_TestCase {
             print_r($drv);
             die($drv->getMessage());
         }
-
-        $result = $drv->addTranslationFile(
-                PEAR_DATADIR . '/Date_Holidays/lang/Sweden/de_DE.xml', $locale);
+        $langer = PEAR_DATADIR . '/Date_Holidays/lang';
+        $result = $drv->addTranslationFile($langer .  '/Sweden/de_DE.xml', $locale);
 
         $easter = $drv->getHoliday('easter');
-        $this->assertEquals('Ostersonntag', $easter->getTitle(), 'Translated title for \'easter\'');
+        $this->assertEquals('Ostersonntag', 
+                            $easter->getTitle(), 
+                            'Translated title for \'easter\'');
     }
 
-    function testcompiledGermanTranslations() {
+    /**
+     * test compiled German translations of Swedish Holidays.
+     * 
+     * @access public
+     * @return void
+     */
+    function testcompiledGermanTranslations()
+    {
         $locale = 'de_DE';
 
         $drv = Date_Holidays::factory('Sweden', 2005, $locale);
@@ -123,14 +247,19 @@ class Date_Holidays_Driver_Sweden_TestSuite extends PHPUnit_Framework_TestCase {
             die($drv->getMessage());
         }
 
-        $result = $drv->addCompiledTranslationFile(
-                PEAR_DATADIR . '/Date_Holidays/lang/Sweden/de_DE.ser', $locale);
+        $langer = PEAR_DATADIR . '/Date_Holidays/lang';
+        $result = $drv->addCompiledTranslationFile($langer . '/Sweden/de_DE.ser', 
+                                                   $locale);
 
         $easter = $drv->getHoliday('easter');
-        $this->assertEquals('Ostersonntag', $easter->getTitle(), 'Translated title for \'easter\'');
+        $this->assertEquals('Ostersonntag', 
+                            $easter->getTitle(), 
+                            'Translated title for \'easter\'');
 
         $midsummerEve = $drv->getHoliday('midSummerEve');
-        $this->assertEquals('Mittsommerabend', $midsummerEve->getTitle(), 'Translated title for \'midSummerEve\'');
+        $this->assertEquals('Mittsommerabend', 
+                            $midsummerEve->getTitle(), 
+                            'Translated title for \'midSummerEve\'');
     }
 
 }

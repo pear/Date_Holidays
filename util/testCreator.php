@@ -1,4 +1,25 @@
 <?php
+/**
+ * Little script that creates the test-code for all 
+ * holidays the specified driver can calculate
+ *
+ * Usage: php testCreator.php <drivername> <year>
+ * 
+ * Placeholders:
+ * --
+ * [%1] internal-name
+ * [%2] year
+ *
+ * PHP Version 4
+ *
+ * @category Date
+ * @package  Date_Holidays
+ * @author   Carsten Lucke <luckec@tool-garage.de>
+ * @author   Stephan Schmidt <schst@php.net>
+ * @license  http://www.php.net/license/3_01.txt PHP License 3.0.1
+ * @version  CVS: $Id$
+ * @link     http://pear.php.net/package/Date_Holidays
+ */
 
 //
 // Little script that creates the test-code for all 

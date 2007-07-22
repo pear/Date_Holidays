@@ -17,7 +17,7 @@
  *
  * Authors:   Carsten Lucke <luckec@tool-garage.de>
  *
- * CSV file id: $Id$
+ * CVS file id: $Id$
  *
  * @category Date
  * @package  Date_Holidays
