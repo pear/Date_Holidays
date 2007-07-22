@@ -60,7 +60,7 @@ class Date_Holidays_Driver_TestSuite extends PHPUnit_Framework_TestCase
                                                       '/Christian/de_DE.ser',
                                                       'de_DE');
             $this->driver->addCompiledTranslationFile($langer . 
-                                                      'Germany/de_DE.ser', 
+                                                      '/Germany/de_DE.ser', 
                                                       'de_DE');
         }
     }
