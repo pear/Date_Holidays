@@ -12,12 +12,17 @@
  * @link     http://pear.php.net/package/Date_Holidays
  */
 define('PEAR_DATADIR', '@data_dir@');
+if (is_dir(PEAR_DATADIR)) {
+    define('LANG_DIR', PEAR_DATADIR . '/Date_Holidays/lang');
+} else {
+    define('LANG_DIR', dirname(__FILE__) . '/../lang');
+//    chdir(dirname(__FILE__) . '/../');
+}
 if (!defined("PHPUnit_MAIN_METHOD")) {
+    //make cvs testing work
     define("PHPUnit_MAIN_METHOD", "Date_HolidaysTest::main");
 }
 
-//make cvs testing work
-chdir(dirname(__FILE__) . '/../');
 require_once 'Date/Holidays.php';
 
 /**
@@ -55,11 +60,10 @@ class Date_Holidays_Driver_TestSuite extends PHPUnit_Framework_TestCase
 
         } else {
 
-            $langer = PEAR_DATADIR . '/Date_Holidays/lang';
-            $this->driver->addCompiledTranslationFile($langer .
+            $this->driver->addCompiledTranslationFile(LANG_DIR .
                                                       '/Christian/de_DE.ser',
                                                       'de_DE');
-            $this->driver->addCompiledTranslationFile($langer . 
+            $this->driver->addCompiledTranslationFile(LANG_DIR .
                                                       '/Germany/de_DE.ser', 
                                                       'de_DE');
         }
@@ -73,12 +77,11 @@ class Date_Holidays_Driver_TestSuite extends PHPUnit_Framework_TestCase
      */
     function testAddCompiledTranslationFile()
     {
-        $langer = PEAR_DATADIR . '/Date_Holidays/lang';
-        $result = $this->driver->addCompiledTranslationFile($langer. 
+        $result = $this->driver->addCompiledTranslationFile(LANG_DIR .
                                                          '/Christian/de_DE.ser', 
                                                          'de_DE');
         $this->assertTrue($result);
-        $result = $this->driver->addCompiledTranslationFile($langer.
+        $result = $this->driver->addCompiledTranslationFile(LANG_DIR .
                                                          '/Germany/de_DE.ser', 
                                                          'de_DE');
         $this->assertTrue($result);
@@ -91,16 +94,9 @@ class Date_Holidays_Driver_TestSuite extends PHPUnit_Framework_TestCase
      */
     function testAddTranslationFile()
     {               
-        $langer = PEAR_DATADIR . '/Date_Holidays/lang/';
-        $result = $this->driver->addTranslationFile($langer . 'Germany/de_DE.xml', 
+        $result = $this->driver->addTranslationFile(LANG_DIR . '/Germany/de_DE.xml',
                                                     'de_DE');
         $this->assertTrue($result);
-        /*
-           $result = $this->driver->addTranslationFile(
-           PEAR_DATADIR . '/Date_Holidays/lang/Germany/de_DE.ini', 'de_DE');
-           $this->assertTrue(Date_Holidays::isError($result));
-           Date_Holidays::getErrors(true);
-         */
     }
 
     /**
@@ -159,8 +155,8 @@ class Date_Holidays_Driver_TestSuite extends PHPUnit_Framework_TestCase
 
         $this->assertEquals('ascensionDay', $holiday->getInternalName());
 
-        $result = $this->driver->addCompiledTranslationFile(PEAR_DATADIR . 
-                                        '/Date_Holidays/lang/Germany/de_DE.ser', 
+        $result = $this->driver->addCompiledTranslationFile(LANG_DIR . 
+                                                            '/Germany/de_DE.ser', 
                                                             'de_DE');
         $this->assertTrue($result, 'Adding compiled translation file');
         $holiday = $this->driver->getHoliday('ascensionDay', 'de_DE');
@@ -219,8 +215,8 @@ class Date_Holidays_Driver_TestSuite extends PHPUnit_Framework_TestCase
         $holiday = $this->driver->getHolidayForDate('2005-05-05');
         $this->assertFalse(Date_Holidays::isError($holiday));
 
-        $result  = $this->driver->addCompiledTranslationFile(PEAR_DATADIR . 
-                                        '/Date_Holidays/lang/Germany/de_DE.ser',
+        $result  = $this->driver->addCompiledTranslationFile(LANG_DIR .
+                                                             '/Germany/de_DE.ser',
                                                              'de_DE');
         $holiday = $this->driver->getHolidayForDate('2005-05-05', 'de_DE');
         $this->assertEquals('Christi Himmelfahrt', $holiday->getTitle());

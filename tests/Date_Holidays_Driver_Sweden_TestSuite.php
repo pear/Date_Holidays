@@ -16,7 +16,14 @@ if (!defined("PHPUnit_MAIN_METHOD")) {
 }
 
 //make cvs testing work
-chdir(dirname(__FILE__) . '/../');
+//chdir(dirname(__FILE__) . '/../');
+define('PEAR_DATADIR', '@data_dir@');
+if (is_dir(PEAR_DATADIR)) {
+    define('LANG_DIR', PEAR_DATADIR . '/Date_Holidays/lang');
+} else {
+    define('LANG_DIR', dirname(__FILE__) . '/../lang');
+ //   chdir(dirname(__FILE__) . '/../');
+}
 require_once 'Date/Holidays.php';
 
 /**
@@ -221,8 +228,7 @@ class Date_Holidays_Driver_Sweden_TestSuite extends PHPUnit_Framework_TestCase
             print_r($drv);
             die($drv->getMessage());
         }
-        $langer = PEAR_DATADIR . '/Date_Holidays/lang';
-        $result = $drv->addTranslationFile($langer .  '/Sweden/de_DE.xml', $locale);
+        $result = $drv->addTranslationFile(LANG_DIR . '/Sweden/de_DE.xml', $locale);
 
         $easter = $drv->getHoliday('easter');
         $this->assertEquals('Ostersonntag', 
@@ -247,8 +253,7 @@ class Date_Holidays_Driver_Sweden_TestSuite extends PHPUnit_Framework_TestCase
             die($drv->getMessage());
         }
 
-        $langer = PEAR_DATADIR . '/Date_Holidays/lang';
-        $result = $drv->addCompiledTranslationFile($langer . '/Sweden/de_DE.ser', 
+        $result = $drv->addCompiledTranslationFile(LANG_DIR . '/Sweden/de_DE.ser', 
                                                    $locale);
 
         $easter = $drv->getHoliday('easter');
