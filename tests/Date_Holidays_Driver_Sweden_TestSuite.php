@@ -16,13 +16,13 @@ if (!defined("PHPUnit_MAIN_METHOD")) {
 }
 
 //make cvs testing work
-//chdir(dirname(__FILE__) . '/../');
-define('PEAR_DATADIR', '@data_dir@');
-if (is_dir(PEAR_DATADIR)) {
-    define('LANG_DIR', PEAR_DATADIR . '/Date_Holidays/lang');
-} else {
-    define('LANG_DIR', dirname(__FILE__) . '/../lang');
- //   chdir(dirname(__FILE__) . '/../');
+if (!defined(PEAR_DATADIR)) {
+    define('PEAR_DATADIR', '@data_dir@');
+    if (is_dir(PEAR_DATADIR)) {
+        define('LANG_DIR', PEAR_DATADIR . '/Date_Holidays/lang');
+    } else {
+        define('LANG_DIR', dirname(__FILE__) . '/../lang');
+    }
 }
 require_once 'Date/Holidays.php';
 
