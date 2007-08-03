@@ -404,20 +404,16 @@ class Date_Holidays_Driver_Christian extends Date_Holidays_Driver
         $i = null;
         // weekday of the Full Moon (0=Sunday,...)
         $j = null; 
-        $x = 0; //temporary 
-        $y = 0; //temporary 
-        $z = 0; //temporary 
         
         if ($year > 1582) {
             $golden  = $year % 19;
             $century = floor($year / 100);
-            $leap    = floor($century / 4);
-            $y       = floor((8 * $century + 13) / 25);
-            $epact   = ($century - $leap - $y  + 19 * $golden + 15) % 30;
-            $x       = floor($epact / 28);
-            $z       = floor((21 - $golden) / 11);
-            $i       = $epact - $x * (1 - $x * floor(29 / ($epact + 1)) * $z);
-            $j       = ($year + floor($year / 3) + $i + 2 - $century + $leap);
+            $l       = floor($century / 4);
+            $epact   = ($century - $l - floor((8 * $century + 13) / 25)
+                        + 19 * $golden + 15) % 30;
+            $i       = $epact - floor($epact / 28) * (1 - floor($epact / 28) * 
+                       floor(29 / ($epact + 1)) * floor((21 - $golden) / 11));
+            $j       = ($year + floor($year / 4) + $i + 2 - $century + $l);
             $j       = $j % 7;
         } else {
             $golden = $year % 19;
