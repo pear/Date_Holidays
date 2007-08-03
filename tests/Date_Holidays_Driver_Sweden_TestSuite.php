@@ -3,7 +3,7 @@
  * Test class for running unit tests related to the driver for holidays in Sweden
  *
  * PHP Versions 4 and 5
- * 
+ *
  * @category Date
  * @package  Date_Holidays
  * @author   Carsten Lucke <luckec@tool-garage.de>
@@ -16,7 +16,7 @@ if (!defined("PHPUnit_MAIN_METHOD")) {
 }
 
 //make cvs testing work
-if (!defined(PEAR_DATADIR)) {
+if (!defined('PEAR_DATADIR')) {
     define('PEAR_DATADIR', '@data_dir@');
     if (is_dir(PEAR_DATADIR)) {
         define('LANG_DIR', PEAR_DATADIR . '/Date_Holidays/lang');
@@ -28,7 +28,7 @@ require_once 'Date/Holidays.php';
 
 /**
  * Test class for running unit tests related to the driver for holidays in Sweden
- * 
+ *
  * @uses PHPUnit_Framework_TestCase
  * @category Date
  * @package  Date_Holidays
@@ -143,8 +143,8 @@ class Date_Holidays_Driver_Sweden_TestSuite extends PHPUnit_Framework_TestCase
                                          'year' => 2006));
 
     /**
-     * setup 
-     * 
+     * setup
+     *
      * @access public
      * @return void
      */
@@ -153,8 +153,8 @@ class Date_Holidays_Driver_Sweden_TestSuite extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * test Holidays for 2005 
-     * 
+     * test Holidays for 2005
+     *
      * @access public
      * @return void
      */
@@ -180,11 +180,11 @@ class Date_Holidays_Driver_Sweden_TestSuite extends PHPUnit_Framework_TestCase
             $this->assertEquals($dateInfo['month'], $date->getMonth(), $name);
             $this->assertEquals($dateInfo['year'], $date->getYear(), $name);
         }
-    } 
+    }
 
     /**
-     * test Holidays for 2006 
-     * 
+     * test Holidays for 2006
+     *
      * @access public
      * @return void
      */
@@ -214,7 +214,7 @@ class Date_Holidays_Driver_Sweden_TestSuite extends PHPUnit_Framework_TestCase
 
     /**
      * test German translations of Swedish Holidays.
-     * 
+     *
      * @access public
      * @return void
      */
@@ -231,14 +231,14 @@ class Date_Holidays_Driver_Sweden_TestSuite extends PHPUnit_Framework_TestCase
         $result = $drv->addTranslationFile(LANG_DIR . '/Sweden/de_DE.xml', $locale);
 
         $easter = $drv->getHoliday('easter');
-        $this->assertEquals('Ostersonntag', 
-                            $easter->getTitle(), 
+        $this->assertEquals('Ostersonntag',
+                            $easter->getTitle(),
                             'Translated title for \'easter\'');
     }
 
     /**
      * test compiled German translations of Swedish Holidays.
-     * 
+     *
      * @access public
      * @return void
      */
@@ -253,17 +253,17 @@ class Date_Holidays_Driver_Sweden_TestSuite extends PHPUnit_Framework_TestCase
             die($drv->getMessage());
         }
 
-        $result = $drv->addCompiledTranslationFile(LANG_DIR . '/Sweden/de_DE.ser', 
+        $result = $drv->addCompiledTranslationFile(LANG_DIR . '/Sweden/de_DE.ser',
                                                    $locale);
 
         $easter = $drv->getHoliday('easter');
-        $this->assertEquals('Ostersonntag', 
-                            $easter->getTitle(), 
+        $this->assertEquals('Ostersonntag',
+                            $easter->getTitle(),
                             'Translated title for \'easter\'');
 
         $midsummerEve = $drv->getHoliday('midSummerEve');
-        $this->assertEquals('Mittsommerabend', 
-                            $midsummerEve->getTitle(), 
+        $this->assertEquals('Mittsommerabend',
+                            $midsummerEve->getTitle(),
                             'Translated title for \'midSummerEve\'');
     }
 
