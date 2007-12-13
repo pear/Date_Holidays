@@ -46,7 +46,7 @@ class Date_Holidays_Driver_Germany extends Date_Holidays_Driver_Christian
     /**
      * Constructor
      *
-     * Use the Date_Holidays::factory() method to construct an object of a 
+     * Use the Date_Holidays::factory() method to construct an object of a
      * certain driver
      *
      * @access   protected
@@ -54,7 +54,7 @@ class Date_Holidays_Driver_Germany extends Date_Holidays_Driver_Christian
     function Date_Holidays_Driver_Germany()
     {
     }
-    
+
     /**
      * Build the internal arrays that contain data about the calculated holidays
      *
@@ -70,54 +70,54 @@ class Date_Holidays_Driver_Germany extends Date_Holidays_Driver_Christian
         $ashWednesdayDate = $this->getHolidayDate('ashWednesday');
         $ascensionDayDate = $this->getHolidayDate('ascensionDay');
         $advent1Date      = $this->getHolidayDate('advent1');
-        
+
         /**
          * New Year's Day
          */
-        $this->_addHoliday('newYearsDay', 
+        $this->_addHoliday('newYearsDay',
                            $this->_year . '-01-01',
                            'New Year\'s Day');
-        
+
         /**
          * Valentine's Day
          */
-        $this->_addHoliday('valentinesDay', 
+        $this->_addHoliday('valentinesDay',
                            $this->_year . '-02-14',
                            'Valentine\'s Day');
-        
+
         /**
          * "Weiberfastnacht"
          */
         $wFasnetDate = new Date($ashWednesdayDate);
         $wFasnetDate->subtractSpan(new Date_Span('6, 0, 0, 0'));
         $this->_addHoliday('womenFasnet', $wFasnetDate, 'Carnival');
-        
+
         /**
          * Carnival / "Fastnacht"
          */
         $fasnetDate = new Date($easterDate);
         $fasnetDate->subtractSpan(new Date_Span('47, 0, 0, 0'));
         $this->_addHoliday('fasnet', $fasnetDate, 'Carnival');
-        
+
         /**
          * Rose Monday
          */
         $roseMondayDate = new Date($easterDate);
         $roseMondayDate->subtractSpan(new Date_Span('48, 0, 0, 0'));
         $this->_addHoliday('roseMonday', $roseMondayDate, 'Rose Monday');
-        
+
         /**
          * International Women's Day
          */
-        $this->_addHoliday('womensDay', 
+        $this->_addHoliday('womensDay',
                            $this->_year . '-03-08',
                            'International Women\'s Day');
-        
+
         /**
          * April 1st
          */
         $this->_addHoliday('april1st', $this->_year . '-04-01', 'April 1st');
-        
+
         /**
          * Girls' Day (fourth Thursday in April)
          */
@@ -140,35 +140,35 @@ class Date_Holidays_Driver_Germany extends Date_Holidays_Driver_Christian
         }
         $girlsDayDate->addSpan($span);
         $this->_addHoliday('girlsDay', $girlsDayDate, 'Girls\' Day');
-        
+
         /**
          * International Earth' Day
          */
-        $this->_addHoliday('earthDay', 
+        $this->_addHoliday('earthDay',
                            $this->_year . '-04-22',
                            'International Earth\' Day');
-        
+
         /**
          * German Beer's Day
          */
-        $this->_addHoliday('beersDay', 
+        $this->_addHoliday('beersDay',
                            $this->_year . '-04-23',
                            'German Beer\'s Day');
-        
+
         /**
          * Walpurgis Night
          */
-        $this->_addHoliday('walpurgisNight', 
+        $this->_addHoliday('walpurgisNight',
                            $this->_year . '-04-30',
                            'Walpurgis Night');
-        
+
         /**
          * Day of Work
          */
-        $this->_addHoliday('dayOfWork', 
+        $this->_addHoliday('dayOfWork',
                            $this->_year . '-05-01',
                            'Day of Work');
-        
+
         /**
          * World's Laughing Day
          */
@@ -176,50 +176,50 @@ class Date_Holidays_Driver_Germany extends Date_Holidays_Driver_Christian
         while ($laughingDayDate->getDayOfWeek() != 0) {
             $laughingDayDate = $laughingDayDate->getNextDay();
         }
-        $this->_addHoliday('laughingDay', 
+        $this->_addHoliday('laughingDay',
                            $laughingDayDate,
                            'World\'s Laughing Day');
-        
+
         /**
          * Europe Day
          */
-        $this->_addHoliday('europeDay', 
+        $this->_addHoliday('europeDay',
                            $this->_year . '-05-05',
                            'Europe Day');
-        
+
         /**
          * Mothers' Day
          */
         $mothersDay = new Date($laughingDayDate);
         $mothersDay->addSpan(new Date_Span('7, 0, 0, 0'));
         $this->_addHoliday('mothersDay', $mothersDay, 'Mothers\' Day');
-        
+
         /**
          * End of World War 2 in Germany
          */
-        $this->_addHoliday('endOfWWar2', 
+        $this->_addHoliday('endOfWWar2',
                            $this->_year . '-05-08',
                            'End of World War 2 in Germany');
-        
+
         /**
          * Fathers' Day
          */
         $this->_addHoliday('fathersDay', $ascensionDayDate, 'Fathers\' Day');
-        
+
         /**
          * Amnesty International Day
          */
-        $this->_addHoliday('aiDay', 
+        $this->_addHoliday('aiDay',
                            $this->_year . '-05-28',
                            'Amnesty International Day');
-        
+
         /**
          * International Children' Day
          */
-        $this->_addHoliday('intChildrenDay', 
+        $this->_addHoliday('intChildrenDay',
                            $this->_year . '-06-01',
                            'International Children\'s Day');
-        
+
         /**
          * Day of organ donation
          */
@@ -227,52 +227,52 @@ class Date_Holidays_Driver_Germany extends Date_Holidays_Driver_Christian
         while ($organDonationDate->getDayOfWeek() != 6) {
             $organDonationDate = $organDonationDate->getNextDay();
         }
-        $this->_addHoliday('organDonationDay', 
+        $this->_addHoliday('organDonationDay',
                            $organDonationDate,
                            'Day of organ donation');
-        
+
         /**
          * Dormouse' Day
          */
-        $this->_addHoliday('dormouseDay', 
+        $this->_addHoliday('dormouseDay',
                            $this->_year . '-06-27',
                            'Dormouse\' Day');
-        
+
         /**
          * Christopher Street Day
          */
-        $this->_addHoliday('christopherStreetDay', 
+        $this->_addHoliday('christopherStreetDay',
                            $this->_year . '-06-27',
                            'Christopher Street Day');
-        
+
         /**
          * Hiroshima Commemoration Day
          */
-        $this->_addHoliday('hiroshimaCommemorationDay', 
+        $this->_addHoliday('hiroshimaCommemorationDay',
                            $this->_year . '-08-06',
                            'Hiroshima Commemoration Day');
-        
+
         /**
          * Augsburg peace celebration
          */
-        $this->_addHoliday('augsburgPeaceCelebration', 
+        $this->_addHoliday('augsburgPeaceCelebration',
                            $this->_year . '-08-08',
                            'Augsburg peace celebration');
-        
+
         /**
          * International left-handeds' Day
          */
-        $this->_addHoliday('leftHandedDay', 
+        $this->_addHoliday('leftHandedDay',
                            $this->_year . '-08-13',
                            'International left-handeds\' Day');
-        
+
         /**
          * Anti-War Day
          */
-        $this->_addHoliday('antiWarDay', 
+        $this->_addHoliday('antiWarDay',
                            $this->_year . '-09-01',
                            'Anti-War Day');
-        
+
         /**
          * Day of German Language
          */
@@ -281,46 +281,46 @@ class Date_Holidays_Driver_Germany extends Date_Holidays_Driver_Christian
             $germanLangDayDate = $germanLangDayDate->getNextDay();
         }
         $germanLangDayDate->addSpan(new Date_Span('7, 0, 0, 0'));
-        $this->_addHoliday('germanLanguageDay', 
+        $this->_addHoliday('germanLanguageDay',
                            $germanLangDayDate,
                            'Day of German Language');
-        
+
         /**
          * International diabetes day
          */
-        $this->_addHoliday('diabetesDay', 
+        $this->_addHoliday('diabetesDay',
                            $this->_year . '-11-14',
                            'International diabetes day');
-        
+
         /**
          * German Unification Day
          */
-        $this->_addHoliday('germanUnificationDay', 
+        $this->_addHoliday('germanUnificationDay',
                            $this->_year . '-10-03',
                            'German Unification Day');
-        
+
         /**
          * Libraries' Day
          */
-        $this->_addHoliday('librariesDay', 
+        $this->_addHoliday('librariesDay',
                            $this->_year . '-10-24',
                            'Libraries\' Day');
-        
+
         /**
          * World's Savings Day
          */
-        $this->_addHoliday('savingsDay', 
+        $this->_addHoliday('savingsDay',
                            $this->_year . '-10-30',
                            'World\'s Savings Day');
-        
+
         /**
          * Halloween
          */
         $this->_addHoliday('halloween', $this->_year . '-10-31', 'Halloween');
-        
+
         /**
          * Stamp's Day
-         * 
+         *
          * year <= 1948: 7th of January
          * year > 1948: last Sunday in October
          */
@@ -337,47 +337,48 @@ class Date_Holidays_Driver_Germany extends Date_Holidays_Driver_Christian
             }
         }
         $this->_addHoliday('stampsDay', $stampsDayDate, 'Stamp\'s Day');
-        
+
         /**
          * International Men's Day
          */
-        $this->_addHoliday('mensDay', 
+        $this->_addHoliday('mensDay',
                            $this->_year . '-11-03',
                            'International Men\'s Day');
-        
+
         /**
          * Fall of the Wall of Berlin
          */
-        $this->_addHoliday('wallOfBerlin', 
+        $this->_addHoliday('wallOfBerlin',
                            $this->_year . '-11-09',
                            'Fall of the Wall of Berlin 1989');
-        
+
         /**
          * Beginning of the Carnival
          */
-        $this->_addHoliday('carnivalBeginning', 
+        $this->_addHoliday('carnivalBeginning',
                            $this->_year . '-11-11',
                            'Beginning of the Carnival');
-        
+
         /**
          * People's Day of Mourning
          */
-        $dayOfMourning = $advent1Date;
+        $dayOfMourning = new Date;
+        $dayOfMourning->copy($advent1Date);
         $dayOfMourning->subtractSpan(new Date_Span('14, 0, 0, 0'));
-        $this->_addHoliday('dayOfMourning', 
+        $this->_addHoliday('dayOfMourning',
                            $dayOfMourning,
                            'People\'s Day of Mourning');
-        
+
         if (Date_Holidays::errorsOccurred()) {
             return Date_Holidays::getErrorStack();
         }
         return true;
     }
-    
+
     /**
-     * Method that returns an array containing the ISO3166 codes that may possibly 
+     * Method that returns an array containing the ISO3166 codes that may possibly
      * identify a driver.
-     * 
+     *
      * @static
      * @access public
      * @return array possible ISO3166 codes
