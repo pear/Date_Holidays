@@ -30,7 +30,7 @@
 /**
  * DriverClass and associated defines.
  *
- * @abstract 
+ * @abstract
  * @category Date
  * @package  Date_Holidays
  * @author   Carsten Lucke <luckec@tool-garage.de>
@@ -132,7 +132,7 @@ class Date_Holidays_Driver
      * @var      string
      */
     var $_locale;
-    
+
     /**
      * locales for which translations of holiday titles are available
      *
@@ -140,7 +140,7 @@ class Date_Holidays_Driver
      * @var      array
      */
     var $_availableLocales = array('C');
-    
+
     /**
      * object's current year
      *
@@ -148,7 +148,7 @@ class Date_Holidays_Driver
      * @var      int
      */
     var $_year;
-    
+
     /**
      * internal names for the available holidays
      *
@@ -156,7 +156,7 @@ class Date_Holidays_Driver
      * @var      array
      */
     var $_internalNames = array();
-    
+
     /**
      * dates of the available holidays
      *
@@ -164,7 +164,7 @@ class Date_Holidays_Driver
      * @var      array
      */
     var $_dates = array();
-    
+
     /**
      * array of the available holidays indexed by date
      *
@@ -180,11 +180,11 @@ class Date_Holidays_Driver
      * @var      array
      */
     var $_titles = array();
-    
+
     /**
-     * Array of holiday-properties indexed by internal-names and 
+     * Array of holiday-properties indexed by internal-names and
      * furthermore by locales.
-     * 
+     *
      * <code>
      * $_holidayProperties = array(
      *       'internalName1' =>  array(
@@ -201,11 +201,11 @@ class Date_Holidays_Driver
      * </code>
      */
     var $_holidayProperties = array();
-    
+
     /**
      * Constructor
      *
-     * Use the Date_Holidays::factory() method to construct an object of a 
+     * Use the Date_Holidays::factory() method to construct an object of a
      * certain driver
      *
      * @access   protected
@@ -213,11 +213,11 @@ class Date_Holidays_Driver
     function Date_Holidays_Driver()
     {
     }
-    
+
     /**
-     * Method that returns an array containing the ISO3166 codes that may possibly 
+     * Method that returns an array containing the ISO3166 codes that may possibly
      * identify a driver.
-     * 
+     *
      * @static
      * @access public
      * @return array possible ISO3166 codes
@@ -226,14 +226,14 @@ class Date_Holidays_Driver
     {
         return array();
     }
-    
+
     /**
      * Sets the driver's current year
      *
      * Calling this method forces the object to rebuild the holidays
      *
      * @param int $year year
-     * 
+     *
      * @access   public
      * @return   boolean true on success, otherwise a PEAR_ErrorStack object
      * @throws   object PEAR_ErrorStack
@@ -244,7 +244,7 @@ class Date_Holidays_Driver
         $this->_year = $year;
         return $this->_buildHolidays();
     }
-    
+
     /**
      * Returns the driver's current year
      *
@@ -255,7 +255,7 @@ class Date_Holidays_Driver
     {
         return $this->_year;
     }
-    
+
     /**
      * Build the internal arrays that contain data about the calculated holidays
      *
@@ -267,7 +267,7 @@ class Date_Holidays_Driver
     function _buildHolidays()
     {
     }
-    
+
     /**
      * Add a driver component
      *
@@ -280,7 +280,7 @@ class Date_Holidays_Driver
     function addDriver($driver)
     {
     }
-    
+
     /**
      * Remove a driver component
      *
@@ -294,7 +294,7 @@ class Date_Holidays_Driver
     function removeDriver($driver)
     {
     }
-    
+
     /**
      * Returns the internal names of holidays that were calculated
      *
@@ -305,16 +305,16 @@ class Date_Holidays_Driver
     {
         return $this->_internalNames;
     }
-    
+
     /**
      * Returns localized titles of all holidays or those accepted by the filter
      *
      * @param Date_Holidays_Filter $filter filter-object (or an array !DEPRECATED!)
-     * @param string               $locale locale setting that shall be used 
+     * @param string               $locale locale setting that shall be used
      *                                     by this method
      *
      * @access   public
-     * @return   array   $filter array with localized holiday titles on success, 
+     * @return   array   $filter array with localized holiday titles on success,
      *                           otherwise a PEAR_Error object
      * @throws   object PEAR_Error   DATE_HOLIDAYS_INVALID_INTERNAL_NAME
      * @uses     getHolidayTitle()
@@ -326,9 +326,9 @@ class Date_Holidays_Driver
         } elseif (is_array($filter)) {
             $filter = new Date_Holidays_Filter_Whitelist($filter);
         }
-        
+
         $titles =   array();
-        
+
         foreach ($this->_internalNames as $internalName) {
             if ($filter->accept($internalName)) {
                 $title = $this->getHolidayTitle($internalName, $locale);
@@ -338,10 +338,10 @@ class Date_Holidays_Driver
                 $titles[$internalName] = $title;
             }
         }
-        
+
         return $titles;
     }
-    
+
     /**
      * Returns localized title for a holiday
      *
@@ -357,24 +357,24 @@ class Date_Holidays_Driver
     {
         if (! in_array($internalName, $this->_internalNames)) {
             $msg = 'Invalid internal name: ' . $internalName;
-            return Date_Holidays::raiseError(DATE_HOLIDAYS_INVALID_INTERNAL_NAME, 
+            return Date_Holidays::raiseError(DATE_HOLIDAYS_INVALID_INTERNAL_NAME,
                                              $msg);
-                                             
+
         }
-        
+
         if (is_null($locale)) {
             $locale = $this->_findBestLocale($this->_locale);
         } else {
             $locale = $this->_findBestLocale($locale);
         }
-        
+
         if (! isset($this->_titles[$locale][$internalName])) {
             if (Date_Holidays::staticGetProperty('DIE_ON_MISSING_LOCALE')) {
                 $err = DATE_HOLIDAYS_TITLE_UNAVAILABLE;
-                $msg = 'The internal name (' . $internalName . ') ' . 
+                $msg = 'The internal name (' . $internalName . ') ' .
                        'for the holiday was correct but no ' .
                        'localized title could be found';
-                return Date_Holidays::raiseError($err, $msg); 
+                return Date_Holidays::raiseError($err, $msg);
             }
         }
 
@@ -384,17 +384,17 @@ class Date_Holidays_Driver
             return $this->_titles['C'][$internalName];
         }
     }
-    
-    
+
+
     /**
-     * Returns the localized properties of a holiday. If no properties have 
+     * Returns the localized properties of a holiday. If no properties have
      * been stored an empty array will be returned.
      *
      * @param string $internalName internal name for holiday
      * @param string $locale       locale setting that shall be used by this method
      *
      * @access   public
-     * @return   array   array of properties on success, otherwise 
+     * @return   array   array of properties on success, otherwise
      *                   a PEAR_Error object
      * @throws   object PEAR_Error   DATE_HOLIDAYS_INVALID_INTERNAL_NAME
      */
@@ -402,25 +402,25 @@ class Date_Holidays_Driver
     {
         if (! in_array($internalName, $this->_internalNames)) {
             $msg = 'Invalid internal name: ' . $internalName;
-            return Date_Holidays::raiseError(DATE_HOLIDAYS_INVALID_INTERNAL_NAME, 
+            return Date_Holidays::raiseError(DATE_HOLIDAYS_INVALID_INTERNAL_NAME,
                                              $msg);
         }
-        
+
         if (is_null($locale)) {
             $locale =   $this->_findBestLocale($this->_locale);
         } else {
             $locale =   $this->_findBestLocale($locale);
         }
 
-        
+
         $properties = array();
         if (isset($this->_holidayProperties[$internalName][$locale])) {
             $properties = $this->_holidayProperties[$internalName][$locale];
         }
         return $properties;
     }
-    
-    
+
+
     /**
      * Returns all holidays that the driver knows.
      *
@@ -436,14 +436,14 @@ class Date_Holidays_Driver
      *   )
      * </pre>
      *
-     * @param Date_Holidays_Filter $filter filter-object 
+     * @param Date_Holidays_Filter $filter filter-object
      *                                     (or an array !DEPRECATED!)
-     * @param string               $locale locale setting that shall be used 
+     * @param string               $locale locale setting that shall be used
      *                                      by this method
      *
      * @access   public
-     * @return   array   numeric array containing objects of 
-     *                   Date_Holidays_Holiday on success, otherwise a 
+     * @return   array   numeric array containing objects of
+     *                   Date_Holidays_Holiday on success, otherwise a
      *                   PEAR_Error object
      * @throws   object PEAR_Error   DATE_HOLIDAYS_INVALID_INTERNAL_NAME
      * @see      getHoliday()
@@ -455,25 +455,25 @@ class Date_Holidays_Driver
         } elseif (is_array($filter)) {
             $filter = new Date_Holidays_Filter_Whitelist($filter);
         }
-        
+
         if (is_null($locale)) {
             $locale = $this->_locale;
         }
-        
+
         $holidays = array();
-        
+
         foreach ($this->_internalNames as $internalName) {
             if ($filter->accept($internalName)) {
-                // no need to check for valid internal-name, will be 
+                // no need to check for valid internal-name, will be
                 // done by #getHoliday()
-                $holidays[$internalName] = $this->getHoliday($internalName, 
+                $holidays[$internalName] = $this->getHoliday($internalName,
                                                              $locale);
             }
         }
-        
+
         return $holidays;
     }
-    
+
     /**
      * Returns the specified holiday
      *
@@ -486,12 +486,12 @@ class Date_Holidays_Driver
      * </pre>
      *
      * @param string $internalName internal name of the holiday
-     * @param string $locale       locale setting that shall be used 
+     * @param string $locale       locale setting that shall be used
      *                              by this method
      *
      * @access   public
-     * @return   object Date_Holidays_Holiday holiday's information on 
-     *                                         success, otherwise a PEAR_Error 
+     * @return   object Date_Holidays_Holiday holiday's information on
+     *                                         success, otherwise a PEAR_Error
      *                                         object
      * @throws   object PEAR_Error       DATE_HOLIDAYS_INVALID_INTERNAL_NAME
      * @uses     getHolidayTitle()
@@ -500,13 +500,13 @@ class Date_Holidays_Driver
     function getHoliday($internalName, $locale = null)
     {
         if (! in_array($internalName, $this->_internalNames)) {
-            return Date_Holidays::raiseError(DATE_HOLIDAYS_INVALID_INTERNAL_NAME, 
+            return Date_Holidays::raiseError(DATE_HOLIDAYS_INVALID_INTERNAL_NAME,
                 'Invalid internal name: ' . $internalName);
         }
         if (is_null($locale)) {
             $locale = $this->_locale;
         }
-        
+
         $title = $this->getHolidayTitle($internalName, $locale);
         if (Date_Holidays::isError($title)) {
             return $title;
@@ -519,14 +519,14 @@ class Date_Holidays_Driver
         if (Date_Holidays::isError($properties)) {
             return $properties;
         }
-        
-        $holiday = new Date_Holidays_Holiday($internalName, 
-                                             $title, 
-                                             $date, 
+
+        $holiday = new Date_Holidays_Holiday($internalName,
+                                             $title,
+                                             $date,
                                              $properties);
         return $holiday;
     }
-    
+
     /**
      * Determines whether a date represents a holiday or not
      *
@@ -547,15 +547,21 @@ class Date_Holidays_Driver
             }
         }
 
+        //rebuild internal array of holidays if required.
+        $compare_year = $date->getYear();
+        if ($this->getYear() !== $compare_year) {
+            $this->setYear($compare_year);
+        }
+
         if (is_null($filter)) {
             $filter = new Date_Holidays_Filter_Blacklist(array());
         } elseif (is_array($filter)) {
             $filter = new Date_Holidays_Filter_Whitelist($filter);
         }
-        
+
         foreach (array_keys($this->_dates) as $internalName) {
             if ($filter->accept($internalName)) {
-                if (Date_Holidays_Driver::dateSloppyCompare($date, 
+                if (Date_Holidays_Driver::dateSloppyCompare($date,
                                           $this->_dates[$internalName]) != 0) {
                     continue;
                 }
@@ -564,27 +570,27 @@ class Date_Holidays_Driver
         }
         return false;
     }
-    
+
     /**
-     * Returns a <code>Date_Holidays_Holiday</code> object, if any was found, 
+     * Returns a <code>Date_Holidays_Holiday</code> object, if any was found,
      * matching the specified date.
      *
      * Normally the method will return the object of the first holiday matching
-     * the date. If you want the method to continue searching holidays for the 
-     * specified date, set the 4th param to true. 
+     * the date. If you want the method to continue searching holidays for the
+     * specified date, set the 4th param to true.
      *
-     * If multiple holidays match your date, the return value will be an array 
+     * If multiple holidays match your date, the return value will be an array
      * containing a number of <code>Date_Holidays_Holiday</code> items.
      *
      * @param mixed   $date     date (timestamp | string | PEAR::Date object)
      * @param string  $locale   locale setting that shall be used by this method
-     * @param boolean $multiple if true, continue searching holidays for 
-     *                           specified date 
+     * @param boolean $multiple if true, continue searching holidays for
+     *                           specified date
      *
      * @access   public
-     * @return   object  object of type Date_Holidays_Holiday on success 
-     *                   (numeric array of those on multiple search), 
-     *                   if no holiday was found, matching this date, 
+     * @return   object  object of type Date_Holidays_Holiday on success
+     *                   (numeric array of those on multiple search),
+     *                   if no holiday was found, matching this date,
      *                   null is returned
      * @throws   object PEAR_Error   DATE_HOLIDAYS_INVALID_DATE_FORMAT
      * @throws   object PEAR_Error   DATE_HOLIDAYS_INVALID_DATE
@@ -600,11 +606,11 @@ class Date_Holidays_Driver
                 return $date;
             }
         }
-        $isodate = mktime(0, 
-                          0, 
-                          0, 
-                          $date->getMonth(), 
-                          $date->getDay(), 
+        $isodate = mktime(0,
+                          0,
+                          0,
+                          $date->getMonth(),
+                          $date->getDay(),
                           $date->getYear());
         unset($date);
         if (is_null($locale)) {
@@ -630,24 +636,24 @@ class Date_Holidays_Driver
         }
         return null;
     }
-    
+
     /**
-     * Returns an array containing a number of 
+     * Returns an array containing a number of
      * <code>Date_Holidays_Holiday</code> items.
-     * 
+     *
      * If no items have been found the returned array will be empty.
-     * 
+     *
      * @param mixed                $start  date: timestamp, string or PEAR::Date
      * @param mixed                $end    date: timestamp, string or PEAR::Date
-     * @param Date_Holidays_Filter $filter filter-object (or 
+     * @param Date_Holidays_Filter $filter filter-object (or
      *                                      an array !DEPRECATED!)
-     * @param string               $locale locale setting that shall be used 
+     * @param string               $locale locale setting that shall be used
      *                                      by this method
      *
      * @access   public
      * @throws   object PEAR_Error   DATE_HOLIDAYS_INVALID_DATE_FORMAT
      * @throws   object PEAR_Error   DATE_HOLIDAYS_INVALID_DATE
-     * @return   array   an array containing a number 
+     * @return   array   an array containing a number
      *                   of <code>Date_Holidays_Holiday</code> items
      */
     function getHolidaysForDatespan($start, $end, $filter = null, $locale = null)
@@ -657,7 +663,7 @@ class Date_Holidays_Driver
         } elseif (is_array($filter)) {
             $filter = new Date_Holidays_Filter_Whitelist($filter);
         }
-        
+
         if (!is_a($start, 'Date')) {
             $start = $this->_convertDate($start);
             if (Date_Holidays::isError($start)) {
@@ -670,33 +676,33 @@ class Date_Holidays_Driver
                 return $end;
             }
         }
-        
-        $isodateStart = mktime(0, 
-                               0, 
-                               0, 
-                               $start->getMonth(), 
-                               $start->getDay(), 
+
+        $isodateStart = mktime(0,
+                               0,
+                               0,
+                               $start->getMonth(),
+                               $start->getDay(),
                                $start->getYear());
         unset($start);
-        $isodateEnd = mktime(0, 
-                             0, 
-                             0, 
-                             $end->getMonth(), 
-                             $end->getDay(), 
+        $isodateEnd = mktime(0,
+                             0,
+                             0,
+                             $end->getMonth(),
+                             $end->getDay(),
                              $end->getYear());
         unset($end);
         if (is_null($locale)) {
             $locale = $this->_locale;
         }
-    
+
         $internalNames = array();
-        
+
         foreach ($this->_holidays as $isoDateTS => $arHolidays) {
             if ($isoDateTS >= $isodateStart && $isoDateTS <= $isodateEnd) {
                 $internalNames = array_merge($internalNames, $arHolidays);
             }
         }
-        
+
         $retval = array();
         foreach ($internalNames as $internalName) {
             if ($filter->accept($internalName)) {
@@ -704,9 +710,9 @@ class Date_Holidays_Driver
             }
         }
         return $retval;
-        
+
     }
-    
+
     /**
      * Converts timestamp or date-string into da PEAR::Date object
      *
@@ -722,25 +728,25 @@ class Date_Holidays_Driver
     {
         if (is_string($date)) {
             if (! preg_match('/^[0-9]{4}-[0-9]{2}-[0-9]{2}/', $date)) {
-                return Date_Holidays::raiseError(DATE_HOLIDAYS_INVALID_DATE_FORMAT, 
+                return Date_Holidays::raiseError(DATE_HOLIDAYS_INVALID_DATE_FORMAT,
                     'Date-string has wrong format (must be YYYY-MM-DD)');
             }
             $date = new Date($date);
             return $date;
         }
-        
+
         if (is_int($date)) {
             $date = new Date(date('Y-m-d', $date));
             return $date;
         }
-        
-        return Date_Holidays::raiseError(DATE_HOLIDAYS_INVALID_DATE, 
+
+        return Date_Holidays::raiseError(DATE_HOLIDAYS_INVALID_DATE,
             'The date you specified is invalid');
     }
-    
+
     /**
      * Adds all holidays in the array to the driver's internal list of holidays.
-     * 
+     *
      * Format of the array:
      * <pre>
      *   array(
@@ -751,13 +757,13 @@ class Date_Holidays_Driver
      *               'de_DE' =>  'Neujahr',
      *               'en_EN' =>  'New Year\'s Day'
      *           )
-     *       ), 
+     *       ),
      *       'valentinesDay' => array(
      *           ...
      *       )
      *   );
-     * </pre>      
-     * 
+     * </pre>
+     *
      * @param array $holidays static holidays' data
      *
      * @access   protected
@@ -768,16 +774,16 @@ class Date_Holidays_Driver
     {
         foreach ($holidays as $internalName => $holiday) {
             // add the holiday's basic data
-            $this->_addHoliday($internalName, 
-                               $this->_year . '-' . $holiday['date'], 
+            $this->_addHoliday($internalName,
+                               $this->_year . '-' . $holiday['date'],
                                $holiday['title']);
         }
     }
-    
+
     /**
      * Adds a holiday to the driver's holidays
      *
-     * @param string $internalName internal name - must not contain characters 
+     * @param string $internalName internal name - must not contain characters
      *                              that aren't allowed as variable-names
      * @param mixed  $date         date (timestamp | string | PEAR::Date object)
      * @param string $title        holiday title
@@ -790,12 +796,12 @@ class Date_Holidays_Driver
         if (! is_a($date, 'Date')) {
             $date = new Date($date);
         }
-        
+
         $this->_dates[$internalName]       = $date;
         $this->_titles['C'][$internalName] = $title;
-        $isodate                           = mktime(0, 0, 0, 
-                                                    $date->getMonth(), 
-                                                    $date->getDay(), 
+        $isodate                           = mktime(0, 0, 0,
+                                                    $date->getMonth(),
+                                                    $date->getDay(),
                                                     $date->getYear());
         if (!isset($this->_holidays[$isodate])) {
             $this->_holidays[$isodate] = array();
@@ -803,7 +809,7 @@ class Date_Holidays_Driver
         array_push($this->_holidays[$isodate], $internalName);
         array_push($this->_internalNames, $internalName);
     }
-    
+
     /**
      * Add a localized translation for a holiday's title. Overwrites existing data.
      *
@@ -820,21 +826,21 @@ class Date_Holidays_Driver
         if (! in_array($internalName, $this->_internalNames)) {
             $msg = 'Couldn\'t add translation (' . $locale . ') ' .
                    'for holiday with this internal name: ' . $internalName;
-            return Date_Holidays::raiseError(DATE_HOLIDAYS_INVALID_INTERNAL_NAME, 
+            return Date_Holidays::raiseError(DATE_HOLIDAYS_INVALID_INTERNAL_NAME,
                                              $msg);
         }
-        
+
         if (! in_array($locale, $this->_availableLocales)) {
             array_push($this->_availableLocales, $locale);
         }
         $this->_titles[$locale][$internalName] = $title;
         return true;
     }
-    
+
     /**
      * Adds a localized (regrading translation etc.) string-property for a holiday.
      * Overwrites existing data.
-     *  
+     *
      * @param string $internalName internal-name
      * @param string $locale       locale-setting
      * @param string $propId       property-identifier
@@ -843,36 +849,36 @@ class Date_Holidays_Driver
      * @access   public
      * @return   boolean true on success, false otherwise
      * @throws   PEAR_ErrorStack if internal-name does not exist
-     */ 
+     */
     function _addStringPropertyForHoliday($internalName, $locale, $propId, $propVal)
     {
         if (! in_array($internalName, $this->_internalNames)) {
-            $msg = 'Couldn\'t add property (locale: ' . $locale . ') '. 
+            $msg = 'Couldn\'t add property (locale: ' . $locale . ') '.
                    'for holiday with this internal name: ' . $internalName;
-            return Date_Holidays::raiseError(DATE_HOLIDAYS_INVALID_INTERNAL_NAME, 
+            return Date_Holidays::raiseError(DATE_HOLIDAYS_INVALID_INTERNAL_NAME,
                                              $msg);
         }
-        
-        if (!isset($this->_holidayProperties[$internalName]) || 
+
+        if (!isset($this->_holidayProperties[$internalName]) ||
                 !is_array($this->_holidayProperties[$internalName])) {
 
             $this->_holidayProperties[$internalName] = array();
         }
-        
+
         if (! isset($this->_holidayProperties[$internalName][$locale]) ||
                 !is_array($this->_holidayProperties[$internalName][$locale])) {
-                    
+
             $this->_holidayProperties[$internalName][$locale] = array();
         }
-        
+
         $this->_holidayProperties[$internalName][$locale][$propId] = $propVal;
         return true;
     }
-    
+
     /**
-     * Adds a arbitrary number of localized string-properties for the 
+     * Adds a arbitrary number of localized string-properties for the
      * specified holiday.
-     * 
+     *
      * @param string $internalName internal-name
      * @param string $locale       locale-setting
      * @param array  $properties   associative array: array(propId1 => val1,...)
@@ -881,25 +887,25 @@ class Date_Holidays_Driver
      * @return   boolean true on success, false otherwise
      * @throws   PEAR_ErrorStack if internal-name does not exist
      */
-    function _addStringPropertiesForHoliday($internalName, $locale, $properties) 
-    {        
+    function _addStringPropertiesForHoliday($internalName, $locale, $properties)
+    {
         foreach ($properties as $propId => $propValue) {
-            return $this->_addStringPropertyForHoliday($internalName, 
-                                                       $locale, 
-                                                       $propId, 
+            return $this->_addStringPropertyForHoliday($internalName,
+                                                       $locale,
+                                                       $propId,
                                                        $propValue);
         }
-        
+
         return true;
     }
-    
+
     /**
      * Add a language-file's content
-     * 
-     * The language-file's content will be parsed and translations, 
-     * properties, etc. for holidays will be made available with the specified 
+     *
+     * The language-file's content will be parsed and translations,
+     * properties, etc. for holidays will be made available with the specified
      * locale.
-     * 
+     *
      * @param string $file   filename of the language file
      * @param string $locale locale-code of the translation
      *
@@ -910,37 +916,37 @@ class Date_Holidays_Driver
     function addTranslationFile($file, $locale)
     {
         if (! file_exists($file)) {
-            Date_Holidays::raiseError(DATE_HOLIDAYS_LANGUAGEFILE_NOT_FOUND, 
+            Date_Holidays::raiseError(DATE_HOLIDAYS_LANGUAGEFILE_NOT_FOUND,
                     'Language-file not found: ' . $file);
             return Date_Holidays::getErrorStack();
         }
-        
+
         include_once 'XML/Unserializer.php';
         $options = array('parseAttributes' => false,
                          'attributesArray' => false,
                          'keyAttribute'    => array('property' => 'id'),
                          'forceEnum'       => array('holiday'));
-    
+
         // unserialize the document
         $unserializer = new XML_Unserializer($options);
-        $status       = $unserializer->unserialize($file, true);    
-    
+        $status       = $unserializer->unserialize($file, true);
+
         if (PEAR::isError($status)) {
-            return Date_Holidays::raiseError($status->getCode(), 
+            return Date_Holidays::raiseError($status->getCode(),
                                              $status->getMessage());
-        } 
-        
+        }
+
         $content = $unserializer->getUnserializedData();
         return $this->_addTranslationData($content, $locale);
     }
-    
+
     /**
      * Add a compiled language-file's content
-     * 
-     * The language-file's content will be unserialized and translations, 
-     * properties, etc. for holidays will be made available with the 
+     *
+     * The language-file's content will be unserialized and translations,
+     * properties, etc. for holidays will be made available with the
      * specified locale.
-     * 
+     *
      * @param string $file   filename of the compiled language file
      * @param string $locale locale-code of the translation
      *
@@ -951,11 +957,11 @@ class Date_Holidays_Driver
     function addCompiledTranslationFile($file, $locale)
     {
         if (! file_exists($file)) {
-            Date_Holidays::raiseError(DATE_HOLIDAYS_LANGUAGEFILE_NOT_FOUND, 
+            Date_Holidays::raiseError(DATE_HOLIDAYS_LANGUAGEFILE_NOT_FOUND,
                     'Language-file not found: ' . $file);
             return Date_Holidays::getErrorStack();
         }
-        
+
         $content = file_get_contents($file);
         if ($content === false) {
             return false;
@@ -968,11 +974,11 @@ class Date_Holidays_Driver
         }
         return $this->_addTranslationData($data, $locale);
     }
-    
+
     /**
      * Add a language-file's content. Translations, properties, etc. for
      * holidays will be made available with the specified locale.
-     * 
+     *
      * @param array  $data   translated data
      * @param string $locale locale-code of the translation
      *
@@ -983,32 +989,32 @@ class Date_Holidays_Driver
     function _addTranslationData($data, $locale)
     {
         foreach ($data['holidays']['holiday'] as $holiday) {
-            $this->_addTranslationForHoliday($holiday['internal-name'], 
-                                             $locale, 
+            $this->_addTranslationForHoliday($holiday['internal-name'],
+                                             $locale,
                                              $holiday['translation']);
-    
+
             if (isset($holiday['properties']) && is_array($holiday['properties'])) {
                 foreach ($holiday['properties'] as $propId => $propVal) {
-                    $this->_addStringPropertyForHoliday($holiday['internal-name'], 
-                                                        $locale, 
-                                                        $propId, 
+                    $this->_addStringPropertyForHoliday($holiday['internal-name'],
+                                                        $locale,
+                                                        $propId,
                                                         $propVal);
                 }
             }
-            
+
         }
-        
+
         if (Date_Holidays::errorsOccurred()) {
             return Date_Holidays::getErrorStack();
         }
-        
+
         return true;
     }
-    
+
     /**
      * Remove a holiday from internal storage
      *
-     * This method should be used within driver classes to unset holidays that 
+     * This method should be used within driver classes to unset holidays that
      * were inherited from parent-drivers
      *
      * @param $string $internalName internal name
@@ -1021,10 +1027,10 @@ class Date_Holidays_Driver
     {
         if (! in_array($internalName, $this->_internalNames)) {
             $msg = "Couldn't remove holiday with this internal name: $internalName";
-            return Date_Holidays::raiseError(DATE_HOLIDAYS_INVALID_INTERNAL_NAME, 
+            return Date_Holidays::raiseError(DATE_HOLIDAYS_INVALID_INTERNAL_NAME,
                                              $msg);
         }
-        
+
         if (isset($this->_dates[$internalName])) {
             unset($this->_dates[$internalName]);
         }
@@ -1040,7 +1046,7 @@ class Date_Holidays_Driver
         }
         return true;
     }
-    
+
     /**
      * Finds the best internally available locale for the specified one
      *
@@ -1055,25 +1061,25 @@ class Date_Holidays_Driver
         if (in_array($locale, $this->_availableLocales)) {
             return $locale;
         }
-        
+
         /* first two letter are equal */
         foreach ($this->_availableLocales as $aLocale) {
             if (strncasecmp($aLocale, $locale, 2) == 0) {
                 return $aLocale;
             }
         }
-        
+
         /* no appropriate locale available, will use driver's internal locale */
         return 'C';
     }
-    
+
     /**
      * Returns date of a holiday
      *
      * @param string $internalName internal name for holiday
      *
      * @access   public
-     * @return   object Date             date of holiday as PEAR::Date object 
+     * @return   object Date             date of holiday as PEAR::Date object
      *                                   on success, otherwise a PEAR_Error object
      * @throws   object PEAR_Error       DATE_HOLIDAYS_DATE_UNAVAILABLE
      * @throws   object PEAR_Error       DATE_HOLIDAYS_INVALID_INTERNAL_NAME
@@ -1082,26 +1088,26 @@ class Date_Holidays_Driver
     {
         if (! in_array($internalName, $this->_internalNames)) {
             $msg = 'Invalid internal name: ' . $internalName;
-            return Date_Holidays::raiseError(DATE_HOLIDAYS_INVALID_INTERNAL_NAME, 
+            return Date_Holidays::raiseError(DATE_HOLIDAYS_INVALID_INTERNAL_NAME,
                                              $msg);
         }
-        
+
         if (! isset($this->_dates[$internalName])) {
-            $msg = 'Date for holiday with internal name ' . 
+            $msg = 'Date for holiday with internal name ' .
                    $internalName . ' is not available';
             return Date_Holidays::raiseError(DATE_HOLIDAYS_DATE_UNAVAILABLE, $msg);
         }
-        
+
         return $this->_dates[$internalName];
     }
-    
+
     /**
      * Returns dates of all holidays or those accepted by the applied filter.
      *
      * Structure of the returned array:
      * <pre>
      * array(
-     *   'internalNameFoo' => object of type date, 
+     *   'internalNameFoo' => object of type date,
      *   'internalNameBar' => object of type date
      * )
      * </pre>
@@ -1120,9 +1126,9 @@ class Date_Holidays_Driver
         } elseif (is_array($filter)) {
             $filter = new Date_Holidays_Filter_Whitelist($filter);
         }
-        
+
         $dates = array();
-        
+
         foreach ($this->_internalNames as $internalName) {
             if ($filter->accept($internalName)) {
                 $date = $this->getHolidayDate($internalName);
@@ -1134,7 +1140,7 @@ class Date_Holidays_Driver
         }
         return $dates;
     }
-    
+
     /**
      * Sets the driver's locale
      *
@@ -1147,21 +1153,21 @@ class Date_Holidays_Driver
     {
         $this->_locale = $locale;
     }
-    
+
     /**
      * Sloppily compares two date objects (only year, month and day are compared).
      * Does not take the date's timezone into account.
-     * 
+     *
      * @param Date $d1 a date object
      * @param Date $d2 another date object
      *
-     * @static 
+     * @static
      * @access private
-     * @return int 0 if the dates are equal, 
-     *             -1 if d1 is before d2, 
+     * @return int 0 if the dates are equal,
+     *             -1 if d1 is before d2,
      *             1 if d1 is after d2
      */
-    function dateSloppyCompare($d1, $d2) 
+    function dateSloppyCompare($d1, $d2)
     {
         $d1->setTZ(new Date_TimeZone('UTC'));
         $d2->setTZ(new Date_TimeZone('UTC'));
