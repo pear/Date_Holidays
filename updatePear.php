@@ -14,7 +14,7 @@
 
 if ($_SERVER['argc'] != 4) {
     echo 'Wrong execution of file. ';
-    echo 'Call like that: FILENAME <project-name> <php-interpreter path> ';
+    echo 'Call like that: FILENAME <project-name> <php-interpreter path> <pear-executable path>';
     echo '<pear executable path>';
     exit;
 }
@@ -32,7 +32,7 @@ exec($PEARCMD . ' uninstall ' . $PACKAGENAME, $output, $ret);
 echo printStatus($ret) . "\n";
 
 echo 'Packaging new pear-package-version ';
-$lastLine = exec($PEARCMD . ' package -n', $output, $ret);
+$lastLine = exec($PEARCMD . ' package -n package.xml', $output, $ret);
 echo printStatus($ret) . "\n";
 
 echo 'Installing new pear-package-version ';
