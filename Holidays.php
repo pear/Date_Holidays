@@ -350,7 +350,7 @@ class Date_Holidays
     }
 
     /**
-     * Checks a variable to determine whether it represnts an error object or not
+     * Checks a variable to determine whether it represents an error object or not
      *
      * @param mixed $data variable to test
      * @param int   $code if $data is an PEAR_Error object, return true
