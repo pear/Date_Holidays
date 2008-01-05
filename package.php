@@ -23,7 +23,7 @@ require_once 'PEAR/PackageFileManager.php';
 /**
  * current version
  */
-$version = '0.17.1';
+$version = '0.17.2';
 
 /**
  * current state
@@ -34,9 +34,7 @@ $state = 'alpha';
  * release notes
  */
 $notes = <<<EOT
-- Fixed bug #10220: Don't set locale automatically
-- Added Irish holidays/filters, contributed by Ken Guest
-- Added Austrian holidays, contributed by Klemens Ullmann
+- Fixed bug #12807: incorrect holidays computation [kguest]
 EOT;
 
 /**
@@ -84,11 +82,8 @@ if (PEAR::isError($result)) {
 
 $package->addMaintainer('luckec', 'lead', 'Carsten Lucke', 'luckec@php.net');
 $package->addMaintainer('schst', 'developer', 'Stephan Schmidt', 'schst@php.net');
-$package->addMaintainer('wiesemann', 
-                        'contributor', 
-                        'Mark Wiesemann', 
-                        'wiesemann@php.net');
-$package->addMaintainer('kguest', 'helper', 'Ken Guest', 'ken@linux.ie');
+$package->addMaintainer('wiesemann', 'contributor', 'Mark Wiesemann', 'wiesemann@php.net');
+$package->addMaintainer('kguest', 'lead', 'Ken Guest', 'ken@linux.ie');
 
 $package->addDependency('PEAR', '1.3.1', 'ge', 'pkg', false);
 $package->addDependency('Date', '', 'has', 'pkg', false);

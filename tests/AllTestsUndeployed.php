@@ -23,6 +23,7 @@ require_once 'PHPUnit/TextUI/TestRunner.php';
 
 require_once 'Date_Holidays_TestSuite.php';
 require_once 'Date_Holidays_Driver_TestSuite.php';
+require_once 'Date_Holidays_Bugfix_Retests_TestSuite.php';
 require_once 'Date_Holidays_Driver_Christian_TestSuite.php';
 require_once 'Date_Holidays_Driver_Germany_TestSuite.php';
 require_once 'Date_Holidays_Driver_Jewish_TestSuite.php';
@@ -68,6 +69,7 @@ class AllTestsUndeployed
 
         $allTestsSuite->addTestSuite('Date_Holidays_TestSuite');
         $allTestsSuite->addTestSuite('Date_Holidays_Driver_TestSuite');
+        $allTestsSuite->addTestSuite('Date_Holidays_Bugfix_Retests_TestSuite');
 
         $allTestsSuite->addTestSuite('Date_Holidays_Driver_Christian_TestSuite');
         $allTestsSuite->addTestSuite('Date_Holidays_Driver_Germany_TestSuite');
