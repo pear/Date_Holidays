@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE package SYSTEM "http://pear.php.net/dtd/package-1.0">
-<package version="1.0" packagerversion="1.4.11">
+<package version="1.0" packagerversion="1.6.1">
  <name>Date_Holidays</name>
  <summary>Driver based class to calculate holidays.</summary>
  <description>Date_Holidays helps you calculating the dates and titles of holidays and other special celebrations. The calculation is driver-based so it is easy to add new drivers that calculate a country&apos;s holidays. The methods of the class can be used to get a holiday&apos;s date and title in various languages.
@@ -28,17 +28,16 @@
    <user>kguest</user>
    <name>Ken Guest</name>
    <email>ken@linux.ie</email>
-   <role>helper</role>
+   <role>lead</role>
   </maintainer>
   </maintainers>
  <release>
-  <version>0.17.1</version>
-  <date>2007-05-30</date>
+  <version>0.17.2</version>
+  <date>2008-01-05</date>
   <license>PHP License</license>
   <state>alpha</state>
-  <notes>- Fixed bug #10220: Don&apos;t set locale automatically
-- Added Irish holidays/filters, contributed by Ken Guest
-- Added Austrian holidays, contributed by Klemens Ullmann
+  <notes>- Fixed bug #12807: incorrect holidays computation [kguest]
+- Added new drivers and filters for Netherlands (contributed by Jos van der Woude) and Norway (contributed by Vegard Fiksdal)
   </notes>
   <deps>
    <dep type="pkg" rel="ge" version="1.3.1" optional="no">PEAR</dep>
@@ -67,6 +66,8 @@
       <file role="php" name="Germany.php"/>
       <file role="php" name="Ireland.php"/>
       <file role="php" name="Jewish.php"/>
+      <file role="php" name="Netherlands.php"/>
+      <file role="php" name="Norway.php"/>
       <file role="php" name="PHPdotNet.php"/>
       <file role="php" name="Slovenia.php"/>
       <file role="php" name="Sweden.php"/>
@@ -96,6 +97,9 @@
       <dir name="Ireland">
        <file role="php" name="Official.php"/>
       </dir> <!-- /Holidays/Filter/Ireland -->
+      <dir name="Netherlands">
+       <file role="php" name="Official.php"/>
+      </dir> <!-- /Holidays/Filter/Netherlands -->
       <file role="php" name="Blacklist.php"/>
       <file role="php" name="Composite.php"/>
       <file role="php" name="Whitelist.php"/>
@@ -147,6 +151,7 @@
       <replace from="@data_dir@"  to="data_dir"  type="pear-config" />
      </file>
      <file role="test" name="AllTestsUndeployed.php"/>
+     <file role="test" name="Date_Holidays_Bugfix_Retests_TestSuite.php"/>
      <file role="test" name="Date_Holidays_Driver_Austria_TestSuite.php"/>
      <file role="test" name="Date_Holidays_Driver_Christian_TestSuite.php"/>
      <file role="test" name="Date_Holidays_Driver_EnglandWales_TestSuite.php"/>
@@ -300,6 +305,15 @@
     <notes>- Fixed bug #10220: Don&apos;t set locale automatically
 - Added Irish holidays/filters, contributed by Ken Guest
 - Added Austrian holidays, contributed by Klemens Ullmann
+    </notes>
+   </release>
+   <release>
+    <version>0.17.2</version>
+    <date>2008-01-05</date>
+    <license>PHP License</license>
+    <state>alpha</state>
+    <notes>- Fixed bug #12807: incorrect holidays computation [kguest]
+- Added new drivers and filters for Netherlands (contributed by Jos van der Woude) and Norway (contributed by Vegard Fiksdal)
     </notes>
    </release>
  </changelog>

@@ -35,12 +35,13 @@ $state = 'alpha';
  */
 $notes = <<<EOT
 - Fixed bug #12807: incorrect holidays computation [kguest]
+- Added new drivers and filters for Netherlands (contributed by Jos van der Woude) and Norway (contributed by Vegard Fiksdal)
 EOT;
 
 /**
  * package description
  */
-$description = "Date_Holidays helps you calculate the dates and titles " .
+$description = "Date_Holidays helps you calculating the dates and titles " .
                "of holidays and other special celebrations. " .
                "The calculation is driver-based so it is easy to add new " .
                "drivers that calculate a country's holidays. The methods of " .
@@ -58,11 +59,11 @@ $result = $package->setOptions(array(
     'license'           => 'PHP License',
     'filelistgenerator' => 'cvs',
     'ignore'            => array(
-            'mkSource.php', 'package.php', 'package.xml', 'package2.xml', 
-            'test.php', 'docs/', 'tests/test_missingLocale.php', 
-            'tests/test_getHolidays.php', 
-            'tests/testHolidays2005stampsAndSavingsDay.php', '*.zargo', 
-            '*.pdf', '*.sh', 'data/', 'util/', 'TODO', 'updatePear.php', 
+            'mkSource.php', 'package.php', 'package.xml', 'package2.xml',
+            'test.php', 'docs/', 'tests/test_missingLocale.php',
+            'tests/test_getHolidays.php',
+            'tests/testHolidays2005stampsAndSavingsDay.php', '*.zargo',
+            '*.pdf', '*.sh', 'data/', 'util/', 'TODO', 'updatePear.php',
             'changelog'),
     'notes'             => $notes,
     'simpleoutput'      => true,
@@ -90,8 +91,8 @@ $package->addDependency('Date', '', 'has', 'pkg', false);
 $package->addDependency('XML_Serializer', '', 'has', 'pkg', false);
 $package->addDependency('Console_Getargs', '', 'has', 'pkg', true);
 
-if (isset($_GET['make']) || 
-   (isset($_SERVER['argv'][1]) && 
+if (isset($_GET['make']) ||
+   (isset($_SERVER['argv'][1]) &&
    $_SERVER['argv'][1] == 'make')) {
     $result = $package->writePackageFile();
 } else {
