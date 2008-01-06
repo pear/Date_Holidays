@@ -3,7 +3,7 @@
 // +----------------------------------------------------------------------+
 // | PHP Version 4                                                        |
 // +----------------------------------------------------------------------+
-// | Copyright (c) 1997-2002 The PHP Group                                |
+// | Copyright (c) 1997-2008 The PHP Group                                |
 // +----------------------------------------------------------------------+
 // | This source file is subject to version 2.0 of the PHP license,       |
 // | that is bundled with this package in the file LICENSE, and is        |
@@ -27,14 +27,14 @@
  * @version     $Id$
  * @author      Jos van der Woude <jos@veerkade.com>
  */
-class Date_Holidays_Filter_Netherlands_Official extends Date_Holidays_Filter_Whitelist 
+class Date_Holidays_Filter_Netherlands_Official extends Date_Holidays_Filter_Whitelist
 {
     /**
      * Constructor.
-     * 
+     *
      * @param   array   numerical array that contains internal names of holidays
      */
-    function __construct() 
+    function __construct()
     {
         parent::__construct(
             array(
@@ -48,11 +48,11 @@ class Date_Holidays_Filter_Netherlands_Official extends Date_Holidays_Filter_Whi
             )
         );
     }
-    
+
     /**
      * Constructor.
-     * 
-     * Only accepts official Dutch public holidays as described on 
+     *
+     * Only accepts official Dutch public holidays as described on
      * http://ec.europa.eu/taxation_customs/dds/cgi-bin/cshoquer?Lang=EN&Country=NL/
      */
     function Date_Holidays_Filter_Netherlands_Official()
