@@ -5,7 +5,7 @@
  *
  * PHP Version 4
  *
- * Copyright (c) 1997-2002 The PHP Group
+ * Copyright (c) 1997-2008 The PHP Group
  *
  * This source file is subject to version 2.0 of the PHP license,
  * that is bundled with this package in the file LICENSE, and is
@@ -26,7 +26,7 @@
 /**
  * Baseclass for a holiday-filter.
  *
- * @abstract 
+ * @abstract
  * @category Date
  * @package  Date_Holidays
  * @author   Carsten Lucke <luckec@tool-garage.de>
@@ -38,44 +38,44 @@ class Date_Holidays_Filter
 {
     /**
      * Internal names of holidays that are subject to the filter.
-     * 
+     *
      * @access   private
      * @var      array
      */
     var $_internalNames = array();
-    
+
     /**
      * Constructor.
      *
-     * Creates a new filter that knows, which holidays the 
+     * Creates a new filter that knows, which holidays the
      * calculating driver shall be restricted to.
-     * 
-     * @param array $holidays numerical array that contains internal 
+     *
+     * @param array $holidays numerical array that contains internal
      *                          names of holidays
      */
-    function __construct($holidays) 
+    function __construct($holidays)
     {
         if (! is_array($holidays)) {
             $holidays = array();
         }
-        
+
         $this->_internalNames = $holidays;
     }
-    
+
     /**
      * Constructor.
      *
-     * Creates a new filter that knows, which holidays the 
+     * Creates a new filter that knows, which holidays the
      * calculating driver shall be restricted to.
-     * 
-     * @param array $holidays numerical array that contains internal 
+     *
+     * @param array $holidays numerical array that contains internal
      *                          names of holidays
      */
     function Date_Holidays_Filter($holidays)
     {
         $this->__construct($holidays);
     }
-    
+
     /**
      * Returns the internal names of holidays that are subject to the filter.
      *
@@ -85,10 +85,10 @@ class Date_Holidays_Filter
     {
         return $this->_internalNames;
     }
-    
+
     /**
      * Sets the internal names of holidays that are subject to the filter.
-     * 
+     *
      * @param array $holidays internal holiday-names
      *
      * @return void
@@ -98,16 +98,16 @@ class Date_Holidays_Filter
         if (! is_array($holidays)) {
             $holidays = array();
         }
-        
+
         $this->_internalNames = $holidays;
     }
-    
+
     /**
      * Lets the filter decide whether a holiday shall be processed or not.
-     * 
+     *
      * @param string $internalName a holidays' internal name
      *
-     * @abstract 
+     * @abstract
      * @return   boolean true, if a holidays shall be processed, false otherwise
      */
     function accept($internalName)

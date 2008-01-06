@@ -5,7 +5,7 @@
  *
  * PHP Version 4
  *
- * Copyright (c) 1997-2002 The PHP Group
+ * Copyright (c) 1997-2008 The PHP Group
  *
  * This source file is subject to version 3.0 of the PHP license,
  * that is bundled with this package in the file LICENSE, and is
@@ -42,7 +42,7 @@ class Date_Holidays_Holiday
      * @var      string
      */
     var $_internalName;
-    
+
     /**
      * Title
      *
@@ -50,7 +50,7 @@ class Date_Holidays_Holiday
      * @var      string
      */
     var $_title;
-    
+
     /**
      * Date
      *
@@ -58,15 +58,15 @@ class Date_Holidays_Holiday
      * @var      object Date
      */
     var $_date;
-    
+
     /**
      * Additional holiday properties like a more detailed description, etc.
-     * 
+     *
      * @access   private
      * @var      array
      */
     var $_properties;
-    
+
     /**
      * Constructor
      *
@@ -84,16 +84,16 @@ class Date_Holidays_Holiday
         $this->_title        = $title;
         $this->_date         = null;
         $this->_properties   = array();
-        
+
         if (is_a($date, 'Date')) {
             $this->_date = $date;
         }
-        
+
         if (is_array($properties)) {
             $this->_properties = $properties;
         }
     }
-    
+
     /**
      * Returns the internal name
      *
@@ -104,7 +104,7 @@ class Date_Holidays_Holiday
     {
         return $this->_internalName;
     }
-    
+
     /**
      * Returns the title
      *
@@ -115,7 +115,7 @@ class Date_Holidays_Holiday
     {
         return $this->_title;
     }
-    
+
     /**
      * Returns the date
      *
@@ -126,7 +126,7 @@ class Date_Holidays_Holiday
     {
         return $this->_date;
     }
-    
+
     /**
      * Set the internal name
      *
@@ -139,12 +139,12 @@ class Date_Holidays_Holiday
     {
         $this->_internalName = $internalName;
     }
-    
+
     /**
      * Set the title
      *
      * @param string $title title
-     * 
+     *
      * @access   public
      * @return   void
      */
@@ -152,7 +152,7 @@ class Date_Holidays_Holiday
     {
         $this->_title = $title;
     }
-    
+
     /**
      * Set the date
      *
@@ -165,7 +165,7 @@ class Date_Holidays_Holiday
     {
         $this->_date = $date;
     }
-    
+
     /**
      * Returns the holiday data as an array.
      *
@@ -177,7 +177,7 @@ class Date_Holidays_Holiday
      *       'date'          => Object of type Date
      *   )
      * </pre>
-     * 
+     *
      * @access   public
      * @return   array   holiday-data
      */
@@ -189,16 +189,16 @@ class Date_Holidays_Holiday
         $data['date']         = $this->_date;
         return $data;
     }
-    
+
     /**
-     * Returns the holidays additional properties that contain information 
+     * Returns the holidays additional properties that contain information
      * like a more detailed description, etc.
-     * 
+     *
      * @access   public
-     * @return   array   associative array with corresponding pairs 
+     * @return   array   associative array with corresponding pairs
      *                      of propertyName => $propertyValue
      */
-    function getProperties() 
+    function getProperties()
     {
         return $this->_properties;
     }

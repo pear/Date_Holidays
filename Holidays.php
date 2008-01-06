@@ -5,7 +5,7 @@
  *
  * PHP Version 4
  *
- * Copyright (c) 1997-2002 The PHP Group
+ * Copyright (c) 1997-2008 The PHP Group
  *
  * This source file is subject to version 2.0 of the PHP license,
  * that is bundled with this package in the file LICENSE, and is
@@ -93,7 +93,7 @@ class Date_Holidays
     /**
      * Constructor
      *
-     * Use the Date_Holidays::factory() method to construct an object of 
+     * Use the Date_Holidays::factory() method to construct an object of
      * a certain driver
      *
      * @access   protected
@@ -112,7 +112,7 @@ class Date_Holidays
      *
      * @static
      * @access   public
-     * @return   object  Date_Holidays driver-object on success, 
+     * @return   object  Date_Holidays driver-object on success,
      *                   otherwise a PEAR_Error object
      * @throws   object PEAR_Error
      */
@@ -128,12 +128,12 @@ class Date_Holidays
         }
 
         if (! class_exists($driverClass)) {
-            $driverFile = 'Date' . DIRECTORY_SEPARATOR . 'Holidays' . 
-                          DIRECTORY_SEPARATOR . 'Driver' . 
+            $driverFile = 'Date' . DIRECTORY_SEPARATOR . 'Holidays' .
+                          DIRECTORY_SEPARATOR . 'Driver' .
                           DIRECTORY_SEPARATOR . $driverId . '.php';
             if ($external) {
-                $driverFile = str_replace('_', 
-                                          DIRECTORY_SEPARATOR, 
+                $driverFile = str_replace('_',
+                                          DIRECTORY_SEPARATOR,
                                           $driverClass) . '.php';
             }
 
@@ -171,16 +171,16 @@ class Date_Holidays
      *
      * @static
      * @access   public
-     * @return   object  Date_Holidays driver-object on success, otherwise 
+     * @return   object  Date_Holidays driver-object on success, otherwise
      *                   a PEAR_Error object
      * @throws   object PEAR_Error
      */
-    function factoryISO3166($isoCode, 
-                            $year = null, 
-                            $locale = null, 
+    function factoryISO3166($isoCode,
+                            $year = null,
+                            $locale = null,
                             $external = false)
     {
-        $driverDir = dirname(__FILE__) . DIRECTORY_SEPARATOR . 
+        $driverDir = dirname(__FILE__) . DIRECTORY_SEPARATOR .
                      'Holidays' . DIRECTORY_SEPARATOR . 'Driver';
         if (! is_dir($driverDir)) {
             return Date_Holidays::raiseError(DATE_HOLIDAYS_ERROR_DRIVERFILE_NOT_FOUND,
@@ -220,9 +220,9 @@ class Date_Holidays
 
             foreach ($isoCodes as $code) {
                 if (strtolower($code) === $isoCode) {
-                    return Date_Holidays::factory($driverId, 
-                                                  $year, 
-                                                  $locale, 
+                    return Date_Holidays::factory($driverId,
+                                                  $year,
+                                                  $locale,
                                                   $external);
                 }
             }
@@ -296,20 +296,20 @@ class Date_Holidays
         $modules = array();
         $d       = dir($directory);
         while (false !== $moduleFile = $d->read()) {
-            if ($moduleFile === '.' || 
-                $moduleFile === '..' || 
+            if ($moduleFile === '.' ||
+                $moduleFile === '..' ||
                 $moduleFile === 'CVS') {
                 continue;
             }
             if (is_dir($directory.'/'.$moduleFile)) {
-                $modules = array_merge($modules, 
+                $modules = array_merge($modules,
                         Date_Holidays::_getModulesFromDir($directory.'/'.$moduleFile,
                                                           $prefix.$moduleFile.'_'));
                 continue;
             }
             $matches = array();
             if (preg_match('/(.*)\.php$/', $moduleFile, $matches)) {
-                array_push($modules, array('id'    => $prefix.$matches[1], 
+                array_push($modules, array('id'    => $prefix.$matches[1],
                                            'title' => $prefix.$matches[1]));
             }
         }
@@ -341,11 +341,11 @@ class Date_Holidays
     function raiseError($code, $msg = null)
     {
         $errorStack = &Date_Holidays::getErrorStack();
-        return $errorStack->push($code, 
-                                 'error', 
-                                 array(), 
-                                 $msg, 
-                                 false, 
+        return $errorStack->push($code,
+                                 'error',
+                                 array(),
+                                 $msg,
+                                 false,
                                  debug_backtrace());
     }
 
@@ -409,7 +409,7 @@ class Date_Holidays
      * <pre>
      * DIE_ON_MISSING_LOCALE = boolean
      *   false: if no localized holiday-title is found an error will be returned
-     *   true: if no localized holiday-title is found then the default 
+     *   true: if no localized holiday-title is found then the default
      *         translation (English) will be used
      * </pre>
      *
