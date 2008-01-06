@@ -27,7 +27,7 @@ require_once 'Date/Holidays/Driver/Christian.php';
 
 /**
  * Driver class that calculates Irish holidays
- * deriving most calculations from 'Public holidays in Ireland' document 
+ * deriving most calculations from 'Public holidays in Ireland' document
  * on http://www.citizensinformation.ie/
  *
  * @category Date
@@ -43,7 +43,7 @@ class Date_Holidays_Driver_Ireland extends Date_Holidays_Driver
     /**
      * Constructor
      *
-     * Use the Date_Holidays::factory() method to construct an object of a 
+     * Use the Date_Holidays::factory() method to construct an object of a
      * certain driver
      *
      * @access   protected
@@ -64,7 +64,7 @@ class Date_Holidays_Driver_Ireland extends Date_Holidays_Driver
         /**
          * New Year's Day
          */
-        $this->_addHoliday('newYearsDay', 
+        $this->_addHoliday('newYearsDay',
                            $this->_year . '-01-01',
                            'New Year\'s Day');
 
@@ -76,7 +76,7 @@ class Date_Holidays_Driver_Ireland extends Date_Holidays_Driver
         /**
          * St Patrick's Day.
          */
-        $this->_addHoliday('stPatricksDay', 
+        $this->_addHoliday('stPatricksDay',
                            $this->_year . '-03-17',
                            'Saint Patrick\'s Day');
 
@@ -96,7 +96,7 @@ class Date_Holidays_Driver_Ireland extends Date_Holidays_Driver
         /**
          * Easter Monday
          */
-        $this->_addHoliday('easterMonday', 
+        $this->_addHoliday('easterMonday',
                            $easterDate->getNextDay(),
                            'Easter Monday');
 
@@ -107,7 +107,7 @@ class Date_Holidays_Driver_Ireland extends Date_Holidays_Driver
         $this->_addHoliday('mayDayBankHoliday', $dn, 'May Bank Holiday');
 
         /**
-         * Pentecost (determines Whit Monday, Ascension Day and 
+         * Pentecost (determines Whit Monday, Ascension Day and
          * Feast of Corpus Christi)
          */
         $pentecostDate = new Date($easterDate);
@@ -136,7 +136,7 @@ class Date_Holidays_Driver_Ireland extends Date_Holidays_Driver
         $juneDate->addSpan(new Date_Span(sprintf('%d, 0, 0, 0', 6 - $dayOfWeek)));
         $midSummerDate = $juneDate;
         $this->_addHoliday('midSummer', $midSummerDate, 'Midsummer Day');
-        
+
         /**
          * August Bank Holiday
          */
@@ -160,14 +160,14 @@ class Date_Holidays_Driver_Ireland extends Date_Holidays_Driver
         $this->_addHoliday('xmasDay', $this->_year . '-12-25', 'Christmas Day');
 
         /**
-         * Boxing day
+         * St. Stephen's Day
          */
-        $this->_addHoliday('boxingDay', $this->_year . '-12-26', 'Boxing Day');
+        $this->_addHoliday('StStephensDay', $this->_year . '-12-26', 'Saint Stephen\'s Day');
 
         /**
          * New Year's Eve
          */
-        $this->_addHoliday('newYearsEve', 
+        $this->_addHoliday('newYearsEve',
                            $this->_year . '-12-31',
                            'New Year\'s Eve');
 
@@ -178,8 +178,8 @@ class Date_Holidays_Driver_Ireland extends Date_Holidays_Driver
     }
 
     /**
-     * Calculates the date for Easter. Actually this methods delegates the 
-     * calculation to the {@link Date_Holidays_Driver_Christian#calcEaster()} 
+     * Calculates the date for Easter. Actually this methods delegates the
+     * calculation to the {@link Date_Holidays_Driver_Christian#calcEaster()}
      * method.
      *
      * @param int $year year
@@ -192,16 +192,16 @@ class Date_Holidays_Driver_Ireland extends Date_Holidays_Driver
     {
         return Date_Holidays_Driver_Christian::calcEaster($year);
     }
-    
+
     /**
-     * Method that returns an array containing the ISO3166 codes that may possibly 
+     * Method that returns an array containing the ISO3166 codes that may possibly
      * identify a driver.
-     * 
+     *
      * @static
      * @access public
      * @return array possible ISO3166 codes
      */
-    function getISO3166Codes() 
+    function getISO3166Codes()
     {
         return array('ie', 'irl');
     }
@@ -213,7 +213,7 @@ class Date_Holidays_Driver_Ireland extends Date_Holidays_Driver
      * @access   private
      * @return   object Date date of first monday in specified month.
      */
-    function _calcFirstMonday($month) 
+    function _calcFirstMonday($month)
     {
         $date = new Date($this->_year . "-$month-01");
         while ($date->getDayOfWeek() != 1) {
@@ -229,7 +229,7 @@ class Date_Holidays_Driver_Ireland extends Date_Holidays_Driver
      * @access   private
      * @return   object Date date of last monday in specified month.
      */
-    function _calcLastMonday($month) 
+    function _calcLastMonday($month)
     {
         //work backwards from the first day of the next month.
         $nm = ((int) $month ) + 1;
