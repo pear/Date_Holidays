@@ -32,7 +32,7 @@
   </maintainer>
   </maintainers>
  <release>
-  <version>0.17.3</version>
+  <version>0.17.4</version>
   <date>2008-01-15</date>
   <license>PHP License</license>
   <state>alpha</state>
@@ -308,7 +308,7 @@
     </notes>
    </release>
    <release>
-    <version>0.17.3</version>
+    <version>0.17.4</version>
     <date>2008-01-05</date>
     <license>PHP License</license>
     <state>alpha</state>
