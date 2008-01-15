@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<package packagerversion="1.6.1" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0
-http://pear.php.net/dtd/tasks-1.0.xsd
-http://pear.php.net/dtd/package-2.0
-http://pear.php.net/dtd/package-2.0.xsd">
+<package packagerversion="1.7.0RC2" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0 http://pear.php.net/dtd/tasks-1.0.xsd http://pear.php.net/dtd/package-2.0 http://pear.php.net/dtd/package-2.0.xsd">
  <name>Date_Holidays</name>
  <channel>pear.php.net</channel>
  <summary>Driver based class to calculate holidays.</summary>
- <description>Date_Holidays helps you calculate the dates and titles of holidays and other special celebrations. The calculation is driver-based so it is easy to add new drivers that calculate a country&apos;s holidays. The methods of the class can be used to get a holiday&apos;s date and title in various languages.
- 
- </description>
+ <description>Date_Holidays helps you calculate the dates and titles of holidays and other special celebrations. The calculation is driver-based so it is easy to add new drivers that calculate a country&apos;s holidays. The methods of the class can be used to get a holiday&apos;s date and title in various languages.</description>
  <lead>
   <name>Carsten Lucke</name>
   <user>luckec</user>
@@ -25,7 +20,7 @@ http://pear.php.net/dtd/package-2.0.xsd">
   <name>Stephan Schmidt</name>
   <user>schst</user>
   <email>schst@php.net</email>
-  <active>yes</active>
+  <active>no</active>
  </developer>
  <contributor>
   <name>Mark Wiesemann</name>
@@ -33,10 +28,10 @@ http://pear.php.net/dtd/package-2.0.xsd">
   <email>wiesemann@php.net</email>
   <active>yes</active>
  </contributor>
- <date>2008-01-05</date>
- <time>08:26:55</time>
+ <date>2008-01-15</date>
+ <time>00:25:10</time>
  <version>
-  <release>0.17.2</release>
+  <release>0.17.3</release>
   <api>0.17.2</api>
  </version>
  <stability>
@@ -44,9 +39,8 @@ http://pear.php.net/dtd/package-2.0.xsd">
   <api>alpha</api>
  </stability>
  <license uri="http://www.php.net/license">PHP License</license>
- <notes>- Fixed bug #12807: incorrect holidays computation [kguest]
-- Added new drivers and filters for Netherlands (contributed by Jos van der Woude) and Norway (contributed by Vegard Fiksdal)
-  
+ <notes>
+ * Fix Bug #12835: Boxing Day not celebrated in Ireland - it's St Stephen's Day [kguest]
  </notes>
  <contents>
   <dir name="/">
@@ -220,9 +214,7 @@ http://pear.php.net/dtd/package-2.0.xsd">
    </stability>
    <date>2004-08-20</date>
    <license uri="http://www.php.net/license">PHP License</license>
-   <notes>initial pear release
-    
-   </notes>
+   <notes>initial pear release</notes>
   </release>
   <release>
    <version>
@@ -235,9 +227,7 @@ http://pear.php.net/dtd/package-2.0.xsd">
    </stability>
    <date>2004-08-30</date>
    <license uri="http://www.php.net/license">PHP License</license>
-   <notes>added optional $restrict-param for Date_Holidays_Driver::isHoliday()
-    
-   </notes>
+   <notes>added optional $restrict-param for Date_Holidays_Driver::isHoliday()</notes>
   </release>
   <release>
    <version>
@@ -250,9 +240,7 @@ http://pear.php.net/dtd/package-2.0.xsd">
    </stability>
    <date>2004-11-03</date>
    <license uri="http://www.php.net/license">PHP License</license>
-   <notes>Added driver and English languagefile for USA built by Kevin English.
-    
-   </notes>
+   <notes>Added driver and English languagefile for USA built by Kevin English.</notes>
   </release>
   <release>
    <version>
@@ -267,9 +255,7 @@ http://pear.php.net/dtd/package-2.0.xsd">
    <license uri="http://www.php.net/license">PHP License</license>
    <notes>- added Italian languagefile for Christian holidays (thx 2 quipo)
 - added performance-fix for getHolidayForDate() (thx 2 quipo)
-- added German translation for USA-holidays
-    
-   </notes>
+- added German translation for USA-holidays</notes>
   </release>
   <release>
    <version>
@@ -285,9 +271,7 @@ http://pear.php.net/dtd/package-2.0.xsd">
    <notes>- added Filters (Blacklist, Whitelist, Composite, Germany_Official)
 - improved Date_Holidays_Driver_Composite (allows executing setYear() now)
 - added new driver PHPdotNet
-- several cosmetic changes
-    
-   </notes>
+- several cosmetic changes</notes>
   </release>
   <release>
    <version>
@@ -309,9 +293,7 @@ http://pear.php.net/dtd/package-2.0.xsd">
    = addCompiledTranslationFile(), allows adding compiled language-data files for performance improvements
    = getHolidaysForDatespan(), returns holidays within a given time span
 - several bugfixes
-- Added filters for german federal states (contributed by Mark Wiesemann)
-    
-   </notes>
+- Added filters for german federal states (contributed by Mark Wiesemann)</notes>
   </release>
   <release>
    <version>
@@ -326,9 +308,7 @@ http://pear.php.net/dtd/package-2.0.xsd">
    <license uri="http://www.php.net/license">PHP License</license>
    <notes>- Implemented request #5764 : Methods to get installed drivers and filters (schst)
     - Added driver for calculation of Swedish holidays, feature-request: #6350  (luckec)
-    - Added unit-tests to package, added dynamic replacement of PEAR data-dir for language-files (luckec)
-    
-   </notes>
+    - Added unit-tests to package, added dynamic replacement of PEAR data-dir for language-files (luckec)</notes>
   </release>
   <release>
    <version>
@@ -341,9 +321,7 @@ http://pear.php.net/dtd/package-2.0.xsd">
    </stability>
    <date>2006-01-15</date>
    <license uri="http://www.php.net/license">PHP License</license>
-   <notes>- added Midsummer Eve for Date_Holidays_Driver_Sweden (luckec)
-    
-   </notes>
+   <notes>- added Midsummer Eve for Date_Holidays_Driver_Sweden (luckec)</notes>
   </release>
   <release>
    <version>
@@ -358,9 +336,7 @@ http://pear.php.net/dtd/package-2.0.xsd">
    <license uri="http://www.php.net/license">PHP License</license>
    <notes>- Fixed bug #7193 : signature of isHoliday() in composite driver was incorrect (schst)
 - Fixed bug #6729 : Veteran&apos;s Day wrong (schst)
-- minor refactorings (luckec)
-    
-   </notes>
+- minor refactorings (luckec)</notes>
   </release>
   <release>
    <version>
@@ -373,9 +349,7 @@ http://pear.php.net/dtd/package-2.0.xsd">
    </stability>
    <date>2006-04-03</date>
    <license uri="http://www.php.net/license">PHP License</license>
-   <notes>- added method Date_Holidays::factoryISO3166() that allows to create drivers by a given ISO3166 code, this was request #6944 (luckec)
-    
-   </notes>
+   <notes>- added method Date_Holidays::factoryISO3166() that allows to create drivers by a given ISO3166 code, this was request #6944 (luckec)</notes>
   </release>
   <release>
    <version>
@@ -388,9 +362,7 @@ http://pear.php.net/dtd/package-2.0.xsd">
    </stability>
    <date>2006-08-13</date>
    <license uri="http://www.php.net/license">PHP License</license>
-   <notes>- bugfix for Date_Holidays::factoryISO3166(), which did return null instead of a PEAR_Error on failure (luckec)
-    
-   </notes>
+   <notes>- bugfix for Date_Holidays::factoryISO3166(), which did return null instead of a PEAR_Error on failure (luckec)</notes>
   </release>
   <release>
    <version>
@@ -406,9 +378,7 @@ http://pear.php.net/dtd/package-2.0.xsd">
    <notes>- Fixed bug #9319: 4th Advents Day not calculated right (quippo)
 - Added Danish holidays, contributed by Henrik Hansen
 - Added Slowenian holidays, contributed by Jakob Munih
-- Added Discordian holidays, contributed by Stephan &apos;Da:Sourcerer&apos; Hohmann
-    
-   </notes>
+- Added Discordian holidays, contributed by Stephan &apos;Da:Sourcerer&apos; Hohmann</notes>
   </release>
   <release>
    <version>
@@ -423,13 +393,11 @@ http://pear.php.net/dtd/package-2.0.xsd">
    <license uri="http://www.php.net/license">PHP License</license>
    <notes>- Fixed bug #10220: Don&apos;t set locale automatically
 - Added Irish holidays/filters, contributed by Ken Guest
-- Added Austrian holidays, contributed by Klemens Ullmann
-    
-   </notes>
+- Added Austrian holidays, contributed by Klemens Ullmann</notes>
   </release>
   <release>
    <version>
-    <release>0.17.2</release>
+    <release>0.17.3</release>
     <api>0.17.2</api>
    </version>
    <stability>
@@ -439,9 +407,7 @@ http://pear.php.net/dtd/package-2.0.xsd">
    <date>2008-01-05</date>
    <license uri="http://www.php.net/license">PHP License</license>
    <notes>- Fixed bug #12807: incorrect holidays computation [kguest]
-- Added new drivers and filters for Netherlands (contributed by Jos van der Woude) and Norway (contributed by Vegard Fiksdal)
-    
-   </notes>
+- Added new drivers and filters for Netherlands (contributed by Jos van der Woude) and Norway (contributed by Vegard Fiksdal)</notes>
   </release>
  </changelog>
 </package>
