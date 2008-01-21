@@ -31,7 +31,7 @@
  <date>2008-01-15</date>
  <time>00:25:10</time>
  <version>
-  <release>0.17.4</release>
+  <release>0.17.5</release>
   <api>0.17.2</api>
  </version>
  <stability>
@@ -59,6 +59,7 @@
      <file baseinstalldir="Date" name="Composite.php" role="php" />
      <file baseinstalldir="Date" name="Denmark.php" role="php" />
      <file baseinstalldir="Date" name="Discordian.php" role="php" />
+     <file baseinstalldir="Date" name="EasternChristian.php" role="php" />
      <file baseinstalldir="Date" name="EnglandWales.php" role="php" />
      <file baseinstalldir="Date" name="Germany.php" role="php" />
      <file baseinstalldir="Date" name="Ireland.php" role="php" />
@@ -66,8 +67,10 @@
      <file baseinstalldir="Date" name="Netherlands.php" role="php" />
      <file baseinstalldir="Date" name="Norway.php" role="php" />
      <file baseinstalldir="Date" name="PHPdotNet.php" role="php" />
+     <file baseinstalldir="Date" name="Romania.php" role="php" />
      <file baseinstalldir="Date" name="Slovenia.php" role="php" />
      <file baseinstalldir="Date" name="Sweden.php" role="php" />
+     <file baseinstalldir="Date" name="Ukraine.php" role="php" />
      <file baseinstalldir="Date" name="UNO.php" role="php" />
      <file baseinstalldir="Date" name="USA.php" role="php" />
     </dir> <!-- /Holidays/Driver -->
@@ -397,7 +400,7 @@
   </release>
   <release>
    <version>
-    <release>0.17.4</release>
+    <release>0.17.5</release>
     <api>0.17.2</api>
    </version>
    <stability>
