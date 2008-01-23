@@ -62,6 +62,7 @@
      <file baseinstalldir="Date" name="EasternChristian.php" role="php" />
      <file baseinstalldir="Date" name="EnglandWales.php" role="php" />
      <file baseinstalldir="Date" name="Germany.php" role="php" />
+     <file baseinstalldir="Date" name="Iceland.php" role="php" />
      <file baseinstalldir="Date" name="Ireland.php" role="php" />
      <file baseinstalldir="Date" name="Jewish.php" role="php" />
      <file baseinstalldir="Date" name="Netherlands.php" role="php" />
@@ -94,6 +95,9 @@
       <file baseinstalldir="Date" name="SchleswigHolstein.php" role="php" />
       <file baseinstalldir="Date" name="Thuringia.php" role="php" />
      </dir> <!-- /Holidays/Filter/Germany -->
+     <dir name="Iceland">
+      <file baseinstalldir="Date" name="Official.php" role="php" />
+     </dir> <!-- /Holidays/Filter/Iceland -->
      <dir name="Ireland">
       <file baseinstalldir="Date" name="Official.php" role="php" />
      </dir> <!-- /Holidays/Filter/Ireland -->

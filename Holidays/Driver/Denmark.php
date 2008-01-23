@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab tabstop=4 shiftwidth=4: */
 /**
- * Driver for Discordian holidays 
+ * Driver for Discordian holidays
  *
  * PHP Version 4
  *
@@ -41,7 +41,7 @@ class Date_Holidays_Driver_Denmark extends Date_Holidays_Driver
     /**
      * Constructor
      *
-     * Use the Date_Holidays::factory() method to construct an object of a 
+     * Use the Date_Holidays::factory() method to construct an object of a
      * certain driver
      *
      * @access   protected
@@ -62,7 +62,7 @@ class Date_Holidays_Driver_Denmark extends Date_Holidays_Driver
         /**
          * New Year's Day
          */
-        $this->_addHoliday('newYearsDay', 
+        $this->_addHoliday('newYearsDay',
                            $this->_year . '-01-01',
                            'New Year\'s Day');
         $this->_addTranslationForHoliday('newYearsDay', 'da_DK', 'Nytårsdag');
@@ -83,7 +83,7 @@ class Date_Holidays_Driver_Denmark extends Date_Holidays_Driver
         /**
          * Easter Monday
          */
-        $this->_addHoliday('easterMonday', 
+        $this->_addHoliday('easterMonday',
                            $easterDate->getNextDay(),
                            'Easter Monday');
         $this->_addTranslationForHoliday('easterMonday', 'da_DK', '2. Påskedag');
@@ -107,13 +107,13 @@ class Date_Holidays_Driver_Denmark extends Date_Holidays_Driver
         /**
          * Green Thursday
          */
-        $this->_addHoliday('greenThursday', 
+        $this->_addHoliday('greenThursday',
                            $goodFridayDate->getPrevDay(),
                            'Green Thursday');
         $this->_addTranslationForHoliday('greenThursday', 'da_DK', 'Skærtorsdag');
 
         /**
-         * Whitsun (determines Whit Monday, Ascension Day and 
+         * Whitsun (determines Whit Monday, Ascension Day and
          * Feast of Corpus Christi)
          */
         $whitsunDate = new Date($easterDate);
@@ -124,7 +124,7 @@ class Date_Holidays_Driver_Denmark extends Date_Holidays_Driver
         /**
          * Whit Monday
          */
-        $this->_addHoliday('whitMonday', 
+        $this->_addHoliday('whitMonday',
                            $whitsunDate->getNextDay(),
                            'Whit Monday');
         $this->_addTranslationForHoliday('whitMonday', 'da_DK', '2. Pinsedag');
@@ -144,7 +144,7 @@ class Date_Holidays_Driver_Denmark extends Date_Holidays_Driver
          */
         $heartJesusDate = new Date($goodFridayDate);
         $heartJesusDate->addSpan(new Date_Span('28, 0, 0, 0'));
-        $this->_addHoliday('heartJesus', 
+        $this->_addHoliday('heartJesus',
                            $heartJesusDate,
                            'Heart of Jesus celebration');
         $this->_addTranslationForHoliday('heartJesus', 'da_DK', 'Store Bededag');
@@ -164,7 +164,7 @@ class Date_Holidays_Driver_Denmark extends Date_Holidays_Driver
         /**
          * Second Christmas Day
          */
-        $this->_addHoliday('secondXmasDay', 
+        $this->_addHoliday('secondXmasDay',
                            $this->_year . '-12-26',
                            'Boxing Day');
         $this->_addTranslationForHoliday('xmasDay', 'da_DK', '2. Juledag');
@@ -172,7 +172,7 @@ class Date_Holidays_Driver_Denmark extends Date_Holidays_Driver
         /**
          * New Year's Eve
          */
-        $this->_addHoliday('newYearsEve', 
+        $this->_addHoliday('newYearsEve',
                            $this->_year . '-12-31',
                            'New Year\'s Eve');
         $this->_addTranslationForHoliday('newYearsEve', 'da_DK', 'Nytårsaften');
@@ -185,9 +185,9 @@ class Date_Holidays_Driver_Denmark extends Date_Holidays_Driver
     }
 
     /**
-     * Method that returns an array containing the ISO3166 codes that may possibly 
+     * Method that returns an array containing the ISO3166 codes that may possibly
      * identify a driver.
-     * 
+     *
      * @static
      * @access public
      * @return array possible ISO3166 codes
