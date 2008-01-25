@@ -86,7 +86,6 @@ class Date_Holidays_Driver_Iceland extends Date_Holidays_Driver
          */
         $hdate = new Date($this->_year . "-01-19");
         while ($hdate->getDayOfWeek() != 5) {
-            var_dump($hdate->getDayOfWeek());
             $hdate = $hdate->getNextDay();
         }
         $this->_addHoliday('husbandsDay', $hdate, 'Husband\'s Day');
@@ -97,8 +96,7 @@ class Date_Holidays_Driver_Iceland extends Date_Holidays_Driver
          * Calculate Sunday in the 18th week of winter, ie between Feb 18-24.
          */
         $wdate = new Date($this->_year . "-02-18");
-        while ($wdate->getDayOfWeek() != 5) {
-            var_dump($wdate->getDayOfWeek());
+        while ($wdate->getDayOfWeek() != 0) {
             $wdate = $wdate->getNextDay();
         }
         $this->_addHoliday('womansDay', $wdate, 'Woman\'s Day');
