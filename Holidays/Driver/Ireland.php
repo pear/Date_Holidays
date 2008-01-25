@@ -30,13 +30,13 @@ require_once 'Date/Holidays/Driver/Christian.php';
  * deriving most calculations from 'Public holidays in Ireland' document
  * on http://www.citizensinformation.ie/
  *
- * @category Date
- * @package  Date_Holidays
- * @author   Ken Guest <kguest@php.net>
- * @subpackage  Driver
- * @license  http://www.php.net/license/3_01.txt PHP License 3.0.1
- * @version  CVS: $Id$
- * @link     http://pear.php.net/package/Date_Holidays
+ * @category   Date
+ * @package    Date_Holidays
+ * @subpackage Driver
+ * @author     Ken Guest <kguest@php.net>
+ * @license    http://www.php.net/license/3_01.txt PHP License 3.0.1
+ * @version    CVS: $Id$
+ * @link       http://pear.php.net/package/Date_Holidays
  */
 class Date_Holidays_Driver_Ireland extends Date_Holidays_Driver
 {
@@ -67,11 +67,14 @@ class Date_Holidays_Driver_Ireland extends Date_Holidays_Driver
         $this->_addHoliday('newYearsDay',
                            $this->_year . '-01-01',
                            'New Year\'s Day');
+        $this->_addTranslationForHoliday('newYearsDay', 'ga_IE', 'Lá na Caille');
 
         /**
          * Epiphany
          */
         $this->_addHoliday('epiphany', $this->_year . '-01-06', 'Epiphany');
+        $this->_addTranslationForHoliday('epiphany', 'ga_IE', 'Nollag na mBan');
+
 
         /**
          * St Patrick's Day.
@@ -79,12 +82,16 @@ class Date_Holidays_Driver_Ireland extends Date_Holidays_Driver
         $this->_addHoliday('stPatricksDay',
                            $this->_year . '-03-17',
                            'Saint Patrick\'s Day');
+        $this->_addTranslationForHoliday('stPatricksDay',
+                                         'ga_IE',
+                                         'Lá Fhéile Pádraig');
 
         /**
          * Easter Sunday
          */
         $easterDate = Date_Holidays_Driver_Ireland::calcEaster($this->_year);
         $this->_addHoliday('easter', $easterDate, 'Easter Sunday');
+        $this->_addHoliday('easter', 'ga_IE', 'Domhnach Cásca');
 
         /**
          * Good Friday / Black Friday
@@ -92,6 +99,9 @@ class Date_Holidays_Driver_Ireland extends Date_Holidays_Driver
         $goodFridayDate = new Date($easterDate);
         $goodFridayDate->subtractSpan(new Date_Span('2, 0, 0, 0'));
         $this->_addHoliday('goodFriday', $goodFridayDate, 'Good Friday');
+        $this->_addTranslationForHoliday('goodFriday',
+                                         'ga_IE',
+                                         'Domhnach Cásca');
 
         /**
          * Easter Monday
@@ -99,12 +109,18 @@ class Date_Holidays_Driver_Ireland extends Date_Holidays_Driver
         $this->_addHoliday('easterMonday',
                            $easterDate->getNextDay(),
                            'Easter Monday');
+        $this->_addTranslationForHoliday('easterMonday',
+                                         'ga_IE',
+                                         'Luan Cásca');
 
         /**
          * May Bank Holiday
          */
         $dn = $this->_calcFirstMonday('05');
         $this->_addHoliday('mayDayBankHoliday', $dn, 'May Bank Holiday');
+        $this->_addTranslationForHoliday('mayDayBankHoliday',
+                                         'ga_IE',
+                                         'Lá Bealtaine');
 
         /**
          * Pentecost (determines Whit Monday, Ascension Day and
@@ -113,6 +129,9 @@ class Date_Holidays_Driver_Ireland extends Date_Holidays_Driver
         $pentecostDate = new Date($easterDate);
         $pentecostDate->addSpan(new Date_Span('49, 0, 0, 0'));
         $this->_addHoliday('pentecost', $pentecostDate, 'Pentecost');
+        $this->_addTranslationForHoliday('pentecost',
+                                         'ga_IE',
+                                         'An Chincís');
 
         /**
          * Ascension Day
@@ -120,12 +139,18 @@ class Date_Holidays_Driver_Ireland extends Date_Holidays_Driver
         $ascensionDayDate = new Date($pentecostDate);
         $ascensionDayDate->subtractSpan(new Date_Span('10, 0, 0, 0'));
         $this->_addHoliday('ascensionDay', $ascensionDayDate, 'Ascension Day');
+        $this->_addTranslationForHoliday('ascensionDay',
+                                         'ga_IE',
+                                         'Deascabhála');
 
         /**
          * June Bank Holiday
          */
         $dn = $this->_calcFirstMonday('06');
         $this->_addHoliday('juneBankHoliday', $dn, 'June Bank Holiday');
+        $this->_addTranslationForHoliday('juneBankHoliday',
+                                         'ga_IE',
+                                         'Lá  Meitheamh');
 
         /**
          * Midsummer
@@ -136,33 +161,53 @@ class Date_Holidays_Driver_Ireland extends Date_Holidays_Driver
         $juneDate->addSpan(new Date_Span(sprintf('%d, 0, 0, 0', 6 - $dayOfWeek)));
         $midSummerDate = $juneDate;
         $this->_addHoliday('midSummer', $midSummerDate, 'Midsummer Day');
+        $this->_addTranslationForHoliday('midSummer',
+                                         'ga_IE',
+                                         'Lá Fhéile Eoin');
 
         /**
          * August Bank Holiday
          */
         $dn = $this->_calcFirstMonday('08');
         $this->_addHoliday('augustBankHoliday', $dn, 'August Bank Holiday');
+        $this->_addTranslationForHoliday('augustBankHoliday',
+                                         'ga_IE',
+                                         'Lá Lúnasa');
 
         /**
          * October Bank Holiday
          */
         $dn = $this->_calcLastMonday('10');
         $this->_addHoliday('octoberBankHoliday', $dn, 'October Bank Holiday');
+        $this->_addTranslationForHoliday('octoberBankHoliday',
+                                         'ga_IE',
+                                         'Lá Samhna');
 
         /**
          * Christmas Eve
          */
         $this->_addHoliday('xmasEve', $this->_year . '-12-24', 'Christmas Eve');
+        $this->_addTranslationForHoliday('xmasEve',
+                                         'ga_IE',
+                                         'Oíche Nollag');
 
         /**
          * Christmas day
          */
         $this->_addHoliday('xmasDay', $this->_year . '-12-25', 'Christmas Day');
+        $this->_addTranslationForHoliday('xmasDay',
+                                         'ga_IE',
+                                         'Lá Nollag');
 
         /**
          * St. Stephen's Day
          */
-        $this->_addHoliday('StStephensDay', $this->_year . '-12-26', 'Saint Stephen\'s Day');
+        $this->_addHoliday('StStephensDay',
+                           $this->_year . '-12-26',
+                           'Saint Stephen\'s Day');
+        $this->_addTranslationForHoliday('StStephensDay',
+                                         'ga_IE',
+                                         'Lá Fhéile Stiofáin');
 
         /**
          * New Year's Eve
@@ -170,6 +215,9 @@ class Date_Holidays_Driver_Ireland extends Date_Holidays_Driver
         $this->_addHoliday('newYearsEve',
                            $this->_year . '-12-31',
                            'New Year\'s Eve');
+        $this->_addTranslationForHoliday('StStephensDay',
+                                         'ga_IE',
+                                         'Oíche Chinn Bliana');
 
         if (Date_Holidays::errorsOccurred()) {
             return Date_Holidays::getErrorStack();
