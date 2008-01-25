@@ -78,14 +78,30 @@ class Date_Holidays_Driver_Iceland extends Date_Holidays_Driver
 
         /**
          * Husband's Day
+         * From http://www.isholf.is/gullis/jo/feasts_and_celebrations.htm
+         * Þorri is one of the old Icelandic months. It always begins on
+         * a Friday, between the 19th and the 25th of January, and ends on
+         * a Saturday between the 18th and 24th of February. The first day
+         * of Þorri is called Bóndadagur or "Husband's Day/Farmer's Day"
          */
-        $this->_addHoliday('husbandsDay', $this->_year . '-01-19', 'Husband\'s Day');
+        $hdate = new Date($this->_year . "-01-19");
+        while ($hdate->getDayOfWeek() != 5) {
+            var_dump($hdate->getDayOfWeek());
+            $hdate = $hdate->getNextDay();
+        }
+        $this->_addHoliday('husbandsDay', $hdate, 'Husband\'s Day');
         $this->_addTranslationForHoliday('husbandsDay', 'is_IS', 'Bóndadagur');
 
         /**
          * Woman's Day
+         * Calculate Sunday in the 18th week of winter, ie between Feb 18-24.
          */
-        $this->_addHoliday('womansDay', $this->_year . '-02-18', 'Woman\'s Day');
+        $wdate = new Date($this->_year . "-02-18");
+        while ($wdate->getDayOfWeek() != 5) {
+            var_dump($wdate->getDayOfWeek());
+            $wdate = $wdate->getNextDay();
+        }
+        $this->_addHoliday('womansDay', $wdate, 'Woman\'s Day');
         $this->_addTranslationForHoliday('womansDay', 'is_IS', 'Konudagur');
 
         $shroveMondayDate = new Date($easterDate);
