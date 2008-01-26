@@ -31,35 +31,35 @@
 define('DATE_HOLIDAYS_FILTER_NOT_FOUND', 200);
 
 /**
- * Class that acts like a single filter but actually is a compound of 
+ * Class that acts like a single filter but actually is a compound of
  * an arbitrary number of filters.
  *
- * @category Date
- * @package  Date_Holidays
- * @subpackage  Filter
- * @author   Carsten Lucke <luckec@tool-garage.de>
- * @license  http://www.php.net/license/3_01.txt PHP License 3.0.1
- * @version  CVS: $Id$
- * @link     http://pear.php.net/package/Date_Holidays
+ * @category   Date
+ * @package    Date_Holidays
+ * @subpackage Filter
+ * @author     Carsten Lucke <luckec@tool-garage.de>
+ * @license    http://www.php.net/license/3_01.txt PHP License 3.0.1
+ * @version    CVS: $Id$
+ * @link       http://pear.php.net/package/Date_Holidays
  */
 class Date_Holidays_Filter_Composite extends Date_Holidays_Filter
 {
     /**
      * List of filters.
-     * 
+     *
      * @access   private
      * @var      array
      */
     var $_filters = array();
-    
+
     /**
      * Constructor.
      */
-    function __construct() 
+    function __construct()
     {
         parent::__construct(array());
     }
-    
+
     /**
      * Constructor.
      */
@@ -67,15 +67,15 @@ class Date_Holidays_Filter_Composite extends Date_Holidays_Filter
     {
         $this->__construct();
     }
-    
+
     /**
      * Lets the filter decide whether a holiday shall be processed or not.
-     * 
+     *
      * @param string $holiday a holidays' internal name
      *
      * @return   boolean true, if a holidays shall be processed, false otherwise
      */
-    function accept($holiday) 
+    function accept($holiday)
     {
         foreach (array_keys($this->_filters) as $fId) {
             if ($this->_filters[$fId]->accept($holiday)) {
@@ -84,45 +84,45 @@ class Date_Holidays_Filter_Composite extends Date_Holidays_Filter
         }
         return false;
     }
-    
+
     /**
      * Add a filter to the compound.
-     * 
+     *
      * @param Date_Holidays_Filter $filter filter object
      *
      * @access   public
      * @return   boolean true on success, false otherwise
      */
-    function addFilter($filter) 
+    function addFilter($filter)
     {
         if (! is_a($filter, 'Date_Holidays_Filter')) {
             return false;
         }
-        
+
         $id                  = md5(serialize($filter));
         $this->_filters[$id] = $filter;
         return true;
     }
-    
+
     /**
      * Remove a filter from the compound.
-     * 
+     *
      * @param Date_Holidays_Filter $filter filter object
      *
      * @access   public
      * @return   boolean     true on success, otherwise a PEAR_Error object
      * @throws   PEAR_Error  DATE_HOLIDAYS_FILTER_NOT_FOUND
      */
-    function removeFilter($filter) 
+    function removeFilter($filter)
     {
         if (! is_a($filter, 'Date_Holidays_Filter')) {
             return false;
         }
-        
+
         $id = md5(serialize($filter));
         // unset filter object
         if (! isset($this->_filters[$id])) {
-            return Date_Holidays::raiseError(DATE_HOLIDAYS_FILTER_NOT_FOUND, 
+            return Date_Holidays::raiseError(DATE_HOLIDAYS_FILTER_NOT_FOUND,
                                              'Filter not found');
         }
         unset($this->_drivers[$id]);
