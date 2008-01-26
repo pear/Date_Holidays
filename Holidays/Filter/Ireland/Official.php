@@ -26,21 +26,21 @@
 /**
  * Filter that only accepts official Irish holidays.
  *
- * @category Date
- * @package  Date_Holidays
- * @subpackage  Filter
- * @author   Ken Guest <ken.guest@linux.ie>
- * @license  http://www.php.net/license/3_01.txt PHP License 3.0.1
- * @version  CVS: $Id$
- * @link     http://pear.php.net/package/Date_Holidays
+ * @category   Date
+ * @package    Date_Holidays
+ * @subpackage Filter
+ * @author     Ken Guest <ken.guest@linux.ie>
+ * @license    http://www.php.net/license/3_01.txt PHP License 3.0.1
+ * @version    CVS: $Id$
+ * @link       http://pear.php.net/package/Date_Holidays
  */
 class Date_Holidays_Filter_Ireland_Official extends Date_Holidays_Filter_Whitelist
 {
     /**
      * Constructor.
-     * 
+     *
      */
-    function __construct() 
+    function __construct()
     {
         parent::__construct(array('newYearsDay',
                                   'stPatricksDay',
@@ -52,11 +52,11 @@ class Date_Holidays_Filter_Ireland_Official extends Date_Holidays_Filter_Whiteli
                                   'xmasDay',
                                   'boxingDay'));
     }
-    
+
     /**
      * Constructor.
-     * 
-     * Only accepts official Irish public holidays as described on 
+     *
+     * Only accepts official Irish public holidays as described on
      * http://www.citizensinformation.ie/
      *
      * @link http://www.citizensinformation.ie/
