@@ -30,13 +30,13 @@ require_once 'Date/Holidays/Driver/Christian.php';
  * deriving most calculations from 'Public holidays in Iceland' document
  * on http://en.wikipedia.org/wiki/Public_holidays_in_Iceland
  *
- * @category Date
- * @package  Date_Holidays
- * @author   Ken Guest <kguest@php.net>
- * @subpackage  Driver
- * @license  http://www.php.net/license/3_01.txt PHP License 3.0.1
- * @version  CVS: $Id$
- * @link     http://pear.php.net/package/Date_Holidays
+ * @category   Date
+ * @package    Date_Holidays
+ * @subpackage Driver
+ * @author     Ken Guest <kguest@php.net>
+ * @license    http://www.php.net/license/3_01.txt PHP License 3.0.1
+ * @version    CVS: $Id$
+ * @link       http://pear.php.net/package/Date_Holidays
  */
 class Date_Holidays_Driver_Iceland extends Date_Holidays_Driver
 {
@@ -138,7 +138,9 @@ class Date_Holidays_Driver_Iceland extends Date_Holidays_Driver
         $goodFridayDate = new Date($easterDate);
         $goodFridayDate->subtractSpan(new Date_Span('2, 0, 0, 0'));
         $this->_addHoliday('goodFriday', $goodFridayDate, 'Good Friday');
-        $this->_addTranslationForHoliday('goodFriday', 'is_IS', 'Föstudaginn langi');
+        $this->_addTranslationForHoliday('goodFriday',
+                                         'is_IS',
+                                         'Föstudaginn langi');
 
         /**
          * Easter Day
@@ -152,9 +154,9 @@ class Date_Holidays_Driver_Iceland extends Date_Holidays_Driver
         $this->_addHoliday('easterMonday',
                            $easterDate->getNextDay(),
                            'Easter Monday');
-        $this->_addTranslationForHoliday('easterMonday', 'is_IS', 'Annar í páskum');
-
-
+        $this->_addTranslationForHoliday('easterMonday',
+                                         'is_IS',
+                                         'Annar í páskum');
 
         /**
          * First Day of Summer
@@ -164,11 +166,14 @@ class Date_Holidays_Driver_Iceland extends Date_Holidays_Driver
         $dayOfWeek = $juneDate->getDayOfWeek();
         $juneDate->addSpan(new Date_Span(sprintf('%d, 0, 0, 0', 4 - $dayOfWeek)));
         $midSummerDate = $juneDate;
-        $this->_addHoliday('firstDayOfSummer', $midSummerDate, 'First Day of Summer');
-        $this->_addTranslationForHoliday('firstDayOfSummer', 'is_IS', 'Sumardagurinn fyrsti');
+        $this->_addHoliday('firstDayOfSummer',
+                           $midSummerDate,
+                           'First Day of Summer');
+        $this->_addTranslationForHoliday('firstDayOfSummer',
+                                         'is_IS',
+                                         'Sumardagurinn fyrsti');
 
-
-        $mayDay= new Date($this->_year . '-05-01');
+        $mayDay = new Date($this->_year . '-05-01');
         $this->_addHoliday('mayDay', $mayDay, 'May Day');
         $this->_addTranslationForHoliday('mayDay', 'is_IS', 'Verkalýðsdagurinn');
 
@@ -186,35 +191,55 @@ class Date_Holidays_Driver_Iceland extends Date_Holidays_Driver
          * Whit Monday
          */
         $this->_addHoliday('whitMonday', $whitsunDate->getNextDay(), 'White Monday');
-        $this->_addTranslationForHoliday('whitMonday', 'is_IS', 'Annar í hvítasunnu');
+        $this->_addTranslationForHoliday('whitMonday',
+                                         'is_IS',
+                                         'Annar í hvítasunnu');
 
         $ascensionDayDate = new Date($whitsunDate);
         $ascensionDayDate->subtractSpan(new Date_Span('10, 0, 0, 0'));
         $this->_addHoliday('ascensionDay', $ascensionDayDate, 'Ascension Day');
-        $this->_addTranslationForHoliday('ascensionDay', 'is_IS', 'Uppstigningardagur');
+        $this->_addTranslationForHoliday('ascensionDay',
+                                         'is_IS',
+                                         'Uppstigningardagur');
 
 
-        $this->_addHoliday('seamansDay', $this->_year . '-06-03', 'The Seamen\'s Day');
+        $this->_addHoliday('seamansDay',
+                           $this->_year . '-06-03',
+                           'The Seamen\'s Day');
         $this->_addTranslationForHoliday('seamansDay', 'is_IS', 'Sjómannadagurinn');
 
-        $this->_addHoliday('nationalDay', $this->_year . '-06-17', 'Icelandic National Day');
-        $this->_addTranslationForHoliday('nationalDay', 'is_IS', 'Lýðveldisdagurinn');
+        $this->_addHoliday('nationalDay',
+                           $this->_year . '-06-17',
+                           'Icelandic National Day');
+        $this->_addTranslationForHoliday('nationalDay',
+                                         'is_IS',
+                                         'Lýðveldisdagurinn');
 
         $this->_addHoliday('jonsMass', $this->_year . '-06-24', 'Jón\'s Mass');
         $this->_addTranslationForHoliday('jonsMass', 'is_IS', 'Jónsmessa');
 
-        $augDate  = new Date($this->_year . '-08-01');
+        $augDate   = new Date($this->_year . '-08-01');
         $dayOfWeek = $augDate->getDayOfWeek();
         $augDate->addSpan(new Date_Span(sprintf('%d, 0, 0, 0', 2 - $dayOfWeek)));
         $commerceDate = $augDate;
         $this->_addHoliday('commerceDay', $commerceDate, 'Commerce Day');
-        $this->_addTranslationForHoliday('commerceDay', 'is_IS', 'Frídagur verslunarmanna');
+        $this->_addTranslationForHoliday('commerceDay',
+                                         'is_IS',
+                                         'Frídagur verslunarmanna');
 
-        $this->_addHoliday('languageDay', $this->_year . '-11-16', 'Icelandic Language Day');
-        $this->_addTranslationForHoliday('languageDay', 'is_IS', 'Dagur íslenskrar tungu');
+        $this->_addHoliday('languageDay',
+                           $this->_year . '-11-16',
+                           'Icelandic Language Day');
+        $this->_addTranslationForHoliday('languageDay',
+                                         'is_IS',
+                                         'Dagur íslenskrar tungu');
 
-        $this->_addHoliday('independenceDay', $this->_year . '-12-01', 'Independence Day');
-        $this->_addTranslationForHoliday('independenceDay', 'is_IS', '  Fullveldisdagurinn');
+        $this->_addHoliday('independenceDay',
+                           $this->_year . '-12-01',
+                           'Independence Day');
+        $this->_addTranslationForHoliday('independenceDay',
+                                         'is_IS',
+                                         'Fullveldisdagurinn');
 
 
         /**
@@ -227,7 +252,9 @@ class Date_Holidays_Driver_Iceland extends Date_Holidays_Driver
         $this->_addTranslationForHoliday('xmasDay', 'is_IS', 'Jóladagur');
 
         $this->_addHoliday('secondXmasDay', $this->_year . '-12-26', 'Boxing Day');
-        $this->_addTranslationForHoliday('secondXmasDay', 'is_IS', 'Annar í jólum');
+        $this->_addTranslationForHoliday('secondXmasDay',
+                                         'is_IS',
+                                         'Annar í jólum');
 
 
 

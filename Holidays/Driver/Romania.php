@@ -28,13 +28,13 @@ require_once 'Date/Holidays/Driver/EasternChristian.php';
 /**
  * Driver class that calculates holidays in Romania.
  *
- * @category Date
- * @package  Date_Holidays
- * @author   Ken Guest <kguest@php.net>
- * @subpackage  Driver
- * @license  http://www.php.net/license/3_01.txt PHP License 3.0.1
- * @version  CVS: $Id$
- * @link     http://pear.php.net/package/Date_Holidays
+ * @category   Date
+ * @package    Date_Holidays
+ * @subpackage Driver
+ * @author     Ken Guest <kguest@php.net>
+ * @license    http://www.php.net/license/3_01.txt PHP License 3.0.1
+ * @version    CVS: $Id$
+ * @link       http://pear.php.net/package/Date_Holidays
  */
 class Date_Holidays_Driver_Romania extends Date_Holidays_Driver
 {
@@ -73,7 +73,9 @@ class Date_Holidays_Driver_Romania extends Date_Holidays_Driver
         /**
          * Easter Monday
          */
-        $this->_addHoliday('easterMonday', $easterDate->getNextday(), 'Easter Monday');
+        $this->_addHoliday('easterMonday',
+                           $easterDate->getNextday(),
+                           'Easter Monday');
 
 
         /**

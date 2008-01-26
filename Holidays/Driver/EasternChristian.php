@@ -26,13 +26,13 @@
 /**
  * class that calculates Eastern Christian holidays
  *
- * @category Date
- * @package  Date_Holidays
- * @author   Ken Guest <ken@linux.ie>
+ * @category   Date
+ * @package    Date_Holidays
  * @subpackage Driver
- * @license  http://www.php.net/license/3_01.txt PHP License 3.0.1
- * @version  CVS: $Id$
- * @link     http://pear.php.net/package/Date_Holidays
+ * @author     Ken Guest <ken@linux.ie>
+ * @license    http://www.php.net/license/3_01.txt PHP License 3.0.1
+ * @version    CVS: $Id$
+ * @link       http://pear.php.net/package/Date_Holidays
  */
 class Date_Holidays_Driver_Eastern_Christian extends Date_Holidays_Driver
 {
@@ -57,43 +57,45 @@ class Date_Holidays_Driver_Eastern_Christian extends Date_Holidays_Driver
      */
     function _buildHolidays()
     {
+        $year = $this->_year;
+
         /**
          * Circumcision of Jesus
          */
         $this->_addHoliday('jesusCircumcision',
-                           $this->_year . '-01-01',
+                           $year . '-01-01',
                            'Circumcision of Jesus');
 
         /**
          * Epiphanias
          */
-        $this->_addHoliday('epiphany', $this->_year . '-01-06', 'Epiphany');
+        $this->_addHoliday('epiphany', $year . '-01-06', 'Epiphany');
 
         /**
          * Cleaning of Mariä
          */
         $this->_addHoliday('mariaCleaning',
-                           $this->_year . '-02-02',
+                           $year . '-02-02',
                            'Cleaning of Maria');
 
         /**
          * Josef's Day
          */
         $this->_addHoliday('josefsDay',
-                           $this->_year . '-03-19',
+                           $year . '-03-19',
                            'Josef\'s Day');
 
         /**
          * Maria Announcement
          */
         $this->_addHoliday('mariaAnnouncement',
-                            $this->_year . '-03-25',
+                            $year . '-03-25',
                             'Maria Announcement');
 
         /**
          * Easter Sunday
          */
-        $easterDate = Date_Holidays_Driver_EasternChristian::calcEaster($this->_year);
+        $easterDate = Date_Holidays_Driver_EasternChristian::calcEaster($year);
         $this->_addHoliday('easter', $easterDate, 'Easter Sunday');
 
         /**
@@ -182,9 +184,9 @@ class Date_Holidays_Driver_Eastern_Christian extends Date_Holidays_Driver
         if ($year > 2100) {
             $julianOffset = 14;
         }
-        $a = $year % 19;
-        $b = $year % 4;
-        $c = $year % 7;
+        $a  = $year % 19;
+        $b  = $year % 4;
+        $c  = $year % 7;
         $ra = (19 * $a + 16);
         $r4 = $ra % 30;
         $rb = 2 * $b + 4 * $c + 6 * $r4;

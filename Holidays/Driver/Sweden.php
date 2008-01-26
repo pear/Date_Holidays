@@ -29,20 +29,20 @@ require_once 'Date/Holidays/Driver/Christian.php';
 /**
  * Driver class that calculates Swedish holidays
  *
- * @category Date
- * @package  Date_Holidays
- * @author   Anders Karlsson <anders.x.karlsson@tdcsong.se>
+ * @category   Date
+ * @package    Date_Holidays
  * @subpackage Driver
- * @license  http://www.php.net/license/3_01.txt PHP License 3.0.1
- * @version  CVS: $Id$
- * @link     http://pear.php.net/package/Date_Holidays
+ * @author     Anders Karlsson <anders.x.karlsson@tdcsong.se>
+ * @license    http://www.php.net/license/3_01.txt PHP License 3.0.1
+ * @version    CVS: $Id$
+ * @link       http://pear.php.net/package/Date_Holidays
  */
 class Date_Holidays_Driver_Sweden extends Date_Holidays_Driver
 {
     /**
      * Constructor
      *
-     * Use the Date_Holidays::factory() method to construct an object of 
+     * Use the Date_Holidays::factory() method to construct an object of
      * a certain driver
      *
      * @access   protected
@@ -63,14 +63,14 @@ class Date_Holidays_Driver_Sweden extends Date_Holidays_Driver
         /**
          * New Year's Day
          */
-        $this->_addHoliday('newYearsDay', 
+        $this->_addHoliday('newYearsDay',
                            $this->_year . '-01-01',
                            'New Year\'s Day');
 
         /**
          * Epiphanias
          */
-        $this->_addHoliday('epiphany', 
+        $this->_addHoliday('epiphany',
                            $this->_year . '-01-06',
                            'Epiphany');
 
@@ -90,19 +90,19 @@ class Date_Holidays_Driver_Sweden extends Date_Holidays_Driver
         /**
          * Easter Monday
          */
-        $this->_addHoliday('easterMonday', 
+        $this->_addHoliday('easterMonday',
                            $easterDate->getNextDay(),
                            'Easter Monday');
 
         /**
          * May Day
          */
-        $this->_addHoliday('mayDay', 
+        $this->_addHoliday('mayDay',
                            $this->_year . '-05-01',
                            'May Day');
 
         /**
-         * Pentecost (determines Whit Monday, Ascension Day and 
+         * Pentecost (determines Whit Monday, Ascension Day and
          * Feast of Corpus Christi)
          */
         $pentecostDate = new Date($easterDate);
@@ -119,7 +119,7 @@ class Date_Holidays_Driver_Sweden extends Date_Holidays_Driver
         /**
          * Swedish National Day and the Swedish Flag's Day
          */
-        $this->_addHoliday('swedenNationalDay', 
+        $this->_addHoliday('swedenNationalDay',
                            $this->_year . '-06-06',
                            'Swedish National Day and the Swedish Flag\'s Day');
 
@@ -132,21 +132,21 @@ class Date_Holidays_Driver_Sweden extends Date_Holidays_Driver
         $juneDate->addSpan(new Date_Span(sprintf('%d, 0, 0, 0', 6 - $dayOfWeek)));
         $midSummerDate = $juneDate;
         $this->_addHoliday('midSummer', $midSummerDate, 'Midsummer Day');
-        
+
         /**
          * Midsummer Eve
          * Day before Midsummer.
          */
-        $this->_addHoliday('midSummerEve', 
+        $this->_addHoliday('midSummerEve',
                            $midSummerDate->getPrevDay(),
-                           'Midsummer Eve'); 
+                           'Midsummer Eve');
 
         /**
          * All Saints' Day
          */
         $saintspanDate = new Date($this->_year . '-10-31');
         $dayOfWeek     = $saintspanDate->getDayOfWeek();
-        $saintspanDate->addSpan(new Date_Span(sprintf('%d, 0, 0, 0', 
+        $saintspanDate->addSpan(new Date_Span(sprintf('%d, 0, 0, 0',
                                                       6 - $dayOfWeek)));
         $allSaintsDate = $saintspanDate;
         $this->_addHoliday('allSaintsDay', $allSaintsDate, 'All Saints\' Day');
@@ -169,7 +169,7 @@ class Date_Holidays_Driver_Sweden extends Date_Holidays_Driver
         /**
          * New Year's Eve
          */
-        $this->_addHoliday('newYearsEve', 
+        $this->_addHoliday('newYearsEve',
                            $this->_year . '-12-31',
                            'New Year\'s Eve');
 
@@ -180,7 +180,7 @@ class Date_Holidays_Driver_Sweden extends Date_Holidays_Driver
     }
 
     /**
-     * Calculates the date for Easter. Actually this methods delegates the 
+     * Calculates the date for Easter. Actually this methods delegates the
      * calculation to the {@link Date_Holidays_Driver_Christian#calcEaster()} method.
      *
      * @param int $year year
@@ -193,11 +193,11 @@ class Date_Holidays_Driver_Sweden extends Date_Holidays_Driver
     {
         return Date_Holidays_Driver_Christian::calcEaster($year);
     }
-    
+
     /**
-     * Method that returns an array containing the ISO3166 codes that may possibly 
+     * Method that returns an array containing the ISO3166 codes that may possibly
      * identify a driver.
-     * 
+     *
      * @static
      * @access public
      * @return array possible ISO3166 codes

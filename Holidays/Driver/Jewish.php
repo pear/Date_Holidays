@@ -27,20 +27,20 @@
 /**
  * class that calculates Jewish holidays
  *
- * @category Date
- * @package  Date_Holidays
- * @author   Carsten Lucke <luckec@tool-garage.de>
- * @subpackage  Driver
- * @license  http://www.php.net/license/3_01.txt PHP License 3.0.1
- * @version  CVS: $Id$
- * @link     http://pear.php.net/package/Date_Holidays
+ * @category   Date
+ * @package    Date_Holidays
+ * @subpackage Driver
+ * @author     Carsten Lucke <luckec@tool-garage.de>
+ * @license    http://www.php.net/license/3_01.txt PHP License 3.0.1
+ * @version    CVS: $Id$
+ * @link       http://pear.php.net/package/Date_Holidays
  */
 class Date_Holidays_Driver_Jewish extends Date_Holidays_Driver
 {
     /**
      * Constructor
      *
-     * Use the Date_Holidays::factory() method to construct an object of a 
+     * Use the Date_Holidays::factory() method to construct an object of a
      * certain driver
      *
      * @access   protected
@@ -48,7 +48,7 @@ class Date_Holidays_Driver_Jewish extends Date_Holidays_Driver
     function Date_Holidays_Driver_Jewish()
     {
     }
-    
+
     /**
      * Build the internal arrays that contain data about the calculated holidays
      *

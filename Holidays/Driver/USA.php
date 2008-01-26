@@ -28,20 +28,20 @@
 /**
  * class that calculates observed U.S. holidays
  *
- * @category Date
- * @package  Date_Holidays
- * @author   Kevin English <kevin@x5dev.com>
- * @subpackage  Driver
- * @license  http://www.php.net/license/3_01.txt PHP License 3.0.1
- * @version  CVS: $Id$
- * @link     http://pear.php.net/package/Date_Holidays
+ * @category   Date
+ * @package    Date_Holidays
+ * @subpackage Driver
+ * @author     Kevin English <kevin@x5dev.com>
+ * @license    http://www.php.net/license/3_01.txt PHP License 3.0.1
+ * @version    CVS: $Id$
+ * @link       http://pear.php.net/package/Date_Holidays
  */
 class Date_Holidays_Driver_USA extends Date_Holidays_Driver
 {
     /**
      * Constructor
      *
-     * Use the Date_Holidays::factory() method to construct an object of a 
+     * Use the Date_Holidays::factory() method to construct an object of a
      * certain driver
      *
      * @access   protected
@@ -66,16 +66,16 @@ class Date_Holidays_Driver_USA extends Date_Holidays_Driver
         $this->_addHoliday('newYearsDay', $newYearsDay, 'New Year\'s Day');
 
         $thirdMondayInJanuaryDate = $this->_calcNthMondayInMonth(1, 3);
-        $this->_addHoliday('mlkDay', 
-                           $thirdMondayInJanuaryDate, 
+        $this->_addHoliday('mlkDay',
+                           $thirdMondayInJanuaryDate,
                            'Dr. Martin Luther King Jr\'s Birthday');
 
         /**
          * President's Day
          */
         $thirdMondayInFebruaryDate = $this->_calcNthMondayInMonth(2, 3);
-        $this->_addHoliday('presidentsDay', 
-                           $thirdMondayInFebruaryDate, 
+        $this->_addHoliday('presidentsDay',
+                           $thirdMondayInFebruaryDate,
                            'President\'s Day');
 
         /**
@@ -131,7 +131,7 @@ class Date_Holidays_Driver_USA extends Date_Holidays_Driver
      * @access   private
      * @return   object Date date
      */
-    function _calcNthMondayInMonth($month, $position) 
+    function _calcNthMondayInMonth($month, $position)
     {
         if ($position  == 1) {
             $startday = '01';
@@ -162,7 +162,7 @@ class Date_Holidays_Driver_USA extends Date_Holidays_Driver
      * @access   private
      * @return   object Date date
      */
-    function _calcNthThursdayInMonth($month, $position) 
+    function _calcNthThursdayInMonth($month, $position)
     {
         if ($position  == 1) {
             $startday = '01';
@@ -192,7 +192,7 @@ class Date_Holidays_Driver_USA extends Date_Holidays_Driver
      * @access   private
      * @return   object Date date
      */
-    function _calcLastMondayInMonth($month) 
+    function _calcLastMondayInMonth($month)
     {
         $month       = sprintf("%02d", $month);
         $date        = new Date($this->_year . '-' . $month . '-01');
@@ -214,15 +214,15 @@ class Date_Holidays_Driver_USA extends Date_Holidays_Driver
      * @access   private
      * @return   object Date date
      */
-    function _calcNearestWorkDay($month, $day) 
+    function _calcNearestWorkDay($month, $day)
     {
         $month = sprintf("%02d", $month);
         $day   = sprintf("%02d", $day);
         $date  = new Date($this->_year . '-' . $month . '-' . $day);
 
-        // When one of these holidays falls on a Saturday, the previous day is 
+        // When one of these holidays falls on a Saturday, the previous day is
         // also a holiday
-        // When New Year's Day, Independence Day, or Christmas Day falls on a 
+        // When New Year's Day, Independence Day, or Christmas Day falls on a
         // Sunday, the next day is also a holiday.
         if ($date->getDayOfWeek() == 0 ) {
             // bump it up one
@@ -235,11 +235,11 @@ class Date_Holidays_Driver_USA extends Date_Holidays_Driver
 
         return $date;
     }
-    
+
     /**
-     * Method that returns an array containing the ISO3166 codes that may possibly 
+     * Method that returns an array containing the ISO3166 codes that may possibly
      * identify a driver.
-     * 
+     *
      * @static
      * @access public
      * @return array possible ISO3166 codes

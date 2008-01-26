@@ -32,20 +32,20 @@ require_once 'Date/Holidays/Driver/Christian.php';
 /**
  * class that calculates Austrian holidays
  *
- * @category Date
- * @package  Date_Holidays
- * @author   Klemens Ullmann <klemens@ull.at>
- * @subpackage  Driver
- * @license  http://www.php.net/license/3_01.txt PHP License 3.0.1
- * @version  CVS: $Id$
- * @link     http://pear.php.net/package/Date_Holidays
+ * @category   Date
+ * @package    Date_Holidays
+ * @author     Klemens Ullmann <klemens@ull.at>
+ * @subpackage Driver
+ * @license    http://www.php.net/license/3_01.txt PHP License 3.0.1
+ * @version    CVS: $Id$
+ * @link       http://pear.php.net/package/Date_Holidays
  */
 class Date_Holidays_Driver_Austria extends Date_Holidays_Driver
 {
     /**
      * Constructor
      *
-     * Use the Date_Holidays::factory() method to construct an object of a certain 
+     * Use the Date_Holidays::factory() method to construct an object of a certain
      * driver
      *
      * @access   protected
@@ -71,8 +71,8 @@ class Date_Holidays_Driver_Austria extends Date_Holidays_Driver
         /**
          * Epiphanias
          */
-        $this->_addHoliday('epiphany', 
-                           $this->_year . '-01-06', 
+        $this->_addHoliday('epiphany',
+                           $this->_year . '-01-06',
                            'Heilige Drei Könige');
 
         /**
@@ -92,7 +92,7 @@ class Date_Holidays_Driver_Austria extends Date_Holidays_Driver
         $this->_addHoliday('dayOfWork', $this->_year . '-05-01', 'Tag der Arbeit');
 
         /**
-         * Whitsun (determines Whit Monday, Ascension Day and 
+         * Whitsun (determines Whit Monday, Ascension Day and
          * Feast of Corpus Christi)
          */
         $whitsunDate = new Date($easterDate);
@@ -104,15 +104,15 @@ class Date_Holidays_Driver_Austria extends Date_Holidays_Driver
          */
         $ascensionDayDate = new Date($whitsunDate);
         $ascensionDayDate->subtractSpan(new Date_Span('10, 0, 0, 0'));
-        $this->_addHoliday('ascensionDay', 
-                           $ascensionDayDate, 
+        $this->_addHoliday('ascensionDay',
+                           $ascensionDayDate,
                            'Christi Himmelfahrt');
 
         /**
          * Whit Monday
          */
-        $this->_addHoliday('whitMonday', 
-                           $whitsunDate->getNextDay(), 
+        $this->_addHoliday('whitMonday',
+                           $whitsunDate->getNextDay(),
                            'Pfingstmontag');
 
         /**
@@ -120,43 +120,43 @@ class Date_Holidays_Driver_Austria extends Date_Holidays_Driver
          */
         $corpusChristiDate = new Date($whitsunDate);
         $corpusChristiDate->addSpan(new Date_Span('11, 0, 0, 0'));
-        $this->_addHoliday('corpusChristi', 
-                           $corpusChristiDate, 
+        $this->_addHoliday('corpusChristi',
+                           $corpusChristiDate,
                            'Fronleichnam');
 
         /**
          * Ascension of Maria
          */
-        $this->_addHoliday('mariaAscension', 
-                           $this->_year . '-08-15', 
+        $this->_addHoliday('mariaAscension',
+                           $this->_year . '-08-15',
                            'Maria Himmelfahrt');
 
         /**
          * Österreichischer Nationalfeiertag
          */
-        $this->_addHoliday('nationalDayAustria', 
-                           $this->_year . '-10-26', 
+        $this->_addHoliday('nationalDayAustria',
+                           $this->_year . '-10-26',
                            'Österreichischer Nationalfeiertag');
 
         /**
          * All Saints' Day
          */
-        $this->_addHoliday('allSaintsDay', 
-                           $this->_year . '-11-01', 
+        $this->_addHoliday('allSaintsDay',
+                           $this->_year . '-11-01',
                            'Allerheiligen');
 
         /**
          * Christmas day
          */
-        $this->_addHoliday('xmasDay', 
-                           $this->_year . '-12-25', 
+        $this->_addHoliday('xmasDay',
+                           $this->_year . '-12-25',
                            '1. Weihnachtsfeiertag');
 
         /**
          * Boxing day
          */
-        $this->_addHoliday('boxingDay', 
-                           $this->_year . '-12-26', 
+        $this->_addHoliday('boxingDay',
+                           $this->_year . '-12-26',
                            '2. Weihnachtsfeiertag');
 
 

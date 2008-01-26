@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab tabstop=4 shiftwidth=4: */
 /**
- * Driver for Discordian holidays 
+ * Driver for Discordian holidays
  *
  * PHP Version 4
  *
@@ -27,20 +27,20 @@
  * A driver-class calculating discordian Holidays. See the 'Principia Discordia'
  * or http://en.wikipedia.org/wiki/Discordian_calendar for details.
  *
- * @category Date
- * @package  Date_Holidays
- * @author   Stephan 'Da:Sourcerer' Hohmann <webmaster@dasourcerer.net>
- * @subpackage  Driver
- * @license  http://www.php.net/license/3_01.txt PHP License 3.0.1
- * @version  CVS: $Id$
- * @link     http://pear.php.net/package/Date_Holidays
+ * @category   Date
+ * @package    Date_Holidays
+ * @subpackage Driver
+ * @author     Stephan 'Da:Sourcerer' Hohmann <webmaster@dasourcerer.net>
+ * @license    http://www.php.net/license/3_01.txt PHP License 3.0.1
+ * @version    CVS: $Id$
+ * @link       http://pear.php.net/package/Date_Holidays
  */
 class Date_Holidays_Driver_Discordian extends Date_Holidays_Driver
 {
     /**
      * Constructor
      *
-     * Use the Date_Holidays::factory() method to construct an object of a 
+     * Use the Date_Holidays::factory() method to construct an object of a
      * certain driver
      *
      * @access   protected

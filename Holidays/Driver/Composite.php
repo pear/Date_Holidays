@@ -33,13 +33,13 @@ define('DATE_HOLIDAYS_DRIVER_NOT_FOUND', 100);
 /**
  * Composite driver - you can use this one to combine two or more drivers
  *
- * @category Date
- * @package  Date_Holidays
- * @author   Carsten Lucke <luckec@tool-garage.de>
- * @subpackage  Driver
- * @license  http://www.php.net/license/3_01.txt PHP License 3.0.1
- * @version  CVS: $Id$
- * @link     http://pear.php.net/package/Date_Holidays
+ * @category   Date
+ * @package    Date_Holidays
+ * @subpackage Driver
+ * @author     Carsten Lucke <luckec@tool-garage.de>
+ * @license    http://www.php.net/license/3_01.txt PHP License 3.0.1
+ * @version    CVS: $Id$
+ * @link       http://pear.php.net/package/Date_Holidays
  */
 class Date_Holidays_Driver_Composite extends Date_Holidays_Driver
 {
@@ -62,7 +62,7 @@ class Date_Holidays_Driver_Composite extends Date_Holidays_Driver
     /**
      * Constructor
      *
-     * Use the Date_Holidays::factory() method to construct an object of a 
+     * Use the Date_Holidays::factory() method to construct an object of a
      * certain driver
      *
      * @access   protected
@@ -155,12 +155,12 @@ class Date_Holidays_Driver_Composite extends Date_Holidays_Driver
      * </pre>
      *
      * @param string $internalName internal name of the holiday
-     * @param string $locale       locale setting that shall be used by this 
+     * @param string $locale       locale setting that shall be used by this
      *                              method
      *
      * @access   public
-     * @return   object Date_Holidays_Holiday holiday's information on 
-     *                                        success, otherwise a PEAR_Error 
+     * @return   object Date_Holidays_Holiday holiday's information on
+     *                                        success, otherwise a PEAR_Error
      *                                        object
      * @throws   object PEAR_Error       DATE_HOLIDAYS_INVALID_INTERNAL_NAME
      */
@@ -170,7 +170,7 @@ class Date_Holidays_Driver_Composite extends Date_Holidays_Driver
             $holiday = $this->_drivers[$id]->getHoliday($internalName, $locale);
             if (Date_Holidays::isError($holiday)) {
                 /**
-                 * lets skip this error, perhaps another driver knows this 
+                 * lets skip this error, perhaps another driver knows this
                  * internal-name
                  */
                 continue;
@@ -188,8 +188,8 @@ class Date_Holidays_Driver_Composite extends Date_Holidays_Driver
      * @param string $internalName internal name for holiday
      *
      * @access   public
-     * @return   object Date       date of the holiday as PEAR::Date 
-     *                              object on success, otherwise a PEAR_Error 
+     * @return   object Date       date of the holiday as PEAR::Date
+     *                              object on success, otherwise a PEAR_Error
      *                              object
      * @throws   object PEAR_Error DATE_HOLIDAYS_INVALID_INTERNAL_NAME
      */
@@ -199,7 +199,7 @@ class Date_Holidays_Driver_Composite extends Date_Holidays_Driver
             $date = $this->_drivers[$id]->getHolidayDate($internalName);
             if (Date_Holidays::isError($date)) {
                 /**
-                 * lets skip this error, perhaps another driver knows this 
+                 * lets skip this error, perhaps another driver knows this
                  * internal-name
                  */
                 continue;
@@ -214,11 +214,11 @@ class Date_Holidays_Driver_Composite extends Date_Holidays_Driver
     /**
      * Returns dates of all holidays or those accepted by the specified filter.
      *
-     * @param Date_Holidays_Filter $filter filter-object 
+     * @param Date_Holidays_Filter $filter filter-object
      *                                       (or an array !DEPRECATED!)
      *
      * @access   public
-     * @return   array   array with holidays' dates on success, otherwise a 
+     * @return   array   array with holidays' dates on success, otherwise a
      *                       PEAR_ErrorStack object
      * @throws   object PEAR_ErrorStack   DATE_HOLIDAYS_INVALID_INTERNAL_NAME
      */
@@ -245,8 +245,8 @@ class Date_Holidays_Driver_Composite extends Date_Holidays_Driver
                 if (Date_Holidays::isError($date)) {
                     if ($date->getCode() == DATE_HOLIDAYS_DATE_UNAVAILABLE) {
                         /**
-                         * this means a fatal error (would be the right place 
-                         * for sth. like an assert, as this should normally 
+                         * this means a fatal error (would be the right place
+                         * for sth. like an assert, as this should normally
                          * never happen)
                          */
 
@@ -262,16 +262,16 @@ class Date_Holidays_Driver_Composite extends Date_Holidays_Driver
                     }
 
                     /**
-                     * current driver doesn't have this internalName, trying 
+                     * current driver doesn't have this internalName, trying
                      * next driver
                      */
                     array_push($notFound, $internalName);
                     continue;
                 }
                 /**
-                 * internal name found in highest priorized driver, stepping 
+                 * internal name found in highest priorized driver, stepping
                  * to next internal name
-                 * checks if internal name is existent in $notFound array and 
+                 * checks if internal name is existent in $notFound array and
                  * unsets this entry as it has been found now
                  */
                 $notFound = array_unique($notFound);
@@ -301,14 +301,14 @@ class Date_Holidays_Driver_Composite extends Date_Holidays_Driver
     }
 
     /**
-     * Returns the title of the holiday, if any was found, matching the 
+     * Returns the title of the holiday, if any was found, matching the
      * specified date.
      *
-     * Normally the method will return the title/data for the first holiday 
+     * Normally the method will return the title/data for the first holiday
      * matching the date.
-     * If you want the mthod to continue searching holidays for the specified 
+     * If you want the mthod to continue searching holidays for the specified
      * date, set the 4th param to true
-     * If multiple holidays match your date, the return value will be an array 
+     * If multiple holidays match your date, the return value will be an array
      * of the titles/data.
      * <pre>
      * array(
@@ -328,8 +328,8 @@ class Date_Holidays_Driver_Composite extends Date_Holidays_Driver
      * @param boolean $multiple true if multiple search is required.
      *
      * @access   public
-     * @return   object  object of type Date_Holidays_Holiday on success 
-     *                      (numeric array of those on multiple search); if no 
+     * @return   object  object of type Date_Holidays_Holiday on success
+     *                      (numeric array of those on multiple search); if no
      *                      holiday was found, matching this date, null is returned
      * @uses     getHoliday()
      * @uses     getHolidayTitle()
@@ -344,7 +344,7 @@ class Date_Holidays_Driver_Composite extends Date_Holidays_Driver
                                                                $multiple);
             if (is_null($holiday)) {
                 /**
-                 * No holiday found for this date in the current driver, trying 
+                 * No holiday found for this date in the current driver, trying
                  * next one
                  */
                 continue;
@@ -387,11 +387,11 @@ class Date_Holidays_Driver_Composite extends Date_Holidays_Driver
      *   )
      * </pre>
      *
-     * @param Date_Holidays_Filter $filter filter-object 
+     * @param Date_Holidays_Filter $filter filter-object
      *                                       (or an array !DEPRECATED!)
      *
      * @access   public
-     * @return   array   numeric array containing objects of Date_Holidays_Holiday 
+     * @return   array   numeric array containing objects of Date_Holidays_Holiday
      *                       on success, otherwise a PEAR_ErrorStack object
      * @throws   object PEAR_ErrorStack   DATE_HOLIDAYS_INVALID_INTERNAL_NAME
      */
@@ -417,7 +417,7 @@ class Date_Holidays_Driver_Composite extends Date_Holidays_Driver
                 $holiday = $this->_drivers[$id]->getHoliday($internalName);
                 if (Date_Holidays::isError($holiday)) {
                     /**
-                     * current driver doesn't have this internalName, trying 
+                     * current driver doesn't have this internalName, trying
                      * next driver
                      */
                     array_push($notFound, $internalName);
@@ -425,7 +425,7 @@ class Date_Holidays_Driver_Composite extends Date_Holidays_Driver
                 }
                 /**
                  * internal name found in highest priorized driver, stepping to
-                 * next internal name checks if internal name is existent in 
+                 * next internal name checks if internal name is existent in
                  * $notFound array and unsets this entry as it has been found now
                  */
                 $notFound = array_unique($notFound);
@@ -471,7 +471,7 @@ class Date_Holidays_Driver_Composite extends Date_Holidays_Driver
             $title = $this->_drivers[$id]->getHolidayTitle($internalName, $locale);
             if (Date_Holidays::isError($title)) {
                 /**
-                 * lets skip this error, perhaps another driver knows this 
+                 * lets skip this error, perhaps another driver knows this
                  * internal-name
                  */
                 continue;
@@ -479,21 +479,21 @@ class Date_Holidays_Driver_Composite extends Date_Holidays_Driver
             return $title;
         }
 
-        return Date_Holidays::raiseError(DATE_HOLIDAYS_INVALID_INTERNAL_NAME, 
+        return Date_Holidays::raiseError(DATE_HOLIDAYS_INVALID_INTERNAL_NAME,
                                          'Invalid internal name: ' . $internalName);
     }
 
     /**
-     * Returns localized titles of all holidays or those specififed in 
+     * Returns localized titles of all holidays or those specififed in
      * $restrict array
      *
-     * @param Date_Holidays_Filter $filter filter-object 
+     * @param Date_Holidays_Filter $filter filter-object
      *                                      (or an array !DEPRECATED!)
      * @param string               $locale locale setting that shall be used by
      *                                      this method
      *
      * @access   public
-     * @return   array   array with localized holiday titles on success, 
+     * @return   array   array with localized holiday titles on success,
      *                      otherwise a PEAR_Error object
      * @throws   object PEAR_Error   DATE_HOLIDAYS_INVALID_INTERNAL_NAME
      */
@@ -516,19 +516,19 @@ class Date_Holidays_Driver_Composite extends Date_Holidays_Driver
             }
 
             foreach ($this->_driverIds as $id) {
-                $title = $this->_drivers[$id]->getHolidayTitle($internalName, 
+                $title = $this->_drivers[$id]->getHolidayTitle($internalName,
                                                                $locale);
                 if (Date_Holidays::isError($title)) {
                     /**
-                     * current driver doesn't have this internalName, trying next 
+                     * current driver doesn't have this internalName, trying next
                      * driver
                      */
                     array_push($notFound, $internalName);
                     continue;
                 }
                 /**
-                 * internal name found in highest priorized driver, stepping to 
-                 * next internal name checks if internal name is existent in 
+                 * internal name found in highest priorized driver, stepping to
+                 * next internal name checks if internal name is existent in
                  * $notFound array and unsets this entry as it has been found now
                  */
                 $notFound = array_unique($notFound);
@@ -542,11 +542,11 @@ class Date_Holidays_Driver_Composite extends Date_Holidays_Driver
 
         if (! empty($notFound)) {
             foreach ($notFound as $internalName) {
-                $errorStack->push(DATE_HOLIDAYS_INVALID_INTERNAL_NAME, 
-                                  'error', 
+                $errorStack->push(DATE_HOLIDAYS_INVALID_INTERNAL_NAME,
+                                  'error',
                                   array(),
-                                  'Invalid internal name: ' . $internalName, 
-                                  false, 
+                                  'Invalid internal name: ' . $internalName,
+                                  false,
                                   debug_backtrace());
             }
         }
@@ -558,8 +558,8 @@ class Date_Holidays_Driver_Composite extends Date_Holidays_Driver
     }
 
     /**
-     * Using this method doesn't affect anything. If you have been able to add 
-     * your driver to this compound, you should also be able to directly 
+     * Using this method doesn't affect anything. If you have been able to add
+     * your driver to this compound, you should also be able to directly
      * execute this action.
      * This method is only available to keep abstraction working.
      *
@@ -600,10 +600,10 @@ class Date_Holidays_Driver_Composite extends Date_Holidays_Driver
     /**
      * Determines whether a date represents a holiday or not.
      *
-     * The method searches all added drivers for this date, to determine 
+     * The method searches all added drivers for this date, to determine
      * whether it's a holiday.
      *
-     * @param mixed                $date   date (can be a timestamp, string or 
+     * @param mixed                $date   date (can be a timestamp, string or
      *                                      PEAR::Date object)
      * @param Date_Holidays_Filter $filter filter-object (or an array !DEPRECATED!)
      *
@@ -623,8 +623,8 @@ class Date_Holidays_Driver_Composite extends Date_Holidays_Driver
     }
 
     /**
-     * Using this method doesn't affect anything. If you have bben able to add 
-     * your driver to this compound you should also be able to directly execute 
+     * Using this method doesn't affect anything. If you have bben able to add
+     * your driver to this compound you should also be able to directly execute
      * this action.
      * This method is only available to keep abstraction working.
      *

@@ -28,13 +28,13 @@ require_once 'Date/Holidays/Driver/EasternChristian.php';
 /**
  * Driver class that calculates holidays in the Ukraine.
  *
- * @category Date
- * @package  Date_Holidays
- * @author   Ken Guest <kguest@php.net>
- * @subpackage  Driver
- * @license  http://www.php.net/license/3_01.txt PHP License 3.0.1
- * @version  CVS: $Id$
- * @link     http://pear.php.net/package/Date_Holidays
+ * @category   Date
+ * @package    Date_Holidays
+ * @subpackage Driver
+ * @author     Ken Guest <kguest@php.net>
+ * @license    http://www.php.net/license/3_01.txt PHP License 3.0.1
+ * @version    CVS: $Id$
+ * @link       http://pear.php.net/package/Date_Holidays
  */
 class Date_Holidays_Driver_Ukraine extends Date_Holidays_Driver
 {
@@ -107,12 +107,16 @@ class Date_Holidays_Driver_Ukraine extends Date_Holidays_Driver
         /**
          * Constitution Day - June 28
          */
-        $this->_addHoliday('ConstitutionDay', $this->_year . '-06-28', 'Constitution Day');
+        $this->_addHoliday('ConstitutionDay',
+                           $this->_year . '-06-28',
+                           'Constitution Day');
 
         /**
          * Independence Day - August 24
          */
-        $this->_addHoliday('independenceDay', $this->_year . '-08-24', "Independence Day");
+        $this->_addHoliday('independenceDay',
+                           $this->_year . '-08-24',
+                           "Independence Day");
 
         if (Date_Holidays::errorsOccurred()) {
             return Date_Holidays::getErrorStack();

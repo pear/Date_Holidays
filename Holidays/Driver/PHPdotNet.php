@@ -26,20 +26,20 @@
 /**
  * Driver-class that calculates the birthdates of the PHP.net people. :)
  *
- * @category Date
- * @package  Date_Holidays
- * @author   Carsten Lucke <luckec@tool-garage.de>
- * @subpackage  Driver
- * @license  http://www.php.net/license/3_01.txt PHP License 3.0.1
- * @version  CVS: $Id$
- * @link     http://pear.php.net/package/Date_Holidays
+ * @category   Date
+ * @package    Date_Holidays
+ * @subpackage Driver
+ * @author     Carsten Lucke <luckec@tool-garage.de>
+ * @license    http://www.php.net/license/3_01.txt PHP License 3.0.1
+ * @version    CVS: $Id$
+ * @link       http://pear.php.net/package/Date_Holidays
  */
 class Date_Holidays_Driver_PHPdotNet extends Date_Holidays_Driver
 {
     /**
      * Constructor
      *
-     * Use the Date_Holidays::factory() method to construct an object of a 
+     * Use the Date_Holidays::factory() method to construct an object of a
      * certain driver
      *
      * @access   protected
@@ -47,7 +47,7 @@ class Date_Holidays_Driver_PHPdotNet extends Date_Holidays_Driver
     function Date_Holidays_Driver_PHPdotNet()
     {
     }
-    
+
     /**
      * Build the internal arrays that contain data about the calculated holidays
      *
@@ -123,7 +123,7 @@ class Date_Holidays_Driver_PHPdotNet extends Date_Holidays_Driver
                 'date'          => '10-21',
                 'title'         => 'Dylan Anderson'
             ),
-            // James McGlinn: 10 January 1980, New Zealand 
+            // James McGlinn: 10 January 1980, New Zealand
             'mcglinn'   => array(
                 'date'          => '01-10',
                 'title'         => 'James McGlinn'
