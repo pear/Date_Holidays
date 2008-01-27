@@ -117,7 +117,7 @@ class Date_Holidays_Driver_USA extends Date_Holidays_Driver
          * Christmas  Day
          */
         $cday = $this->_calcNearestWorkDay('12', '25');
-        $this->_addHoliday('christmasDay', $cday, 'Christmas Day');
+        $this->_addHoliday('xmasDay', $cday, 'Christmas Day');
 
         return true;
     }

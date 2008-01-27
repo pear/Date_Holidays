@@ -164,9 +164,11 @@
     <file baseinstalldir="Date" name="Date_Holidays_Driver_Ireland_TestSuite.php" role="test" />
     <file baseinstalldir="Date" name="Date_Holidays_Driver_Jewish_TestSuite.php" role="test" />
     <file baseinstalldir="Date" name="Date_Holidays_Driver_PHPdotNet_TestSuite.php" role="test" />
+    <file baseinstalldir="Date" name="Date_Holidays_Driver_Romania_TestSuite.php" role="test" />
     <file baseinstalldir="Date" name="Date_Holidays_Driver_Sweden_TestSuite.php" role="test" />
     <file baseinstalldir="Date" name="Date_Holidays_Driver_TestSuite.php" role="test" />
     <file baseinstalldir="Date" name="Date_Holidays_Driver_TestSuite.xml" role="test" />
+    <file baseinstalldir="Date" name="Date_Holidays_Driver_Ukraine_TestSuite.php" role="test" />
     <file baseinstalldir="Date" name="Date_Holidays_Driver_UNO_TestSuite.php" role="test" />
     <file baseinstalldir="Date" name="Date_Holidays_Driver_USA_TestSuite.php" role="test" />
     <file baseinstalldir="Date" name="Date_Holidays_TestSuite.php" role="test" />

@@ -29,6 +29,7 @@ require_once 'Date_Holidays_Driver_Iceland_TestSuite.php';
 require_once 'Date_Holidays_Driver_Ireland_TestSuite.php';
 require_once 'Date_Holidays_Driver_Jewish_TestSuite.php';
 require_once 'Date_Holidays_Driver_PHPdotNet_TestSuite.php';
+require_once 'Date_Holidays_Driver_Romania_TestSuite.php';
 require_once 'Date_Holidays_Driver_UNO_TestSuite.php';
 require_once 'Date_Holidays_Driver_USA_TestSuite.php';
 require_once 'Date_Holidays_Driver_Sweden_TestSuite.php';
@@ -82,6 +83,7 @@ class Date_Holidays_AllTests
         $suite->addTestSuite('Date_Holidays_Driver_Ireland_TestSuite');
         $suite->addTestSuite('Date_Holidays_Driver_Jewish_TestSuite');
         $suite->addTestSuite('Date_Holidays_Driver_PHPdotNet_TestSuite');
+        $suite->addTestSuite('Date_Holidays_Driver_Romania_TestSuite');
         $suite->addTestSuite('Date_Holidays_Driver_Sweden_TestSuite');
         $suite->addTestSuite('Date_Holidays_Driver_UNO_TestSuite');
         $suite->addTestSuite('Date_Holidays_Driver_USA_TestSuite');

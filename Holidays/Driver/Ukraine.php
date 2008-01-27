@@ -69,7 +69,7 @@ class Date_Holidays_Driver_Ukraine extends Date_Holidays_Driver
         /**
          * Christmas day (orthodox).
          */
-        $this->_addHoliday('christmasDay',
+        $this->_addHoliday('xmasDay',
                            $this->_year . '-01-07',
                            'Christmas Day');
 
