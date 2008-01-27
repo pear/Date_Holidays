@@ -74,18 +74,18 @@ class Date_Holidays_Driver_Ukraine extends Date_Holidays_Driver
                            'Christmas Day');
 
         $easterDate = Date_Holidays_Driver_Ukraine::calcEaster($this->_year);
-        $this->_addHoliday('velykden', $easterDate, "Velykden'/Easter");
+        $this->_addHoliday('easter', $easterDate, "Velykden'/Easter");
         /**
          * Triytsia
          */
         $triyDate = new Date($easterDate);
         $triyDate->addSpan(new Date_Span('49, 0, 0, 0'));
-        $this->_addHoliday('Triytsia', $triyDate, 'Triytsia');
+        $this->_addHoliday('triytsia', $triyDate, 'Triytsia');
 
         /**
          * Unification of Ukraine Day  - January 22
          */
-        $this->_addHoliday('UkraineDay', $this->_year . '-01-22', 'Ukraine Day');
+        $this->_addHoliday('ukraineDay', $this->_year . '-01-22', 'Ukraine Day');
 
         /**
          *  Women's Day
@@ -102,12 +102,12 @@ class Date_Holidays_Driver_Ukraine extends Date_Holidays_Driver
         /**
          *Victory Day  - May 9.
          */
-        $this->_addHoliday('VictoryDay', $this->_year . '-05-09', 'Victory Day');
+        $this->_addHoliday('victoryDay', $this->_year . '-05-09', 'Victory Day');
 
         /**
          * Constitution Day - June 28
          */
-        $this->_addHoliday('ConstitutionDay',
+        $this->_addHoliday('constitutionDay',
                            $this->_year . '-06-28',
                            'Constitution Day');
 
