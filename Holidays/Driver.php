@@ -1177,5 +1177,43 @@ class Date_Holidays_Driver
         if ($days1 > $days2) return 1;
         return 0;
     }
+    /**
+     * Find the date of the first monday in the specified year of the current year.
+     *
+     * @param integer $month month
+     *
+     * @access   private
+     * @return   object Date date of first monday in specified month.
+     */
+    function _calcFirstMonday($month)
+    {
+        $date = new Date($this->_year . "-$month-01");
+        while ($date->getDayOfWeek() != 1) {
+            $date = $date->getNextDay();
+        }
+        return ($date);
+    }
+    /**
+     * Find the date of the last monday in the specified year of the current year.
+     *
+     * @param integer $month month
+     *
+     * @access   private
+     * @return   object Date date of last monday in specified month.
+     */
+    function _calcLastMonday($month)
+    {
+        //work backwards from the first day of the next month.
+        $nm = ((int) $month ) + 1;
+        if ($nm > 12) {
+            $nm = 1;
+        }
+        $date = new Date($this->_year . "-$nm-01");
+        $date = $date->getPrevDay();
+        while ($date->getDayOfWeek() != 1) {
+            $date = $date->getPrevDay();
+        }
+        return ($date);
+    }
 }
 ?>

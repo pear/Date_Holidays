@@ -91,7 +91,7 @@ class Date_Holidays_Driver_Ireland extends Date_Holidays_Driver
          */
         $easterDate = Date_Holidays_Driver_Ireland::calcEaster($this->_year);
         $this->_addHoliday('easter', $easterDate, 'Easter Sunday');
-        $this->_addHoliday('easter', 'ga_IE', 'Domhnach Cásca');
+        $this->_addTranslationForHoliday('easter', 'ga_IE', 'Domhnach Cásca');
 
         /**
          * Good Friday / Black Friday
@@ -252,44 +252,6 @@ class Date_Holidays_Driver_Ireland extends Date_Holidays_Driver
     function getISO3166Codes()
     {
         return array('ie', 'irl');
-    }
-    /**
-     * A helper method
-     *
-     * @param integer $month month
-     *
-     * @access   private
-     * @return   object Date date of first monday in specified month.
-     */
-    function _calcFirstMonday($month)
-    {
-        $date = new Date($this->_year . "-$month-01");
-        while ($date->getDayOfWeek() != 1) {
-            $date = $date->getNextDay();
-        }
-        return ($date);
-    }
-    /**
-     * A helper method
-     *
-     * @param integer $month month
-     *
-     * @access   private
-     * @return   object Date date of last monday in specified month.
-     */
-    function _calcLastMonday($month)
-    {
-        //work backwards from the first day of the next month.
-        $nm = ((int) $month ) + 1;
-        if ($nm > 12) {
-            $nm = 1;
-        }
-        $date = new Date($this->_year . "-$nm-01");
-        $date = $date->getPrevDay();
-        while ($date->getDayOfWeek() != 1) {
-            $date = $date->getPrevDay();
-        }
-        return ($date);
     }
 }
 ?>
