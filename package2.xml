@@ -55,6 +55,7 @@
    <dir name="Holidays">
     <dir name="Driver">
      <file baseinstalldir="Date" name="Austria.php" role="php" />
+     <file baseinstalldir="Date" name="Brazil.php" role="php" />
      <file baseinstalldir="Date" name="Christian.php" role="php" />
      <file baseinstalldir="Date" name="Composite.php" role="php" />
      <file baseinstalldir="Date" name="Denmark.php" role="php" />
