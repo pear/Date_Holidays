@@ -117,26 +117,26 @@ class Date_Holidays_Driver_EnglandWales extends Date_Holidays_Driver
         /**
          * Christmas and Boxing Day
          */
-        $xmasDay = new Date($this->_year . '-12-25');
-        if ($xmasDay->getDayOfWeek() == 0) {
+        $christmasDay = new Date($this->_year . '-12-25');
+        if ($christmasDay->getDayOfWeek() == 0) {
             $this->_addHoliday('boxingDay', $this->_year . '-12-26', 'Boxing Day');
-            $this->_addHoliday('xmasDay',
+            $this->_addHoliday('christmasDay',
                                $this->_year . '-12-27',
                                'Substitute Bank Holiday in lieu of Christmas Day');
-        } elseif ($xmasDay->getDayOfWeek() == 5) {
-            $this->_addHoliday('xmasDay', $xmasDay, 'Christmas Day');
+        } elseif ($christmasDay->getDayOfWeek() == 5) {
+            $this->_addHoliday('christmasDay', $christmasDay, 'Christmas Day');
             $this->_addHoliday('boxingDay',
                                $this->_year . '-12-28',
                                'Substitute Bank Holiday in lieu of Boxing Day');
-        } elseif ($xmasDay->getDayOfWeek() == 6) {
-            $this->_addHoliday('xmasDay',
+        } elseif ($christmasDay->getDayOfWeek() == 6) {
+            $this->_addHoliday('christmasDay',
                                $this->_year . '-12-28',
                                'Substitute Bank Holiday in lieu of Christmas Day');
             $this->_addHoliday('boxingDay',
                                $this->_year . '-12-27',
                                'Substitute Bank Holiday in lieu of Boxing Day');
         } else {
-            $this->_addHoliday('xmasDay', $xmasDay, 'Christmas Day');
+            $this->_addHoliday('christmasDay', $christmasDay, 'Christmas Day');
             $this->_addHoliday('boxingDay', $this->_year . '-12-26', 'Boxing Day');
         }
 

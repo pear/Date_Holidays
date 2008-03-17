@@ -52,7 +52,7 @@ class Date_Holidays_Filter_Germany_SaxonyAnhalt extends Date_Holidays_Filter_Whi
                                   'whitMonday',
                                   'germanUnificationDay',
                                   'reformationDay',
-                                  'xmasDay',
+                                  'christmasDay',
                                   'boxingDay'));
     }
 

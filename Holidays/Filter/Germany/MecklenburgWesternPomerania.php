@@ -51,7 +51,7 @@ class Date_Holidays_Filter_Germany_MecklenburgWesternPomerania extends Date_Holi
                                   'whitMonday',
                                   'germanUnificationDay',
                                   'reformationDay',
-                                  'xmasDay',
+                                  'christmasDay',
                                   'boxingDay'));
     }
 

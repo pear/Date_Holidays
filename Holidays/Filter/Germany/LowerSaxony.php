@@ -50,7 +50,7 @@ class Date_Holidays_Filter_Germany_LowerSaxony extends Date_Holidays_Filter_Whit
                                   'ascensionDay',
                                   'whitMonday',
                                   'germanUnificationDay',
-                                  'xmasDay',
+                                  'christmasDay',
                                   'boxingDay'));
     }
 

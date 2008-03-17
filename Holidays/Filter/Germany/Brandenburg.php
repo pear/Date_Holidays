@@ -51,7 +51,7 @@ class Date_Holidays_Filter_Germany_Brandenburg extends Date_Holidays_Filter_Whit
                                   'whitMonday',
                                   'germanUnificationDay',
                                   'reformationDay',
-                                  'xmasDay',
+                                  'christmasDay',
                                   'boxingDay'));
     }
 

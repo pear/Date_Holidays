@@ -53,7 +53,7 @@ class Date_Holidays_Filter_Germany_BadenWuerttemberg extends Date_Holidays_Filte
                                   'corpusChristi',
                                   'germanUnificationDay',
                                   'allSaintsDay',
-                                  'xmasDay',
+                                  'christmasDay',
                                   'boxingDay'));
     }
 

@@ -96,7 +96,7 @@ class Date_Holidays_Driver_Romania extends Date_Holidays_Driver
         /**
          * Christmas day
          */
-        $this->_addHoliday('xmasDay', $this->_year . '-12-25', 'Christmas Day');
+        $this->_addHoliday('christmasDay', $this->_year . '-12-25', 'Christmas Day');
 
         if (Date_Holidays::errorsOccurred()) {
             return Date_Holidays::getErrorStack();

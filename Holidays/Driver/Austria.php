@@ -148,7 +148,7 @@ class Date_Holidays_Driver_Austria extends Date_Holidays_Driver
         /**
          * Christmas day
          */
-        $this->_addHoliday('xmasDay',
+        $this->_addHoliday('christmasDay',
                            $this->_year . '-12-25',
                            '1. Weihnachtsfeiertag');
 

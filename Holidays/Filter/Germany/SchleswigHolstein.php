@@ -50,7 +50,7 @@ class Date_Holidays_Filter_Germany_SchleswigHolstein extends Date_Holidays_Filte
                                   'ascensionDay',
                                   'whitMonday',
                                   'germanUnificationDay',
-                                  'xmasDay',
+                                  'christmasDay',
                                   'boxingDay'));
     }
 

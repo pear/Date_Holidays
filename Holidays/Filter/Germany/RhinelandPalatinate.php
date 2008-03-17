@@ -52,7 +52,7 @@ class Date_Holidays_Filter_Germany_RhinelandPalatinate extends Date_Holidays_Fil
                                   'corpusChristi',
                                   'germanUnificationDay',
                                   'allSaintsDay',
-                                  'xmasDay',
+                                  'christmasDay',
                                   'boxingDay'));
     }
 

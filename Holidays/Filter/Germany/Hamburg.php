@@ -50,7 +50,7 @@ class Date_Holidays_Filter_Germany_Hamburg extends Date_Holidays_Filter_Whitelis
                                   'ascensionDay',
                                   'whitMonday',
                                   'germanUnificationDay',
-                                  'xmasDay',
+                                  'christmasDay',
                                   'boxingDay'));
     }
 

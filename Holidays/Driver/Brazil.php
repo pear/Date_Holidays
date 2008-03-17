@@ -84,7 +84,7 @@ class Date_Holidays_Driver_Brazil extends Date_Holidays_Driver_Christian
         $this->_addTranslationForHoliday('allSoulsDay',
                                          'pt_BR',
                                          'Dia de Finados');
-        $this->_addTranslationForHoliday('xmasDay',
+        $this->_addTranslationForHoliday('christmasDay',
                                          'pt_BR',
                                          'Natal');
 

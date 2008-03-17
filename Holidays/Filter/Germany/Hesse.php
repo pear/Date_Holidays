@@ -51,7 +51,7 @@ class Date_Holidays_Filter_Germany_Hesse extends Date_Holidays_Filter_Whitelist
                                   'whitMonday',
                                   'corpusChristi',
                                   'germanUnificationDay',
-                                  'xmasDay',
+                                  'christmasDay',
                                   'boxingDay'));
     }
 

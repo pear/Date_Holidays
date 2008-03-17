@@ -194,8 +194,8 @@ class Date_Holidays_Driver_Ireland extends Date_Holidays_Driver
         /**
          * Christmas day
          */
-        $this->_addHoliday('xmasDay', $this->_year . '-12-25', 'Christmas Day');
-        $this->_addTranslationForHoliday('xmasDay',
+        $this->_addHoliday('christmasDay', $this->_year . '-12-25', 'Christmas Day');
+        $this->_addTranslationForHoliday('christmasDay',
                                          'ga_IE',
                                          'Lá Nollag');
 

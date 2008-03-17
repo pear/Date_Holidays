@@ -53,7 +53,7 @@ class Date_Holidays_Filter_Germany_Saarland extends Date_Holidays_Filter_Whiteli
                                   'mariaAscension',
                                   'germanUnificationDay',
                                   'allSaintsDay',
-                                  'xmasDay',
+                                  'christmasDay',
                                   'boxingDay'));
     }
 

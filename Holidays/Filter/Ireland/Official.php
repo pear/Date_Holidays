@@ -49,7 +49,7 @@ class Date_Holidays_Filter_Ireland_Official extends Date_Holidays_Filter_Whiteli
                                   'juneBankHoliday',
                                   'augustBankHoliday',
                                   'octoberBankHoliday',
-                                  'xmasDay',
+                                  'christmasDay',
                                   'boxingDay'));
     }
 

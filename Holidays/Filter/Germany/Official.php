@@ -48,7 +48,7 @@ class Date_Holidays_Filter_Germany_Official extends Date_Holidays_Filter_Whiteli
                                   'ascensionDay',
                                   'whitMonday',
                                   'germanUnificationDay',
-                                  'xmasDay',
+                                  'christmasDay',
                                   'boxingDay'));
     }
 

@@ -53,7 +53,7 @@ class Date_Holidays_Filter_Germany_Bavaria extends Date_Holidays_Filter_Whitelis
                                   'corpusChristi',
                                   'germanUnificationDay',
                                   'allSaintsDay',
-                                  'xmasDay',
+                                  'christmasDay',
                                   'boxingDay'));
     }
 

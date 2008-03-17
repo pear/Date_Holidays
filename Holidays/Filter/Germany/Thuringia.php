@@ -51,7 +51,7 @@ class Date_Holidays_Filter_Germany_Thuringia extends Date_Holidays_Filter_Whitel
                                   'whitMonday',
                                   'germanUnificationDay',
                                   'reformationDay',
-                                  'xmasDay',
+                                  'christmasDay',
                                   'boxingDay'));
     }
 

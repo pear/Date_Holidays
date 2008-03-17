@@ -50,7 +50,7 @@ class Date_Holidays_Filter_Germany_Bremen extends Date_Holidays_Filter_Whitelist
                                   'ascensionDay',
                                   'whitMonday',
                                   'germanUnificationDay',
-                                  'xmasDay',
+                                  'christmasDay',
                                   'boxingDay'));
     }
 

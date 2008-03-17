@@ -51,7 +51,7 @@ class Date_Holidays_Filter_Germany_NorthRhineWestphalia extends Date_Holidays_Fi
                                   'corpusChristi',
                                   'germanUnificationDay',
                                   'allSaintsDay',
-                                  'xmasDay',
+                                  'christmasDay',
                                   'boxingDay'));
     }
 

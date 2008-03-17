@@ -52,7 +52,7 @@ class Date_Holidays_Filter_Germany_Saxony extends Date_Holidays_Filter_Whitelist
                                   'germanUnificationDay',
                                   'reformationDay',
                                   'dayOfRepentance',
-                                  'xmasDay',
+                                  'christmasDay',
                                   'boxingDay'));
     }
 
