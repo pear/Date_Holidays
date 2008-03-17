@@ -549,7 +549,8 @@ class Date_Holidays_Driver
 
         //rebuild internal array of holidays if required.
         $compare_year = $date->getYear();
-        if ($this->getYear() !== $compare_year) {
+        $this_year = $this->getYear();
+        if ($this_year !== $compare_year) {
             $this->setYear($compare_year);
         }
 
@@ -565,9 +566,11 @@ class Date_Holidays_Driver
                                           $this->_dates[$internalName]) != 0) {
                     continue;
                 }
+                $this->setYear($this_year);
                 return true;
             }
         }
+        $this->setYear($this_year);
         return false;
     }
 
