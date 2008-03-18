@@ -51,9 +51,9 @@ class Date_Holidays_Filter_Iceland_Official extends Date_Holidays_Filter_Whiteli
                                   'mayDay',
                                   'nationalDay',
                                   'commerceDay',
-                                  'xmas',
+                                  'christmas',
                                   'christmasDay',
-                                  'secondXmasDay',
+                                  'secondChristmasDay',
                                   'newYearsEve'));
     }
 

@@ -245,14 +245,14 @@ class Date_Holidays_Driver_Iceland extends Date_Holidays_Driver
         /**
          * Christmas Eve
          */
-        $this->_addHoliday('xmas', $this->_year . '-12-24', 'Christmas Eve');
-        $this->_addTranslationForHoliday('xmas', 'is_IS', 'Aðfangadagur');
+        $this->_addHoliday('christmas', $this->_year . '-12-24', 'Christmas Eve');
+        $this->_addTranslationForHoliday('christmas', 'is_IS', 'Aðfangadagur');
 
         $this->_addHoliday('christmasDay', $this->_year . '-12-25', 'Christmas Day');
         $this->_addTranslationForHoliday('christmasDay', 'is_IS', 'Jóladagur');
 
-        $this->_addHoliday('secondXmasDay', $this->_year . '-12-26', 'Boxing Day');
-        $this->_addTranslationForHoliday('secondXmasDay',
+        $this->_addHoliday('secondChristmasDay', $this->_year . '-12-26', 'Boxing Day');
+        $this->_addTranslationForHoliday('secondChristmasDay',
                                          'is_IS',
                                          'Annar í jólum');
 

@@ -359,7 +359,7 @@ class Date_Holidays_Driver_Christian extends Date_Holidays_Driver
         /**
          * Christmas Eve
          */
-        $this->_addHoliday('xmasEve', $this->_year . '-12-24', 'Christmas Eve');
+        $this->_addHoliday('christmasEve', $this->_year . '-12-24', 'Christmas Eve');
 
         /**
          * Christmas day

@@ -204,12 +204,12 @@
         </holiday>
             
         <holiday>
-            <internal-name>xmasEve</internal-name>
+            <internal-name>christmasEve</internal-name>
             <translation>Heiligabend</translation>
         </holiday>
             
         <holiday>
-            <internal-name>xmasDay</internal-name>
+            <internal-name>christmasDay</internal-name>
             <translation>1. Weihnachtsfeiertag</translation>
         </holiday>
             

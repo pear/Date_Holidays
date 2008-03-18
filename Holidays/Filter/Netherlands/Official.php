@@ -47,7 +47,7 @@ class Date_Holidays_Filter_Netherlands_Official extends Date_Holidays_Filter_Whi
                                   'easterMonday',
                                   'whitMonday',
                                   'ascensionDay',
-                                  'secondXmasDay',
+                                  'secondChristmasDay',
             ));
     }
 

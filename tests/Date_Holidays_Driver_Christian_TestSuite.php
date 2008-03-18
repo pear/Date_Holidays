@@ -85,8 +85,8 @@ class Date_Holidays_Driver_Christian_TestSuite extends PHPUnit_Framework_TestCas
           'dayOfRepentance'     => array('day' => 16, 'month' => 11, 'year' => 2005),
           'stNicholasDay'       => array('day' => 6, 'month' => 12, 'year' => 2005),
           'mariaConception'     => array('day' => 8, 'month' => 12, 'year' => 2005),
-          'xmasEve'             => array('day' => 24, 'month' => 12, 'year' => 2005),
-          'xmasDay'             => array('day' => 25, 'month' => 12, 'year' => 2005),
+          'christmasEve'             => array('day' => 24, 'month' => 12, 'year' => 2005),
+          'christmasDay'             => array('day' => 25, 'month' => 12, 'year' => 2005),
           'boxingDay'           => array('day' => 26, 'month' => 12, 'year' => 2005),
           'newYearsEve'         => array('day' => 31, 'month' => 12, 'year' => 2005)
         );

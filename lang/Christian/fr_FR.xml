@@ -129,12 +129,12 @@
         </holiday>
             
         <holiday>
-            <internal-name>xmasEve</internal-name>
+            <internal-name>christmasEve</internal-name>
             <translation>Veillée de Nöel</translation>
         </holiday>
             
         <holiday>
-            <internal-name>xmasDay</internal-name>
+            <internal-name>christmasDay</internal-name>
             <translation>Nöel</translation>
         </holiday>
             

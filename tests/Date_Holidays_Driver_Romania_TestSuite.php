@@ -58,10 +58,10 @@ class Date_Holidays_Driver_Romania_TestSuite extends PHPUnit_Framework_TestCase
             'nationalDay'        => array('day' => 1,
                                           'month' => 12,
                                           'year' => 2006),
-            'xmasEve'            => array('day' => 24,
+            'christmasEve'            => array('day' => 24,
                                           'month' => 12,
                                           'year' => 2006),
-            'xmasDay'            => array('day' => 25,
+            'christmasDay'            => array('day' => 25,
                                           'month' => 12,
                                           'year' => 2006)
         );
@@ -78,10 +78,10 @@ class Date_Holidays_Driver_Romania_TestSuite extends PHPUnit_Framework_TestCase
             'nationalDay'        => array('day' => 1,
                                           'month' => 12,
                                           'year' => 2007),
-            'xmasEve'            => array('day' => 24,
+            'christmasEve'            => array('day' => 24,
                                           'month' => 12,
                                           'year' => 2007),
-            'xmasDay'            => array('day' => 25,
+            'christmasDay'            => array('day' => 25,
                                           'month' => 12,
                                           'year' => 2007)
         );
