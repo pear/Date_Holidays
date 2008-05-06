@@ -28,7 +28,7 @@
   <email>wiesemann@php.net</email>
   <active>no</active>
  </contributor>
- <date>2008-04-11</date>
+ <date>2008-05-07</date>
  <time>00:41:19</time>
  <version>
   <release>0.1.0</release>
@@ -88,7 +88,7 @@
     <release>alpha</release>
     <api>alpha</api>
    </stability>
-   <date>2008-04-25</date>
+   <date>2008-05-07</date>
    <license uri="http://www.php.net/license">PHP License</license>
    <notes>initial pear release</notes>
   </release>
