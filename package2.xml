@@ -28,7 +28,7 @@
   <email>wiesemann@php.net</email>
   <active>no</active>
  </contributor>
- <date>2008-04-11</date>
+ <date>2008-05-07</date>
  <time>00:41:19</time>
  <version>
   <release>0.19.0</release>
@@ -334,7 +334,24 @@
    </stability>
    <date>2008-01-15</date>
    <license uri="http://www.php.net/license">PHP License</license>
-   <notes>* Fix Bug #12835: Boxing Day not celebrated in Ireland - it&apos;s St Stephen&apos;s Day [kguest]</notes>
+   <notes>
+   * Fix Bug #12835: Boxing Day not celebrated in Ireland - it&apos;s St Stephen&apos;s Day [kguest]
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>0.19.0</release>
+    <api>0.17.2</api>
+   </version>
+   <stability>
+    <release>alpha</release>
+    <api>alpha</api>
+   </stability>
+   <date>2008-05-07</date>
+   <license uri="http://www.php.net/license">PHP License</license>
+   <notes>
+   * split into subpackages!
+   </notes>
   </release>
  </changelog>
 </package>

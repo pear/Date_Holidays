@@ -5,6 +5,12 @@
  <summary>Driver based class to calculate holidays in Austria.</summary>
  <description>Date_Holidays helps you calculate the dates and titles of holidays and other special celebrations. This is the driver for calculating holidays in Austria.</description>
  <lead>
+  <name>Ken Guest</name>
+  <user>kguest</user>
+  <email>ken@linux.ie</email>
+  <active>yes</active>
+ </lead>
+ <lead>
   <name>Carsten Lucke</name>
   <user>luckec</user>
   <email>luckec@php.net</email>
