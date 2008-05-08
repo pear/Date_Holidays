@@ -230,7 +230,7 @@
       <channel>pear.php.net</channel>
     </package>
   </group>
-  <group name="all" hint="all subpackages (for uninstall)">
+  <group name="all" hint="all subpackages (for bulk install and uninstall)">
     <package>
       <name>Date_Holidays_Austria</name>
       <channel>pear.php.net</channel>
