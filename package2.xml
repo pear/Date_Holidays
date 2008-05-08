@@ -28,10 +28,10 @@
   <email>wiesemann@php.net</email>
   <active>no</active>
  </contributor>
- <date>2008-05-07</date>
+ <date>2008-05-09</date>
  <time>00:41:19</time>
  <version>
-  <release>0.19.0</release>
+  <release>0.19.1</release>
   <api>0.17.2</api>
  </version>
  <stability>
@@ -40,7 +40,7 @@
  </stability>
  <license uri="http://www.php.net/license">PHP License</license>
  <notes>
-* split package into subpackages.
+list subpackages as groups for better [un]install experience
  </notes>
  <contents>
   <dir name="/">
