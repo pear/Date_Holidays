@@ -128,6 +128,178 @@
     <channel>pear.php.net</channel>
    </package>
   </optional>
+  <group name="Date_Holidays_Austria" hint="Austria subpackage">
+    <package>
+      <name>Date_Holidays_Austria</name>
+      <channel>pear.php.net</channel>
+    </package>
+  </group>
+  <group name="Date_Holidays_Brazil" hint="Brazil subpackage">
+    <package>
+      <name>Date_Holidays_Brazil</name>
+      <channel>pear.php.net</channel>
+    </package>
+  </group>
+  <group name="Date_Holidays_Denmark" hint="Denmark subpackage">
+    <package>
+      <name>Date_Holidays_Denmark</name>
+      <channel>pear.php.net</channel>
+    </package>
+  </group>
+  <group name="Date_Holidays_Discordian" hint="Discordian subpackage">
+    <package>
+      <name>Date_Holidays_Discordian</name>
+      <channel>pear.php.net</channel>
+    </package>
+  </group>
+  <group name="Date_Holidays_EnglandWales" hint="EnglandWales subpackage">
+    <package>
+      <name>Date_Holidays_EnglandWales</name>
+      <channel>pear.php.net</channel>
+    </package>
+  </group>
+  <group name="Date_Holidays_Germany" hint="Germany subpackage">
+    <package>
+      <name>Date_Holidays_Germany</name>
+      <channel>pear.php.net</channel>
+    </package>
+  </group>
+  <group name="Date_Holidays_Iceland" hint="Iceland subpackage">
+    <package>
+      <name>Date_Holidays_Iceland</name>
+      <channel>pear.php.net</channel>
+    </package>
+  </group>
+  <group name="Date_Holidays_Ireland" hint="Ireland subpackage">
+    <package>
+      <name>Date_Holidays_Ireland</name>
+      <channel>pear.php.net</channel>
+    </package>
+  </group>
+  <group name="Date_Holidays_Netherlands" hint="Netherlands subpackage">
+    <package>
+      <name>Date_Holidays_Netherlands</name>
+      <channel>pear.php.net</channel>
+    </package>
+  </group>
+  <group name="Date_Holidays_Norway" hint="Norway subpackage">
+    <package>
+      <name>Date_Holidays_Norway</name>
+      <channel>pear.php.net</channel>
+    </package>
+  </group>
+  <group name="Date_Holidays_PHPdotNet" hint="PHP.net subpackage">
+    <package>
+      <name>Date_Holidays_PHPdotNet</name>
+      <channel>pear.php.net</channel>
+    </package>
+  </group>
+  <group name="Date_Holidays_Romania" hint="Romania subpackage">
+    <package>
+      <name>Date_Holidays_Romania</name>
+      <channel>pear.php.net</channel>
+    </package>
+  </group>
+  <group name="Date_Holidays_Slovenia" hint="Slovenia subpackage">
+    <package>
+      <name>Date_Holidays_Slovenia</name>
+      <channel>pear.php.net</channel>
+    </package>
+  </group>
+  <group name="Date_Holidays_Sweden" hint="Sweden subpackage">
+    <package>
+      <name>Date_Holidays_Sweden</name>
+      <channel>pear.php.net</channel>
+    </package>
+  </group>
+  <group name="Date_Holidays_Ukraine" hint="Ukraine subpackage">
+    <package>
+      <name>Date_Holidays_Ukraine</name>
+      <channel>pear.php.net</channel>
+    </package>
+  </group>
+  <group name="Date_Holidays_UNO" hint="UNO subpackage">
+    <package>
+      <name>Date_Holidays_UNO</name>
+      <channel>pear.php.net</channel>
+    </package>
+  </group>
+  <group name="Date_Holidays_USA" hint="USA subpackage">
+    <package>
+      <name>Date_Holidays_USA</name>
+      <channel>pear.php.net</channel>
+    </package>
+  </group>
+  <group name="all" hint="all subpackages (for uninstall)">
+    <package>
+      <name>Date_Holidays_Austria</name>
+      <channel>pear.php.net</channel>
+    </package>
+    <package>
+      <name>Date_Holidays_Brazil</name>
+      <channel>pear.php.net</channel>
+    </package>
+    <package>
+      <name>Date_Holidays_Denmark</name>
+      <channel>pear.php.net</channel>
+    </package>
+    <package>
+      <name>Date_Holidays_Discordian</name>
+      <channel>pear.php.net</channel>
+    </package>
+    <package>
+      <name>Date_Holidays_EnglandWales</name>
+      <channel>pear.php.net</channel>
+    </package>
+    <package>
+      <name>Date_Holidays_Germany</name>
+      <channel>pear.php.net</channel>
+    </package>
+    <package>
+      <name>Date_Holidays_Iceland</name>
+      <channel>pear.php.net</channel>
+    </package>
+    <package>
+      <name>Date_Holidays_Ireland</name>
+      <channel>pear.php.net</channel>
+    </package>
+    <package>
+      <name>Date_Holidays_Netherlands</name>
+      <channel>pear.php.net</channel>
+    </package>
+    <package>
+      <name>Date_Holidays_Norway</name>
+      <channel>pear.php.net</channel>
+    </package>
+    <package>
+      <name>Date_Holidays_PHPdotNet</name>
+      <channel>pear.php.net</channel>
+    </package>
+    <package>
+      <name>Date_Holidays_Romania</name>
+      <channel>pear.php.net</channel>
+    </package>
+    <package>
+      <name>Date_Holidays_Slovenia</name>
+      <channel>pear.php.net</channel>
+    </package>
+    <package>
+      <name>Date_Holidays_Sweden</name>
+      <channel>pear.php.net</channel>
+    </package>
+    <package>
+      <name>Date_Holidays_Ukraine</name>
+      <channel>pear.php.net</channel>
+    </package>
+    <package>
+      <name>Date_Holidays_UNO</name>
+      <channel>pear.php.net</channel>
+    </package>
+    <package>
+      <name>Date_Holidays_USA</name>
+      <channel>pear.php.net</channel>
+    </package>
+  </group>
  </dependencies>
  <phprelease />
  <changelog>
