@@ -29,9 +29,9 @@ echo '<table>';
 foreach (array_keys($holidays) as $internalName) {
     $title = $holidays[$internalName]->getTitle();
     $date  = $holidays[$internalName]->getDate();
-    
-    echo sprintf('<tr> <td>%s</td> <td>%s</td></tr>', $title, strftime('%x', 
+
+    echo sprintf('<tr> <td>%s</td> <td>%s</td></tr>', $title, strftime('%x',
                                                             $date->getTime()));
 }
-echo '</table';
+echo '</table>';
 ?>
