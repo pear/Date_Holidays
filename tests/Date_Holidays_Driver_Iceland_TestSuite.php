@@ -250,11 +250,7 @@ class Date_Holidays_Driver_Iceland_TestSuite extends PHPUnit_Framework_TestCase
     function testHolidays2006()
     {
         $drv = Date_Holidays::factory('Iceland', 2006, 'en_EN');
-        $this->assertFalse(Date_Holidays::isError($drv));
-        if (Date_Holidays::isError($drv)) {
-            print_r($drv);
-            die($drv->getMessage());
-        }
+        $this->assertFalse(Date_Holidays::isError($drv), "Holidays Driver for Iceland");
 
         foreach ($this->testDates2006 as $name => $dateInfo) {
             $day = $drv->getHoliday($name);
