@@ -118,13 +118,10 @@ class Date_Holidays_Driver_Iceland_TestSuite extends PHPUnit_Framework_TestCase
             'independenceDay'    => array('day' => 1,
                                           'month' => 12,
                                           'year' => 2006),
-            'christmasEve'            => array('day' => 24,
+            'christmas'            => array('day' => 24,
                                           'month' => 12,
                                           'year' => 2006),
             'christmasDay'            => array('day' => 25,
-                                          'month' => 12,
-                                          'year' => 2006),
-            'boxingDay'          => array('day' => 26,
                                           'month' => 12,
                                           'year' => 2006),
             'secondChristmasDay'      => array('day' => 26,
@@ -207,7 +204,7 @@ class Date_Holidays_Driver_Iceland_TestSuite extends PHPUnit_Framework_TestCase
             'independenceDay'    => array('day' => 1,
                                           'month' => 12,
                                           'year' => 2007),
-            'christmasEve'            => array('day' => 24,
+            'christmas'            => array('day' => 24,
                                           'month' => 12,
                                           'year' => 2007),
             'christmasDay'            => array('day' => 25,
@@ -231,19 +228,12 @@ class Date_Holidays_Driver_Iceland_TestSuite extends PHPUnit_Framework_TestCase
     function testHolidays2007()
     {
         $drv = Date_Holidays::factory('Iceland', 2007, 'en_EN');
-        $this->assertFalse(Date_Holidays::isError($drv));
-        if (Date_Holidays::isError($drv)) {
-            print_r($drv);
-            die($drv->getMessage());
-        }
+        $this->assertFalse(Date_Holidays::isError($drv), "Holidays Driver for Iceland");
 
         foreach ($this->testDates2007 as $name => $dateInfo) {
             $day = $drv->getHoliday($name);
-            $this->assertFalse(Date_Holidays::isError($day));
-            if (Date_Holidays::isError($day)) {
-                die($day->getMessage());
-            }
-            $this->assertEquals($name, $day->getInternalName());
+            $this->assertFalse(Date_Holidays::isError($day), "$name is an error?");
+            $this->assertEquals($name, $day->getInternalName(), $day->getInternalName() . " is not the same as $name");
             $date = $day->getDate();
             $this->assertEquals($dateInfo['day'], $date->getDay(), $name);
             $this->assertEquals($dateInfo['month'], $date->getMonth(), $name);
@@ -268,11 +258,8 @@ class Date_Holidays_Driver_Iceland_TestSuite extends PHPUnit_Framework_TestCase
 
         foreach ($this->testDates2006 as $name => $dateInfo) {
             $day = $drv->getHoliday($name);
-            $this->assertFalse(Date_Holidays::isError($day));
-            if (Date_Holidays::isError($day)) {
-                die($day->getMessage());
-            }
-            $this->assertEquals($name, $day->getInternalName());
+            $this->assertFalse(Date_Holidays::isError($day), "$name is an error?");
+            $this->assertEquals($name, $day->getInternalName(), $day->getInternalName() . " is not the same as $name");
             $date = $day->getDate();
             $this->assertEquals($dateInfo['day'], $date->getDay(), $name);
             $this->assertEquals($dateInfo['month'], $date->getMonth(), $name);
