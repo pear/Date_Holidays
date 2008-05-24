@@ -44,6 +44,25 @@ class Date_Holidays_Driver_Ireland_TestSuite extends PHPUnit_Framework_TestCase
      */
     function setUp()
     {
+        $this->testTranslations  = array(
+            'newYearsDay'        => 'Lá na Caille',
+            'epiphany'           => 'Nollag na mBan',
+            'stPatricksDay'      => 'Lá Fhéile Pádraig',
+            'goodFriday'         => 'Aoine Cásca',
+            'easter'             => 'Domhnach Cásca',
+            'easterMonday'       => 'Luan Cásca',
+            'mayDayBankHoliday'  => 'Lá Bealtaine',
+            'pentecost'          => 'An Chincís',
+            'ascensionDay'       => 'Deascabhála',
+            'juneBankHoliday'    => 'Lá Meitheamh',
+            'midSummer'          => 'Lá Fhéile Eoin',
+            'augustBankHoliday'  => 'Lá Lúnasa',
+            'octoberBankHoliday' => 'Lá Samhna',
+            'christmasEve'       => 'Oíche Nollag',
+            'christmasDay'       => 'Lá Nollag',
+            'stStephensDay'      => 'Lá Fhéile Stiofáin',
+            'newYearsEve'        => 'Oíche Chinn Bliana',
+        );
 
         $this->testDates2006 = array(
             'newYearsDay'           => array('day' => 1,
@@ -67,7 +86,7 @@ class Date_Holidays_Driver_Ireland_TestSuite extends PHPUnit_Framework_TestCase
             'christmasDay'               => array('day' => 25,
                                              'month' => 12,
                                              'year' => 2006),
-            'StStephensDay'             => array('day' => 26,
+            'stStephensDay'             => array('day' => 26,
                                              'month' => 12,
                                              'year' => 2006)
         );
@@ -93,10 +112,20 @@ class Date_Holidays_Driver_Ireland_TestSuite extends PHPUnit_Framework_TestCase
             'christmasDay'               => array('day' => 25,
                                              'month' => 12,
                                              'year' => 2007),
-            'StStephensDay'             => array('day' => 26,
+            'stStephensDay'             => array('day' => 26,
                                              'month' => 12,
                                              'year' => 2007)
         );
+    }
+
+    function testIrishTranslations()
+    {
+        $drv = Date_Holidays::factory('Ireland', 2007, 'ga_IE');
+        $this->assertFalse(Date_Holidays::isError($drv));
+        foreach($this->testTranslations as $name => $translation) {
+            $day = $drv->getHoliday($name);
+            $this->assertEquals($translation, $day->getTitle(), "Translated title for '$day'");
+        }
     }
 
     /**
@@ -108,18 +137,11 @@ class Date_Holidays_Driver_Ireland_TestSuite extends PHPUnit_Framework_TestCase
     function testHolidays2007()
     {
         $drv = Date_Holidays::factory('Ireland', 2007, 'en_EN');
-        $this->assertFalse(Date_Holidays::isError($drv));
-        if (Date_Holidays::isError($drv)) {
-            print_r($drv);
-            die($drv->getMessage());
-        }
+        $this->assertFalse(Date_Holidays::isError($drv), "Driver construction");
 
         foreach ($this->testDates2007 as $name => $dateInfo) {
             $day = $drv->getHoliday($name);
             $this->assertFalse(Date_Holidays::isError($day));
-            if (Date_Holidays::isError($day)) {
-                die($day->getMessage());
-            }
             $this->assertEquals($name, $day->getInternalName());
             $date = $day->getDate();
             $this->assertEquals($dateInfo['day'], $date->getDay(), $name);
@@ -138,10 +160,6 @@ class Date_Holidays_Driver_Ireland_TestSuite extends PHPUnit_Framework_TestCase
     {
         $drv = Date_Holidays::factory('Ireland', 2006, 'en_EN');
         $this->assertFalse(Date_Holidays::isError($drv));
-        if (Date_Holidays::isError($drv)) {
-            print_r($drv);
-            die($drv->getMessage());
-        }
 
         foreach ($this->testDates2006 as $name => $dateInfo) {
 
