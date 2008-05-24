@@ -46,42 +46,48 @@ class Date_Holidays_Driver_Romania_TestSuite extends PHPUnit_Framework_TestCase
     {
 
         $this->testDates2006 = array(
-            'newYearsDay'        => array('day' => 1,
+            'newYearsDay'       => array('day' => 1,
                                           'month' => 1,
                                           'year' => 2006),
-            'easter'             => array('day' => 23,
+            'easter'            => array('day' => 23,
                                           'month' => 4,
                                           'year' => 2006),
-            'easterMonday'       => array('day' => 24,
+            'easterMonday'            => array('day' => 24,
                                           'month' => 4,
                                           'year' => 2006),
-            'nationalDay'        => array('day' => 1,
+            'labourDay'        => array('day' => 1,
+                                          'month' => 5,
+                                          'year' => 2006),
+            'nationalDay'   => array('day' => 1,
                                           'month' => 12,
                                           'year' => 2006),
-            'christmasEve'            => array('day' => 24,
+            'christmasEve'      => array('day' => 24,
                                           'month' => 12,
                                           'year' => 2006),
-            'christmasDay'            => array('day' => 25,
+            'christmasDay'      => array('day' => 25,
                                           'month' => 12,
                                           'year' => 2006)
         );
         $this->testDates2007 = array(
-            'newYearsDay'        => array('day' => 1,
+            'newYearsDay'       => array('day' => 1,
                                           'month' => 1,
                                           'year' => 2007),
-            'easter'             => array('day' => 8,
+            'easter'            => array('day' => 8,
                                           'month' => 4,
                                           'year' => 2007),
-            'easterMonday'       => array('day' => 9,
+            'easterMonday'            => array('day' => 9,
                                           'month' => 4,
                                           'year' => 2007),
-            'nationalDay'        => array('day' => 1,
+            'labourDay'        => array('day' => 1,
+                                          'month' => 5,
+                                          'year' => 2007),
+            'nationalDay'   => array('day' => 1,
                                           'month' => 12,
                                           'year' => 2007),
-            'christmasEve'            => array('day' => 24,
+            'christmasEve'      => array('day' => 24,
                                           'month' => 12,
                                           'year' => 2007),
-            'christmasDay'            => array('day' => 25,
+            'christmasDay'      => array('day' => 25,
                                           'month' => 12,
                                           'year' => 2007)
         );
@@ -104,11 +110,8 @@ class Date_Holidays_Driver_Romania_TestSuite extends PHPUnit_Framework_TestCase
 
         foreach ($this->testDates2007 as $name => $dateInfo) {
             $day = $drv->getHoliday($name);
-            $this->assertFalse(Date_Holidays::isError($day));
-            if (Date_Holidays::isError($day)) {
-                die($day->getMessage());
-            }
-            $this->assertEquals($name, $day->getInternalName());
+            $this->assertFalse(Date_Holidays::isError($day), $name);
+            $this->assertEquals($name, $day->getInternalName(), $name);
             $date = $day->getDate();
             $this->assertEquals($dateInfo['day'], $date->getDay(), $name);
             $this->assertEquals($dateInfo['month'], $date->getMonth(), $name);
