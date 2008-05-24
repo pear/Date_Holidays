@@ -50,12 +50,13 @@ class Date_Holidays_Bugfix_Retests_TestSuite extends PHPUnit_Framework_TestCase
      */
     function testBug12807()
     {
+        $message = '';
         $drv = Date_Holidays::factory('Denmark');
         $this->assertFalse(Date_Holidays::isError($drv));
         if (Date_Holidays::isError($drv)) {
-            print_r($drv);
-            die($drv->getMessage());
+            $message = $drv->getMessage();
         }
+        $this->assertFalse(Date_Holidays::isError($drv), $message);
 
         $this->assertTrue($drv->isHoliday(mktime(1, 1, 1, 12, 25, 2007)));
         $this->assertTrue($drv->isHoliday(mktime(1, 1, 1, 1, 1, 2007)));
