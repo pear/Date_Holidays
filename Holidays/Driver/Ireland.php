@@ -101,7 +101,7 @@ class Date_Holidays_Driver_Ireland extends Date_Holidays_Driver
         $this->_addHoliday('goodFriday', $goodFridayDate, 'Good Friday');
         $this->_addTranslationForHoliday('goodFriday',
                                          'ga_IE',
-                                         'Domhnach Cásca');
+                                         'Aoine Cásca');
 
         /**
          * Easter Monday
@@ -150,7 +150,7 @@ class Date_Holidays_Driver_Ireland extends Date_Holidays_Driver
         $this->_addHoliday('juneBankHoliday', $dn, 'June Bank Holiday');
         $this->_addTranslationForHoliday('juneBankHoliday',
                                          'ga_IE',
-                                         'Lá  Meitheamh');
+                                         'Lá Meitheamh');
 
         /**
          * Midsummer
@@ -202,10 +202,10 @@ class Date_Holidays_Driver_Ireland extends Date_Holidays_Driver
         /**
          * St. Stephen's Day
          */
-        $this->_addHoliday('StStephensDay',
+        $this->_addHoliday('stStephensDay',
                            $this->_year . '-12-26',
                            'Saint Stephen\'s Day');
-        $this->_addTranslationForHoliday('StStephensDay',
+        $this->_addTranslationForHoliday('stStephensDay',
                                          'ga_IE',
                                          'Lá Fhéile Stiofáin');
 
@@ -215,7 +215,7 @@ class Date_Holidays_Driver_Ireland extends Date_Holidays_Driver
         $this->_addHoliday('newYearsEve',
                            $this->_year . '-12-31',
                            'New Year\'s Eve');
-        $this->_addTranslationForHoliday('StStephensDay',
+        $this->_addTranslationForHoliday('newYearsEve',
                                          'ga_IE',
                                          'Oíche Chinn Bliana');
 
