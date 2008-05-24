@@ -103,17 +103,17 @@ class Date_Holidays_Driver_Iceland extends Date_Holidays_Driver
         $this->_addTranslationForHoliday('womansDay', 'is_IS', 'Konudagur');
 
         $shroveMondayDate = new Date($easterDate);
-        $shroveMondayDate->subtractSpan(new Date_Span('42, 0, 0, 0'));
+        $shroveMondayDate->subtractSpan(new Date_Span('41, 0, 0, 0'));
         $this->_addHoliday('shroveMonday', $shroveMondayDate, 'Shrove Monday');
         $this->_addTranslationForHoliday('shroveMonday', 'is_IS', 'Bolludagur');
 
         $shroveTuesdayDate = new Date($easterDate);
-        $shroveTuesdayDate->subtractSpan(new Date_Span('41, 0, 0, 0'));
+        $shroveTuesdayDate->subtractSpan(new Date_Span('40, 0, 0, 0'));
         $this->_addHoliday('shroveTuesday', $shroveTuesdayDate, 'Shrove Tuesday');
         $this->_addTranslationForHoliday('shroveTuesday', 'is_IS', 'Sprengidagur');
 
         $ashWednesdayDate = new Date($easterDate);
-        $ashWednesdayDate->subtractSpan(new Date_Span('40, 0, 0, 0'));
+        $ashWednesdayDate->subtractSpan(new Date_Span('39, 0, 0, 0'));
         $this->_addHoliday('ashWednesday', $ashWednesdayDate, 'Ash Wednesday');
         $this->_addTranslationForHoliday('ashWednesday', 'is_IS', 'Öskudagur');
 

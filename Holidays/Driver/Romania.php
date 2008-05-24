@@ -68,7 +68,7 @@ class Date_Holidays_Driver_Romania extends Date_Holidays_Driver
 
 
         $easterDate = Date_Holidays_Driver_Romania::calcEaster($this->_year);
-        $this->_addHoliday('velykden', $easterDate, "Velykden'/Easter");
+        $this->_addHoliday('easter', $easterDate, "Velykden'/Easter");
 
         /**
          * Easter Monday
