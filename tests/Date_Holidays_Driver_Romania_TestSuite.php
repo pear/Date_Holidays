@@ -1,5 +1,5 @@
 <?php
-                                             /**
+/**
  * Test class for running unit tests related to the driver for holidays in Austria
  *
  * PHP Versions 4 and 5
