@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab tabstop=4 shiftwidth=4: */
 /**
- * Driver for determining holidays in Ireland.
+ * Driver for determining holidays in the Netherlands.
  *
  * PHP Version 4
  *
