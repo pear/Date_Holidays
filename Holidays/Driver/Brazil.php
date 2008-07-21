@@ -143,7 +143,7 @@ class Date_Holidays_Driver_Brazil extends Date_Holidays_Driver_Christian
         /**
          * Mothers' Day
          */
-        $mothersDay = $this->_calcNthWeekDayInMonth(2, 1, 5);
+        $mothersDay = $this->_calcNthWeekDayInMonth(2, 0, 5);
         $this->_addHoliday('mothersDay',
                            $mothersDay,
                            'Mothers\' Day');
@@ -164,7 +164,7 @@ class Date_Holidays_Driver_Brazil extends Date_Holidays_Driver_Christian
         /**
          * Fathers' Day
          */
-        $fathersDay = $this->_calcNthWeekDayInMonth(2, 1, 8);
+        $fathersDay = $this->_calcNthWeekDayInMonth(2, 0, 8);
         $this->_addHoliday('fathersDay',
                            $fathersDay,
                            'Fathers\' Day');
