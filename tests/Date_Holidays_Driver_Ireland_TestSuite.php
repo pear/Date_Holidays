@@ -123,8 +123,9 @@ class Date_Holidays_Driver_Ireland_TestSuite extends PHPUnit_Framework_TestCase
         $drv = Date_Holidays::factory('Ireland', 2007, 'ga_IE');
         $this->assertFalse(Date_Holidays::isError($drv));
         foreach($this->testTranslations as $name => $translation) {
-            $day = $drv->getHoliday($name);
-            $this->assertEquals($translation, $day->getTitle(), "Translated title for '$day'");
+            $day  = $drv->getHoliday($name);
+            $name = $day->getInternalName();
+            $this->assertEquals($translation, $day->getTitle(), "Translated title for '$name'");
         }
     }
 
