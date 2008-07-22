@@ -85,6 +85,7 @@ list subpackages as groups for better [un]install experience
     </file>
     <file baseinstalldir="Date" name="AllTestsUndeployed.php" role="test" />
     <file baseinstalldir="Date" name="Date_Holidays_Bugfix_Retests_TestSuite.php" role="test" />
+    <file baseinstalldir="Date" name="Date_Holidays_Driver_Brazil_TestSuite.php" role="test" />
     <file baseinstalldir="Date" name="Date_Holidays_Driver_Christian_TestSuite.php" role="test" />
     <file baseinstalldir="Date" name="Date_Holidays_Driver_Jewish_TestSuite.php" role="test" />
     <file baseinstalldir="Date" name="Date_Holidays_Driver_TestSuite.php" role="test" />
