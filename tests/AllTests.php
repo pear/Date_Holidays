@@ -22,6 +22,7 @@ require_once 'Date_Holidays_TestSuite.php';
 require_once 'Date_Holidays_Driver_TestSuite.php';
 require_once 'Date_Holidays_Bugfix_Retests_TestSuite.php';
 require_once 'Date_Holidays_Driver_Austria_TestSuite.php';
+require_once 'Date_Holidays_Driver_Brazil_TestSuite.php';
 require_once 'Date_Holidays_Driver_Christian_TestSuite.php';
 require_once 'Date_Holidays_Driver_EnglandWales_TestSuite.php';
 require_once 'Date_Holidays_Driver_Germany_TestSuite.php';
@@ -30,6 +31,7 @@ require_once 'Date_Holidays_Driver_Ireland_TestSuite.php';
 require_once 'Date_Holidays_Driver_Jewish_TestSuite.php';
 require_once 'Date_Holidays_Driver_PHPdotNet_TestSuite.php';
 require_once 'Date_Holidays_Driver_Romania_TestSuite.php';
+require_once 'Date_Holidays_Driver_Ukraine_TestSuite.php';
 require_once 'Date_Holidays_Driver_UNO_TestSuite.php';
 require_once 'Date_Holidays_Driver_USA_TestSuite.php';
 require_once 'Date_Holidays_Driver_Sweden_TestSuite.php';
@@ -71,10 +73,7 @@ class Date_Holidays_AllTests
         $suite = new PHPUnit_Framework_TestSuite('Date_HolidaysTest');
         /** Add testsuites.  */
 
-        $suite->addTestSuite('Date_Holidays_TestSuite');
-        $suite->addTestSuite('Date_Holidays_Driver_TestSuite');
         $suite->addTestSuite('Date_Holidays_Bugfix_Retests_TestSuite');
-
         $suite->addTestSuite('Date_Holidays_Driver_Austria_TestSuite');
         $suite->addTestSuite('Date_Holidays_Driver_Christian_TestSuite');
         $suite->addTestSuite('Date_Holidays_Driver_EnglandWales_TestSuite');
@@ -85,9 +84,14 @@ class Date_Holidays_AllTests
         $suite->addTestSuite('Date_Holidays_Driver_PHPdotNet_TestSuite');
         $suite->addTestSuite('Date_Holidays_Driver_Romania_TestSuite');
         $suite->addTestSuite('Date_Holidays_Driver_Sweden_TestSuite');
+        $suite->addTestSuite('Date_Holidays_Driver_Ukraine_TestSuite');
         $suite->addTestSuite('Date_Holidays_Driver_UNO_TestSuite');
         $suite->addTestSuite('Date_Holidays_Driver_USA_TestSuite');
+        #$suite->addTestSuite('Date_Holidays_Driver_TestSuite');
+        $suite->addTestSuite('Date_Holidays_TestSuite');
+        /*
 
+*/
         return $suite;
     }
 }
