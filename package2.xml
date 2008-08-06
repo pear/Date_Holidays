@@ -526,5 +526,20 @@ list subpackages as groups for better [un]install experience
    * split into subpackages!
    </notes>
   </release>
+  <release>
+   <version>
+    <release>0.20.0</release>
+    <api>0.17.2</api>
+   </version>
+   <stability>
+    <release>alpha</release>
+    <api>alpha</api>
+   </stability>
+   <date>2008-08-06</date>
+   <license uri="http://www.php.net/license">PHP License</license>
+   <notes>
+   * Request #13750: utilise easter_days function where and as appropriate
+   </notes>
+  </release>
  </changelog>
 </package>
