@@ -7,6 +7,8 @@ require_once 'Date/Holidays.php';
 echo "Test bug 13395\n";
 echo "**************\n";
 
+Date_TimeZone::setDefault("UTC");
+
 $driver = &Date_Holidays::factory('USA', 2007);
 
 $workday = new Date('2010-04-26');
