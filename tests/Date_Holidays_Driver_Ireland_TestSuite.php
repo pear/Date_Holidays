@@ -1,6 +1,6 @@
 <?php
-                                             /**
- * Test class for running unit tests related to the driver for holidays in Austria
+/**
+ * Test class for running unit tests related to the driver for holidays in Ireland
  *
  * PHP Versions 4 and 5
  *
@@ -20,7 +20,7 @@ chdir(dirname(__FILE__) . '/../');
 require_once 'Date/Holidays.php';
 
 /**
- * Test class for running unit tests related to the driver for holidays in Austria
+ * Test class for running unit tests related to the driver for holidays in Ireland
  *
  * @uses PHPUnit_Framework_TestCase
  * @category Date
