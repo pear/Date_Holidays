@@ -49,6 +49,9 @@
      <file baseinstalldir="Date" name="Norway.php" role="php" />
     </dir> <!-- /Holidays/Driver -->
    </dir> <!-- /Holidays -->
+   <dir name="tests">
+    <file baseinstalldir="Date" name="Date_Holidays_Driver_Norway_TestSuite.php" role="test" />
+   </dir> <!-- /tests -->
   </dir> <!-- / -->
  </contents>
  <dependencies>

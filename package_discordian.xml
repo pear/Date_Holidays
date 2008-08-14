@@ -51,6 +51,9 @@ contributed by Stephan &apos;Da:Sourcerer&apos; Hohmann
    </dir> <!-- /Holidays -->
    <dir name="lang">
    </dir> <!-- /lang -->
+   <dir name="tests">
+    <file baseinstalldir="Date" name="Date_Holidays_Driver_Discordian_TestSuite.php" role="test" />
+   </dir> <!-- /tests -->
   </dir> <!-- / -->
  </contents>
  <dependencies>
