@@ -97,7 +97,7 @@ define('DATE_HOLIDAYS_AUTUMNAL_EQUINOX_PARAM_2150', 24.2488);
  * @link       http://pear.php.net/package/Date_Holidays
  * @see        http://www.h3.dion.ne.jp/~sakatsu/holiday_topic.htm
  */
-class Date_Holidays_Japan extends Date_Holidays_Driver
+class Date_Holidays_Driver_Japan extends Date_Holidays_Driver
 {
     /**
      * a translation file name
@@ -121,7 +121,7 @@ class Date_Holidays_Japan extends Date_Holidays_Driver
      *
      * @access   protected
      */
-    function Date_Holidays_Japan()
+    function Date_Holidays_Driver_Japan()
     {
     }
 
