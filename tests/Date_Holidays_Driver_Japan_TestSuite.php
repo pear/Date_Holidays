@@ -17,10 +17,10 @@ if (!defined("PHPUnit_MAIN_METHOD")) {
 }
 
 //make cvs testing work
-chdir(dirname(__FILE__) . '/../');
+//chdir(dirname(__FILE__) . '/../');
 require_once 'Date/Holidays.php';
 
-define('LANG_FILE', '/usr/local/lib/php5/pear/data/Date_Holidays_Japan/lang');
+define('LANG_FILE', '@DATA-DIR@/Date_Holidays_Japan/lang/');
 
 /**
  * Test class for running unit tests related to the driver for holidays
