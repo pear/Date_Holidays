@@ -16,8 +16,6 @@ if (!defined("PHPUnit_MAIN_METHOD")) {
     define("PHPUnit_MAIN_METHOD", "Date_HolidaysTest::main");
 }
 
-//make cvs testing work
-//chdir(dirname(__FILE__) . '/../');
 require_once 'Date/Holidays.php';
 
 define('LANG_FILE', '@DATA-DIR@/Date_Holidays_Japan/lang/');
