@@ -162,8 +162,12 @@ class Date_Holidays_Driver_Netherlands extends Date_Holidays_Driver
         /**
          * Second Christmas Day
          */
-        $this->_addHoliday('secondChristmasDay', $this->_year . '-12-26', 'Boxing Day');
-        $this->_addTranslationForHoliday('secondChristmasDay', 'DU_NL', '2e Kerstdag');
+        $this->_addHoliday('secondChristmasDay',
+                           $this->_year . '-12-26',
+                           'Boxing Day');
+        $this->_addTranslationForHoliday('secondChristmasDay',
+                                         'DU_NL',
+                                         '2e Kerstdag');
 
         /**
          * New Year's Eve

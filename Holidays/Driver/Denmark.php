@@ -167,7 +167,9 @@ class Date_Holidays_Driver_Denmark extends Date_Holidays_Driver
         $this->_addHoliday('secondChristmasDay',
                            $this->_year . '-12-26',
                            'Boxing Day');
-        $this->_addTranslationForHoliday('secondChristmasDay', 'da_DK', '2. Juledag');
+        $this->_addTranslationForHoliday('secondChristmasDay',
+                                         'da_DK',
+                                         '2. Juledag');
 
         /**
          * New Year's Eve

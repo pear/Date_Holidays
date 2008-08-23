@@ -34,8 +34,8 @@ require_once 'Date/Holidays/Driver/Christian.php';
  *
  * @category   Date
  * @package    Date_Holidays
- * @author     Klemens Ullmann <klemens@ull.at>
  * @subpackage Driver
+ * @author     Klemens Ullmann <klemens@ull.at>
  * @license    http://www.php.net/license/3_01.txt PHP License 3.0.1
  * @version    CVS: $Id$
  * @link       http://pear.php.net/package/Date_Holidays
