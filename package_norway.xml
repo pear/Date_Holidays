@@ -80,9 +80,24 @@
     <release>alpha</release>
     <api>alpha</api>
    </stability>
-   <date>2008-05-07</date>
+   <date>2008-08-23</date>
    <license uri="http://www.php.net/license">PHP License</license>
-   <notes>initial pear release</notes>
+   <notes>
+Slight changes to testsuite so it works when installed rather than in developers environment.
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>0.1.1</release>
+    <api>0.1.0</api>
+   </version>
+   <stability>
+    <release>alpha</release>
+    <api>alpha</api>
+   </stability>
+   <date>2008-08-23</date>
+   <license uri="http://www.php.net/license">PHP License</license>
+   <notes>Slight changes to testsuite so it works when installed rather than in developers environment.</notes>
   </release>
  </changelog>
 </package>

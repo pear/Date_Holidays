@@ -15,13 +15,11 @@ if (!defined("PHPUnit_MAIN_METHOD")) {
     define("PHPUnit_MAIN_METHOD", "Date_HolidaysTest::main");
 }
 
-//make cvs testing work
-chdir(dirname(__FILE__) . '/../');
 require_once 'Date/Holidays.php';
 
 /**
- * Date_Holidays_Driver_UNO_TestSuite 
- * 
+ * Date_Holidays_Driver_UNO_TestSuite
+ *
  * @category Date
  * @package  Date_Holidays
  * @subpackage Test
@@ -35,25 +33,25 @@ class Date_Holidays_Driver_UNO_TestSuite extends PHPUnit_Framework_TestCase
 {
 
     /**
-     * setup 
-     * 
+     * setup
+     *
      * @access public
      * @return void
      */
     function setUp()
     {
-    } 
+    }
 
     /**
-     * test Holidays in 2005 
-     * 
+     * test Holidays in 2005
+     *
      * @access public
      * @return void
      */
     function testHolidays2005()
     {
         /*
-        // test leprosyDay 
+        // test leprosyDay
         $day = $drv->getHoliday('leprosyDay');
         $this->assertFalse(Date_Holidays::isError($day));
         if (Date_Holidays::isError($day)) {
@@ -65,7 +63,7 @@ class Date_Holidays_Driver_UNO_TestSuite extends PHPUnit_Framework_TestCase
         $this->assertEquals(, $date->getMonth(), 'leprosyDay');
         $this->assertEquals(2005, $date->getYear(), 'leprosyDay');
 
-        // test nativeTongueDay 
+        // test nativeTongueDay
         $day = $drv->getHoliday('nativeTongueDay');
         $this->assertFalse(Date_Holidays::isError($day));
         if (Date_Holidays::isError($day)) {
@@ -77,7 +75,7 @@ class Date_Holidays_Driver_UNO_TestSuite extends PHPUnit_Framework_TestCase
         $this->assertEquals(, $date->getMonth(), 'nativeTongueDay');
         $this->assertEquals(2005, $date->getYear(), 'nativeTongueDay');
 
-        // test womensDay 
+        // test womensDay
         $day = $drv->getHoliday('womensDay');
         $this->assertFalse(Date_Holidays::isError($day));
         if (Date_Holidays::isError($day)) {
@@ -89,7 +87,7 @@ class Date_Holidays_Driver_UNO_TestSuite extends PHPUnit_Framework_TestCase
         $this->assertEquals(, $date->getMonth(), 'womensDay');
         $this->assertEquals(2005, $date->getYear(), 'womensDay');
 
-        // test worldConsumersDay 
+        // test worldConsumersDay
         $day = $drv->getHoliday('worldConsumersDay');
         $this->assertFalse(Date_Holidays::isError($day));
         if (Date_Holidays::isError($day)) {
@@ -101,7 +99,7 @@ class Date_Holidays_Driver_UNO_TestSuite extends PHPUnit_Framework_TestCase
         $this->assertEquals(, $date->getMonth(), 'worldConsumersDay');
         $this->assertEquals(2005, $date->getYear(), 'worldConsumersDay');
 
-        // test intForestDay 
+        // test intForestDay
         $day = $drv->getHoliday('intForestDay');
         $this->assertFalse(Date_Holidays::isError($day));
         if (Date_Holidays::isError($day)) {
@@ -113,7 +111,7 @@ class Date_Holidays_Driver_UNO_TestSuite extends PHPUnit_Framework_TestCase
         $this->assertEquals(, $date->getMonth(), 'intForestDay');
         $this->assertEquals(2005, $date->getYear(), 'intForestDay');
 
-        // test intDayBeatingRacism 
+        // test intDayBeatingRacism
         $day = $drv->getHoliday('intDayBeatingRacism');
         $this->assertFalse(Date_Holidays::isError($day));
         if (Date_Holidays::isError($day)) {
@@ -125,7 +123,7 @@ class Date_Holidays_Driver_UNO_TestSuite extends PHPUnit_Framework_TestCase
         $this->assertEquals(, $date->getMonth(), 'intDayBeatingRacism');
         $this->assertEquals(2005, $date->getYear(), 'intDayBeatingRacism');
 
-        // test dayOfPoesy 
+        // test dayOfPoesy
         $day = $drv->getHoliday('dayOfPoesy');
         $this->assertFalse(Date_Holidays::isError($day));
         if (Date_Holidays::isError($day)) {
@@ -137,7 +135,7 @@ class Date_Holidays_Driver_UNO_TestSuite extends PHPUnit_Framework_TestCase
         $this->assertEquals(, $date->getMonth(), 'dayOfPoesy');
         $this->assertEquals(2005, $date->getYear(), 'dayOfPoesy');
 
-        // test dayOfWater 
+        // test dayOfWater
         $day = $drv->getHoliday('dayOfWater');
         $this->assertFalse(Date_Holidays::isError($day));
         if (Date_Holidays::isError($day)) {
@@ -149,7 +147,7 @@ class Date_Holidays_Driver_UNO_TestSuite extends PHPUnit_Framework_TestCase
         $this->assertEquals(, $date->getMonth(), 'dayOfWater');
         $this->assertEquals(2005, $date->getYear(), 'dayOfWater');
 
-        // test meteorologyDay 
+        // test meteorologyDay
         $day = $drv->getHoliday('meteorologyDay');
         $this->assertFalse(Date_Holidays::isError($day));
         if (Date_Holidays::isError($day)) {
@@ -161,7 +159,7 @@ class Date_Holidays_Driver_UNO_TestSuite extends PHPUnit_Framework_TestCase
         $this->assertEquals(, $date->getMonth(), 'meteorologyDay');
         $this->assertEquals(2005, $date->getYear(), 'meteorologyDay');
 
-        // test tuberculosisDay 
+        // test tuberculosisDay
         $day = $drv->getHoliday('tuberculosisDay');
         $this->assertFalse(Date_Holidays::isError($day));
         if (Date_Holidays::isError($day)) {
@@ -173,7 +171,7 @@ class Date_Holidays_Driver_UNO_TestSuite extends PHPUnit_Framework_TestCase
         $this->assertEquals(, $date->getMonth(), 'tuberculosisDay');
         $this->assertEquals(2005, $date->getYear(), 'tuberculosisDay');
 
-        // test worldsHealthDay 
+        // test worldsHealthDay
         $day = $drv->getHoliday('worldsHealthDay');
         $this->assertFalse(Date_Holidays::isError($day));
         if (Date_Holidays::isError($day)) {
@@ -185,7 +183,7 @@ class Date_Holidays_Driver_UNO_TestSuite extends PHPUnit_Framework_TestCase
         $this->assertEquals(, $date->getMonth(), 'worldsHealthDay');
         $this->assertEquals(2005, $date->getYear(), 'worldsHealthDay');
 
-        // test bookAndCopyrightDay 
+        // test bookAndCopyrightDay
         $day = $drv->getHoliday('bookAndCopyrightDay');
         $this->assertFalse(Date_Holidays::isError($day));
         if (Date_Holidays::isError($day)) {
@@ -197,7 +195,7 @@ class Date_Holidays_Driver_UNO_TestSuite extends PHPUnit_Framework_TestCase
         $this->assertEquals(, $date->getMonth(), 'bookAndCopyrightDay');
         $this->assertEquals(2005, $date->getYear(), 'bookAndCopyrightDay');
 
-        // test treesDay 
+        // test treesDay
         $day = $drv->getHoliday('treesDay');
         $this->assertFalse(Date_Holidays::isError($day));
         if (Date_Holidays::isError($day)) {
@@ -209,7 +207,7 @@ class Date_Holidays_Driver_UNO_TestSuite extends PHPUnit_Framework_TestCase
         $this->assertEquals(, $date->getMonth(), 'treesDay');
         $this->assertEquals(2005, $date->getYear(), 'treesDay');
 
-        // test intellectualPropertyDay 
+        // test intellectualPropertyDay
         $day = $drv->getHoliday('intellectualPropertyDay');
         $this->assertFalse(Date_Holidays::isError($day));
         if (Date_Holidays::isError($day)) {
@@ -221,7 +219,7 @@ class Date_Holidays_Driver_UNO_TestSuite extends PHPUnit_Framework_TestCase
         $this->assertEquals(, $date->getMonth(), 'intellectualPropertyDay');
         $this->assertEquals(2005, $date->getYear(), 'intellectualPropertyDay');
 
-        // test intDayOfWork 
+        // test intDayOfWork
         $day = $drv->getHoliday('intDayOfWork');
         $this->assertFalse(Date_Holidays::isError($day));
         if (Date_Holidays::isError($day)) {
@@ -233,7 +231,7 @@ class Date_Holidays_Driver_UNO_TestSuite extends PHPUnit_Framework_TestCase
         $this->assertEquals(, $date->getMonth(), 'intDayOfWork');
         $this->assertEquals(2005, $date->getYear(), 'intDayOfWork');
 
-        // test freedomOfPressDay 
+        // test freedomOfPressDay
         $day = $drv->getHoliday('freedomOfPressDay');
         $this->assertFalse(Date_Holidays::isError($day));
         if (Date_Holidays::isError($day)) {
@@ -245,7 +243,7 @@ class Date_Holidays_Driver_UNO_TestSuite extends PHPUnit_Framework_TestCase
         $this->assertEquals(, $date->getMonth(), 'freedomOfPressDay');
         $this->assertEquals(2005, $date->getYear(), 'freedomOfPressDay');
 
-        // test dayOfTheSun 
+        // test dayOfTheSun
         $day = $drv->getHoliday('dayOfTheSun');
         $this->assertFalse(Date_Holidays::isError($day));
         if (Date_Holidays::isError($day)) {
@@ -257,7 +255,7 @@ class Date_Holidays_Driver_UNO_TestSuite extends PHPUnit_Framework_TestCase
         $this->assertEquals(, $date->getMonth(), 'dayOfTheSun');
         $this->assertEquals(2005, $date->getYear(), 'dayOfTheSun');
 
-        // test intFamilyDay 
+        // test intFamilyDay
         $day = $drv->getHoliday('intFamilyDay');
         $this->assertFalse(Date_Holidays::isError($day));
         if (Date_Holidays::isError($day)) {
@@ -269,7 +267,7 @@ class Date_Holidays_Driver_UNO_TestSuite extends PHPUnit_Framework_TestCase
         $this->assertEquals(, $date->getMonth(), 'intFamilyDay');
         $this->assertEquals(2005, $date->getYear(), 'intFamilyDay');
 
-        // test telecommunicationsDay 
+        // test telecommunicationsDay
         $day = $drv->getHoliday('telecommunicationsDay');
         $this->assertFalse(Date_Holidays::isError($day));
         if (Date_Holidays::isError($day)) {
@@ -281,7 +279,7 @@ class Date_Holidays_Driver_UNO_TestSuite extends PHPUnit_Framework_TestCase
         $this->assertEquals(, $date->getMonth(), 'telecommunicationsDay');
         $this->assertEquals(2005, $date->getYear(), 'telecommunicationsDay');
 
-        // test culturalDevelopmentDay 
+        // test culturalDevelopmentDay
         $day = $drv->getHoliday('culturalDevelopmentDay');
         $this->assertFalse(Date_Holidays::isError($day));
         if (Date_Holidays::isError($day)) {
@@ -293,7 +291,7 @@ class Date_Holidays_Driver_UNO_TestSuite extends PHPUnit_Framework_TestCase
         $this->assertEquals(, $date->getMonth(), 'culturalDevelopmentDay');
         $this->assertEquals(2005, $date->getYear(), 'culturalDevelopmentDay');
 
-        // test biologicalDiversityDay 
+        // test biologicalDiversityDay
         $day = $drv->getHoliday('biologicalDiversityDay');
         $this->assertFalse(Date_Holidays::isError($day));
         if (Date_Holidays::isError($day)) {
@@ -305,7 +303,7 @@ class Date_Holidays_Driver_UNO_TestSuite extends PHPUnit_Framework_TestCase
         $this->assertEquals(, $date->getMonth(), 'biologicalDiversityDay');
         $this->assertEquals(2005, $date->getYear(), 'biologicalDiversityDay');
 
-        // test africanLiberationDay 
+        // test africanLiberationDay
         $day = $drv->getHoliday('africanLiberationDay');
         $this->assertFalse(Date_Holidays::isError($day));
         if (Date_Holidays::isError($day)) {
@@ -317,7 +315,7 @@ class Date_Holidays_Driver_UNO_TestSuite extends PHPUnit_Framework_TestCase
         $this->assertEquals(, $date->getMonth(), 'africanLiberationDay');
         $this->assertEquals(2005, $date->getYear(), 'africanLiberationDay');
 
-        // test unPeaceSquadsDay 
+        // test unPeaceSquadsDay
         $day = $drv->getHoliday('unPeaceSquadsDay');
         $this->assertFalse(Date_Holidays::isError($day));
         if (Date_Holidays::isError($day)) {
@@ -329,7 +327,7 @@ class Date_Holidays_Driver_UNO_TestSuite extends PHPUnit_Framework_TestCase
         $this->assertEquals(, $date->getMonth(), 'unPeaceSquadsDay');
         $this->assertEquals(2005, $date->getYear(), 'unPeaceSquadsDay');
 
-        // test nonsmokersDay 
+        // test nonsmokersDay
         $day = $drv->getHoliday('nonsmokersDay');
         $this->assertFalse(Date_Holidays::isError($day));
         if (Date_Holidays::isError($day)) {
@@ -341,7 +339,7 @@ class Date_Holidays_Driver_UNO_TestSuite extends PHPUnit_Framework_TestCase
         $this->assertEquals(, $date->getMonth(), 'nonsmokersDay');
         $this->assertEquals(2005, $date->getYear(), 'nonsmokersDay');
 
-        // test farmersDay 
+        // test farmersDay
         $day = $drv->getHoliday('farmersDay');
         $this->assertFalse(Date_Holidays::isError($day));
         if (Date_Holidays::isError($day)) {
@@ -353,7 +351,7 @@ class Date_Holidays_Driver_UNO_TestSuite extends PHPUnit_Framework_TestCase
         $this->assertEquals(, $date->getMonth(), 'farmersDay');
         $this->assertEquals(2005, $date->getYear(), 'farmersDay');
 
-        // test environmentDay 
+        // test environmentDay
         $day = $drv->getHoliday('environmentDay');
         $this->assertFalse(Date_Holidays::isError($day));
         if (Date_Holidays::isError($day)) {
@@ -365,7 +363,7 @@ class Date_Holidays_Driver_UNO_TestSuite extends PHPUnit_Framework_TestCase
         $this->assertEquals(, $date->getMonth(), 'environmentDay');
         $this->assertEquals(2005, $date->getYear(), 'environmentDay');
 
-        // test africanChildrenDay 
+        // test africanChildrenDay
         $day = $drv->getHoliday('africanChildrenDay');
         $this->assertFalse(Date_Holidays::isError($day));
         if (Date_Holidays::isError($day)) {
@@ -377,7 +375,7 @@ class Date_Holidays_Driver_UNO_TestSuite extends PHPUnit_Framework_TestCase
         $this->assertEquals(, $date->getMonth(), 'africanChildrenDay');
         $this->assertEquals(2005, $date->getYear(), 'africanChildrenDay');
 
-        // test desertDay 
+        // test desertDay
         $day = $drv->getHoliday('desertDay');
         $this->assertFalse(Date_Holidays::isError($day));
         if (Date_Holidays::isError($day)) {
@@ -389,7 +387,7 @@ class Date_Holidays_Driver_UNO_TestSuite extends PHPUnit_Framework_TestCase
         $this->assertEquals(, $date->getMonth(), 'desertDay');
         $this->assertEquals(2005, $date->getYear(), 'desertDay');
 
-        // test africanFugitiveDay 
+        // test africanFugitiveDay
         $day = $drv->getHoliday('africanFugitiveDay');
         $this->assertFalse(Date_Holidays::isError($day));
         if (Date_Holidays::isError($day)) {
@@ -401,7 +399,7 @@ class Date_Holidays_Driver_UNO_TestSuite extends PHPUnit_Framework_TestCase
         $this->assertEquals(, $date->getMonth(), 'africanFugitiveDay');
         $this->assertEquals(2005, $date->getYear(), 'africanFugitiveDay');
 
-        // test antiDrugsDay 
+        // test antiDrugsDay
         $day = $drv->getHoliday('antiDrugsDay');
         $this->assertFalse(Date_Holidays::isError($day));
         if (Date_Holidays::isError($day)) {
@@ -413,7 +411,7 @@ class Date_Holidays_Driver_UNO_TestSuite extends PHPUnit_Framework_TestCase
         $this->assertEquals(, $date->getMonth(), 'antiDrugsDay');
         $this->assertEquals(2005, $date->getYear(), 'antiDrugsDay');
 
-        // test intCoopDay 
+        // test intCoopDay
         $day = $drv->getHoliday('intCoopDay');
         $this->assertFalse(Date_Holidays::isError($day));
         if (Date_Holidays::isError($day)) {
@@ -425,7 +423,7 @@ class Date_Holidays_Driver_UNO_TestSuite extends PHPUnit_Framework_TestCase
         $this->assertEquals(, $date->getMonth(), 'intCoopDay');
         $this->assertEquals(2005, $date->getYear(), 'intCoopDay');
 
-        // test populationDay 
+        // test populationDay
         $day = $drv->getHoliday('populationDay');
         $this->assertFalse(Date_Holidays::isError($day));
         if (Date_Holidays::isError($day)) {
@@ -437,7 +435,7 @@ class Date_Holidays_Driver_UNO_TestSuite extends PHPUnit_Framework_TestCase
         $this->assertEquals(, $date->getMonth(), 'populationDay');
         $this->assertEquals(2005, $date->getYear(), 'populationDay');
 
-        // test indigenousPeopleDay 
+        // test indigenousPeopleDay
         $day = $drv->getHoliday('indigenousPeopleDay');
         $this->assertFalse(Date_Holidays::isError($day));
         if (Date_Holidays::isError($day)) {
@@ -449,7 +447,7 @@ class Date_Holidays_Driver_UNO_TestSuite extends PHPUnit_Framework_TestCase
         $this->assertEquals(, $date->getMonth(), 'indigenousPeopleDay');
         $this->assertEquals(2005, $date->getYear(), 'indigenousPeopleDay');
 
-        // test intYouthDay 
+        // test intYouthDay
         $day = $drv->getHoliday('intYouthDay');
         $this->assertFalse(Date_Holidays::isError($day));
         if (Date_Holidays::isError($day)) {
@@ -461,7 +459,7 @@ class Date_Holidays_Driver_UNO_TestSuite extends PHPUnit_Framework_TestCase
         $this->assertEquals(, $date->getMonth(), 'intYouthDay');
         $this->assertEquals(2005, $date->getYear(), 'intYouthDay');
 
-        // test slaveTradeDay 
+        // test slaveTradeDay
         $day = $drv->getHoliday('slaveTradeDay');
         $this->assertFalse(Date_Holidays::isError($day));
         if (Date_Holidays::isError($day)) {
@@ -473,7 +471,7 @@ class Date_Holidays_Driver_UNO_TestSuite extends PHPUnit_Framework_TestCase
         $this->assertEquals(, $date->getMonth(), 'slaveTradeDay');
         $this->assertEquals(2005, $date->getYear(), 'slaveTradeDay');
 
-        // test alphabetizationDay 
+        // test alphabetizationDay
         $day = $drv->getHoliday('alphabetizationDay');
         $this->assertFalse(Date_Holidays::isError($day));
         if (Date_Holidays::isError($day)) {
@@ -485,7 +483,7 @@ class Date_Holidays_Driver_UNO_TestSuite extends PHPUnit_Framework_TestCase
         $this->assertEquals(, $date->getMonth(), 'alphabetizationDay');
         $this->assertEquals(2005, $date->getYear(), 'alphabetizationDay');
 
-        // test ozoneLayerProtectionDay 
+        // test ozoneLayerProtectionDay
         $day = $drv->getHoliday('ozoneLayerProtectionDay');
         $this->assertFalse(Date_Holidays::isError($day));
         if (Date_Holidays::isError($day)) {
@@ -497,7 +495,7 @@ class Date_Holidays_Driver_UNO_TestSuite extends PHPUnit_Framework_TestCase
         $this->assertEquals(, $date->getMonth(), 'ozoneLayerProtectionDay');
         $this->assertEquals(2005, $date->getYear(), 'ozoneLayerProtectionDay');
 
-        // test intPeaceDay 
+        // test intPeaceDay
         $day = $drv->getHoliday('intPeaceDay');
         $this->assertFalse(Date_Holidays::isError($day));
         if (Date_Holidays::isError($day)) {
@@ -509,7 +507,7 @@ class Date_Holidays_Driver_UNO_TestSuite extends PHPUnit_Framework_TestCase
         $this->assertEquals(, $date->getMonth(), 'intPeaceDay');
         $this->assertEquals(2005, $date->getYear(), 'intPeaceDay');
 
-        // test tourismDay 
+        // test tourismDay
         $day = $drv->getHoliday('tourismDay');
         $this->assertFalse(Date_Holidays::isError($day));
         if (Date_Holidays::isError($day)) {
@@ -521,7 +519,7 @@ class Date_Holidays_Driver_UNO_TestSuite extends PHPUnit_Framework_TestCase
         $this->assertEquals(, $date->getMonth(), 'tourismDay');
         $this->assertEquals(2005, $date->getYear(), 'tourismDay');
 
-        // test intFugitiveDay 
+        // test intFugitiveDay
         $day = $drv->getHoliday('intFugitiveDay');
         $this->assertFalse(Date_Holidays::isError($day));
         if (Date_Holidays::isError($day)) {
@@ -533,7 +531,7 @@ class Date_Holidays_Driver_UNO_TestSuite extends PHPUnit_Framework_TestCase
         $this->assertEquals(, $date->getMonth(), 'intFugitiveDay');
         $this->assertEquals(2005, $date->getYear(), 'intFugitiveDay');
 
-        // test agedPeopleDay 
+        // test agedPeopleDay
         $day = $drv->getHoliday('agedPeopleDay');
         $this->assertFalse(Date_Holidays::isError($day));
         if (Date_Holidays::isError($day)) {
@@ -545,7 +543,7 @@ class Date_Holidays_Driver_UNO_TestSuite extends PHPUnit_Framework_TestCase
         $this->assertEquals(, $date->getMonth(), 'agedPeopleDay');
         $this->assertEquals(2005, $date->getYear(), 'agedPeopleDay');
 
-        // test animalsDay 
+        // test animalsDay
         $day = $drv->getHoliday('animalsDay');
         $this->assertFalse(Date_Holidays::isError($day));
         if (Date_Holidays::isError($day)) {
@@ -557,7 +555,7 @@ class Date_Holidays_Driver_UNO_TestSuite extends PHPUnit_Framework_TestCase
         $this->assertEquals(, $date->getMonth(), 'animalsDay');
         $this->assertEquals(2005, $date->getYear(), 'animalsDay');
 
-        // test outerSpaceWeek 
+        // test outerSpaceWeek
         $day = $drv->getHoliday('outerSpaceWeek');
         $this->assertFalse(Date_Holidays::isError($day));
         if (Date_Holidays::isError($day)) {
@@ -569,7 +567,7 @@ class Date_Holidays_Driver_UNO_TestSuite extends PHPUnit_Framework_TestCase
         $this->assertEquals(, $date->getMonth(), 'outerSpaceWeek');
         $this->assertEquals(2005, $date->getYear(), 'outerSpaceWeek');
 
-        // test habitatDay 
+        // test habitatDay
         $day = $drv->getHoliday('habitatDay');
         $this->assertFalse(Date_Holidays::isError($day));
         if (Date_Holidays::isError($day)) {
@@ -581,7 +579,7 @@ class Date_Holidays_Driver_UNO_TestSuite extends PHPUnit_Framework_TestCase
         $this->assertEquals(, $date->getMonth(), 'habitatDay');
         $this->assertEquals(2005, $date->getYear(), 'habitatDay');
 
-        // test teachersDay 
+        // test teachersDay
         $day = $drv->getHoliday('teachersDay');
         $this->assertFalse(Date_Holidays::isError($day));
         if (Date_Holidays::isError($day)) {
@@ -593,7 +591,7 @@ class Date_Holidays_Driver_UNO_TestSuite extends PHPUnit_Framework_TestCase
         $this->assertEquals(, $date->getMonth(), 'teachersDay');
         $this->assertEquals(2005, $date->getYear(), 'teachersDay');
 
-        // test postAssociationDay 
+        // test postAssociationDay
         $day = $drv->getHoliday('postAssociationDay');
         $this->assertFalse(Date_Holidays::isError($day));
         if (Date_Holidays::isError($day)) {
@@ -605,7 +603,7 @@ class Date_Holidays_Driver_UNO_TestSuite extends PHPUnit_Framework_TestCase
         $this->assertEquals(, $date->getMonth(), 'postAssociationDay');
         $this->assertEquals(2005, $date->getYear(), 'postAssociationDay');
 
-        // test sanityDay 
+        // test sanityDay
         $day = $drv->getHoliday('sanityDay');
         $this->assertFalse(Date_Holidays::isError($day));
         if (Date_Holidays::isError($day)) {
@@ -617,7 +615,7 @@ class Date_Holidays_Driver_UNO_TestSuite extends PHPUnit_Framework_TestCase
         $this->assertEquals(, $date->getMonth(), 'sanityDay');
         $this->assertEquals(2005, $date->getYear(), 'sanityDay');
 
-        // test nourishmentDay 
+        // test nourishmentDay
         $day = $drv->getHoliday('nourishmentDay');
         $this->assertFalse(Date_Holidays::isError($day));
         if (Date_Holidays::isError($day)) {
@@ -629,7 +627,7 @@ class Date_Holidays_Driver_UNO_TestSuite extends PHPUnit_Framework_TestCase
         $this->assertEquals(, $date->getMonth(), 'nourishmentDay');
         $this->assertEquals(2005, $date->getYear(), 'nourishmentDay');
 
-        // test povertyRemovalDay 
+        // test povertyRemovalDay
         $day = $drv->getHoliday('povertyRemovalDay');
         $this->assertFalse(Date_Holidays::isError($day));
         if (Date_Holidays::isError($day)) {
@@ -641,7 +639,7 @@ class Date_Holidays_Driver_UNO_TestSuite extends PHPUnit_Framework_TestCase
         $this->assertEquals(, $date->getMonth(), 'povertyRemovalDay');
         $this->assertEquals(2005, $date->getYear(), 'povertyRemovalDay');
 
-        // test unitedNationsDay 
+        // test unitedNationsDay
         $day = $drv->getHoliday('unitedNationsDay');
         $this->assertFalse(Date_Holidays::isError($day));
         if (Date_Holidays::isError($day)) {
@@ -653,7 +651,7 @@ class Date_Holidays_Driver_UNO_TestSuite extends PHPUnit_Framework_TestCase
         $this->assertEquals(, $date->getMonth(), 'unitedNationsDay');
         $this->assertEquals(2005, $date->getYear(), 'unitedNationsDay');
 
-        // test evolvementInfoDay 
+        // test evolvementInfoDay
         $day = $drv->getHoliday('evolvementInfoDay');
         $this->assertFalse(Date_Holidays::isError($day));
         if (Date_Holidays::isError($day)) {
@@ -665,7 +663,7 @@ class Date_Holidays_Driver_UNO_TestSuite extends PHPUnit_Framework_TestCase
         $this->assertEquals(, $date->getMonth(), 'evolvementInfoDay');
         $this->assertEquals(2005, $date->getYear(), 'evolvementInfoDay');
 
-        // test evolvementInfoDay 
+        // test evolvementInfoDay
         $day = $drv->getHoliday('evolvementInfoDay');
         $this->assertFalse(Date_Holidays::isError($day));
         if (Date_Holidays::isError($day)) {
@@ -677,7 +675,7 @@ class Date_Holidays_Driver_UNO_TestSuite extends PHPUnit_Framework_TestCase
         $this->assertEquals(, $date->getMonth(), 'evolvementInfoDay');
         $this->assertEquals(2005, $date->getYear(), 'evolvementInfoDay');
 
-        // test environmentalExploitationDay 
+        // test environmentalExploitationDay
         $day = $drv->getHoliday('environmentalExploitationDay');
         $this->assertFalse(Date_Holidays::isError($day));
         if (Date_Holidays::isError($day)) {
@@ -689,7 +687,7 @@ class Date_Holidays_Driver_UNO_TestSuite extends PHPUnit_Framework_TestCase
         $this->assertEquals(, $date->getMonth(), 'environmentalExploitationDay');
         $this->assertEquals(2005, $date->getYear(), 'environmentalExploitationDay');
 
-        // test toleranceDay 
+        // test toleranceDay
         $day = $drv->getHoliday('toleranceDay');
         $this->assertFalse(Date_Holidays::isError($day));
         if (Date_Holidays::isError($day)) {
@@ -701,7 +699,7 @@ class Date_Holidays_Driver_UNO_TestSuite extends PHPUnit_Framework_TestCase
         $this->assertEquals(, $date->getMonth(), 'toleranceDay');
         $this->assertEquals(2005, $date->getYear(), 'toleranceDay');
 
-        // test africanIndustrializationDay 
+        // test africanIndustrializationDay
         $day = $drv->getHoliday('africanIndustrializationDay');
         $this->assertFalse(Date_Holidays::isError($day));
         if (Date_Holidays::isError($day)) {
@@ -713,7 +711,7 @@ class Date_Holidays_Driver_UNO_TestSuite extends PHPUnit_Framework_TestCase
         $this->assertEquals(, $date->getMonth(), 'africanIndustrializationDay');
         $this->assertEquals(2005, $date->getYear(), 'africanIndustrializationDay');
 
-        // test worldChildrenDay 
+        // test worldChildrenDay
         $day = $drv->getHoliday('worldChildrenDay');
         $this->assertFalse(Date_Holidays::isError($day));
         if (Date_Holidays::isError($day)) {
@@ -725,7 +723,7 @@ class Date_Holidays_Driver_UNO_TestSuite extends PHPUnit_Framework_TestCase
         $this->assertEquals(, $date->getMonth(), 'worldChildrenDay');
         $this->assertEquals(2005, $date->getYear(), 'worldChildrenDay');
 
-        // test televisionDay 
+        // test televisionDay
         $day = $drv->getHoliday('televisionDay');
         $this->assertFalse(Date_Holidays::isError($day));
         if (Date_Holidays::isError($day)) {
@@ -737,7 +735,7 @@ class Date_Holidays_Driver_UNO_TestSuite extends PHPUnit_Framework_TestCase
         $this->assertEquals(, $date->getMonth(), 'televisionDay');
         $this->assertEquals(2005, $date->getYear(), 'televisionDay');
 
-        // test noViolenceAgainstWomen 
+        // test noViolenceAgainstWomen
         $day = $drv->getHoliday('noViolenceAgainstWomen');
         $this->assertFalse(Date_Holidays::isError($day));
         if (Date_Holidays::isError($day)) {
@@ -749,7 +747,7 @@ class Date_Holidays_Driver_UNO_TestSuite extends PHPUnit_Framework_TestCase
         $this->assertEquals(, $date->getMonth(), 'noViolenceAgainstWomen');
         $this->assertEquals(2005, $date->getYear(), 'noViolenceAgainstWomen');
 
-        // test palestinianSolidarity 
+        // test palestinianSolidarity
         $day = $drv->getHoliday('palestinianSolidarity');
         $this->assertFalse(Date_Holidays::isError($day));
         if (Date_Holidays::isError($day)) {
@@ -761,7 +759,7 @@ class Date_Holidays_Driver_UNO_TestSuite extends PHPUnit_Framework_TestCase
         $this->assertEquals(, $date->getMonth(), 'palestinianSolidarity');
         $this->assertEquals(2005, $date->getYear(), 'palestinianSolidarity');
 
-        // test worldAidsDay 
+        // test worldAidsDay
         $day = $drv->getHoliday('worldAidsDay');
         $this->assertFalse(Date_Holidays::isError($day));
         if (Date_Holidays::isError($day)) {
@@ -773,7 +771,7 @@ class Date_Holidays_Driver_UNO_TestSuite extends PHPUnit_Framework_TestCase
         $this->assertEquals(, $date->getMonth(), 'worldAidsDay');
         $this->assertEquals(2005, $date->getYear(), 'worldAidsDay');
 
-        // test againstSlaveryDay 
+        // test againstSlaveryDay
         $day = $drv->getHoliday('againstSlaveryDay');
         $this->assertFalse(Date_Holidays::isError($day));
         if (Date_Holidays::isError($day)) {
@@ -785,7 +783,7 @@ class Date_Holidays_Driver_UNO_TestSuite extends PHPUnit_Framework_TestCase
         $this->assertEquals(, $date->getMonth(), 'againstSlaveryDay');
         $this->assertEquals(2005, $date->getYear(), 'againstSlaveryDay');
 
-        // test disabledPeopleDay 
+        // test disabledPeopleDay
         $day = $drv->getHoliday('disabledPeopleDay');
         $this->assertFalse(Date_Holidays::isError($day));
         if (Date_Holidays::isError($day)) {
@@ -797,7 +795,7 @@ class Date_Holidays_Driver_UNO_TestSuite extends PHPUnit_Framework_TestCase
         $this->assertEquals(, $date->getMonth(), 'disabledPeopleDay');
         $this->assertEquals(2005, $date->getYear(), 'disabledPeopleDay');
 
-        // test evolvementHelperDay 
+        // test evolvementHelperDay
         $day = $drv->getHoliday('evolvementHelperDay');
         $this->assertFalse(Date_Holidays::isError($day));
         if (Date_Holidays::isError($day)) {
@@ -809,7 +807,7 @@ class Date_Holidays_Driver_UNO_TestSuite extends PHPUnit_Framework_TestCase
         $this->assertEquals(, $date->getMonth(), 'evolvementHelperDay');
         $this->assertEquals(2005, $date->getYear(), 'evolvementHelperDay');
 
-        // test civilAeronauticsDay 
+        // test civilAeronauticsDay
         $day = $drv->getHoliday('civilAeronauticsDay');
         $this->assertFalse(Date_Holidays::isError($day));
         if (Date_Holidays::isError($day)) {
@@ -821,7 +819,7 @@ class Date_Holidays_Driver_UNO_TestSuite extends PHPUnit_Framework_TestCase
         $this->assertEquals(, $date->getMonth(), 'civilAeronauticsDay');
         $this->assertEquals(2005, $date->getYear(), 'civilAeronauticsDay');
 
-        // test humanRightsDay 
+        // test humanRightsDay
         $day = $drv->getHoliday('humanRightsDay');
         $this->assertFalse(Date_Holidays::isError($day));
         if (Date_Holidays::isError($day)) {
@@ -833,7 +831,7 @@ class Date_Holidays_Driver_UNO_TestSuite extends PHPUnit_Framework_TestCase
         $this->assertEquals(, $date->getMonth(), 'humanRightsDay');
         $this->assertEquals(2005, $date->getYear(), 'humanRightsDay');
 
-        // test unicefDay 
+        // test unicefDay
         $day = $drv->getHoliday('unicefDay');
         $this->assertFalse(Date_Holidays::isError($day));
         if (Date_Holidays::isError($day)) {
@@ -845,7 +843,7 @@ class Date_Holidays_Driver_UNO_TestSuite extends PHPUnit_Framework_TestCase
         $this->assertEquals(, $date->getMonth(), 'unicefDay');
         $this->assertEquals(2005, $date->getYear(), 'unicefDay');
 
-        // test migrantsDay 
+        // test migrantsDay
         $day = $drv->getHoliday('migrantsDay');
         $this->assertFalse(Date_Holidays::isError($day));
         if (Date_Holidays::isError($day)) {

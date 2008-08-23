@@ -3,7 +3,7 @@
  * Test class for running unit tests related to the driver for holidays in Austria
  *
  * PHP Versions 4 and 5
- * 
+ *
  * @category Date
  * @package  Date_Holidays
  * @author   Carsten Lucke <luckec@tool-garage.de>
@@ -15,13 +15,11 @@ if (!defined("PHPUnit_MAIN_METHOD")) {
     define("PHPUnit_MAIN_METHOD", "Date_HolidaysTest::main");
 }
 
-//make cvs testing work
-chdir(dirname(__FILE__) . '/../');
 require_once 'Date/Holidays.php';
 
 /**
  * Test class for running unit tests related to the driver for holidays in Austria
- * 
+ *
  * @uses PHPUnit_Framework_TestCase
  * @category Date
  * @package  Date_Holidays
@@ -37,86 +35,86 @@ class Date_Holidays_Driver_Austria_TestSuite extends PHPUnit_Framework_TestCase
     var $testDates2007;
 
     /**
-     * setUp 
-     * 
+     * setUp
+     *
      * @access public
      * @return void
      */
-    function setUp() 
+    function setUp()
     {
-        
+
         $this->testDates2006 = array(
-            'newYearsDay'        => array('day' => 1, 
-                                          'month' => 1, 
+            'newYearsDay'        => array('day' => 1,
+                                          'month' => 1,
                                           'year' => 2006),
-            'epiphany'           => array('day' => 6, 
-                                          'month' => 1, 
+            'epiphany'           => array('day' => 6,
+                                          'month' => 1,
                                           'year' => 2006),
-            'easter'             => array('day' => 16, 
-                                          'month' => 4, 
+            'easter'             => array('day' => 16,
+                                          'month' => 4,
                                           'year' => 2006),
-            'easterMonday'       => array('day' => 17, 
-                                          'month' => 4, 
+            'easterMonday'       => array('day' => 17,
+                                          'month' => 4,
                                           'year' => 2006),
-            'dayOfWork'          => array('day' => 1, 
-                                          'month' => 5, 
+            'dayOfWork'          => array('day' => 1,
+                                          'month' => 5,
                                           'year' => 2006),
-            'mariaAscension'     => array('day' => 15, 
-                                          'month' => 8, 
+            'mariaAscension'     => array('day' => 15,
+                                          'month' => 8,
                                           'year' => 2006),
-            'nationalDayAustria' => array('day' => 26, 
-                                          'month' => 10, 
+            'nationalDayAustria' => array('day' => 26,
+                                          'month' => 10,
                                           'year' => 2006),
-            'allSaintsDay'       => array('day' => 1, 
-                                          'month' => 11, 
+            'allSaintsDay'       => array('day' => 1,
+                                          'month' => 11,
                                           'year' => 2006),
-            'christmasDay'            => array('day' => 25, 
-                                          'month' => 12, 
+            'christmasDay'            => array('day' => 25,
+                                          'month' => 12,
                                           'year' => 2006),
-            'boxingDay'          => array('day' => 26, 
-                                          'month' => 12, 
+            'boxingDay'          => array('day' => 26,
+                                          'month' => 12,
                                           'year' => 2006)
         );
         $this->testDates2007 = array(
-            'newYearsDay'        => array('day' => 1, 
-                                          'month' => 1, 
+            'newYearsDay'        => array('day' => 1,
+                                          'month' => 1,
                                           'year' => 2007),
-            'easter'             => array('day' => 8, 
-                                          'month' => 4, 
+            'easter'             => array('day' => 8,
+                                          'month' => 4,
                                           'year' => 2007),
-            'easterMonday'       => array('day' => 9, 
-                                          'month' => 4, 
+            'easterMonday'       => array('day' => 9,
+                                          'month' => 4,
                                           'year' => 2007),
-            'dayOfWork'          => array('day' => 1, 
-                                          'month' => 5, 
+            'dayOfWork'          => array('day' => 1,
+                                          'month' => 5,
                                           'year' => 2007),
-            'whitsun'            => array('day'=> 27, 
-                                          'month' => 5, 
+            'whitsun'            => array('day'=> 27,
+                                          'month' => 5,
                                           'year' =>2007),
-            'whitMonday'         => array('day'=> 28, 
-                                          'month' => 5, 
+            'whitMonday'         => array('day'=> 28,
+                                          'month' => 5,
                                           'year' =>2007),
-            'mariaAscension'     => array('day' => 15, 
-                                          'month' => 8, 
+            'mariaAscension'     => array('day' => 15,
+                                          'month' => 8,
                                           'year' => 2007),
-            'nationalDayAustria' => array('day' => 26, 
-                                          'month' => 10, 
+            'nationalDayAustria' => array('day' => 26,
+                                          'month' => 10,
                                           'year' => 2007),
-            'allSaintsDay'       => array('day' => 1, 
-                                          'month' => 11, 
+            'allSaintsDay'       => array('day' => 1,
+                                          'month' => 11,
                                           'year' => 2007),
-            'christmasDay'            => array('day' => 25, 
-                                          'month' => 12, 
+            'christmasDay'            => array('day' => 25,
+                                          'month' => 12,
                                           'year' => 2007),
-            'boxingDay'          => array('day' => 26, 
-                                          'month' => 12, 
+            'boxingDay'          => array('day' => 26,
+                                          'month' => 12,
                                           'year' => 2007)
         );
     }
 
     /**
      * test holidays for 2007
-     * 
+     *
      * @access public
      * @return void
      */
@@ -128,7 +126,7 @@ class Date_Holidays_Driver_Austria_TestSuite extends PHPUnit_Framework_TestCase
             print_r($drv);
             die($drv->getMessage());
         }
-        
+
         foreach ($this->testDates2007 as $name => $dateInfo) {
             $day = $drv->getHoliday($name);
             $this->assertFalse(Date_Holidays::isError($day));
@@ -145,7 +143,7 @@ class Date_Holidays_Driver_Austria_TestSuite extends PHPUnit_Framework_TestCase
 
     /**
      * test holidays for 2006
-     * 
+     *
      * @access public
      * @return void
      */
@@ -157,7 +155,7 @@ class Date_Holidays_Driver_Austria_TestSuite extends PHPUnit_Framework_TestCase
             print_r($drv);
             die($drv->getMessage());
         }
-        
+
         foreach ($this->testDates2006 as $name => $dateInfo) {
             $day = $drv->getHoliday($name);
             $this->assertFalse(Date_Holidays::isError($day));

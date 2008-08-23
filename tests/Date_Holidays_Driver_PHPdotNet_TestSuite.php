@@ -3,7 +3,7 @@
  * Test class for running unit tests related to the PHPdotNet Driver.
  *
  * PHP Versions 4 and 5
- * 
+ *
  * @category Date
  * @package  Date_Holidays
  * @author   Carsten Lucke <luckec@tool-garage.de>
@@ -15,13 +15,11 @@ if (!defined("PHPUnit_MAIN_METHOD")) {
     define("PHPUnit_MAIN_METHOD", "Date_HolidaysTest::main");
 }
 
-//make cvs testing work
-chdir(dirname(__FILE__) . '/../');
 require_once 'Date/Holidays.php';
 
 /**
  * Test class for running unit tests related to the PHPdotNet driver.
- * 
+ *
  * @uses PHPUnit_Framework_TestCase
  * @category Date
  * @package  Date_Holidays
@@ -34,25 +32,25 @@ class Date_Holidays_Driver_PHPdotNet_TestSuite extends PHPUnit_Framework_TestCas
 {
 
     /**
-     * setUp 
-     * 
+     * setUp
+     *
      * @access public
      * @return void
      */
     function setUp()
     {
-    } 
+    }
 
     /**
-     * test Holidays in 2005 
-     * 
+     * test Holidays in 2005
+     *
      * @access public
      * @return void
      */
     function testHolidays2005()
     {
         /*
-        // test lsmith 
+        // test lsmith
         $day = $drv->getHoliday('lsmith');
         $this->assertFalse(Date_Holidays::isError($day));
         if (Date_Holidays::isError($day)) {
@@ -64,7 +62,7 @@ class Date_Holidays_Driver_PHPdotNet_TestSuite extends PHPUnit_Framework_TestCas
         $this->assertEquals(, $date->getMonth(), 'lsmith');
         $this->assertEquals(2005, $date->getYear(), 'lsmith');
 
-        // test schst 
+        // test schst
         $day = $drv->getHoliday('schst');
         $this->assertFalse(Date_Holidays::isError($day));
         if (Date_Holidays::isError($day)) {
@@ -76,7 +74,7 @@ class Date_Holidays_Driver_PHPdotNet_TestSuite extends PHPUnit_Framework_TestCas
         $this->assertEquals(, $date->getMonth(), 'schst');
         $this->assertEquals(2005, $date->getYear(), 'schst');
 
-        // test luckec 
+        // test luckec
         $day = $drv->getHoliday('luckec');
         $this->assertFalse(Date_Holidays::isError($day));
         if (Date_Holidays::isError($day)) {
@@ -88,7 +86,7 @@ class Date_Holidays_Driver_PHPdotNet_TestSuite extends PHPUnit_Framework_TestCas
         $this->assertEquals(, $date->getMonth(), 'luckec');
         $this->assertEquals(2005, $date->getYear(), 'luckec');
 
-        // test arnaud 
+        // test arnaud
         $day = $drv->getHoliday('arnaud');
         $this->assertFalse(Date_Holidays::isError($day));
         if (Date_Holidays::isError($day)) {
@@ -100,7 +98,7 @@ class Date_Holidays_Driver_PHPdotNet_TestSuite extends PHPUnit_Framework_TestCas
         $this->assertEquals(, $date->getMonth(), 'arnaud');
         $this->assertEquals(2005, $date->getYear(), 'arnaud');
 
-        // test sebastian 
+        // test sebastian
         $day = $drv->getHoliday('sebastian');
         $this->assertFalse(Date_Holidays::isError($day));
         if (Date_Holidays::isError($day)) {
@@ -112,7 +110,7 @@ class Date_Holidays_Driver_PHPdotNet_TestSuite extends PHPUnit_Framework_TestCas
         $this->assertEquals(, $date->getMonth(), 'sebastian');
         $this->assertEquals(2005, $date->getYear(), 'sebastian');
 
-        // test akash 
+        // test akash
         $day = $drv->getHoliday('akash');
         $this->assertFalse(Date_Holidays::isError($day));
         if (Date_Holidays::isError($day)) {
@@ -124,7 +122,7 @@ class Date_Holidays_Driver_PHPdotNet_TestSuite extends PHPUnit_Framework_TestCas
         $this->assertEquals(, $date->getMonth(), 'akash');
         $this->assertEquals(2005, $date->getYear(), 'akash');
 
-        // test cellog 
+        // test cellog
         $day = $drv->getHoliday('cellog');
         $this->assertFalse(Date_Holidays::isError($day));
         if (Date_Holidays::isError($day)) {
@@ -136,7 +134,7 @@ class Date_Holidays_Driver_PHPdotNet_TestSuite extends PHPUnit_Framework_TestCas
         $this->assertEquals(, $date->getMonth(), 'cellog');
         $this->assertEquals(2005, $date->getYear(), 'cellog');
 
-        // test ryansking 
+        // test ryansking
         $day = $drv->getHoliday('ryansking');
         $this->assertFalse(Date_Holidays::isError($day));
         if (Date_Holidays::isError($day)) {
@@ -148,7 +146,7 @@ class Date_Holidays_Driver_PHPdotNet_TestSuite extends PHPUnit_Framework_TestCas
         $this->assertEquals(, $date->getMonth(), 'ryansking');
         $this->assertEquals(2005, $date->getYear(), 'ryansking');
 
-        // test dufuz 
+        // test dufuz
         $day = $drv->getHoliday('dufuz');
         $this->assertFalse(Date_Holidays::isError($day));
         if (Date_Holidays::isError($day)) {
@@ -160,7 +158,7 @@ class Date_Holidays_Driver_PHPdotNet_TestSuite extends PHPUnit_Framework_TestCas
         $this->assertEquals(, $date->getMonth(), 'dufuz');
         $this->assertEquals(2005, $date->getYear(), 'dufuz');
 
-        // test toby 
+        // test toby
         $day = $drv->getHoliday('toby');
         $this->assertFalse(Date_Holidays::isError($day));
         if (Date_Holidays::isError($day)) {
@@ -172,7 +170,7 @@ class Date_Holidays_Driver_PHPdotNet_TestSuite extends PHPUnit_Framework_TestCas
         $this->assertEquals(, $date->getMonth(), 'toby');
         $this->assertEquals(2005, $date->getYear(), 'toby');
 
-        // test argh 
+        // test argh
         $day = $drv->getHoliday('argh');
         $this->assertFalse(Date_Holidays::isError($day));
         if (Date_Holidays::isError($day)) {
@@ -184,7 +182,7 @@ class Date_Holidays_Driver_PHPdotNet_TestSuite extends PHPUnit_Framework_TestCas
         $this->assertEquals(, $date->getMonth(), 'argh');
         $this->assertEquals(2005, $date->getYear(), 'argh');
 
-        // test steggink 
+        // test steggink
         $day = $drv->getHoliday('steggink');
         $this->assertFalse(Date_Holidays::isError($day));
         if (Date_Holidays::isError($day)) {
@@ -196,7 +194,7 @@ class Date_Holidays_Driver_PHPdotNet_TestSuite extends PHPUnit_Framework_TestCas
         $this->assertEquals(, $date->getMonth(), 'steggink');
         $this->assertEquals(2005, $date->getYear(), 'steggink');
 
-        // test anderson 
+        // test anderson
         $day = $drv->getHoliday('anderson');
         $this->assertFalse(Date_Holidays::isError($day));
         if (Date_Holidays::isError($day)) {
@@ -208,7 +206,7 @@ class Date_Holidays_Driver_PHPdotNet_TestSuite extends PHPUnit_Framework_TestCas
         $this->assertEquals(, $date->getMonth(), 'anderson');
         $this->assertEquals(2005, $date->getYear(), 'anderson');
 
-        // test mcglinn 
+        // test mcglinn
         $day = $drv->getHoliday('mcglinn');
         $this->assertFalse(Date_Holidays::isError($day));
         if (Date_Holidays::isError($day)) {
@@ -220,7 +218,7 @@ class Date_Holidays_Driver_PHPdotNet_TestSuite extends PHPUnit_Framework_TestCas
         $this->assertEquals(, $date->getMonth(), 'mcglinn');
         $this->assertEquals(2005, $date->getYear(), 'mcglinn');
 
-        // test lopez 
+        // test lopez
         $day = $drv->getHoliday('lopez');
         $this->assertFalse(Date_Holidays::isError($day));
         if (Date_Holidays::isError($day)) {

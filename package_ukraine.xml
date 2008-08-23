@@ -16,10 +16,10 @@
   <email>ken@linux.ie</email>
   <active>yes</active>
  </lead>
- <date>2008-05-07</date>
+ <date>2008-08-23</date>
  <time>00:41:19</time>
  <version>
-  <release>0.1.0</release>
+  <release>0.1.1</release>
   <api>0.17.2</api>
  </version>
  <stability>
@@ -28,7 +28,7 @@
  </stability>
  <license uri="http://www.php.net/license">PHP License</license>
  <notes>
-* split package into subpackages.
+Slight changes to testsuite so it works when installed rather than in developers environment.
  </notes>
  <contents>
   <dir name="/">
@@ -73,6 +73,19 @@
    <date>2008-05-07</date>
    <license uri="http://www.php.net/license">PHP License</license>
    <notes>initial pear release</notes>
+  </release>
+  <release>
+   <version>
+    <release>0.1.1</release>
+    <api>0.1.0</api>
+   </version>
+   <stability>
+    <release>alpha</release>
+    <api>alpha</api>
+   </stability>
+   <date>2008-08-23</date>
+   <license uri="http://www.php.net/license">PHP License</license>
+   <notes>Slight changes to testsuite so it works when installed rather than in developers environment.</notes>
   </release>
  </changelog>
 </package>

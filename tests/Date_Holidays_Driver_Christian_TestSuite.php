@@ -3,7 +3,7 @@
  * Test class for running unit tests related to Christian holidays.
  *
  * PHP Versions 4 and 5
- * 
+ *
  * @uses PHPUnit_Framework_TestCase
  * @category Date
  * @package  Date_Holidays
@@ -16,13 +16,11 @@ if (!defined("PHPUnit_MAIN_METHOD")) {
     define("PHPUnit_MAIN_METHOD", "Date_HolidaysTest::main");
 }
 
-//make cvs testing work
-chdir(dirname(__FILE__) . '/../');
 require_once 'Date/Holidays.php';
 
 /**
  * Test class for running unit tests related to Christian holidays.
- * 
+ *
  * @uses PHPUnit_Framework_TestCase
  * @category Date
  * @package  Date_Holidays
@@ -32,13 +30,13 @@ require_once 'Date/Holidays.php';
  */
 class Date_Holidays_Driver_Christian_TestSuite extends PHPUnit_Framework_TestCase
 {
-    
+
     var $testDates2005;
     var $testDates2006;
 
     /**
-     * setUp 
-     * 
+     * setUp
+     *
      * @access public
      * @return void
      */
@@ -96,25 +94,25 @@ class Date_Holidays_Driver_Christian_TestSuite extends PHPUnit_Framework_TestCas
           'advent3'             => array('day' => 17, 'month' => 12, 'year' => 2006),
           'advent4'             => array('day' => 24, 'month' => 12, 'year' => 2006),
         );
-    } 
-    
+    }
+
     /**
-     * test Holidays for 2005 
-     * 
+     * test Holidays for 2005
+     *
      * @access public
      * @return void
      */
     function testHolidays2005()
     {
-          
+
         $drvChristian = Date_Holidays::factory('Christian', 2005, 'en_EN');
         $this->assertFalse(Date_Holidays::isError($drvChristian));
         if (Date_Holidays::isError($drvChristian)) {
             print_r($drvChristian);
             die($drvChristian->getMessage());
         }
-        
-        
+
+
         foreach ($this->testDates2005 as $name => $dateInfo) {
             $day = $drvChristian->getHoliday($name);
             $this->assertFalse(Date_Holidays::isError($day));
@@ -128,10 +126,10 @@ class Date_Holidays_Driver_Christian_TestSuite extends PHPUnit_Framework_TestCas
             $this->assertEquals($dateInfo['year'], $date->getYear(), $name);
         }
     }
-    
+
     /**
-     * test Holidays for 2006 
-     * 
+     * test Holidays for 2006
+     *
      * @access public
      * @return void
      */

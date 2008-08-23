@@ -3,7 +3,7 @@
  * Test class for running unit tests related to the driver for holidays in USA
  *
  * PHP Versions 4 and 5
- * 
+ *
  * @category Date
  * @package  Date_Holidays
  * @author   Carsten Lucke <luckec@tool-garage.de>
@@ -15,13 +15,11 @@ if (!defined("PHPUnit_MAIN_METHOD")) {
     define("PHPUnit_MAIN_METHOD", "Date_HolidaysTest::main");
 }
 
-//make cvs testing work
-chdir(dirname(__FILE__) . '/../');
 require_once 'Date/Holidays.php';
 
 /**
  * Test class for running unit tests related to the driver for holidays in USA
- * 
+ *
  * @uses PHPUnit_Framework_TestCase
  * @category Date
  * @package  Date_Holidays
@@ -34,18 +32,18 @@ class Date_Holidays_Driver_USA_TestSuite extends PHPUnit_Framework_TestCase
 {
 
     /**
-     * setUp 
-     * 
+     * setUp
+     *
      * @access public
      * @return void
      */
     function setUp()
     {
 
-    } 
+    }
     /**
      * tests for holidays in 2005
-     * 
+     *
      * @access public
      * @return void
      */
@@ -61,12 +59,12 @@ class Date_Holidays_Driver_USA_TestSuite extends PHPUnit_Framework_TestCase
         $day = $holidays->getHolidayDate('newYearsDay');
         if (Date_Holidays::isError($day)) {
             die('Factory was unable to make newYearsDay');
-        } 
+        }
         $this->assertEquals(12, $day->getMonth());
         $this->assertEquals(31, $day->getDay());
         $this->assertEquals(2004, $day->getYear());
 
-        // Test Martin Luther King Day 
+        // Test Martin Luther King Day
         $day = $holidays->getHolidayDate('mlkDay');
         if (Date_Holidays::isError($day)) {
             die('Factory was unable to that day');
@@ -75,7 +73,7 @@ class Date_Holidays_Driver_USA_TestSuite extends PHPUnit_Framework_TestCase
         $this->assertEquals(1, $day->getMonth());
         $this->assertEquals(17, $day->getDay());
 
-        // Test Prez Day Luther King Day 
+        // Test Prez Day Luther King Day
         $day = $holidays->getHolidayDate('presidentsDay');
         if (Date_Holidays::isError($day)) {
             die('Factory was unable to that day');
@@ -83,7 +81,7 @@ class Date_Holidays_Driver_USA_TestSuite extends PHPUnit_Framework_TestCase
         $this->assertEquals(2, $day->getMonth());
         $this->assertEquals(21, $day->getDay());
 
-        // Test Memorial Day Luther King Day 
+        // Test Memorial Day Luther King Day
         $day = $holidays->getHolidayDate('memorialDay');
         if (Date_Holidays::isError($day)) {
             die('Factory was unable to create memorialDay day');
@@ -144,7 +142,7 @@ class Date_Holidays_Driver_USA_TestSuite extends PHPUnit_Framework_TestCase
 
     /**
      * tests for holidays in 2004
-     * 
+     *
      * @access public
      * @return void
      */
@@ -157,17 +155,17 @@ class Date_Holidays_Driver_USA_TestSuite extends PHPUnit_Framework_TestCase
         }
 
 
-        // Test Martin Luther King Day 
+        // Test Martin Luther King Day
         $day = $holidays->getHolidayDate('mlkDay');
         if (Date_Holidays::isError($day)) {
             die('Factory was unable to that day');
         }
 
-        $this->assertTrue($day->getMonth()==1 && $day->getDay()==19); 
+        $this->assertTrue($day->getMonth()==1 && $day->getDay()==19);
         $this->assertEquals(1, $day->getMonth());
         $this->assertEquals(19, $day->getDay());
 
-        // Test Prez Day Luther King Day 
+        // Test Prez Day Luther King Day
         $day = $holidays->getHolidayDate('presidentsDay');
         if (Date_Holidays::isError($day)) {
             die('Factory was unable to that day');
@@ -175,7 +173,7 @@ class Date_Holidays_Driver_USA_TestSuite extends PHPUnit_Framework_TestCase
         $this->assertEquals(2, $day->getMonth());
         $this->assertEquals(16, $day->getDay());
 
-        // Test Memorial Day Luther King Day 
+        // Test Memorial Day Luther King Day
         $day = $holidays->getHolidayDate('memorialDay');
         if (Date_Holidays::isError($day)) {
             die('Factory was unable to create memorialDay day');
@@ -235,7 +233,7 @@ class Date_Holidays_Driver_USA_TestSuite extends PHPUnit_Framework_TestCase
 
     /**
      * tests for holidays in 2006
-     * 
+     *
      * @access public
      * @return void
      */
@@ -251,12 +249,12 @@ class Date_Holidays_Driver_USA_TestSuite extends PHPUnit_Framework_TestCase
         $day = $holidays->getHolidayDate('newYearsDay');
         if (Date_Holidays::isError($day)) {
             die('Factory was unable to make newYearsDay');
-        } 
+        }
         $this->assertEquals(1, $day->getMonth());
         $this->assertEquals(2, $day->getDay());
         $this->assertEquals(2006, $day->getYear());
 
-        // Test Martin Luther King Day 
+        // Test Martin Luther King Day
         $day = $holidays->getHolidayDate('mlkDay');
         if (Date_Holidays::isError($day)) {
             die('Factory was unable to that day');
@@ -265,7 +263,7 @@ class Date_Holidays_Driver_USA_TestSuite extends PHPUnit_Framework_TestCase
         $this->assertEquals(1, $day->getMonth());
         $this->assertEquals(16, $day->getDay());
 
-        // Test Prez Day Luther King Day 
+        // Test Prez Day Luther King Day
         $day = $holidays->getHolidayDate('presidentsDay');
         if (Date_Holidays::isError($day)) {
             die('Factory was unable to that day');
@@ -273,7 +271,7 @@ class Date_Holidays_Driver_USA_TestSuite extends PHPUnit_Framework_TestCase
         $this->assertEquals(2, $day->getMonth());
         $this->assertEquals(20, $day->getDay());
 
-        // Test Memorial Day 
+        // Test Memorial Day
         $day = $holidays->getHolidayDate('memorialDay');
         if (Date_Holidays::isError($day)) {
             die('Factory was unable to create memorialDay day');
@@ -332,8 +330,8 @@ class Date_Holidays_Driver_USA_TestSuite extends PHPUnit_Framework_TestCase
 
     }
     /**
-     * test holidays 
-     * 
+     * test holidays
+     *
      * @access public
      * @return void
      */
@@ -352,7 +350,7 @@ class Date_Holidays_Driver_USA_TestSuite extends PHPUnit_Framework_TestCase
         $this->assertFalse($holidays->isHoliday(new Date('2004-12-25')));
         // Chrismas is on the 24th
         $this->assertTrue($holidays->isHoliday(new Date('2004-12-24')));
-    } 
+    }
 
 }
 
