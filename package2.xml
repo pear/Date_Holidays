@@ -177,6 +177,12 @@ include EasternChristian driver.
       <channel>pear.php.net</channel>
     </package>
   </group>
+  <group name="Date_Holidays_Japan" hint="Japan subpackage">
+    <package>
+      <name>Date_Holidays_Japan</name>
+      <channel>pear.php.net</channel>
+    </package>
+  </group>
   <group name="Date_Holidays_Netherlands" hint="Netherlands subpackage">
     <package>
       <name>Date_Holidays_Netherlands</name>
@@ -262,6 +268,10 @@ include EasternChristian driver.
     </package>
     <package>
       <name>Date_Holidays_Ireland</name>
+      <channel>pear.php.net</channel>
+    </package>
+    <package>
+      <name>Date_Holidays_Japan</name>
       <channel>pear.php.net</channel>
     </package>
     <package>
@@ -553,6 +563,7 @@ include EasternChristian driver.
    <date>2008-08-23</date>
    <license uri="http://www.php.net/license">PHP License</license>
    <notes>
+   * Include Japan subpackage.
    * Include EasternChristian driver for Romania and Ukraine subpackages.
    * Removed testsuite for Brazil driver - belongs in Brazil subpackage.
    </notes>
