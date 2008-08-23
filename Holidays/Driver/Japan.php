@@ -506,9 +506,11 @@ class Date_Holidays_Driver_Japan extends Date_Holidays_Driver
                                'The Funeral Ceremony of Emperor Showa.');
         }
         if ($this->_year == 1990) {
-            $this->_addHoliday('theCeremonyoftheEnthronementofHisMajestytheEmperor(attheSeiden)',
+            $this->_addHoliday('theCeremonyoftheEnthronementof'
+                             . 'HisMajestytheEmperor(attheSeiden)',
                                $this->_year . '-11-12',
-                               'The Ceremony of the Enthronement of His Majesty the Emperor (at the Seiden)');
+                               'The Ceremony of the Enthronement of ' .
+                               'His Majesty the Emperor (at the Seiden)');
         }
         if ($this->_year == 1993) {
             $this->_addHoliday('theRiteofWeddingofHIHCrownPrinceNaruhito',
@@ -553,7 +555,8 @@ class Date_Holidays_Driver_Japan extends Date_Holidays_Driver
         // reset translated titles if set.
         // because substitute Holidays change each year.
         if (!is_null($this->_translationFile)) {
-            $this->addTranslationFile($this->_translationFile, $this->_translationLocale);
+            $this->addTranslationFile($this->_translationFile,
+                                      $this->_translationLocale);
         }
     }
 
@@ -608,7 +611,7 @@ class Date_Holidays_Driver_Japan extends Date_Holidays_Driver
         if (PEAR::isError($result)) {
             return $result;
         }
-        $this->_translationFile = $file;
+        $this->_translationFile   = $file;
         $this->_translationLocale = $locale;
         return $result;
     }
@@ -633,7 +636,7 @@ class Date_Holidays_Driver_Japan extends Date_Holidays_Driver
         if (PEAR::isError($result)) {
             return $result;
         }
-        $this->_translationFile = $file;
+        $this->_translationFile   = $file;
         $this->_translationLocale = $locale;
         return $result;
     }
@@ -646,10 +649,10 @@ class Date_Holidays_Driver_Japan extends Date_Holidays_Driver
      */
     function _clearHolidays()
     {
-        $this->_holidays = array();
+        $this->_holidays      = array();
         $this->_internalNames = array();
-        $this->_dates = array();
-        $this->_titles = array();
+        $this->_dates         = array();
+        $this->_titles        = array();
     }
 }
 ?>
