@@ -15,8 +15,6 @@ if (!defined("PHPUnit_MAIN_METHOD")) {
     define("PHPUnit_MAIN_METHOD", "Date_HolidaysTest::main");
 }
 
-//make cvs testing work
-chdir(dirname(__FILE__) . '/../');
 require_once 'Date/Holidays.php';
 
 /**
@@ -45,9 +43,6 @@ class Date_Holidays_Driver_Discordian_TestSuite extends PHPUnit_Framework_TestCa
     function setUp()
     {
         $this->testDates2006 = array(
-                'stTibsDay' => array ('day' => 29,
-                    'month' => 2,
-                    'year' => 2006),
                 'mungday' => array ('day' => 5,
                     'month' => 1,
                     'year' => 2006),
@@ -81,9 +76,6 @@ class Date_Holidays_Driver_Discordian_TestSuite extends PHPUnit_Framework_TestCa
                 );
 
         $this->testDates2007 = array(
-                'stTibsDay' => array ('day' => 29,
-                    'month' => 2,
-                    'year' => 2007),
                 'mungday' => array ('day' => 5,
                     'month' => 1,
                     'year' => 2007),
