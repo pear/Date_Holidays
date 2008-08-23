@@ -31,7 +31,7 @@
  <date>2008-08-06</date>
  <time>01:20:19</time>
  <version>
-  <release>0.20.0</release>
+  <release>0.20.1</release>
   <api>0.17.2</api>
  </version>
  <stability>
@@ -40,7 +40,7 @@
  </stability>
  <license uri="http://www.php.net/license">PHP License</license>
  <notes>
-list subpackages as groups for better [un]install experience
+include EasternChristian driver.
  </notes>
  <contents>
   <dir name="/">
@@ -55,6 +55,7 @@ list subpackages as groups for better [un]install experience
    <dir name="Holidays">
     <dir name="Driver">
      <file baseinstalldir="Date" name="Christian.php" role="php" />
+     <file baseinstalldir="Date" name="EasternChristian.php" role="php" />
      <file baseinstalldir="Date" name="Composite.php" role="php" />
      <file baseinstalldir="Date" name="Jewish.php" role="php" />
     </dir> <!-- /Holidays/Driver -->
@@ -85,7 +86,6 @@ list subpackages as groups for better [un]install experience
     </file>
     <file baseinstalldir="Date" name="AllTestsUndeployed.php" role="test" />
     <file baseinstalldir="Date" name="Date_Holidays_Bugfix_Retests_TestSuite.php" role="test" />
-    <file baseinstalldir="Date" name="Date_Holidays_Driver_Brazil_TestSuite.php" role="test" />
     <file baseinstalldir="Date" name="Date_Holidays_Driver_Christian_TestSuite.php" role="test" />
     <file baseinstalldir="Date" name="Date_Holidays_Driver_Jewish_TestSuite.php" role="test" />
     <file baseinstalldir="Date" name="Date_Holidays_Driver_TestSuite.php" role="test" />
@@ -539,6 +539,22 @@ list subpackages as groups for better [un]install experience
    <license uri="http://www.php.net/license">PHP License</license>
    <notes>
    * Request #13750: utilise easter_days function where and as appropriate
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>0.20.1</release>
+    <api>0.17.2</api>
+   </version>
+   <stability>
+    <release>alpha</release>
+    <api>alpha</api>
+   </stability>
+   <date>2008-08-23</date>
+   <license uri="http://www.php.net/license">PHP License</license>
+   <notes>
+   * Include EasternChristian driver for Romania and Ukraine subpackages.
+   * Removed testsuite for Brazil driver - belongs in Brazil subpackage.
    </notes>
   </release>
  </changelog>
