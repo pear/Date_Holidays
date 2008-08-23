@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <package packagerversion="1.7.1" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0 http://pear.php.net/dtd/tasks-1.0.xsd http://pear.php.net/dtd/package-2.0 http://pear.php.net/dtd/package-2.0.xsd">
- <name>Date_Holidays_Ireland</name>
+ <name>Date_Holidays_Italy</name>
  <channel>pear.php.net</channel>
  <summary>Driver based class to calculate holidays in Ireland.</summary>
  <description>Date_Holidays helps you calculate the dates and titles of holidays and other special celebrations. This is the driver for calculating holidays in Ireland.</description>
@@ -10,11 +10,17 @@
   <email>ken@linux.ie</email>
   <active>yes</active>
  </lead>
- <date>2008-04-11</date>
- <time>00:41:19</time>
+ <contributor>
+  <name>Valerio Pulese</name>
+  <user>valeriop</user>
+  <email>valerio@dei.unipd.it</email>
+  <active>no</active>
+ </contributor>
+ <date>2008-08-23</date>
+ <time>10:41:19</time>
  <version>
   <release>0.1.0</release>
-  <api>0.1.0</api>
+  <api>0.17.2</api>
  </version>
  <stability>
   <release>alpha</release>
@@ -22,22 +28,19 @@
  </stability>
  <license uri="http://www.php.net/license">PHP License</license>
  <notes>
- Initial release as a subpackage.
+Driver contributed by Valerio Pulese
  </notes>
  <contents>
   <dir name="/">
    <dir name="Holidays">
     <dir name="Driver">
-     <file baseinstalldir="Date" name="Ireland.php" role="php" />
+     <file baseinstalldir="Date" name="Italy.php" role="php" />
     </dir> <!-- /Holidays/Driver -->
-    <dir name="Filter">
-     <dir name="Ireland">
-      <file baseinstalldir="Date" name="Official.php" role="php" />
-     </dir> <!-- /Holidays/Filter/Ireland -->
-    </dir> <!-- /Holidays/Filter -->
    </dir> <!-- /Holidays -->
+   <dir name="lang">
+   </dir> <!-- /lang -->
    <dir name="tests">
-    <file baseinstalldir="Date" name="Date_Holidays_Driver_Ireland_TestSuite.php" role="test" />
+    <file baseinstalldir="Date" name="Date_Holidays_Driver_Italy_TestSuite.php" role="test" />
    </dir> <!-- /tests -->
   </dir> <!-- / -->
  </contents>
@@ -52,7 +55,7 @@
    <package>
     <name>Date_Holidays</name>
     <channel>pear.php.net</channel>
-    <min>0.18.0</min>
+    <min>0.20.0</min>
    </package>
   </required>
  </dependencies>
@@ -61,13 +64,13 @@
   <release>
    <version>
     <release>0.1.0</release>
-    <api>0.1.0</api>
+    <api>0.17.2</api>
    </version>
    <stability>
     <release>alpha</release>
     <api>alpha</api>
    </stability>
-   <date>2008-04-25</date>
+   <date>2008-08-23</date>
    <license uri="http://www.php.net/license">PHP License</license>
    <notes>initial pear release</notes>
   </release>
