@@ -39,199 +39,293 @@ class Date_Holidays_Driver_PHPdotNet_TestSuite extends PHPUnit_Framework_TestCas
      */
     function setUp()
     {
+
+        $this->testDates2005 = array(
+                'lsmith' => array ('day' => 5,
+                    'month' => 11,
+                    'year' => 2005),
+                'schst' => array ('day' => 12,
+                    'month' => 5,
+                    'year' => 2005),
+                'luckec' => array ('day' => 9,
+                    'month' => 9,
+                    'year' => 2005),
+                'arnaud' => array ('day' => 14,
+                    'month' => 3,
+                    'year' => 2005),
+                'sebastian' => array ('day' => 22,
+                    'month' => 4,
+                    'year' => 2005),
+                'akash' => array ('day' => 20,
+                    'month' => 5,
+                    'year' => 2005),
+                'cellog' => array ('day' => 2,
+                    'month' => 9,
+                    'year' => 2005),
+                'ryansking' => array ('day' => 31,
+                    'month' => 3,
+                    'year' => 2005),
+                'dufuz' => array ('day' => 4,
+                    'month' => 11,
+                    'year' => 2005),
+                'toby' => array ('day' => 19,
+                    'month' => 5,
+                    'year' => 2005),
+                'argh' => array ('day' => 7,
+                    'month' => 2,
+                    'year' => 2005),
+                'steggink' => array ('day' => 7,
+                    'month' => 12,
+                    'year' => 2005),
+                'anderson' => array ('day' => 21,
+                    'month' => 10,
+                    'year' => 2005),
+                'mcglinn' => array ('day' => 10,
+                    'month' => 1,
+                    'year' => 2005),
+                'lopez' => array ('day' => 31,
+                    'month' => 7,
+                    'year' => 2005),
+                );
+
+        $this->testDates2006 = array(
+                'lsmith' => array ('day' => 5,
+                    'month' => 11,
+                    'year' => 2006),
+                'schst' => array ('day' => 12,
+                    'month' => 5,
+                    'year' => 2006),
+                'luckec' => array ('day' => 9,
+                    'month' => 9,
+                    'year' => 2006),
+                'arnaud' => array ('day' => 14,
+                    'month' => 3,
+                    'year' => 2006),
+                'sebastian' => array ('day' => 22,
+                    'month' => 4,
+                    'year' => 2006),
+                'akash' => array ('day' => 20,
+                    'month' => 5,
+                    'year' => 2006),
+                'cellog' => array ('day' => 2,
+                    'month' => 9,
+                    'year' => 2006),
+                'ryansking' => array ('day' => 31,
+                    'month' => 3,
+                    'year' => 2006),
+                'dufuz' => array ('day' => 4,
+                    'month' => 11,
+                    'year' => 2006),
+                'toby' => array ('day' => 19,
+                    'month' => 5,
+                    'year' => 2006),
+                'argh' => array ('day' => 7,
+                    'month' => 2,
+                    'year' => 2006),
+                'steggink' => array ('day' => 7,
+                    'month' => 12,
+                    'year' => 2006),
+                'anderson' => array ('day' => 21,
+                    'month' => 10,
+                    'year' => 2006),
+                'mcglinn' => array ('day' => 10,
+                    'month' => 1,
+                    'year' => 2006),
+                'lopez' => array ('day' => 31,
+                    'month' => 7,
+                    'year' => 2006),
+                );
+
+        $this->testDates2007 = array(
+                'lsmith' => array ('day' => 5,
+                    'month' => 11,
+                    'year' => 2007),
+                'schst' => array ('day' => 12,
+                    'month' => 5,
+                    'year' => 2007),
+                'luckec' => array ('day' => 9,
+                    'month' => 9,
+                    'year' => 2007),
+                'arnaud' => array ('day' => 14,
+                    'month' => 3,
+                    'year' => 2007),
+                'sebastian' => array ('day' => 22,
+                    'month' => 4,
+                    'year' => 2007),
+                'akash' => array ('day' => 20,
+                    'month' => 5,
+                    'year' => 2007),
+                'cellog' => array ('day' => 2,
+                    'month' => 9,
+                    'year' => 2007),
+                'ryansking' => array ('day' => 31,
+                    'month' => 3,
+                    'year' => 2007),
+                'dufuz' => array ('day' => 4,
+                    'month' => 11,
+                    'year' => 2007),
+                'toby' => array ('day' => 19,
+                    'month' => 5,
+                    'year' => 2007),
+                'argh' => array ('day' => 7,
+                    'month' => 2,
+                    'year' => 2007),
+                'steggink' => array ('day' => 7,
+                    'month' => 12,
+                    'year' => 2007),
+                'anderson' => array ('day' => 21,
+                    'month' => 10,
+                    'year' => 2007),
+                'mcglinn' => array ('day' => 10,
+                    'month' => 1,
+                    'year' => 2007),
+                'lopez' => array ('day' => 31,
+                    'month' => 7,
+                    'year' => 2007),
+                );
+
+        $this->testDates2008 = array(
+                'lsmith' => array ('day' => 5,
+                    'month' => 11,
+                    'year' => 2008),
+                'schst' => array ('day' => 12,
+                    'month' => 5,
+                    'year' => 2008),
+                'luckec' => array ('day' => 9,
+                    'month' => 9,
+                    'year' => 2008),
+                'arnaud' => array ('day' => 14,
+                    'month' => 3,
+                    'year' => 2008),
+                'sebastian' => array ('day' => 22,
+                    'month' => 4,
+                    'year' => 2008),
+                'akash' => array ('day' => 20,
+                    'month' => 5,
+                    'year' => 2008),
+                'cellog' => array ('day' => 2,
+                    'month' => 9,
+                    'year' => 2008),
+                'ryansking' => array ('day' => 31,
+                    'month' => 3,
+                    'year' => 2008),
+                'dufuz' => array ('day' => 4,
+                    'month' => 11,
+                    'year' => 2008),
+                'toby' => array ('day' => 19,
+                    'month' => 5,
+                    'year' => 2008),
+                'argh' => array ('day' => 7,
+                    'month' => 2,
+                    'year' => 2008),
+                'steggink' => array ('day' => 7,
+                    'month' => 12,
+                    'year' => 2008),
+                'anderson' => array ('day' => 21,
+                    'month' => 10,
+                    'year' => 2008),
+                'mcglinn' => array ('day' => 10,
+                    'month' => 1,
+                    'year' => 2008),
+                'lopez' => array ('day' => 31,
+                    'month' => 7,
+                    'year' => 2008),
+                );
+
     }
 
+
     /**
-     * test Holidays in 2005
+     * test Holidays for 2005
      *
      * @access public
      * @return void
      */
     function testHolidays2005()
     {
-        /*
-        // test lsmith
-        $day = $drv->getHoliday('lsmith');
-        $this->assertFalse(Date_Holidays::isError($day));
-        if (Date_Holidays::isError($day)) {
-        die($day->getMessage());
-        }
-        $this->assertEquals('lsmith', $day->getInternalName());
-        $date = $day->getDate();
-        $this->assertEquals(, $date->getDay(), 'lsmith');
-        $this->assertEquals(, $date->getMonth(), 'lsmith');
-        $this->assertEquals(2005, $date->getYear(), 'lsmith');
+        $drv = Date_Holidays::factory('PHPdotNet', 2005, 'en_EN');
+        $this->assertFalse(Date_Holidays::isError($drv));
 
-        // test schst
-        $day = $drv->getHoliday('schst');
-        $this->assertFalse(Date_Holidays::isError($day));
-        if (Date_Holidays::isError($day)) {
-        die($day->getMessage());
-        }
-        $this->assertEquals('schst', $day->getInternalName());
-        $date = $day->getDate();
-        $this->assertEquals(, $date->getDay(), 'schst');
-        $this->assertEquals(, $date->getMonth(), 'schst');
-        $this->assertEquals(2005, $date->getYear(), 'schst');
+        foreach ($this->testDates2005 as $name => $dateInfo) {
 
-        // test luckec
-        $day = $drv->getHoliday('luckec');
-        $this->assertFalse(Date_Holidays::isError($day));
-        if (Date_Holidays::isError($day)) {
-        die($day->getMessage());
+            $day = $drv->getHoliday($name);
+            $this->assertFalse(Date_Holidays::isError($day));
+            $this->assertEquals($name, $day->getInternalName());
+            $date = $day->getDate();
+            $this->assertEquals($dateInfo['day'], $date->getDay(), $name);
+            $this->assertEquals($dateInfo['month'], $date->getMonth(), $name);
+            $this->assertEquals($dateInfo['year'], $date->getYear(), $name);
         }
-        $this->assertEquals('luckec', $day->getInternalName());
-        $date = $day->getDate();
-        $this->assertEquals(, $date->getDay(), 'luckec');
-        $this->assertEquals(, $date->getMonth(), 'luckec');
-        $this->assertEquals(2005, $date->getYear(), 'luckec');
-
-        // test arnaud
-        $day = $drv->getHoliday('arnaud');
-        $this->assertFalse(Date_Holidays::isError($day));
-        if (Date_Holidays::isError($day)) {
-        die($day->getMessage());
-        }
-        $this->assertEquals('arnaud', $day->getInternalName());
-        $date = $day->getDate();
-        $this->assertEquals(, $date->getDay(), 'arnaud');
-        $this->assertEquals(, $date->getMonth(), 'arnaud');
-        $this->assertEquals(2005, $date->getYear(), 'arnaud');
-
-        // test sebastian
-        $day = $drv->getHoliday('sebastian');
-        $this->assertFalse(Date_Holidays::isError($day));
-        if (Date_Holidays::isError($day)) {
-        die($day->getMessage());
-        }
-        $this->assertEquals('sebastian', $day->getInternalName());
-        $date = $day->getDate();
-        $this->assertEquals(, $date->getDay(), 'sebastian');
-        $this->assertEquals(, $date->getMonth(), 'sebastian');
-        $this->assertEquals(2005, $date->getYear(), 'sebastian');
-
-        // test akash
-        $day = $drv->getHoliday('akash');
-        $this->assertFalse(Date_Holidays::isError($day));
-        if (Date_Holidays::isError($day)) {
-        die($day->getMessage());
-        }
-        $this->assertEquals('akash', $day->getInternalName());
-        $date = $day->getDate();
-        $this->assertEquals(, $date->getDay(), 'akash');
-        $this->assertEquals(, $date->getMonth(), 'akash');
-        $this->assertEquals(2005, $date->getYear(), 'akash');
-
-        // test cellog
-        $day = $drv->getHoliday('cellog');
-        $this->assertFalse(Date_Holidays::isError($day));
-        if (Date_Holidays::isError($day)) {
-            die($day->getMessage());
-        }
-        $this->assertEquals('cellog', $day->getInternalName());
-        $date = $day->getDate();
-        $this->assertEquals(, $date->getDay(), 'cellog');
-        $this->assertEquals(, $date->getMonth(), 'cellog');
-        $this->assertEquals(2005, $date->getYear(), 'cellog');
-
-        // test ryansking
-        $day = $drv->getHoliday('ryansking');
-        $this->assertFalse(Date_Holidays::isError($day));
-        if (Date_Holidays::isError($day)) {
-            die($day->getMessage());
-        }
-        $this->assertEquals('ryansking', $day->getInternalName());
-        $date = $day->getDate();
-        $this->assertEquals(, $date->getDay(), 'ryansking');
-        $this->assertEquals(, $date->getMonth(), 'ryansking');
-        $this->assertEquals(2005, $date->getYear(), 'ryansking');
-
-        // test dufuz
-        $day = $drv->getHoliday('dufuz');
-        $this->assertFalse(Date_Holidays::isError($day));
-        if (Date_Holidays::isError($day)) {
-            die($day->getMessage());
-        }
-        $this->assertEquals('dufuz', $day->getInternalName());
-        $date = $day->getDate();
-        $this->assertEquals(, $date->getDay(), 'dufuz');
-        $this->assertEquals(, $date->getMonth(), 'dufuz');
-        $this->assertEquals(2005, $date->getYear(), 'dufuz');
-
-        // test toby
-        $day = $drv->getHoliday('toby');
-        $this->assertFalse(Date_Holidays::isError($day));
-        if (Date_Holidays::isError($day)) {
-            die($day->getMessage());
-        }
-        $this->assertEquals('toby', $day->getInternalName());
-        $date = $day->getDate();
-        $this->assertEquals(, $date->getDay(), 'toby');
-        $this->assertEquals(, $date->getMonth(), 'toby');
-        $this->assertEquals(2005, $date->getYear(), 'toby');
-
-        // test argh
-        $day = $drv->getHoliday('argh');
-        $this->assertFalse(Date_Holidays::isError($day));
-        if (Date_Holidays::isError($day)) {
-            die($day->getMessage());
-        }
-        $this->assertEquals('argh', $day->getInternalName());
-        $date = $day->getDate();
-        $this->assertEquals(, $date->getDay(), 'argh');
-        $this->assertEquals(, $date->getMonth(), 'argh');
-        $this->assertEquals(2005, $date->getYear(), 'argh');
-
-        // test steggink
-        $day = $drv->getHoliday('steggink');
-        $this->assertFalse(Date_Holidays::isError($day));
-        if (Date_Holidays::isError($day)) {
-            die($day->getMessage());
-        }
-        $this->assertEquals('steggink', $day->getInternalName());
-        $date = $day->getDate();
-        $this->assertEquals(, $date->getDay(), 'steggink');
-        $this->assertEquals(, $date->getMonth(), 'steggink');
-        $this->assertEquals(2005, $date->getYear(), 'steggink');
-
-        // test anderson
-        $day = $drv->getHoliday('anderson');
-        $this->assertFalse(Date_Holidays::isError($day));
-        if (Date_Holidays::isError($day)) {
-            die($day->getMessage());
-        }
-        $this->assertEquals('anderson', $day->getInternalName());
-        $date = $day->getDate();
-        $this->assertEquals(, $date->getDay(), 'anderson');
-        $this->assertEquals(, $date->getMonth(), 'anderson');
-        $this->assertEquals(2005, $date->getYear(), 'anderson');
-
-        // test mcglinn
-        $day = $drv->getHoliday('mcglinn');
-        $this->assertFalse(Date_Holidays::isError($day));
-        if (Date_Holidays::isError($day)) {
-            die($day->getMessage());
-        }
-        $this->assertEquals('mcglinn', $day->getInternalName());
-        $date = $day->getDate();
-        $this->assertEquals(, $date->getDay(), 'mcglinn');
-        $this->assertEquals(, $date->getMonth(), 'mcglinn');
-        $this->assertEquals(2005, $date->getYear(), 'mcglinn');
-
-        // test lopez
-        $day = $drv->getHoliday('lopez');
-        $this->assertFalse(Date_Holidays::isError($day));
-        if (Date_Holidays::isError($day)) {
-            die($day->getMessage());
-        }
-        $this->assertEquals('lopez', $day->getInternalName());
-        $date = $day->getDate();
-        $this->assertEquals(, $date->getDay(), 'lopez');
-        $this->assertEquals(, $date->getMonth(), 'lopez');
-        $this->assertEquals(2005, $date->getYear(), 'lopez');
-        */
     }
 
+    /**
+     * test Holidays for 2006
+     *
+     * @access public
+     * @return void
+     */
+    function testHolidays2006()
+    {
+        $drv = Date_Holidays::factory('PHPdotNet', 2006, 'en_EN');
+        $this->assertFalse(Date_Holidays::isError($drv));
+
+        foreach ($this->testDates2006 as $name => $dateInfo) {
+
+            $day = $drv->getHoliday($name);
+            $this->assertFalse(Date_Holidays::isError($day));
+            $this->assertEquals($name, $day->getInternalName());
+            $date = $day->getDate();
+            $this->assertEquals($dateInfo['day'], $date->getDay(), $name);
+            $this->assertEquals($dateInfo['month'], $date->getMonth(), $name);
+            $this->assertEquals($dateInfo['year'], $date->getYear(), $name);
+        }
+    }
+
+    /**
+     * test Holidays for 2007
+     *
+     * @access public
+     * @return void
+     */
+    function testHolidays2007()
+    {
+        $drv = Date_Holidays::factory('PHPdotNet', 2007, 'en_EN');
+        $this->assertFalse(Date_Holidays::isError($drv));
+
+        foreach ($this->testDates2007 as $name => $dateInfo) {
+
+            $day = $drv->getHoliday($name);
+            $this->assertFalse(Date_Holidays::isError($day));
+            $this->assertEquals($name, $day->getInternalName());
+            $date = $day->getDate();
+            $this->assertEquals($dateInfo['day'], $date->getDay(), $name);
+            $this->assertEquals($dateInfo['month'], $date->getMonth(), $name);
+            $this->assertEquals($dateInfo['year'], $date->getYear(), $name);
+        }
+    }
+
+    /**
+     * test Holidays for 2008
+     *
+     * @access public
+     * @return void
+     */
+    function testHolidays2008()
+    {
+        $drv = Date_Holidays::factory('PHPdotNet', 2008, 'en_EN');
+        $this->assertFalse(Date_Holidays::isError($drv));
+
+        foreach ($this->testDates2008 as $name => $dateInfo) {
+
+            $day = $drv->getHoliday($name);
+            $this->assertFalse(Date_Holidays::isError($day));
+            $this->assertEquals($name, $day->getInternalName());
+            $date = $day->getDate();
+            $this->assertEquals($dateInfo['day'], $date->getDay(), $name);
+            $this->assertEquals($dateInfo['month'], $date->getMonth(), $name);
+            $this->assertEquals($dateInfo['year'], $date->getYear(), $name);
+        }
+    }
 }
 
 ?>
