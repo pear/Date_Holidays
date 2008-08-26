@@ -40,821 +40,913 @@ class Date_Holidays_Driver_UNO_TestSuite extends PHPUnit_Framework_TestCase
      */
     function setUp()
     {
+        $this->testDates2005 = array(
+                'leprosyDay' => array ('day' => 28,
+                    'month' => 1,
+                    'year' => 2005),
+                'nativeTongueDay' => array ('day' => 21,
+                    'month' => 2,
+                    'year' => 2005),
+                'womensDay' => array ('day' => 8,
+                    'month' => 3,
+                    'year' => 2005),
+                'worldConsumersDay' => array ('day' => 15,
+                    'month' => 3,
+                    'year' => 2005),
+                'intForestDay' => array ('day' => 21,
+                    'month' => 3,
+                    'year' => 2005),
+                'intDayBeatingRacism' => array ('day' => 21,
+                    'month' => 3,
+                    'year' => 2005),
+                'dayOfPoesy' => array ('day' => 21,
+                    'month' => 3,
+                    'year' => 2005),
+                'dayOfWater' => array ('day' => 22,
+                    'month' => 3,
+                    'year' => 2005),
+                'meteorologyDay' => array ('day' => 23,
+                    'month' => 3,
+                    'year' => 2005),
+                'tuberculosisDay' => array ('day' => 24,
+                    'month' => 3,
+                    'year' => 2005),
+                'worldsHealthDay' => array ('day' => 7,
+                    'month' => 4,
+                    'year' => 2005),
+                'bookAndCopyrightDay' => array ('day' => 23,
+                    'month' => 4,
+                    'year' => 2005),
+                'treesDay' => array ('day' => 25,
+                    'month' => 4,
+                    'year' => 2005),
+                'intellectualPropertyDay' => array ('day' => 26,
+                    'month' => 4,
+                    'year' => 2005),
+                'intDayOfWork' => array ('day' => 1,
+                    'month' => 5,
+                    'year' => 2005),
+                'freedomOfPressDay' => array ('day' => 3,
+                    'month' => 5,
+                    'year' => 2005),
+                'dayOfTheSun' => array ('day' => 3,
+                    'month' => 5,
+                    'year' => 2005),
+                'intFamilyDay' => array ('day' => 15,
+                    'month' => 5,
+                    'year' => 2005),
+                'telecommunicationsDay' => array ('day' => 17,
+                    'month' => 5,
+                    'year' => 2005),
+                'culturalDevelopmentDay' => array ('day' => 21,
+                    'month' => 5,
+                    'year' => 2005),
+                'biologicalDiversityDay' => array ('day' => 22,
+                    'month' => 5,
+                    'year' => 2005),
+                'africanLiberationDay' => array ('day' => 25,
+                    'month' => 5,
+                    'year' => 2005),
+                'unPeaceSquadsDay' => array ('day' => 29,
+                    'month' => 5,
+                    'year' => 2005),
+                'nonsmokersDay' => array ('day' => 31,
+                    'month' => 5,
+                    'year' => 2005),
+                'farmersDay' => array ('day' => 1,
+                    'month' => 6,
+                    'year' => 2005),
+                'environmentDay' => array ('day' => 5,
+                    'month' => 6,
+                    'year' => 2005),
+                'africanChildrenDay' => array ('day' => 16,
+                    'month' => 6,
+                    'year' => 2005),
+                'desertDay' => array ('day' => 17,
+                    'month' => 6,
+                    'year' => 2005),
+                'africanFugitiveDay' => array ('day' => 20,
+                    'month' => 6,
+                    'year' => 2005),
+                'antiDrugsDay' => array ('day' => 26,
+                    'month' => 6,
+                    'year' => 2005),
+                'intCoopDay' => array ('day' => 2,
+                    'month' => 7,
+                    'year' => 2005),
+                'habitatDay' => array ('day' => 2,
+                    'month' => 7,
+                    'year' => 2005),
+                'populationDay' => array ('day' => 11,
+                    'month' => 7,
+                    'year' => 2005),
+                'indigenousPeopleDay' => array ('day' => 9,
+                    'month' => 8,
+                    'year' => 2005),
+                'intYouthDay' => array ('day' => 12,
+                    'month' => 8,
+                    'year' => 2005),
+                'slaveTradeDay' => array ('day' => 23,
+                    'month' => 8,
+                    'year' => 2005),
+                'alphabetizationDay' => array ('day' => 8,
+                    'month' => 9,
+                    'year' => 2005),
+                'ozoneLayerProtectionDay' => array ('day' => 16,
+                    'month' => 9,
+                    'year' => 2005),
+                'intPeaceDay' => array ('day' => 20,
+                    'month' => 9,
+                    'year' => 2005),
+                'tourismDay' => array ('day' => 27,
+                    'month' => 9,
+                    'year' => 2005),
+                'intFugitiveDay' => array ('day' => 28,
+                    'month' => 9,
+                    'year' => 2005),
+                'agedPeopleDay' => array ('day' => 1,
+                    'month' => 10,
+                    'year' => 2005),
+                'animalsDay' => array ('day' => 4,
+                    'month' => 10,
+                    'year' => 2005),
+                'outerSpaceWeek' => array ('day' => 4,
+                    'month' => 10,
+                    'year' => 2005),
+                'teachersDay' => array ('day' => 5,
+                    'month' => 10,
+                    'year' => 2005),
+                'postAssociationDay' => array ('day' => 9,
+                    'month' => 10,
+                    'year' => 2005),
+                'sanityDay' => array ('day' => 10,
+                    'month' => 10,
+                    'year' => 2005),
+                'nourishmentDay' => array ('day' => 16,
+                    'month' => 10,
+                    'year' => 2005),
+                'povertyRemovalDay' => array ('day' => 17,
+                    'month' => 10,
+                    'year' => 2005),
+                'unitedNationsDay' => array ('day' => 24,
+                    'month' => 10,
+                    'year' => 2005),
+                'evolvementInfoDay' => array ('day' => 24,
+                    'month' => 10,
+                    'year' => 2005),
+                'evolvementInfoDay' => array ('day' => 24,
+                    'month' => 10,
+                    'year' => 2005),
+                'environmentalExploitationDay' => array ('day' => 6,
+                    'month' => 11,
+                    'year' => 2005),
+                'toleranceDay' => array ('day' => 16,
+                    'month' => 11,
+                    'year' => 2005),
+                'africanIndustrializationDay' => array ('day' => 20,
+                    'month' => 11,
+                    'year' => 2005),
+                'worldChildrenDay' => array ('day' => 20,
+                    'month' => 11,
+                    'year' => 2005),
+                'televisionDay' => array ('day' => 21,
+                    'month' => 11,
+                    'year' => 2005),
+                'noViolenceAgainstWomen' => array ('day' => 25,
+                    'month' => 11,
+                    'year' => 2005),
+                'palestinianSolidarity' => array ('day' => 29,
+                    'month' => 11,
+                    'year' => 2005),
+                'worldAidsDay' => array ('day' => 1,
+                    'month' => 12,
+                    'year' => 2005),
+                'againstSlaveryDay' => array ('day' => 1,
+                    'month' => 12,
+                    'year' => 2005),
+                'disabledPeopleDay' => array ('day' => 3,
+                    'month' => 12,
+                    'year' => 2005),
+                'evolvementHelperDay' => array ('day' => 5,
+                    'month' => 12,
+                    'year' => 2005),
+                'civilAeronauticsDay' => array ('day' => 7,
+                    'month' => 12,
+                    'year' => 2005),
+                'humanRightsDay' => array ('day' => 10,
+                    'month' => 12,
+                    'year' => 2005),
+                'unicefDay' => array ('day' => 11,
+                    'month' => 12,
+                    'year' => 2005),
+                'migrantsDay' => array ('day' => 18,
+                    'month' => 12,
+                    'year' => 2005),
+                );
+
+        $this->testDates2006 = array(
+                'leprosyDay' => array ('day' => 28,
+                    'month' => 1,
+                    'year' => 2006),
+                'nativeTongueDay' => array ('day' => 21,
+                    'month' => 2,
+                    'year' => 2006),
+                'womensDay' => array ('day' => 8,
+                    'month' => 3,
+                    'year' => 2006),
+                'worldConsumersDay' => array ('day' => 15,
+                    'month' => 3,
+                    'year' => 2006),
+                'intForestDay' => array ('day' => 21,
+                    'month' => 3,
+                    'year' => 2006),
+                'intDayBeatingRacism' => array ('day' => 21,
+                    'month' => 3,
+                    'year' => 2006),
+                'dayOfPoesy' => array ('day' => 21,
+                    'month' => 3,
+                    'year' => 2006),
+                'dayOfWater' => array ('day' => 22,
+                    'month' => 3,
+                    'year' => 2006),
+                'meteorologyDay' => array ('day' => 23,
+                    'month' => 3,
+                    'year' => 2006),
+                'tuberculosisDay' => array ('day' => 24,
+                    'month' => 3,
+                    'year' => 2006),
+                'worldsHealthDay' => array ('day' => 7,
+                    'month' => 4,
+                    'year' => 2006),
+                'bookAndCopyrightDay' => array ('day' => 23,
+                    'month' => 4,
+                    'year' => 2006),
+                'treesDay' => array ('day' => 25,
+                    'month' => 4,
+                    'year' => 2006),
+                'intellectualPropertyDay' => array ('day' => 26,
+                    'month' => 4,
+                    'year' => 2006),
+                'intDayOfWork' => array ('day' => 1,
+                    'month' => 5,
+                    'year' => 2006),
+                'freedomOfPressDay' => array ('day' => 3,
+                    'month' => 5,
+                    'year' => 2006),
+                'dayOfTheSun' => array ('day' => 3,
+                    'month' => 5,
+                    'year' => 2006),
+                'intFamilyDay' => array ('day' => 15,
+                    'month' => 5,
+                    'year' => 2006),
+                'telecommunicationsDay' => array ('day' => 17,
+                    'month' => 5,
+                    'year' => 2006),
+                'culturalDevelopmentDay' => array ('day' => 21,
+                    'month' => 5,
+                    'year' => 2006),
+                'biologicalDiversityDay' => array ('day' => 22,
+                    'month' => 5,
+                    'year' => 2006),
+                'africanLiberationDay' => array ('day' => 25,
+                    'month' => 5,
+                    'year' => 2006),
+                'unPeaceSquadsDay' => array ('day' => 29,
+                    'month' => 5,
+                    'year' => 2006),
+                'nonsmokersDay' => array ('day' => 31,
+                    'month' => 5,
+                    'year' => 2006),
+                'farmersDay' => array ('day' => 1,
+                    'month' => 6,
+                    'year' => 2006),
+                'environmentDay' => array ('day' => 5,
+                    'month' => 6,
+                    'year' => 2006),
+                'africanChildrenDay' => array ('day' => 16,
+                    'month' => 6,
+                    'year' => 2006),
+                'desertDay' => array ('day' => 17,
+                    'month' => 6,
+                    'year' => 2006),
+                'africanFugitiveDay' => array ('day' => 20,
+                    'month' => 6,
+                    'year' => 2006),
+                'antiDrugsDay' => array ('day' => 26,
+                    'month' => 6,
+                    'year' => 2006),
+                'intCoopDay' => array ('day' => 1,
+                    'month' => 7,
+                    'year' => 2006),
+                'habitatDay' => array ('day' => 1,
+                    'month' => 7,
+                    'year' => 2006),
+                'populationDay' => array ('day' => 11,
+                    'month' => 7,
+                    'year' => 2006),
+                'indigenousPeopleDay' => array ('day' => 9,
+                    'month' => 8,
+                    'year' => 2006),
+                'intYouthDay' => array ('day' => 12,
+                    'month' => 8,
+                    'year' => 2006),
+                'slaveTradeDay' => array ('day' => 23,
+                    'month' => 8,
+                    'year' => 2006),
+                'alphabetizationDay' => array ('day' => 8,
+                    'month' => 9,
+                    'year' => 2006),
+                'ozoneLayerProtectionDay' => array ('day' => 16,
+                    'month' => 9,
+                    'year' => 2006),
+                'intPeaceDay' => array ('day' => 19,
+                    'month' => 9,
+                    'year' => 2006),
+                'tourismDay' => array ('day' => 27,
+                    'month' => 9,
+                    'year' => 2006),
+                'intFugitiveDay' => array ('day' => 28,
+                    'month' => 9,
+                    'year' => 2006),
+                'agedPeopleDay' => array ('day' => 1,
+                    'month' => 10,
+                    'year' => 2006),
+                'animalsDay' => array ('day' => 4,
+                    'month' => 10,
+                    'year' => 2006),
+                'outerSpaceWeek' => array ('day' => 4,
+                    'month' => 10,
+                    'year' => 2006),
+                'teachersDay' => array ('day' => 5,
+                    'month' => 10,
+                    'year' => 2006),
+                'postAssociationDay' => array ('day' => 9,
+                    'month' => 10,
+                    'year' => 2006),
+                'sanityDay' => array ('day' => 10,
+                    'month' => 10,
+                    'year' => 2006),
+                'nourishmentDay' => array ('day' => 16,
+                    'month' => 10,
+                    'year' => 2006),
+                'povertyRemovalDay' => array ('day' => 17,
+                    'month' => 10,
+                    'year' => 2006),
+                'unitedNationsDay' => array ('day' => 24,
+                    'month' => 10,
+                    'year' => 2006),
+                'evolvementInfoDay' => array ('day' => 24,
+                    'month' => 10,
+                    'year' => 2006),
+                'evolvementInfoDay' => array ('day' => 24,
+                    'month' => 10,
+                    'year' => 2006),
+                'environmentalExploitationDay' => array ('day' => 6,
+                    'month' => 11,
+                    'year' => 2006),
+                'toleranceDay' => array ('day' => 16,
+                    'month' => 11,
+                    'year' => 2006),
+                'africanIndustrializationDay' => array ('day' => 20,
+                    'month' => 11,
+                    'year' => 2006),
+                'worldChildrenDay' => array ('day' => 20,
+                    'month' => 11,
+                    'year' => 2006),
+                'televisionDay' => array ('day' => 21,
+                    'month' => 11,
+                    'year' => 2006),
+                'noViolenceAgainstWomen' => array ('day' => 25,
+                    'month' => 11,
+                    'year' => 2006),
+                'palestinianSolidarity' => array ('day' => 29,
+                    'month' => 11,
+                    'year' => 2006),
+                'worldAidsDay' => array ('day' => 1,
+                    'month' => 12,
+                    'year' => 2006),
+                'againstSlaveryDay' => array ('day' => 1,
+                    'month' => 12,
+                    'year' => 2006),
+                'disabledPeopleDay' => array ('day' => 3,
+                    'month' => 12,
+                    'year' => 2006),
+                'evolvementHelperDay' => array ('day' => 5,
+                    'month' => 12,
+                    'year' => 2006),
+                'civilAeronauticsDay' => array ('day' => 7,
+                    'month' => 12,
+                    'year' => 2006),
+                'humanRightsDay' => array ('day' => 10,
+                    'month' => 12,
+                    'year' => 2006),
+                'unicefDay' => array ('day' => 11,
+                    'month' => 12,
+                    'year' => 2006),
+                'migrantsDay' => array ('day' => 18,
+                    'month' => 12,
+                    'year' => 2006),
+                );
+
+        $this->testDates2007 = array(
+                'leprosyDay' => array ('day' => 28,
+                    'month' => 1,
+                    'year' => 2007),
+                'nativeTongueDay' => array ('day' => 21,
+                    'month' => 2,
+                    'year' => 2007),
+                'womensDay' => array ('day' => 8,
+                    'month' => 3,
+                    'year' => 2007),
+                'worldConsumersDay' => array ('day' => 15,
+                    'month' => 3,
+                    'year' => 2007),
+                'intForestDay' => array ('day' => 21,
+                    'month' => 3,
+                    'year' => 2007),
+                'intDayBeatingRacism' => array ('day' => 21,
+                    'month' => 3,
+                    'year' => 2007),
+                'dayOfPoesy' => array ('day' => 21,
+                    'month' => 3,
+                    'year' => 2007),
+                'dayOfWater' => array ('day' => 22,
+                    'month' => 3,
+                    'year' => 2007),
+                'meteorologyDay' => array ('day' => 23,
+                    'month' => 3,
+                    'year' => 2007),
+                'tuberculosisDay' => array ('day' => 24,
+                    'month' => 3,
+                    'year' => 2007),
+                'worldsHealthDay' => array ('day' => 7,
+                    'month' => 4,
+                    'year' => 2007),
+                'bookAndCopyrightDay' => array ('day' => 23,
+                    'month' => 4,
+                    'year' => 2007),
+                'treesDay' => array ('day' => 25,
+                    'month' => 4,
+                    'year' => 2007),
+                'intellectualPropertyDay' => array ('day' => 26,
+                    'month' => 4,
+                    'year' => 2007),
+                'intDayOfWork' => array ('day' => 1,
+                    'month' => 5,
+                    'year' => 2007),
+                'freedomOfPressDay' => array ('day' => 3,
+                    'month' => 5,
+                    'year' => 2007),
+                'dayOfTheSun' => array ('day' => 3,
+                    'month' => 5,
+                    'year' => 2007),
+                'intFamilyDay' => array ('day' => 15,
+                    'month' => 5,
+                    'year' => 2007),
+                'telecommunicationsDay' => array ('day' => 17,
+                    'month' => 5,
+                    'year' => 2007),
+                'culturalDevelopmentDay' => array ('day' => 21,
+                    'month' => 5,
+                    'year' => 2007),
+                'biologicalDiversityDay' => array ('day' => 22,
+                    'month' => 5,
+                    'year' => 2007),
+                'africanLiberationDay' => array ('day' => 25,
+                    'month' => 5,
+                    'year' => 2007),
+                'unPeaceSquadsDay' => array ('day' => 29,
+                    'month' => 5,
+                    'year' => 2007),
+                'nonsmokersDay' => array ('day' => 31,
+                    'month' => 5,
+                    'year' => 2007),
+                'farmersDay' => array ('day' => 1,
+                    'month' => 6,
+                    'year' => 2007),
+                'environmentDay' => array ('day' => 5,
+                    'month' => 6,
+                    'year' => 2007),
+                'africanChildrenDay' => array ('day' => 16,
+                    'month' => 6,
+                    'year' => 2007),
+                'desertDay' => array ('day' => 17,
+                    'month' => 6,
+                    'year' => 2007),
+                'africanFugitiveDay' => array ('day' => 20,
+                    'month' => 6,
+                    'year' => 2007),
+                'antiDrugsDay' => array ('day' => 26,
+                    'month' => 6,
+                    'year' => 2007),
+                'intCoopDay' => array ('day' => 7,
+                    'month' => 7,
+                    'year' => 2007),
+                'habitatDay' => array ('day' => 7,
+                    'month' => 7,
+                    'year' => 2007),
+                'populationDay' => array ('day' => 11,
+                    'month' => 7,
+                    'year' => 2007),
+                'indigenousPeopleDay' => array ('day' => 9,
+                    'month' => 8,
+                    'year' => 2007),
+                'intYouthDay' => array ('day' => 12,
+                    'month' => 8,
+                    'year' => 2007),
+                'slaveTradeDay' => array ('day' => 23,
+                    'month' => 8,
+                    'year' => 2007),
+                'alphabetizationDay' => array ('day' => 8,
+                    'month' => 9,
+                    'year' => 2007),
+                'ozoneLayerProtectionDay' => array ('day' => 16,
+                    'month' => 9,
+                    'year' => 2007),
+                'intPeaceDay' => array ('day' => 18,
+                    'month' => 9,
+                    'year' => 2007),
+                'tourismDay' => array ('day' => 27,
+                    'month' => 9,
+                    'year' => 2007),
+                'intFugitiveDay' => array ('day' => 28,
+                    'month' => 9,
+                    'year' => 2007),
+                'agedPeopleDay' => array ('day' => 1,
+                    'month' => 10,
+                    'year' => 2007),
+                'animalsDay' => array ('day' => 4,
+                    'month' => 10,
+                    'year' => 2007),
+                'outerSpaceWeek' => array ('day' => 4,
+                    'month' => 10,
+                    'year' => 2007),
+                'teachersDay' => array ('day' => 5,
+                    'month' => 10,
+                    'year' => 2007),
+                'postAssociationDay' => array ('day' => 9,
+                    'month' => 10,
+                    'year' => 2007),
+                'sanityDay' => array ('day' => 10,
+                    'month' => 10,
+                    'year' => 2007),
+                'nourishmentDay' => array ('day' => 16,
+                    'month' => 10,
+                    'year' => 2007),
+                'povertyRemovalDay' => array ('day' => 17,
+                    'month' => 10,
+                    'year' => 2007),
+                'unitedNationsDay' => array ('day' => 24,
+                    'month' => 10,
+                    'year' => 2007),
+                'evolvementInfoDay' => array ('day' => 24,
+                    'month' => 10,
+                    'year' => 2007),
+                'evolvementInfoDay' => array ('day' => 24,
+                    'month' => 10,
+                    'year' => 2007),
+                'environmentalExploitationDay' => array ('day' => 6,
+                    'month' => 11,
+                    'year' => 2007),
+                'toleranceDay' => array ('day' => 16,
+                    'month' => 11,
+                    'year' => 2007),
+                'africanIndustrializationDay' => array ('day' => 20,
+                    'month' => 11,
+                    'year' => 2007),
+                'worldChildrenDay' => array ('day' => 20,
+                    'month' => 11,
+                    'year' => 2007),
+                'televisionDay' => array ('day' => 21,
+                    'month' => 11,
+                    'year' => 2007),
+                'noViolenceAgainstWomen' => array ('day' => 25,
+                    'month' => 11,
+                    'year' => 2007),
+                'palestinianSolidarity' => array ('day' => 29,
+                    'month' => 11,
+                    'year' => 2007),
+                'worldAidsDay' => array ('day' => 1,
+                    'month' => 12,
+                    'year' => 2007),
+                'againstSlaveryDay' => array ('day' => 1,
+                    'month' => 12,
+                    'year' => 2007),
+                'disabledPeopleDay' => array ('day' => 3,
+                    'month' => 12,
+                    'year' => 2007),
+                'evolvementHelperDay' => array ('day' => 5,
+                    'month' => 12,
+                    'year' => 2007),
+                'civilAeronauticsDay' => array ('day' => 7,
+                    'month' => 12,
+                    'year' => 2007),
+                'humanRightsDay' => array ('day' => 10,
+                    'month' => 12,
+                    'year' => 2007),
+                'unicefDay' => array ('day' => 11,
+                    'month' => 12,
+                    'year' => 2007),
+                'migrantsDay' => array ('day' => 18,
+                    'month' => 12,
+                    'year' => 2007),
+                );
+
+        $this->testDates2008 = array(
+                'leprosyDay' => array ('day' => 28,
+                    'month' => 1,
+                    'year' => 2008),
+                'nativeTongueDay' => array ('day' => 21,
+                    'month' => 2,
+                    'year' => 2008),
+                'womensDay' => array ('day' => 8,
+                    'month' => 3,
+                    'year' => 2008),
+                'worldConsumersDay' => array ('day' => 15,
+                    'month' => 3,
+                    'year' => 2008),
+                'intForestDay' => array ('day' => 21,
+                    'month' => 3,
+                    'year' => 2008),
+                'intDayBeatingRacism' => array ('day' => 21,
+                    'month' => 3,
+                    'year' => 2008),
+                'dayOfPoesy' => array ('day' => 21,
+                    'month' => 3,
+                    'year' => 2008),
+                'dayOfWater' => array ('day' => 22,
+                    'month' => 3,
+                    'year' => 2008),
+                'meteorologyDay' => array ('day' => 23,
+                    'month' => 3,
+                    'year' => 2008),
+                'tuberculosisDay' => array ('day' => 24,
+                    'month' => 3,
+                    'year' => 2008),
+                'worldsHealthDay' => array ('day' => 7,
+                    'month' => 4,
+                    'year' => 2008),
+                'bookAndCopyrightDay' => array ('day' => 23,
+                    'month' => 4,
+                    'year' => 2008),
+                'treesDay' => array ('day' => 25,
+                    'month' => 4,
+                    'year' => 2008),
+                'intellectualPropertyDay' => array ('day' => 26,
+                    'month' => 4,
+                    'year' => 2008),
+                'intDayOfWork' => array ('day' => 1,
+                    'month' => 5,
+                    'year' => 2008),
+                'freedomOfPressDay' => array ('day' => 3,
+                    'month' => 5,
+                    'year' => 2008),
+                'dayOfTheSun' => array ('day' => 3,
+                    'month' => 5,
+                    'year' => 2008),
+                'intFamilyDay' => array ('day' => 15,
+                    'month' => 5,
+                    'year' => 2008),
+                'telecommunicationsDay' => array ('day' => 17,
+                    'month' => 5,
+                    'year' => 2008),
+                'culturalDevelopmentDay' => array ('day' => 21,
+                    'month' => 5,
+                    'year' => 2008),
+                'biologicalDiversityDay' => array ('day' => 22,
+                    'month' => 5,
+                    'year' => 2008),
+                'africanLiberationDay' => array ('day' => 25,
+                    'month' => 5,
+                    'year' => 2008),
+                'unPeaceSquadsDay' => array ('day' => 29,
+                    'month' => 5,
+                    'year' => 2008),
+                'nonsmokersDay' => array ('day' => 31,
+                    'month' => 5,
+                    'year' => 2008),
+                'farmersDay' => array ('day' => 1,
+                    'month' => 6,
+                    'year' => 2008),
+                'environmentDay' => array ('day' => 5,
+                    'month' => 6,
+                    'year' => 2008),
+                'africanChildrenDay' => array ('day' => 16,
+                    'month' => 6,
+                    'year' => 2008),
+                'desertDay' => array ('day' => 17,
+                    'month' => 6,
+                    'year' => 2008),
+                'africanFugitiveDay' => array ('day' => 20,
+                    'month' => 6,
+                    'year' => 2008),
+                'antiDrugsDay' => array ('day' => 26,
+                    'month' => 6,
+                    'year' => 2008),
+                'intCoopDay' => array ('day' => 5,
+                    'month' => 7,
+                    'year' => 2008),
+                'habitatDay' => array ('day' => 5,
+                    'month' => 7,
+                    'year' => 2008),
+                'populationDay' => array ('day' => 11,
+                    'month' => 7,
+                    'year' => 2008),
+                'indigenousPeopleDay' => array ('day' => 9,
+                    'month' => 8,
+                    'year' => 2008),
+                'intYouthDay' => array ('day' => 12,
+                    'month' => 8,
+                    'year' => 2008),
+                'slaveTradeDay' => array ('day' => 23,
+                    'month' => 8,
+                    'year' => 2008),
+                'alphabetizationDay' => array ('day' => 8,
+                    'month' => 9,
+                    'year' => 2008),
+                'ozoneLayerProtectionDay' => array ('day' => 16,
+                    'month' => 9,
+                    'year' => 2008),
+                'intPeaceDay' => array ('day' => 16,
+                    'month' => 9,
+                    'year' => 2008),
+                'tourismDay' => array ('day' => 27,
+                    'month' => 9,
+                    'year' => 2008),
+                'intFugitiveDay' => array ('day' => 28,
+                    'month' => 9,
+                    'year' => 2008),
+                'agedPeopleDay' => array ('day' => 1,
+                    'month' => 10,
+                    'year' => 2008),
+                'animalsDay' => array ('day' => 4,
+                    'month' => 10,
+                    'year' => 2008),
+                'outerSpaceWeek' => array ('day' => 4,
+                    'month' => 10,
+                    'year' => 2008),
+                'teachersDay' => array ('day' => 5,
+                    'month' => 10,
+                    'year' => 2008),
+                'postAssociationDay' => array ('day' => 9,
+                    'month' => 10,
+                    'year' => 2008),
+                'sanityDay' => array ('day' => 10,
+                    'month' => 10,
+                    'year' => 2008),
+                'nourishmentDay' => array ('day' => 16,
+                    'month' => 10,
+                    'year' => 2008),
+                'povertyRemovalDay' => array ('day' => 17,
+                    'month' => 10,
+                    'year' => 2008),
+                'unitedNationsDay' => array ('day' => 24,
+                    'month' => 10,
+                    'year' => 2008),
+                'evolvementInfoDay' => array ('day' => 24,
+                    'month' => 10,
+                    'year' => 2008),
+                'evolvementInfoDay' => array ('day' => 24,
+                    'month' => 10,
+                    'year' => 2008),
+                'environmentalExploitationDay' => array ('day' => 6,
+                    'month' => 11,
+                    'year' => 2008),
+                'toleranceDay' => array ('day' => 16,
+                    'month' => 11,
+                    'year' => 2008),
+                'africanIndustrializationDay' => array ('day' => 20,
+                    'month' => 11,
+                    'year' => 2008),
+                'worldChildrenDay' => array ('day' => 20,
+                    'month' => 11,
+                    'year' => 2008),
+                'televisionDay' => array ('day' => 21,
+                    'month' => 11,
+                    'year' => 2008),
+                'noViolenceAgainstWomen' => array ('day' => 25,
+                    'month' => 11,
+                    'year' => 2008),
+                'palestinianSolidarity' => array ('day' => 29,
+                    'month' => 11,
+                    'year' => 2008),
+                'worldAidsDay' => array ('day' => 1,
+                    'month' => 12,
+                    'year' => 2008),
+                'againstSlaveryDay' => array ('day' => 1,
+                    'month' => 12,
+                    'year' => 2008),
+                'disabledPeopleDay' => array ('day' => 3,
+                    'month' => 12,
+                    'year' => 2008),
+                'evolvementHelperDay' => array ('day' => 5,
+                    'month' => 12,
+                    'year' => 2008),
+                'civilAeronauticsDay' => array ('day' => 7,
+                    'month' => 12,
+                    'year' => 2008),
+                'humanRightsDay' => array ('day' => 10,
+                    'month' => 12,
+                    'year' => 2008),
+                'unicefDay' => array ('day' => 11,
+                    'month' => 12,
+                    'year' => 2008),
+                'migrantsDay' => array ('day' => 18,
+                    'month' => 12,
+                    'year' => 2008),
+                );
     }
 
     /**
-     * test Holidays in 2005
+     * test Holidays for 2005
      *
      * @access public
      * @return void
      */
     function testHolidays2005()
     {
-        /*
-        // test leprosyDay
-        $day = $drv->getHoliday('leprosyDay');
-        $this->assertFalse(Date_Holidays::isError($day));
-        if (Date_Holidays::isError($day)) {
-        die($day->getMessage());
+        $drv = Date_Holidays::factory('UNO', 2005, 'en_EN');
+        $this->assertFalse(Date_Holidays::isError($drv));
+
+        foreach ($this->testDates2005 as $name => $dateInfo) {
+
+            $day = $drv->getHoliday($name);
+            $this->assertFalse(Date_Holidays::isError($day));
+            $this->assertEquals($name, $day->getInternalName());
+            $date = $day->getDate();
+            $this->assertEquals($dateInfo['day'], $date->getDay(), $name);
+            $this->assertEquals($dateInfo['month'], $date->getMonth(), $name);
+            $this->assertEquals($dateInfo['year'], $date->getYear(), $name);
+        }
+    }
+
+    /**
+     * test Holidays for 2006
+     *
+     * @access public
+     * @return void
+     */
+    function testHolidays2006()
+    {
+        $drv = Date_Holidays::factory('UNO', 2006, 'en_EN');
+        $this->assertFalse(Date_Holidays::isError($drv));
+
+        foreach ($this->testDates2006 as $name => $dateInfo) {
+
+            $day = $drv->getHoliday($name);
+            $this->assertFalse(Date_Holidays::isError($day));
+            $this->assertEquals($name, $day->getInternalName());
+            $date = $day->getDate();
+            $this->assertEquals($dateInfo['day'], $date->getDay(), $name);
+            $this->assertEquals($dateInfo['month'], $date->getMonth(), $name);
+            $this->assertEquals($dateInfo['year'], $date->getYear(), $name);
+        }
+    }
+
+    /**
+     * test Holidays for 2007
+     *
+     * @access public
+     * @return void
+     */
+    function testHolidays2007()
+    {
+        $drv = Date_Holidays::factory('UNO', 2007, 'en_EN');
+        $this->assertFalse(Date_Holidays::isError($drv));
+
+        foreach ($this->testDates2007 as $name => $dateInfo) {
+
+            $day = $drv->getHoliday($name);
+            $this->assertFalse(Date_Holidays::isError($day));
+            $this->assertEquals($name, $day->getInternalName());
+            $date = $day->getDate();
+            $this->assertEquals($dateInfo['day'], $date->getDay(), $name);
+            $this->assertEquals($dateInfo['month'], $date->getMonth(), $name);
+            $this->assertEquals($dateInfo['year'], $date->getYear(), $name);
+        }
+    }
+
+    /**
+     * test Holidays for 2008
+     *
+     * @access public
+     * @return void
+     */
+    function testHolidays2008()
+    {
+        $drv = Date_Holidays::factory('UNO', 2008, 'en_EN');
+        $this->assertFalse(Date_Holidays::isError($drv));
+
+        foreach ($this->testDates2008 as $name => $dateInfo) {
+
+            $day = $drv->getHoliday($name);
+            $this->assertFalse(Date_Holidays::isError($day));
+            $this->assertEquals($name, $day->getInternalName());
+            $date = $day->getDate();
+            $this->assertEquals($dateInfo['day'], $date->getDay(), $name);
+            $this->assertEquals($dateInfo['month'], $date->getMonth(), $name);
+            $this->assertEquals($dateInfo['year'], $date->getYear(), $name);
         }
-        $this->assertEquals('leprosyDay', $day->getInternalName());
-        $date = $day->getDate();
-        $this->assertEquals(, $date->getDay(), 'leprosyDay');
-        $this->assertEquals(, $date->getMonth(), 'leprosyDay');
-        $this->assertEquals(2005, $date->getYear(), 'leprosyDay');
-
-        // test nativeTongueDay
-        $day = $drv->getHoliday('nativeTongueDay');
-        $this->assertFalse(Date_Holidays::isError($day));
-        if (Date_Holidays::isError($day)) {
-        die($day->getMessage());
-        }
-        $this->assertEquals('nativeTongueDay', $day->getInternalName());
-        $date = $day->getDate();
-        $this->assertEquals(, $date->getDay(), 'nativeTongueDay');
-        $this->assertEquals(, $date->getMonth(), 'nativeTongueDay');
-        $this->assertEquals(2005, $date->getYear(), 'nativeTongueDay');
-
-        // test womensDay
-        $day = $drv->getHoliday('womensDay');
-        $this->assertFalse(Date_Holidays::isError($day));
-        if (Date_Holidays::isError($day)) {
-        die($day->getMessage());
-        }
-        $this->assertEquals('womensDay', $day->getInternalName());
-        $date = $day->getDate();
-        $this->assertEquals(, $date->getDay(), 'womensDay');
-        $this->assertEquals(, $date->getMonth(), 'womensDay');
-        $this->assertEquals(2005, $date->getYear(), 'womensDay');
-
-        // test worldConsumersDay
-        $day = $drv->getHoliday('worldConsumersDay');
-        $this->assertFalse(Date_Holidays::isError($day));
-        if (Date_Holidays::isError($day)) {
-        die($day->getMessage());
-        }
-        $this->assertEquals('worldConsumersDay', $day->getInternalName());
-        $date = $day->getDate();
-        $this->assertEquals(, $date->getDay(), 'worldConsumersDay');
-        $this->assertEquals(, $date->getMonth(), 'worldConsumersDay');
-        $this->assertEquals(2005, $date->getYear(), 'worldConsumersDay');
-
-        // test intForestDay
-        $day = $drv->getHoliday('intForestDay');
-        $this->assertFalse(Date_Holidays::isError($day));
-        if (Date_Holidays::isError($day)) {
-        die($day->getMessage());
-        }
-        $this->assertEquals('intForestDay', $day->getInternalName());
-        $date = $day->getDate();
-        $this->assertEquals(, $date->getDay(), 'intForestDay');
-        $this->assertEquals(, $date->getMonth(), 'intForestDay');
-        $this->assertEquals(2005, $date->getYear(), 'intForestDay');
-
-        // test intDayBeatingRacism
-        $day = $drv->getHoliday('intDayBeatingRacism');
-        $this->assertFalse(Date_Holidays::isError($day));
-        if (Date_Holidays::isError($day)) {
-        die($day->getMessage());
-        }
-        $this->assertEquals('intDayBeatingRacism', $day->getInternalName());
-        $date = $day->getDate();
-        $this->assertEquals(, $date->getDay(), 'intDayBeatingRacism');
-        $this->assertEquals(, $date->getMonth(), 'intDayBeatingRacism');
-        $this->assertEquals(2005, $date->getYear(), 'intDayBeatingRacism');
-
-        // test dayOfPoesy
-        $day = $drv->getHoliday('dayOfPoesy');
-        $this->assertFalse(Date_Holidays::isError($day));
-        if (Date_Holidays::isError($day)) {
-            die($day->getMessage());
-        }
-        $this->assertEquals('dayOfPoesy', $day->getInternalName());
-        $date = $day->getDate();
-        $this->assertEquals(, $date->getDay(), 'dayOfPoesy');
-        $this->assertEquals(, $date->getMonth(), 'dayOfPoesy');
-        $this->assertEquals(2005, $date->getYear(), 'dayOfPoesy');
-
-        // test dayOfWater
-        $day = $drv->getHoliday('dayOfWater');
-        $this->assertFalse(Date_Holidays::isError($day));
-        if (Date_Holidays::isError($day)) {
-            die($day->getMessage());
-        }
-        $this->assertEquals('dayOfWater', $day->getInternalName());
-        $date = $day->getDate();
-        $this->assertEquals(, $date->getDay(), 'dayOfWater');
-        $this->assertEquals(, $date->getMonth(), 'dayOfWater');
-        $this->assertEquals(2005, $date->getYear(), 'dayOfWater');
-
-        // test meteorologyDay
-        $day = $drv->getHoliday('meteorologyDay');
-        $this->assertFalse(Date_Holidays::isError($day));
-        if (Date_Holidays::isError($day)) {
-            die($day->getMessage());
-        }
-        $this->assertEquals('meteorologyDay', $day->getInternalName());
-        $date = $day->getDate();
-        $this->assertEquals(, $date->getDay(), 'meteorologyDay');
-        $this->assertEquals(, $date->getMonth(), 'meteorologyDay');
-        $this->assertEquals(2005, $date->getYear(), 'meteorologyDay');
-
-        // test tuberculosisDay
-        $day = $drv->getHoliday('tuberculosisDay');
-        $this->assertFalse(Date_Holidays::isError($day));
-        if (Date_Holidays::isError($day)) {
-            die($day->getMessage());
-        }
-        $this->assertEquals('tuberculosisDay', $day->getInternalName());
-        $date = $day->getDate();
-        $this->assertEquals(, $date->getDay(), 'tuberculosisDay');
-        $this->assertEquals(, $date->getMonth(), 'tuberculosisDay');
-        $this->assertEquals(2005, $date->getYear(), 'tuberculosisDay');
-
-        // test worldsHealthDay
-        $day = $drv->getHoliday('worldsHealthDay');
-        $this->assertFalse(Date_Holidays::isError($day));
-        if (Date_Holidays::isError($day)) {
-            die($day->getMessage());
-        }
-        $this->assertEquals('worldsHealthDay', $day->getInternalName());
-        $date = $day->getDate();
-        $this->assertEquals(, $date->getDay(), 'worldsHealthDay');
-        $this->assertEquals(, $date->getMonth(), 'worldsHealthDay');
-        $this->assertEquals(2005, $date->getYear(), 'worldsHealthDay');
-
-        // test bookAndCopyrightDay
-        $day = $drv->getHoliday('bookAndCopyrightDay');
-        $this->assertFalse(Date_Holidays::isError($day));
-        if (Date_Holidays::isError($day)) {
-            die($day->getMessage());
-        }
-        $this->assertEquals('bookAndCopyrightDay', $day->getInternalName());
-        $date = $day->getDate();
-        $this->assertEquals(, $date->getDay(), 'bookAndCopyrightDay');
-        $this->assertEquals(, $date->getMonth(), 'bookAndCopyrightDay');
-        $this->assertEquals(2005, $date->getYear(), 'bookAndCopyrightDay');
-
-        // test treesDay
-        $day = $drv->getHoliday('treesDay');
-        $this->assertFalse(Date_Holidays::isError($day));
-        if (Date_Holidays::isError($day)) {
-            die($day->getMessage());
-        }
-        $this->assertEquals('treesDay', $day->getInternalName());
-        $date = $day->getDate();
-        $this->assertEquals(, $date->getDay(), 'treesDay');
-        $this->assertEquals(, $date->getMonth(), 'treesDay');
-        $this->assertEquals(2005, $date->getYear(), 'treesDay');
-
-        // test intellectualPropertyDay
-        $day = $drv->getHoliday('intellectualPropertyDay');
-        $this->assertFalse(Date_Holidays::isError($day));
-        if (Date_Holidays::isError($day)) {
-            die($day->getMessage());
-        }
-        $this->assertEquals('intellectualPropertyDay', $day->getInternalName());
-        $date = $day->getDate();
-        $this->assertEquals(, $date->getDay(), 'intellectualPropertyDay');
-        $this->assertEquals(, $date->getMonth(), 'intellectualPropertyDay');
-        $this->assertEquals(2005, $date->getYear(), 'intellectualPropertyDay');
-
-        // test intDayOfWork
-        $day = $drv->getHoliday('intDayOfWork');
-        $this->assertFalse(Date_Holidays::isError($day));
-        if (Date_Holidays::isError($day)) {
-            die($day->getMessage());
-        }
-        $this->assertEquals('intDayOfWork', $day->getInternalName());
-        $date = $day->getDate();
-        $this->assertEquals(, $date->getDay(), 'intDayOfWork');
-        $this->assertEquals(, $date->getMonth(), 'intDayOfWork');
-        $this->assertEquals(2005, $date->getYear(), 'intDayOfWork');
-
-        // test freedomOfPressDay
-        $day = $drv->getHoliday('freedomOfPressDay');
-        $this->assertFalse(Date_Holidays::isError($day));
-        if (Date_Holidays::isError($day)) {
-            die($day->getMessage());
-        }
-        $this->assertEquals('freedomOfPressDay', $day->getInternalName());
-        $date = $day->getDate();
-        $this->assertEquals(, $date->getDay(), 'freedomOfPressDay');
-        $this->assertEquals(, $date->getMonth(), 'freedomOfPressDay');
-        $this->assertEquals(2005, $date->getYear(), 'freedomOfPressDay');
-
-        // test dayOfTheSun
-        $day = $drv->getHoliday('dayOfTheSun');
-        $this->assertFalse(Date_Holidays::isError($day));
-        if (Date_Holidays::isError($day)) {
-            die($day->getMessage());
-        }
-        $this->assertEquals('dayOfTheSun', $day->getInternalName());
-        $date = $day->getDate();
-        $this->assertEquals(, $date->getDay(), 'dayOfTheSun');
-        $this->assertEquals(, $date->getMonth(), 'dayOfTheSun');
-        $this->assertEquals(2005, $date->getYear(), 'dayOfTheSun');
-
-        // test intFamilyDay
-        $day = $drv->getHoliday('intFamilyDay');
-        $this->assertFalse(Date_Holidays::isError($day));
-        if (Date_Holidays::isError($day)) {
-            die($day->getMessage());
-        }
-        $this->assertEquals('intFamilyDay', $day->getInternalName());
-        $date = $day->getDate();
-        $this->assertEquals(, $date->getDay(), 'intFamilyDay');
-        $this->assertEquals(, $date->getMonth(), 'intFamilyDay');
-        $this->assertEquals(2005, $date->getYear(), 'intFamilyDay');
-
-        // test telecommunicationsDay
-        $day = $drv->getHoliday('telecommunicationsDay');
-        $this->assertFalse(Date_Holidays::isError($day));
-        if (Date_Holidays::isError($day)) {
-            die($day->getMessage());
-        }
-        $this->assertEquals('telecommunicationsDay', $day->getInternalName());
-        $date = $day->getDate();
-        $this->assertEquals(, $date->getDay(), 'telecommunicationsDay');
-        $this->assertEquals(, $date->getMonth(), 'telecommunicationsDay');
-        $this->assertEquals(2005, $date->getYear(), 'telecommunicationsDay');
-
-        // test culturalDevelopmentDay
-        $day = $drv->getHoliday('culturalDevelopmentDay');
-        $this->assertFalse(Date_Holidays::isError($day));
-        if (Date_Holidays::isError($day)) {
-            die($day->getMessage());
-        }
-        $this->assertEquals('culturalDevelopmentDay', $day->getInternalName());
-        $date = $day->getDate();
-        $this->assertEquals(, $date->getDay(), 'culturalDevelopmentDay');
-        $this->assertEquals(, $date->getMonth(), 'culturalDevelopmentDay');
-        $this->assertEquals(2005, $date->getYear(), 'culturalDevelopmentDay');
-
-        // test biologicalDiversityDay
-        $day = $drv->getHoliday('biologicalDiversityDay');
-        $this->assertFalse(Date_Holidays::isError($day));
-        if (Date_Holidays::isError($day)) {
-            die($day->getMessage());
-        }
-        $this->assertEquals('biologicalDiversityDay', $day->getInternalName());
-        $date = $day->getDate();
-        $this->assertEquals(, $date->getDay(), 'biologicalDiversityDay');
-        $this->assertEquals(, $date->getMonth(), 'biologicalDiversityDay');
-        $this->assertEquals(2005, $date->getYear(), 'biologicalDiversityDay');
-
-        // test africanLiberationDay
-        $day = $drv->getHoliday('africanLiberationDay');
-        $this->assertFalse(Date_Holidays::isError($day));
-        if (Date_Holidays::isError($day)) {
-            die($day->getMessage());
-        }
-        $this->assertEquals('africanLiberationDay', $day->getInternalName());
-        $date = $day->getDate();
-        $this->assertEquals(, $date->getDay(), 'africanLiberationDay');
-        $this->assertEquals(, $date->getMonth(), 'africanLiberationDay');
-        $this->assertEquals(2005, $date->getYear(), 'africanLiberationDay');
-
-        // test unPeaceSquadsDay
-        $day = $drv->getHoliday('unPeaceSquadsDay');
-        $this->assertFalse(Date_Holidays::isError($day));
-        if (Date_Holidays::isError($day)) {
-            die($day->getMessage());
-        }
-        $this->assertEquals('unPeaceSquadsDay', $day->getInternalName());
-        $date = $day->getDate();
-        $this->assertEquals(, $date->getDay(), 'unPeaceSquadsDay');
-        $this->assertEquals(, $date->getMonth(), 'unPeaceSquadsDay');
-        $this->assertEquals(2005, $date->getYear(), 'unPeaceSquadsDay');
-
-        // test nonsmokersDay
-        $day = $drv->getHoliday('nonsmokersDay');
-        $this->assertFalse(Date_Holidays::isError($day));
-        if (Date_Holidays::isError($day)) {
-            die($day->getMessage());
-        }
-        $this->assertEquals('nonsmokersDay', $day->getInternalName());
-        $date = $day->getDate();
-        $this->assertEquals(, $date->getDay(), 'nonsmokersDay');
-        $this->assertEquals(, $date->getMonth(), 'nonsmokersDay');
-        $this->assertEquals(2005, $date->getYear(), 'nonsmokersDay');
-
-        // test farmersDay
-        $day = $drv->getHoliday('farmersDay');
-        $this->assertFalse(Date_Holidays::isError($day));
-        if (Date_Holidays::isError($day)) {
-            die($day->getMessage());
-        }
-        $this->assertEquals('farmersDay', $day->getInternalName());
-        $date = $day->getDate();
-        $this->assertEquals(, $date->getDay(), 'farmersDay');
-        $this->assertEquals(, $date->getMonth(), 'farmersDay');
-        $this->assertEquals(2005, $date->getYear(), 'farmersDay');
-
-        // test environmentDay
-        $day = $drv->getHoliday('environmentDay');
-        $this->assertFalse(Date_Holidays::isError($day));
-        if (Date_Holidays::isError($day)) {
-            die($day->getMessage());
-        }
-        $this->assertEquals('environmentDay', $day->getInternalName());
-        $date = $day->getDate();
-        $this->assertEquals(, $date->getDay(), 'environmentDay');
-        $this->assertEquals(, $date->getMonth(), 'environmentDay');
-        $this->assertEquals(2005, $date->getYear(), 'environmentDay');
-
-        // test africanChildrenDay
-        $day = $drv->getHoliday('africanChildrenDay');
-        $this->assertFalse(Date_Holidays::isError($day));
-        if (Date_Holidays::isError($day)) {
-            die($day->getMessage());
-        }
-        $this->assertEquals('africanChildrenDay', $day->getInternalName());
-        $date = $day->getDate();
-        $this->assertEquals(, $date->getDay(), 'africanChildrenDay');
-        $this->assertEquals(, $date->getMonth(), 'africanChildrenDay');
-        $this->assertEquals(2005, $date->getYear(), 'africanChildrenDay');
-
-        // test desertDay
-        $day = $drv->getHoliday('desertDay');
-        $this->assertFalse(Date_Holidays::isError($day));
-        if (Date_Holidays::isError($day)) {
-            die($day->getMessage());
-        }
-        $this->assertEquals('desertDay', $day->getInternalName());
-        $date = $day->getDate();
-        $this->assertEquals(, $date->getDay(), 'desertDay');
-        $this->assertEquals(, $date->getMonth(), 'desertDay');
-        $this->assertEquals(2005, $date->getYear(), 'desertDay');
-
-        // test africanFugitiveDay
-        $day = $drv->getHoliday('africanFugitiveDay');
-        $this->assertFalse(Date_Holidays::isError($day));
-        if (Date_Holidays::isError($day)) {
-            die($day->getMessage());
-        }
-        $this->assertEquals('africanFugitiveDay', $day->getInternalName());
-        $date = $day->getDate();
-        $this->assertEquals(, $date->getDay(), 'africanFugitiveDay');
-        $this->assertEquals(, $date->getMonth(), 'africanFugitiveDay');
-        $this->assertEquals(2005, $date->getYear(), 'africanFugitiveDay');
-
-        // test antiDrugsDay
-        $day = $drv->getHoliday('antiDrugsDay');
-        $this->assertFalse(Date_Holidays::isError($day));
-        if (Date_Holidays::isError($day)) {
-            die($day->getMessage());
-        }
-        $this->assertEquals('antiDrugsDay', $day->getInternalName());
-        $date = $day->getDate();
-        $this->assertEquals(, $date->getDay(), 'antiDrugsDay');
-        $this->assertEquals(, $date->getMonth(), 'antiDrugsDay');
-        $this->assertEquals(2005, $date->getYear(), 'antiDrugsDay');
-
-        // test intCoopDay
-        $day = $drv->getHoliday('intCoopDay');
-        $this->assertFalse(Date_Holidays::isError($day));
-        if (Date_Holidays::isError($day)) {
-            die($day->getMessage());
-        }
-        $this->assertEquals('intCoopDay', $day->getInternalName());
-        $date = $day->getDate();
-        $this->assertEquals(, $date->getDay(), 'intCoopDay');
-        $this->assertEquals(, $date->getMonth(), 'intCoopDay');
-        $this->assertEquals(2005, $date->getYear(), 'intCoopDay');
-
-        // test populationDay
-        $day = $drv->getHoliday('populationDay');
-        $this->assertFalse(Date_Holidays::isError($day));
-        if (Date_Holidays::isError($day)) {
-            die($day->getMessage());
-        }
-        $this->assertEquals('populationDay', $day->getInternalName());
-        $date = $day->getDate();
-        $this->assertEquals(, $date->getDay(), 'populationDay');
-        $this->assertEquals(, $date->getMonth(), 'populationDay');
-        $this->assertEquals(2005, $date->getYear(), 'populationDay');
-
-        // test indigenousPeopleDay
-        $day = $drv->getHoliday('indigenousPeopleDay');
-        $this->assertFalse(Date_Holidays::isError($day));
-        if (Date_Holidays::isError($day)) {
-            die($day->getMessage());
-        }
-        $this->assertEquals('indigenousPeopleDay', $day->getInternalName());
-        $date = $day->getDate();
-        $this->assertEquals(, $date->getDay(), 'indigenousPeopleDay');
-        $this->assertEquals(, $date->getMonth(), 'indigenousPeopleDay');
-        $this->assertEquals(2005, $date->getYear(), 'indigenousPeopleDay');
-
-        // test intYouthDay
-        $day = $drv->getHoliday('intYouthDay');
-        $this->assertFalse(Date_Holidays::isError($day));
-        if (Date_Holidays::isError($day)) {
-            die($day->getMessage());
-        }
-        $this->assertEquals('intYouthDay', $day->getInternalName());
-        $date = $day->getDate();
-        $this->assertEquals(, $date->getDay(), 'intYouthDay');
-        $this->assertEquals(, $date->getMonth(), 'intYouthDay');
-        $this->assertEquals(2005, $date->getYear(), 'intYouthDay');
-
-        // test slaveTradeDay
-        $day = $drv->getHoliday('slaveTradeDay');
-        $this->assertFalse(Date_Holidays::isError($day));
-        if (Date_Holidays::isError($day)) {
-            die($day->getMessage());
-        }
-        $this->assertEquals('slaveTradeDay', $day->getInternalName());
-        $date = $day->getDate();
-        $this->assertEquals(, $date->getDay(), 'slaveTradeDay');
-        $this->assertEquals(, $date->getMonth(), 'slaveTradeDay');
-        $this->assertEquals(2005, $date->getYear(), 'slaveTradeDay');
-
-        // test alphabetizationDay
-        $day = $drv->getHoliday('alphabetizationDay');
-        $this->assertFalse(Date_Holidays::isError($day));
-        if (Date_Holidays::isError($day)) {
-            die($day->getMessage());
-        }
-        $this->assertEquals('alphabetizationDay', $day->getInternalName());
-        $date = $day->getDate();
-        $this->assertEquals(, $date->getDay(), 'alphabetizationDay');
-        $this->assertEquals(, $date->getMonth(), 'alphabetizationDay');
-        $this->assertEquals(2005, $date->getYear(), 'alphabetizationDay');
-
-        // test ozoneLayerProtectionDay
-        $day = $drv->getHoliday('ozoneLayerProtectionDay');
-        $this->assertFalse(Date_Holidays::isError($day));
-        if (Date_Holidays::isError($day)) {
-            die($day->getMessage());
-        }
-        $this->assertEquals('ozoneLayerProtectionDay', $day->getInternalName());
-        $date = $day->getDate();
-        $this->assertEquals(, $date->getDay(), 'ozoneLayerProtectionDay');
-        $this->assertEquals(, $date->getMonth(), 'ozoneLayerProtectionDay');
-        $this->assertEquals(2005, $date->getYear(), 'ozoneLayerProtectionDay');
-
-        // test intPeaceDay
-        $day = $drv->getHoliday('intPeaceDay');
-        $this->assertFalse(Date_Holidays::isError($day));
-        if (Date_Holidays::isError($day)) {
-            die($day->getMessage());
-        }
-        $this->assertEquals('intPeaceDay', $day->getInternalName());
-        $date = $day->getDate();
-        $this->assertEquals(, $date->getDay(), 'intPeaceDay');
-        $this->assertEquals(, $date->getMonth(), 'intPeaceDay');
-        $this->assertEquals(2005, $date->getYear(), 'intPeaceDay');
-
-        // test tourismDay
-        $day = $drv->getHoliday('tourismDay');
-        $this->assertFalse(Date_Holidays::isError($day));
-        if (Date_Holidays::isError($day)) {
-            die($day->getMessage());
-        }
-        $this->assertEquals('tourismDay', $day->getInternalName());
-        $date = $day->getDate();
-        $this->assertEquals(, $date->getDay(), 'tourismDay');
-        $this->assertEquals(, $date->getMonth(), 'tourismDay');
-        $this->assertEquals(2005, $date->getYear(), 'tourismDay');
-
-        // test intFugitiveDay
-        $day = $drv->getHoliday('intFugitiveDay');
-        $this->assertFalse(Date_Holidays::isError($day));
-        if (Date_Holidays::isError($day)) {
-            die($day->getMessage());
-        }
-        $this->assertEquals('intFugitiveDay', $day->getInternalName());
-        $date = $day->getDate();
-        $this->assertEquals(, $date->getDay(), 'intFugitiveDay');
-        $this->assertEquals(, $date->getMonth(), 'intFugitiveDay');
-        $this->assertEquals(2005, $date->getYear(), 'intFugitiveDay');
-
-        // test agedPeopleDay
-        $day = $drv->getHoliday('agedPeopleDay');
-        $this->assertFalse(Date_Holidays::isError($day));
-        if (Date_Holidays::isError($day)) {
-            die($day->getMessage());
-        }
-        $this->assertEquals('agedPeopleDay', $day->getInternalName());
-        $date = $day->getDate();
-        $this->assertEquals(, $date->getDay(), 'agedPeopleDay');
-        $this->assertEquals(, $date->getMonth(), 'agedPeopleDay');
-        $this->assertEquals(2005, $date->getYear(), 'agedPeopleDay');
-
-        // test animalsDay
-        $day = $drv->getHoliday('animalsDay');
-        $this->assertFalse(Date_Holidays::isError($day));
-        if (Date_Holidays::isError($day)) {
-            die($day->getMessage());
-        }
-        $this->assertEquals('animalsDay', $day->getInternalName());
-        $date = $day->getDate();
-        $this->assertEquals(, $date->getDay(), 'animalsDay');
-        $this->assertEquals(, $date->getMonth(), 'animalsDay');
-        $this->assertEquals(2005, $date->getYear(), 'animalsDay');
-
-        // test outerSpaceWeek
-        $day = $drv->getHoliday('outerSpaceWeek');
-        $this->assertFalse(Date_Holidays::isError($day));
-        if (Date_Holidays::isError($day)) {
-            die($day->getMessage());
-        }
-        $this->assertEquals('outerSpaceWeek', $day->getInternalName());
-        $date = $day->getDate();
-        $this->assertEquals(, $date->getDay(), 'outerSpaceWeek');
-        $this->assertEquals(, $date->getMonth(), 'outerSpaceWeek');
-        $this->assertEquals(2005, $date->getYear(), 'outerSpaceWeek');
-
-        // test habitatDay
-        $day = $drv->getHoliday('habitatDay');
-        $this->assertFalse(Date_Holidays::isError($day));
-        if (Date_Holidays::isError($day)) {
-            die($day->getMessage());
-        }
-        $this->assertEquals('habitatDay', $day->getInternalName());
-        $date = $day->getDate();
-        $this->assertEquals(, $date->getDay(), 'habitatDay');
-        $this->assertEquals(, $date->getMonth(), 'habitatDay');
-        $this->assertEquals(2005, $date->getYear(), 'habitatDay');
-
-        // test teachersDay
-        $day = $drv->getHoliday('teachersDay');
-        $this->assertFalse(Date_Holidays::isError($day));
-        if (Date_Holidays::isError($day)) {
-            die($day->getMessage());
-        }
-        $this->assertEquals('teachersDay', $day->getInternalName());
-        $date = $day->getDate();
-        $this->assertEquals(, $date->getDay(), 'teachersDay');
-        $this->assertEquals(, $date->getMonth(), 'teachersDay');
-        $this->assertEquals(2005, $date->getYear(), 'teachersDay');
-
-        // test postAssociationDay
-        $day = $drv->getHoliday('postAssociationDay');
-        $this->assertFalse(Date_Holidays::isError($day));
-        if (Date_Holidays::isError($day)) {
-            die($day->getMessage());
-        }
-        $this->assertEquals('postAssociationDay', $day->getInternalName());
-        $date = $day->getDate();
-        $this->assertEquals(, $date->getDay(), 'postAssociationDay');
-        $this->assertEquals(, $date->getMonth(), 'postAssociationDay');
-        $this->assertEquals(2005, $date->getYear(), 'postAssociationDay');
-
-        // test sanityDay
-        $day = $drv->getHoliday('sanityDay');
-        $this->assertFalse(Date_Holidays::isError($day));
-        if (Date_Holidays::isError($day)) {
-            die($day->getMessage());
-        }
-        $this->assertEquals('sanityDay', $day->getInternalName());
-        $date = $day->getDate();
-        $this->assertEquals(, $date->getDay(), 'sanityDay');
-        $this->assertEquals(, $date->getMonth(), 'sanityDay');
-        $this->assertEquals(2005, $date->getYear(), 'sanityDay');
-
-        // test nourishmentDay
-        $day = $drv->getHoliday('nourishmentDay');
-        $this->assertFalse(Date_Holidays::isError($day));
-        if (Date_Holidays::isError($day)) {
-            die($day->getMessage());
-        }
-        $this->assertEquals('nourishmentDay', $day->getInternalName());
-        $date = $day->getDate();
-        $this->assertEquals(, $date->getDay(), 'nourishmentDay');
-        $this->assertEquals(, $date->getMonth(), 'nourishmentDay');
-        $this->assertEquals(2005, $date->getYear(), 'nourishmentDay');
-
-        // test povertyRemovalDay
-        $day = $drv->getHoliday('povertyRemovalDay');
-        $this->assertFalse(Date_Holidays::isError($day));
-        if (Date_Holidays::isError($day)) {
-            die($day->getMessage());
-        }
-        $this->assertEquals('povertyRemovalDay', $day->getInternalName());
-        $date = $day->getDate();
-        $this->assertEquals(, $date->getDay(), 'povertyRemovalDay');
-        $this->assertEquals(, $date->getMonth(), 'povertyRemovalDay');
-        $this->assertEquals(2005, $date->getYear(), 'povertyRemovalDay');
-
-        // test unitedNationsDay
-        $day = $drv->getHoliday('unitedNationsDay');
-        $this->assertFalse(Date_Holidays::isError($day));
-        if (Date_Holidays::isError($day)) {
-            die($day->getMessage());
-        }
-        $this->assertEquals('unitedNationsDay', $day->getInternalName());
-        $date = $day->getDate();
-        $this->assertEquals(, $date->getDay(), 'unitedNationsDay');
-        $this->assertEquals(, $date->getMonth(), 'unitedNationsDay');
-        $this->assertEquals(2005, $date->getYear(), 'unitedNationsDay');
-
-        // test evolvementInfoDay
-        $day = $drv->getHoliday('evolvementInfoDay');
-        $this->assertFalse(Date_Holidays::isError($day));
-        if (Date_Holidays::isError($day)) {
-            die($day->getMessage());
-        }
-        $this->assertEquals('evolvementInfoDay', $day->getInternalName());
-        $date = $day->getDate();
-        $this->assertEquals(, $date->getDay(), 'evolvementInfoDay');
-        $this->assertEquals(, $date->getMonth(), 'evolvementInfoDay');
-        $this->assertEquals(2005, $date->getYear(), 'evolvementInfoDay');
-
-        // test evolvementInfoDay
-        $day = $drv->getHoliday('evolvementInfoDay');
-        $this->assertFalse(Date_Holidays::isError($day));
-        if (Date_Holidays::isError($day)) {
-            die($day->getMessage());
-        }
-        $this->assertEquals('evolvementInfoDay', $day->getInternalName());
-        $date = $day->getDate();
-        $this->assertEquals(, $date->getDay(), 'evolvementInfoDay');
-        $this->assertEquals(, $date->getMonth(), 'evolvementInfoDay');
-        $this->assertEquals(2005, $date->getYear(), 'evolvementInfoDay');
-
-        // test environmentalExploitationDay
-        $day = $drv->getHoliday('environmentalExploitationDay');
-        $this->assertFalse(Date_Holidays::isError($day));
-        if (Date_Holidays::isError($day)) {
-            die($day->getMessage());
-        }
-        $this->assertEquals('environmentalExploitationDay', $day->getInternalName());
-        $date = $day->getDate();
-        $this->assertEquals(, $date->getDay(), 'environmentalExploitationDay');
-        $this->assertEquals(, $date->getMonth(), 'environmentalExploitationDay');
-        $this->assertEquals(2005, $date->getYear(), 'environmentalExploitationDay');
-
-        // test toleranceDay
-        $day = $drv->getHoliday('toleranceDay');
-        $this->assertFalse(Date_Holidays::isError($day));
-        if (Date_Holidays::isError($day)) {
-            die($day->getMessage());
-        }
-        $this->assertEquals('toleranceDay', $day->getInternalName());
-        $date = $day->getDate();
-        $this->assertEquals(, $date->getDay(), 'toleranceDay');
-        $this->assertEquals(, $date->getMonth(), 'toleranceDay');
-        $this->assertEquals(2005, $date->getYear(), 'toleranceDay');
-
-        // test africanIndustrializationDay
-        $day = $drv->getHoliday('africanIndustrializationDay');
-        $this->assertFalse(Date_Holidays::isError($day));
-        if (Date_Holidays::isError($day)) {
-            die($day->getMessage());
-        }
-        $this->assertEquals('africanIndustrializationDay', $day->getInternalName());
-        $date = $day->getDate();
-        $this->assertEquals(, $date->getDay(), 'africanIndustrializationDay');
-        $this->assertEquals(, $date->getMonth(), 'africanIndustrializationDay');
-        $this->assertEquals(2005, $date->getYear(), 'africanIndustrializationDay');
-
-        // test worldChildrenDay
-        $day = $drv->getHoliday('worldChildrenDay');
-        $this->assertFalse(Date_Holidays::isError($day));
-        if (Date_Holidays::isError($day)) {
-            die($day->getMessage());
-        }
-        $this->assertEquals('worldChildrenDay', $day->getInternalName());
-        $date = $day->getDate();
-        $this->assertEquals(, $date->getDay(), 'worldChildrenDay');
-        $this->assertEquals(, $date->getMonth(), 'worldChildrenDay');
-        $this->assertEquals(2005, $date->getYear(), 'worldChildrenDay');
-
-        // test televisionDay
-        $day = $drv->getHoliday('televisionDay');
-        $this->assertFalse(Date_Holidays::isError($day));
-        if (Date_Holidays::isError($day)) {
-            die($day->getMessage());
-        }
-        $this->assertEquals('televisionDay', $day->getInternalName());
-        $date = $day->getDate();
-        $this->assertEquals(, $date->getDay(), 'televisionDay');
-        $this->assertEquals(, $date->getMonth(), 'televisionDay');
-        $this->assertEquals(2005, $date->getYear(), 'televisionDay');
-
-        // test noViolenceAgainstWomen
-        $day = $drv->getHoliday('noViolenceAgainstWomen');
-        $this->assertFalse(Date_Holidays::isError($day));
-        if (Date_Holidays::isError($day)) {
-            die($day->getMessage());
-        }
-        $this->assertEquals('noViolenceAgainstWomen', $day->getInternalName());
-        $date = $day->getDate();
-        $this->assertEquals(, $date->getDay(), 'noViolenceAgainstWomen');
-        $this->assertEquals(, $date->getMonth(), 'noViolenceAgainstWomen');
-        $this->assertEquals(2005, $date->getYear(), 'noViolenceAgainstWomen');
-
-        // test palestinianSolidarity
-        $day = $drv->getHoliday('palestinianSolidarity');
-        $this->assertFalse(Date_Holidays::isError($day));
-        if (Date_Holidays::isError($day)) {
-            die($day->getMessage());
-        }
-        $this->assertEquals('palestinianSolidarity', $day->getInternalName());
-        $date = $day->getDate();
-        $this->assertEquals(, $date->getDay(), 'palestinianSolidarity');
-        $this->assertEquals(, $date->getMonth(), 'palestinianSolidarity');
-        $this->assertEquals(2005, $date->getYear(), 'palestinianSolidarity');
-
-        // test worldAidsDay
-        $day = $drv->getHoliday('worldAidsDay');
-        $this->assertFalse(Date_Holidays::isError($day));
-        if (Date_Holidays::isError($day)) {
-            die($day->getMessage());
-        }
-        $this->assertEquals('worldAidsDay', $day->getInternalName());
-        $date = $day->getDate();
-        $this->assertEquals(, $date->getDay(), 'worldAidsDay');
-        $this->assertEquals(, $date->getMonth(), 'worldAidsDay');
-        $this->assertEquals(2005, $date->getYear(), 'worldAidsDay');
-
-        // test againstSlaveryDay
-        $day = $drv->getHoliday('againstSlaveryDay');
-        $this->assertFalse(Date_Holidays::isError($day));
-        if (Date_Holidays::isError($day)) {
-            die($day->getMessage());
-        }
-        $this->assertEquals('againstSlaveryDay', $day->getInternalName());
-        $date = $day->getDate();
-        $this->assertEquals(, $date->getDay(), 'againstSlaveryDay');
-        $this->assertEquals(, $date->getMonth(), 'againstSlaveryDay');
-        $this->assertEquals(2005, $date->getYear(), 'againstSlaveryDay');
-
-        // test disabledPeopleDay
-        $day = $drv->getHoliday('disabledPeopleDay');
-        $this->assertFalse(Date_Holidays::isError($day));
-        if (Date_Holidays::isError($day)) {
-            die($day->getMessage());
-        }
-        $this->assertEquals('disabledPeopleDay', $day->getInternalName());
-        $date = $day->getDate();
-        $this->assertEquals(, $date->getDay(), 'disabledPeopleDay');
-        $this->assertEquals(, $date->getMonth(), 'disabledPeopleDay');
-        $this->assertEquals(2005, $date->getYear(), 'disabledPeopleDay');
-
-        // test evolvementHelperDay
-        $day = $drv->getHoliday('evolvementHelperDay');
-        $this->assertFalse(Date_Holidays::isError($day));
-        if (Date_Holidays::isError($day)) {
-            die($day->getMessage());
-        }
-        $this->assertEquals('evolvementHelperDay', $day->getInternalName());
-        $date = $day->getDate();
-        $this->assertEquals(, $date->getDay(), 'evolvementHelperDay');
-        $this->assertEquals(, $date->getMonth(), 'evolvementHelperDay');
-        $this->assertEquals(2005, $date->getYear(), 'evolvementHelperDay');
-
-        // test civilAeronauticsDay
-        $day = $drv->getHoliday('civilAeronauticsDay');
-        $this->assertFalse(Date_Holidays::isError($day));
-        if (Date_Holidays::isError($day)) {
-            die($day->getMessage());
-        }
-        $this->assertEquals('civilAeronauticsDay', $day->getInternalName());
-        $date = $day->getDate();
-        $this->assertEquals(, $date->getDay(), 'civilAeronauticsDay');
-        $this->assertEquals(, $date->getMonth(), 'civilAeronauticsDay');
-        $this->assertEquals(2005, $date->getYear(), 'civilAeronauticsDay');
-
-        // test humanRightsDay
-        $day = $drv->getHoliday('humanRightsDay');
-        $this->assertFalse(Date_Holidays::isError($day));
-        if (Date_Holidays::isError($day)) {
-            die($day->getMessage());
-        }
-        $this->assertEquals('humanRightsDay', $day->getInternalName());
-        $date = $day->getDate();
-        $this->assertEquals(, $date->getDay(), 'humanRightsDay');
-        $this->assertEquals(, $date->getMonth(), 'humanRightsDay');
-        $this->assertEquals(2005, $date->getYear(), 'humanRightsDay');
-
-        // test unicefDay
-        $day = $drv->getHoliday('unicefDay');
-        $this->assertFalse(Date_Holidays::isError($day));
-        if (Date_Holidays::isError($day)) {
-            die($day->getMessage());
-        }
-        $this->assertEquals('unicefDay', $day->getInternalName());
-        $date = $day->getDate();
-        $this->assertEquals(, $date->getDay(), 'unicefDay');
-        $this->assertEquals(, $date->getMonth(), 'unicefDay');
-        $this->assertEquals(2005, $date->getYear(), 'unicefDay');
-
-        // test migrantsDay
-        $day = $drv->getHoliday('migrantsDay');
-        $this->assertFalse(Date_Holidays::isError($day));
-        if (Date_Holidays::isError($day)) {
-            die($day->getMessage());
-        }
-        $this->assertEquals('migrantsDay', $day->getInternalName());
-        $date = $day->getDate();
-        $this->assertEquals(, $date->getDay(), 'migrantsDay');
-        $this->assertEquals(, $date->getMonth(), 'migrantsDay');
-        $this->assertEquals(2005, $date->getYear(), 'migrantsDay');
-        */
     }
 
 }
