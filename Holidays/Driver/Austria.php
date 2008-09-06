@@ -76,10 +76,45 @@ class Date_Holidays_Driver_Austria extends Date_Holidays_Driver
                            'Heilige Drei Könige');
 
         /**
+         * Valentine´s Day
+         */
+        $this->_addHoliday('valentinesDay',
+                           $this->_year . '-02-14',
+                           'Valentinstag');
+
+        /**
          * Easter Sunday
          */
         $easterDate = Date_Holidays_Driver_Christian::calcEaster($this->_year);
         $this->_addHoliday('easter', $easterDate, 'Ostersonntag');
+
+        /**
+         * Ash Wednesday
+         */
+        $ashWednesday = new Date($easterDate);
+        $ashWednesday->subtractSpan(new Date_Span('46, 0, 0, 0'));
+        $this->_addHoliday('ashWednesday', $ashWednesday, 'Aschermittwoch');
+
+        /**
+         * Palm Sunday
+         */
+        $palmSunday = new Date($easterDate);
+        $palmSunday->subtractSpan(new Date_Span('7, 0, 0, 0'));
+        $this->_addHoliday('palmSunday', $palmSunday, 'Palmsonntag');
+
+        /**
+         * Maundy Thursday
+         */
+        $maundyThursday = new Date($easterDate);
+        $maundyThursday->subtractSpan(new Date_Span('3, 0, 0, 0'));
+        $this->_addHoliday('maundyThursday', $maundyThursday, 'Gründonnerstag');
+
+        /**
+         * Good Friday
+         */
+        $goodFriday = new Date($easterDate);
+        $goodFriday->subtractSpan(new Date_Span('2, 0, 0, 0'));
+        $this->_addHoliday('goodFriday', $goodFriday, 'Karfreitag');
 
         /**
          * Easter Monday
@@ -89,7 +124,38 @@ class Date_Holidays_Driver_Austria extends Date_Holidays_Driver
         /**
          * Day of Work
          */
-        $this->_addHoliday('dayOfWork', $this->_year . '-05-01', 'Tag der Arbeit');
+        $this->_addHoliday('dayOfWork', $this->_year . '-05-01', 'Staatsfeiertag Österreich');
+
+        /**
+         * Saint Florian
+         */
+        $this->_addHoliday('saintFlorian', $this->_year . '-05-04', 'St. Florian');
+
+        /**
+         * Mothers Day
+         */
+        $mothersDay = $this->_calcFirstMonday("05");
+        $mothersDay = $mothersDay->getPrevDay();
+        $mothersDay->addSpan(new Date_Span('7, 0, 0, 0'));
+        $this->_addHoliday('mothersDay',
+                           $mothersDay,
+                           'Muttertag');
+
+        /**
+         * Ascension Day
+         */
+        $ascensionDate = new Date($easterDate);
+        $ascensionDate->addSpan(new Date_Span('39, 0, 0, 0'));
+        $this->_addHoliday('ascensionDate', $ascensionDate, 'Christi Himmelfahrt');
+
+        /**
+         * Ascension Day
+         */
+        //$ascensionDayDate = new Date($whitsunDate);
+        //$ascensionDayDate->subtractSpan(new Date_Span('10, 0, 0, 0'));
+        //$this->_addHoliday('ascensionDay',
+        //                   $ascensionDayDate,
+        //                   'Christi Himmelfahrt');
 
         /**
          * Whitsun (determines Whit Monday, Ascension Day and
@@ -100,29 +166,26 @@ class Date_Holidays_Driver_Austria extends Date_Holidays_Driver
         $this->_addHoliday('whitsun', $whitsunDate, 'Pfingstsonntag');
 
         /**
-         * Ascension Day
-         */
-        $ascensionDayDate = new Date($whitsunDate);
-        $ascensionDayDate->subtractSpan(new Date_Span('10, 0, 0, 0'));
-        $this->_addHoliday('ascensionDay',
-                           $ascensionDayDate,
-                           'Christi Himmelfahrt');
-
-        /**
          * Whit Monday
          */
-        $this->_addHoliday('whitMonday',
-                           $whitsunDate->getNextDay(),
-                           'Pfingstmontag');
+        $this->_addHoliday('whitMonday', $whitsunDate->getNextDay(), 'Pfingstmontag');
 
         /**
-         * Feast of Corpus Christi
+         * Corpus Christi
          */
-        $corpusChristiDate = new Date($whitsunDate);
-        $corpusChristiDate->addSpan(new Date_Span('11, 0, 0, 0'));
-        $this->_addHoliday('corpusChristi',
-                           $corpusChristiDate,
-                           'Fronleichnam');
+        $corpusChristi = new Date($easterDate);
+        $corpusChristi->addSpan(new Date_Span('60, 0, 0, 0'));
+        $this->_addHoliday('corpusChristi', $corpusChristi, 'Fronleichnam');
+
+        /**
+         * Fathers Day
+         */
+        $fathersDay = $this->_calcFirstMonday("06");
+        $fathersDay = $fathersDay->getPrevDay();
+        $fathersDay->addSpan(new Date_Span('7, 0, 0, 0'));
+        $this->_addHoliday('fathersDay',
+                           $fathersDay,
+                           'Vatertag');
 
         /**
          * Ascension of Maria
@@ -146,19 +209,99 @@ class Date_Holidays_Driver_Austria extends Date_Holidays_Driver
                            'Allerheiligen');
 
         /**
+         *All Souls´ Day
+         */
+        $this->_addHoliday('allSoulsDay',
+                           $this->_year . '-11-02',
+                           'Allerseelen');
+
+        /**
+         * Santa Claus
+         */
+        $this->_addHoliday('santasDay',
+                           $this->_year . '-12-06',
+                           'St. Nikolaus');
+
+        /**
+         * Immaculate Conception
+         */
+        $this->_addHoliday('immaculateConceptionDay',
+                           $this->_year . '-12-08',
+                           'Maria Empfängnis');
+
+        /**
+         * Sunday in commemoration of the dead (sundayIcotd)
+         */
+        $sundayIcotd = $this->_calcFirstMonday(12);
+        $sundayIcotd = $sundayIcotd->getPrevDay();
+        $sundayIcotd->subtractSpan(new Date_Span('7, 0, 0, 0'));
+        $this->_addHoliday('sundayIcotd',
+                           $sundayIcotd,
+                           'Totensonntag');
+
+        /**
+         * 1. Advent
+         */
+        $firstAdv = $this->_calcFirstMonday(12);
+        $firstAdv = $firstAdv->getPrevDay();
+        $this->_addHoliday('firstAdvent',
+                           $firstAdv,
+                           '1. Advent');
+
+        /**
+         * 2. Advent
+         */
+        $secondAdv = new Date($firstAdv);
+        $secondAdv->addSpan(new Date_Span('7, 0, 0, 0'));
+        $this->_addHoliday('secondAdvent',
+                           $secondAdv,
+                           '2. Advent');
+
+        /**
+         * 3. Advent
+         */
+        $thirdAdv = new Date($firstAdv);
+        $thirdAdv->addSpan(new Date_Span('14, 0, 0, 0'));
+        $this->_addHoliday('thirdAdvent',
+                           $thirdAdv,
+                           '3. Advent');
+
+        /**
+         * 4. Advent
+         */
+        $fourthAdv = new Date($firstAdv);
+        $fourthAdv->addSpan(new Date_Span('21, 0, 0, 0'));
+        $this->_addHoliday('fourthAdvent',
+                           $fourthAdv,
+                           '4. Advent');
+
+        /**
+         * Christmas Eve
+         */
+        $this->_addHoliday('christmasEve',
+                           $this->_year . '-12-24',
+                           'Heiliger Abend');
+
+        /**
          * Christmas day
          */
         $this->_addHoliday('christmasDay',
                            $this->_year . '-12-25',
-                           '1. Weihnachtsfeiertag');
+                           'Christtag');
 
         /**
          * Boxing day
          */
         $this->_addHoliday('boxingDay',
                            $this->_year . '-12-26',
-                           '2. Weihnachtsfeiertag');
+                           'Stefanitag');
 
+        /**
+         * New Year´s Eve
+         */
+        $this->_addHoliday('newYearsEve',
+                           $this->_year . '-12-31',
+                           'Silvester');
 
         if (Date_Holidays::errorsOccurred()) {
             return Date_Holidays::getErrorStack();
