@@ -18,7 +18,7 @@ if (!defined("PHPUnit_MAIN_METHOD")) {
 
 require_once 'Date/Holidays.php';
 
-define('LANG_FILE', '@DATA-DIR@/Date_Holidays_Japan/lang/');
+define('LANG_FILE', '/usr/local/lib/php5/pear/data/Date_Holidays_Japan/lang/');
 
 /**
  * Test class for running unit tests related to the driver for holidays
@@ -1387,18 +1387,46 @@ class Date_Holidays_Driver_Japan_TestSuite extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * test setYear with a translation file
+     * test setYear with a xml translation file
      *
      * @access public
      * @return void
      */
-    function testSetYearWithTranslationFile()
+    function testSetYearWithXmlTranslationFile()
     {
+        // with ja_JP.xml
         $obj = Date_Holidays::factory('Japan', 2008);
         if (Date_Holidays::isError($obj)) {
             $this->fail('Factory was unable to produce driver-object');
         }
         $obj->addTranslationFile(LANG_FILE . '/Japan/ja_JP.xml', 'ja_JP');
+        if (Date_Holidays::isError($obj)) {
+            $this->fail('fail to add translation file');
+        }
+
+        $this->assertEquals('振替休日', $obj->getHolidayForDate(new Date('2008-05-06'), 'ja_JP')->getTitle(), '2008');
+
+        $obj->setYear(2009);
+        $this->assertEquals('振替休日', $obj->getHolidayForDate(new Date('2009-05-06'), 'ja_JP')->getTitle(), '2009');
+
+        $obj->setYear(2010);
+        $this->assertNull($obj->getHolidayForDate(new Date('2010-05-06'), 'ja_JP'), '2010');
+    }
+
+    /**
+     * test setYear with a .ser translation file
+     *
+     * @access public
+     * @return void
+     */
+    function testSetYearWithCompiledTranslationFile()
+    {
+        // with ja_JP.ser
+        $obj = Date_Holidays::factory('Japan', 2008);
+        if (Date_Holidays::isError($obj)) {
+            $this->fail('Factory was unable to produce driver-object');
+        }
+        $obj->addCompiledTranslationFile(LANG_FILE . '/Japan/ja_JP.ser', 'ja_JP');
         if (Date_Holidays::isError($obj)) {
             $this->fail('fail to add translation file');
         }
@@ -1442,6 +1470,116 @@ class Date_Holidays_Driver_Japan_TestSuite extends PHPUnit_Framework_TestCase
 
         // if no invalid holidays was calculated or not
         $this->assertEquals(0, count($invalid_holidays));
+    }
+
+    /**
+     * tests showa day with .xml file (YYYY-MM-DD = YYYY-04-29)
+     *
+     * @access public
+     * @return void
+     */
+    function testShowaDay()
+    {
+        // with ja_JP.xml
+        $obj = Date_Holidays::factory('Japan', 1949);
+        if (Date_Holidays::isError($obj)) {
+            $this->fail('Factory was unable to produce driver-object');
+        }
+        $obj->addTranslationFile(LANG_FILE . '/Japan/ja_JP.xml', 'ja_JP');
+        if (Date_Holidays::isError($obj)) {
+            $this->fail('fail to add translation file');
+        }
+
+        $this->assertEquals('天皇誕生日', $obj->getHolidayForDate('1949-04-29', 'ja_JP')->getTitle(), 'showa day in 1949');
+
+        $obj->setYear(1989);
+        $this->assertEquals('みどりの日', $obj->getHolidayForDate('1989-04-29', 'ja_JP')->getTitle(), 'showa day in 1989');
+
+        $obj->setYear(2007);
+        $this->assertEquals('昭和の日', $obj->getHolidayForDate('2007-04-29', 'ja_JP')->getTitle(), 'showa day in 2007');
+    }
+
+    /**
+     * tests showa day with .xml file (YYYY-MM-DD = YYYY-04-29)
+     *
+     * @access public
+     * @return void
+     */
+    function testShowaDayWithCompiledTranslationFile()
+    {
+        // with ja_JP.ser
+        $obj = Date_Holidays::factory('Japan', 1949);
+        if (Date_Holidays::isError($obj)) {
+            $this->fail('Factory was unable to produce driver-object');
+        }
+        $obj->addCompiledTranslationFile(LANG_FILE . '/Japan/ja_JP.ser', 'ja_JP');
+        if (Date_Holidays::isError($obj)) {
+            $this->fail('fail to add translation file');
+        }
+
+        $this->assertEquals('天皇誕生日', $obj->getHolidayForDate('1949-04-29', 'ja_JP')->getTitle(), 'showa day in 1949');
+
+        $obj->setYear(1989);
+        $this->assertEquals('みどりの日', $obj->getHolidayForDate('1989-04-29', 'ja_JP')->getTitle(), 'showa day in 1989');
+
+        $obj->setYear(2007);
+        $this->assertEquals('昭和の日', $obj->getHolidayForDate('2007-04-29', 'ja_JP')->getTitle(), 'showa day in 2007');
+    }
+
+    /**
+     * tests greeney day with .xml file (YYYY-MM-DD = YYYY-05-04)
+     *
+     * @access public
+     * @return void
+     */
+    function testGreeneyDay()
+    {
+        // with ja_JP.xml
+        $obj = Date_Holidays::factory('Japan', 1986);
+        if (Date_Holidays::isError($obj)) {
+            $this->fail('Factory was unable to produce driver-object');
+        }
+        $obj->addTranslationFile(LANG_FILE . '/Japan/ja_JP.xml', 'ja_JP');
+        if (Date_Holidays::isError($obj)) {
+            $this->fail('fail to add translation file');
+        }
+
+        // the day of week on 1986-05-04 is 0 (sunday)
+        $this->assertNull($obj->getHolidayForDate('1986-05-04'));
+
+        $obj->setYear(1987);
+        $this->assertEquals('国民の休日', $obj->getHolidayForDate('1987-05-04', 'ja_JP')->getTitle(), 'showa day in 1987');
+
+        $obj->setYear(2007);
+        $this->assertEquals('みどりの日', $obj->getHolidayForDate('2007-05-04', 'ja_JP')->getTitle(), 'showa day in 2007');
+    }
+
+    /**
+     * tests greeney day with .ser file (YYYY-MM-DD = YYYY-05-04)
+     *
+     * @access public
+     * @return void
+     */
+    function testGreeneyDayWithCompiledTranslationFile()
+    {
+        // with ja_JP.ser
+        $obj = Date_Holidays::factory('Japan', 1986);
+        if (Date_Holidays::isError($obj)) {
+            $this->fail('Factory was unable to produce driver-object');
+        }
+        $obj->addCompiledTranslationFile(LANG_FILE . '/Japan/ja_JP.ser', 'ja_JP');
+        if (Date_Holidays::isError($obj)) {
+            $this->fail('fail to add translation file');
+        }
+
+        // the day of week on 1986-05-04 is 0 (sunday)
+        $this->assertNull($obj->getHolidayForDate('1986-05-04'));
+
+        $obj->setYear(1987);
+        $this->assertEquals('国民の休日', $obj->getHolidayForDate('1987-05-04', 'ja_JP')->getTitle(), 'showa day in 1987');
+
+        $obj->setYear(2007);
+        $this->assertEquals('みどりの日', $obj->getHolidayForDate('2007-05-04', 'ja_JP')->getTitle(), 'showa day in 2007');
     }
 
 }

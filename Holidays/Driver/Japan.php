@@ -254,7 +254,7 @@ class Date_Holidays_Driver_Japan extends Date_Holidays_Driver
                          floor(($this->_year - 1980) / 4));
         }
         if (!is_null($day)) {
-            $this->_addHoliday('Vernal Equinox Day',
+            $this->_addHoliday('vernalEquinoxDay',
                                sprintf('%04d-%02d-%02d', $this->_year, 3, $day),
                                'Vernal Equinox Day');
         }
@@ -268,18 +268,22 @@ class Date_Holidays_Driver_Japan extends Date_Holidays_Driver
      */
     function _buildShowaDay()
     {
-        $name = null;
+        $internalName = null;
+        $title = null;
         if ($this->_year >= 2007) {
-            $name = 'Showa Day';
+            $internalName = 'showaDay';
+            $title = 'Showa Day';
         } else if ($this->_year >= 1989) {
-            $name = 'Greenery Day';
+            $internalName = 'greeneryDay';
+            $title = 'Greenery Day';
         } else if ($this->_year >= 1949) {
-            $name = 'Showa Emperor\'s Birthday';
+            $internalName = 'showaEmperorsBirthday';
+            $title = 'Showa Emperor\'s Birthday';
         }
-        if (!is_null($name)) {
-            $this->_addHoliday('showaDay',
+        if (!is_null($internalName)) {
+            $this->_addHoliday($internalName,
                                $this->_year . '-04-29',
-                               $name);
+                               $title);
         }
     }
 
@@ -306,19 +310,22 @@ class Date_Holidays_Driver_Japan extends Date_Holidays_Driver
      */
     function _buildGreeneryDay()
     {
-        $name = null;
+        $internalName = null;
+        $title = null;
         if ($this->_year >= 2007) {
-            $name = 'Greenery Day';
+            $internalName = 'greeneryDay';
+            $title = 'Greenery Day';
         } else if ($this->_year >= 1986) {
             $date =& new Date($this->_year . '-05-04');
             if ($date->getDayOfWeek() != 0) {
-                $name = 'National Holiday';
+                $internalName = 'nationalHoliday';
+                $title = 'National Holiday';
             }
         }
-        if (!is_null($name)) {
-            $this->_addHoliday('greeneryDay',
+        if (!is_null($internalName)) {
+            $this->_addHoliday($internalName,
                                $this->_year . '-05-04',
-                               $name);
+                               $title);
         }
     }
 
@@ -555,8 +562,14 @@ class Date_Holidays_Driver_Japan extends Date_Holidays_Driver
         // reset translated titles if set.
         // because substitute Holidays change each year.
         if (!is_null($this->_translationFile)) {
-            $this->addTranslationFile($this->_translationFile,
-                                      $this->_translationLocale);
+            $ext = substr($this->_translationFile, -3);
+            if ($ext === 'xml') {
+                $this->addTranslationFile($this->_translationFile,
+                                          $this->_translationLocale);
+            } else if ($ext === 'ser') {
+                $this->addCompiledTranslationFile($this->_translationFile,
+                                                  $this->_translationLocale);
+            }
         }
     }
 
