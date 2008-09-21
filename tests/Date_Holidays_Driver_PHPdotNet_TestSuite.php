@@ -86,6 +86,9 @@ class Date_Holidays_Driver_PHPdotNet_TestSuite extends PHPUnit_Framework_TestCas
                 'lopez' => array ('day' => 31,
                     'month' => 7,
                     'year' => 2005),
+                'ashnazg' => array ('day' => 9,
+                    'month' => 1,
+                    'year' => 2005),
                 );
 
         $this->testDates2006 = array(
@@ -133,6 +136,9 @@ class Date_Holidays_Driver_PHPdotNet_TestSuite extends PHPUnit_Framework_TestCas
                     'year' => 2006),
                 'lopez' => array ('day' => 31,
                     'month' => 7,
+                    'year' => 2006),
+                'ashnazg' => array ('day' => 9,
+                    'month' => 1,
                     'year' => 2006),
                 );
 
@@ -182,6 +188,9 @@ class Date_Holidays_Driver_PHPdotNet_TestSuite extends PHPUnit_Framework_TestCas
                 'lopez' => array ('day' => 31,
                     'month' => 7,
                     'year' => 2007),
+                'ashnazg' => array ('day' => 9,
+                    'month' => 1,
+                    'year' => 2007),
                 );
 
         $this->testDates2008 = array(
@@ -229,6 +238,9 @@ class Date_Holidays_Driver_PHPdotNet_TestSuite extends PHPUnit_Framework_TestCas
                     'year' => 2008),
                 'lopez' => array ('day' => 31,
                     'month' => 7,
+                    'year' => 2008),
+                'ashnazg' => array ('day' => 9,
+                    'month' => 1,
                     'year' => 2008),
                 );
 

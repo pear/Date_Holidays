@@ -132,6 +132,11 @@ class Date_Holidays_Driver_PHPdotNet extends Date_Holidays_Driver
             'lopez'   => array(
                 'date'          => '07-31',
                 'title'         => 'Wilfredo Ignacio Pachón López'
+            ),
+            //Chuck Burgess
+            'ashnazg' => array(
+                'date'          => '01-09',
+                'title'         => 'Chuck Burgess'
             )
         );
 
