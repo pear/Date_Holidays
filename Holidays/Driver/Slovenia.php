@@ -95,7 +95,7 @@ class Date_Holidays_Driver_Slovenia extends Date_Holidays_Driver
          * Easter Sunday
          */
         $easter = Date_Holidays_Driver_Christian::calcEaster($this->_year);
-        $this->_addHoliday('vnoc', $easter, 'Binkoštna nedelja - binkošti');
+        $this->_addHoliday('vnoc', $easter, 'Velika noč');
 
         /**
          * Easter Monday
@@ -103,6 +103,13 @@ class Date_Holidays_Driver_Slovenia extends Date_Holidays_Driver
         $easterMon = clone $easter;
         $easterMon->day++;
         $this->_addHoliday('vnocpon', $easterMon, 'Velikonočni ponedeljek');
+
+        /**
+         * Binkosti
+         */
+        $easterMon = clone $easter;
+        $easterMon->day+=50;
+        $this->_addHoliday('binkosti', $easter, 'Binkoštna nedelja - binkošti');
 
         /**
          * Marijino vnebovzetje
@@ -121,7 +128,7 @@ class Date_Holidays_Driver_Slovenia extends Date_Holidays_Driver
         /**
          * Združitev prekmurskih Slovencev
          */
-        $this->_addHoliday('marija',
+        $this->_addHoliday('primorska',
                            $this->_year . '-09-15',
                            'Vrnitev Primorske k matični domovini');
 
@@ -142,7 +149,7 @@ class Date_Holidays_Driver_Slovenia extends Date_Holidays_Driver
         /**
          * Dan spomina na mrtve
          */
-        $this->_addHoliday('danmrtvih',
+        $this->_addHoliday('maister',
                            $this->_year . '-11-23',
                            'Dan Rudolfa Maistra');
 
