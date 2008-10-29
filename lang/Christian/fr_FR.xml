@@ -5,12 +5,12 @@
             
         <holiday>
             <internal-name>jesusCircumcision</internal-name>
-            <translation>Circoncision de Jésus</translation>
+            <translation>Circoncision de JÃ©sus</translation>
         </holiday>
             
         <holiday>
             <internal-name>epiphany</internal-name>
-            <translation>'épiphanie</translation>
+            <translation>'Ã©piphanie</translation>
         </holiday>
             
         <holiday>
@@ -30,7 +30,7 @@
             
         <holiday>
             <internal-name>easter</internal-name>
-            <translation>dimanche de Pâques</translation>
+            <translation>dimanche de PÃ¢ques</translation>
         </holiday>
             
         <holiday>
@@ -45,7 +45,7 @@
             
         <holiday>
             <internal-name>whiteSunday</internal-name>
-            <translation>Pâques-closes</translation>
+            <translation>PÃ¢ques-closes</translation>
         </holiday>
             
         <holiday>
@@ -65,12 +65,12 @@
             
         <holiday>
             <internal-name>easterMonday</internal-name>
-            <translation>Lundi de Pâques</translation>
+            <translation>Lundi de PÃ¢ques</translation>
         </holiday>
             
         <holiday>
             <internal-name>whitsun</internal-name>
-            <translation>Pentecôte</translation>
+            <translation>PentecÃ´te</translation>
         </holiday>
             
         <holiday>
@@ -80,12 +80,12 @@
             
         <holiday>
             <internal-name>trinitatis</internal-name>
-            <translation>Trinité</translation>
+            <translation>TrinitÃ©</translation>
         </holiday>
             
         <holiday>
             <internal-name>corpusChristi</internal-name>
-            <translation>Fête-Dieu</translation>
+            <translation>FÃªte-Dieu</translation>
         </holiday>
             
         <holiday>
@@ -100,7 +100,7 @@
             
         <holiday>
             <internal-name>thanksGiving</internal-name>
-            <translation>Dédicace</translation>
+            <translation>DÃ©dicace</translation>
         </holiday>
             
         <holiday>
@@ -110,7 +110,7 @@
             
         <holiday>
             <internal-name>allSoulsDay</internal-name>
-            <translation>Trépassés</translation>
+            <translation>TrÃ©passÃ©s</translation>
         </holiday>
             
         <holiday>
@@ -125,17 +125,17 @@
             
         <holiday>
             <internal-name>mariaConception</internal-name>
-            <translation>Immaculée Conception</translation>
+            <translation>ImmaculÃ©e Conception</translation>
         </holiday>
             
         <holiday>
             <internal-name>christmasEve</internal-name>
-            <translation>Veillée de Nöel</translation>
+            <translation>VeillÃ©e de NÃ¶el</translation>
         </holiday>
             
         <holiday>
             <internal-name>christmasDay</internal-name>
-            <translation>Nöel</translation>
+            <translation>NÃ¶el</translation>
         </holiday>
             
         <holiday>

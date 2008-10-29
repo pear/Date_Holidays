@@ -9,9 +9,9 @@
         
         <holiday>
             <internal-name>epiphany</internal-name>
-            <translation>Dreikönigstag</translation>
+            <translation>DreikÃ¶nigstag</translation>
             <properties>
-                <property id="other-translations">Heilige drei Könige</property>
+                <property id="other-translations">Heilige drei KÃ¶nige</property>
             </properties>
         </holiday>
         
@@ -49,7 +49,7 @@
             <internal-name>swedenNationalDay</internal-name>
             <translation>Tag der schwedischen Flagge</translation>
             <properties>
-                <property id="other-translations">Unabhängigkeitstag</property>
+                <property id="other-translations">UnabhÃ¤ngigkeitstag</property>
             </properties>
         </holiday>
         

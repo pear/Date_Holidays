@@ -25,7 +25,7 @@
  */
 
 /**
- * Filter that only accepts official holidays in Baden-Württemberg.
+ * Filter that only accepts official holidays in Baden-WÃ¼rttemberg.
  *
  * @category   Date
  * @package    Date_Holidays
@@ -60,7 +60,7 @@ class Date_Holidays_Filter_Germany_BadenWuerttemberg extends Date_Holidays_Filte
     /**
      * Constructor.
      *
-     * Only accepts official holidays in Baden-Württemberg.
+     * Only accepts official holidays in Baden-WÃ¼rttemberg.
      */
     function Date_Holidays_Filter_Germany_BadenWuerttemberg()
     {
