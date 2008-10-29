@@ -65,7 +65,7 @@ class Date_Holidays_Driver_Denmark extends Date_Holidays_Driver
         $this->_addHoliday('newYearsDay',
                            $this->_year . '-01-01',
                            'New Year\'s Day');
-        $this->_addTranslationForHoliday('newYearsDay', 'da_DK', 'Nytårsdag');
+        $this->_addTranslationForHoliday('newYearsDay', 'da_DK', 'NytÃ¥rsdag');
 
         /**
          * Epiphanias
@@ -78,7 +78,7 @@ class Date_Holidays_Driver_Denmark extends Date_Holidays_Driver
          */
         $easterDate = Date_Holidays_Driver_Christian::calcEaster($this->_year);
         $this->_addHoliday('easter', $easterDate, 'Easter Sunday');
-        $this->_addTranslationForHoliday('easter', 'da_DK', 'Påskedag');
+        $this->_addTranslationForHoliday('easter', 'da_DK', 'PÃ¥skedag');
 
         /**
          * Easter Monday
@@ -86,7 +86,7 @@ class Date_Holidays_Driver_Denmark extends Date_Holidays_Driver
         $this->_addHoliday('easterMonday',
                            $easterDate->getNextDay(),
                            'Easter Monday');
-        $this->_addTranslationForHoliday('easterMonday', 'da_DK', '2. Påskedag');
+        $this->_addTranslationForHoliday('easterMonday', 'da_DK', '2. PÃ¥skedag');
 
         /**
          * Palm Sunday
@@ -94,7 +94,7 @@ class Date_Holidays_Driver_Denmark extends Date_Holidays_Driver
         $palmSundayDate = new Date($easterDate);
         $palmSundayDate->subtractSpan(new Date_Span('7, 0, 0, 0'));
         $this->_addHoliday('palmSunday', $palmSundayDate, 'Palm Sunday');
-        $this->_addTranslationForHoliday('palmSunday', 'da_DK', 'Palme Søndag');
+        $this->_addTranslationForHoliday('palmSunday', 'da_DK', 'Palme SÃ¸ndag');
 
         /**
          * Good Friday / Black Friday
@@ -110,7 +110,7 @@ class Date_Holidays_Driver_Denmark extends Date_Holidays_Driver
         $this->_addHoliday('greenThursday',
                            $goodFridayDate->getPrevDay(),
                            'Green Thursday');
-        $this->_addTranslationForHoliday('greenThursday', 'da_DK', 'Skærtorsdag');
+        $this->_addTranslationForHoliday('greenThursday', 'da_DK', 'SkÃ¦rtorsdag');
 
         /**
          * Whitsun (determines Whit Monday, Ascension Day and
@@ -177,7 +177,7 @@ class Date_Holidays_Driver_Denmark extends Date_Holidays_Driver
         $this->_addHoliday('newYearsEve',
                            $this->_year . '-12-31',
                            'New Year\'s Eve');
-        $this->_addTranslationForHoliday('newYearsEve', 'da_DK', 'Nytårsaften');
+        $this->_addTranslationForHoliday('newYearsEve', 'da_DK', 'NytÃ¥rsaften');
 
         if (Date_Holidays::errorsOccurred()) {
             return Date_Holidays::getErrorStack();
