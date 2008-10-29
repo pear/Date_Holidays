@@ -72,7 +72,7 @@ class Date_Holidays_Driver_Eastern_Christian extends Date_Holidays_Driver
         $this->_addHoliday('epiphany', $year . '-01-06', 'Epiphany');
 
         /**
-         * Cleaning of Mariä
+         * Cleaning of MariÃ¤
          */
         $this->_addHoliday('mariaCleaning',
                            $year . '-02-02',

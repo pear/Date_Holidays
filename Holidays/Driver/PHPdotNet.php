@@ -98,10 +98,10 @@ class Date_Holidays_Driver_PHPdotNet extends Date_Holidays_Driver
                 'date'          => '03-31',
                 'title'         => 'Ryan King'
             ),
-            // Helgi 辭rmar 辭rbj鰎nsson: 4 November 1986, Iceland
+            // Helgi 脼ormar 脼orbj枚rnsson: 4 November 1986, Iceland
             'dufuz'   => array(
                 'date'          => '11-04',
-                'title'         => 'Helgi 辭rmar 辭rbj鰎nsson'
+                'title'         => 'Helgi 脼ormar 脼orbj枚rnsson'
             ),
             // Tobias Schlitt: 19 May 1980, Germany
             'toby'   => array(
@@ -128,10 +128,10 @@ class Date_Holidays_Driver_PHPdotNet extends Date_Holidays_Driver
                 'date'          => '01-10',
                 'title'         => 'James McGlinn'
             ),
-            // Wilfredo Ignacio Pach髇 L髉ez: 31 July 1977, Colombia
+            // Wilfredo Ignacio Pach贸n L贸pez: 31 July 1977, Colombia
             'lopez'   => array(
                 'date'          => '07-31',
-                'title'         => 'Wilfredo Ignacio Pach髇 L髉ez'
+                'title'         => 'Wilfredo Ignacio Pach贸n L贸pez'
             ),
             //Chuck Burgess
             'ashnazg' => array(

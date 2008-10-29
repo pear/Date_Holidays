@@ -70,7 +70,7 @@ class Date_Holidays_Driver_Christian extends Date_Holidays_Driver
         $this->_addHoliday('epiphany', $this->_year . '-01-06', 'Epiphany');
 
         /**
-         * Cleaning of Mariä
+         * Cleaning of MariÃ¤
          */
         $this->_addHoliday('mariaCleaning',
                            $this->_year . '-02-02',
@@ -180,7 +180,7 @@ class Date_Holidays_Driver_Christian extends Date_Holidays_Driver
         $this->_addHoliday('whitMonday', $whitsunDate->getNextDay(), 'Whit Monday');
 
         /**
-         * Haunting of Mariä
+         * Haunting of MariÃ¤
          */
         $this->_addHoliday('mariaHaunting',
                            $this->_year . '-05-31',
