@@ -137,7 +137,12 @@ class Date_Holidays_Driver_PHPdotNet extends Date_Holidays_Driver
             'ashnazg' => array(
                 'date'          => '01-09',
                 'title'         => 'Chuck Burgess'
-            )
+            ),
+            //Amir Mohammad Saied: Feb 16, 1986
+            'amir' => array(
+                'date'          => '02-16',
+                'title'         => 'Amir Mohammad Saied'
+            ),
         );
 
         $this->_addStaticHolidays($static);
