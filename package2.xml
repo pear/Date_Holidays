@@ -82,7 +82,7 @@ include EasternChristian driver.
    </dir> <!-- /lang -->
    <dir name="tests">
     <file baseinstalldir="Date" name="AllTests.php" role="test">
-     <tasks:replace from="@data_dir@" to="data_dir" type="pear-config" />
+     <tasks:replace from="@test_dir@" to="test_dir" type="pear-config" />
     </file>
     <file baseinstalldir="Date" name="AllTestsUndeployed.php" role="test" />
     <file baseinstalldir="Date" name="Date_Holidays_Bugfix_Retests_TestSuite.php" role="test" />
