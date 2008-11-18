@@ -122,19 +122,16 @@ class Date_Holidays
             Date_Holidays::staticSetProperty('DIE_ON_MISSING_LOCALE', true);
         }
 
+        $driverId = basename($driverId);
         $driverClass = 'Date_Holidays_Driver_' . $driverId;
         if ($external) {
             $driverClass = $driverId;
         }
 
         if (! class_exists($driverClass)) {
-            $driverFile = 'Date' . DIRECTORY_SEPARATOR . 'Holidays' .
-                          DIRECTORY_SEPARATOR . 'Driver' .
-                          DIRECTORY_SEPARATOR . $driverId . '.php';
+            $driverFile = 'Date/Holidays/Driver/' . $driverId . '.php';
             if ($external) {
-                $driverFile = str_replace('_',
-                                          DIRECTORY_SEPARATOR,
-                                          $driverClass) . '.php';
+                $driverFile = str_replace('_', '/', $driverClass) . '.php';
             }
 
             @include_once $driverFile;
@@ -180,8 +177,7 @@ class Date_Holidays
                             $locale = null,
                             $external = false)
     {
-        $driverDir = dirname(__FILE__) . DIRECTORY_SEPARATOR .
-                     'Holidays' . DIRECTORY_SEPARATOR . 'Driver';
+        $driverDir = dirname(__FILE__) . '/Holidays/Driver';
         if (! is_dir($driverDir)) {
             return Date_Holidays::raiseError(DATE_HOLIDAYS_ERROR_DRIVERFILE_NOT_FOUND,
                     'Date_Holidays driver directory does not exist');
@@ -196,16 +192,14 @@ class Date_Holidays
 
         foreach ($driverFiles as $driverFileName) {
 
-            $file = dirname(__FILE__) . DIRECTORY_SEPARATOR . 'Holidays'
-                    . DIRECTORY_SEPARATOR . 'Driver'
-                    . DIRECTORY_SEPARATOR . $driverFileName;
+            $file = dirname(__FILE__) . '/Holidays/Driver/' . $driverFileName;
             if (! is_file($file)) {
                 continue;
             }
 
             $driverId       = str_replace('.php', '', $driverFileName);
             $driverClass    = 'Date_Holidays_Driver_' . $driverId;
-            $driverFilePath = $driverDir . DIRECTORY_SEPARATOR . $driverFileName;
+            $driverFilePath = $driverDir . '/' . $driverFileName;
 
             @include_once $driverFilePath;
             if (! class_exists($driverClass)) {
