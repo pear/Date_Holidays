@@ -38,16 +38,31 @@ Date_Holidays_Holiday Object
             [minute] => 0
             [second] => 0
             [partsecond] => 0
+            [on_standardyear] => 2007
+            [on_standardmonth] => 12
+            [on_standardday] => 25
+            [on_standardhour] => 0
+            [on_standardminute] => 0
+            [on_standardsecond] => 0
+            [on_standardpartsecond] => 0
+            [ob_countleapseconds] => 
+            [ob_invalidtime] => 
             [tz] => Date_TimeZone Object
                 (
                     [id] => UTC
-                    [longname] => Coordinated Universal Time
-                    [shortname] => UTC
-                    [hasdst] => 
-                    [dstlongname] => Coordinated Universal Time
-                    [dstshortname] => UTC
                     [offset] => 0
-                    [default] => 
+                    [shortname] => UTC
+                    [dstshortname] => 
+                    [longname] => Coordinated Universal Time
+                    [dstlongname] => 
+                    [hasdst] => 
+                    [on_summertimeoffset] => 
+                    [on_summertimestartmonth] => 
+                    [os_summertimestartday] => 
+                    [on_summertimestarttime] => 
+                    [on_summertimeendmonth] => 
+                    [os_summertimeendday] => 
+                    [on_summertimeendtime] => 
                 )
 
             [getWeekdayAbbrnameLength] => 3
