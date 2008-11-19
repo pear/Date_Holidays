@@ -396,7 +396,7 @@ class Date_Holidays_Driver_Christian extends Date_Holidays_Driver
     function calcEaster($year)
     {
         if (function_exists("easter_days")) {
-            return easter_days($year);
+            return new Date(strtotime("$year-03-21 + " . easter_days($year) . " days"));
         }
         // golden number
         $golden  = null;
