@@ -123,37 +123,6 @@ class Date_Holidays_Driver_USA extends Date_Holidays_Driver
     }
 
     /**
-     * Calculate Nth monday in a month
-     *
-     * @param int $month    month
-     * @param int $position position
-     *
-     * @access   private
-     * @return   object Date date
-     */
-    function _calcNthMondayInMonth($month, $position)
-    {
-        if ($position  == 1) {
-            $startday = '01';
-        } elseif ($position == 2) {
-            $startday = '08';
-        } elseif ($position == 3) {
-            $startday = '15';
-        } elseif ($position == 4) {
-            $startday = '22';
-        } elseif ($position == 5) {
-            $startday = '29';
-        }
-        $month = sprintf("%02d", $month);
-
-        $date = new Date($this->_year . '-' . $month . '-' . $startday);
-        while ($date->getDayOfWeek() != 1) {
-            $date = $date->getNextDay();
-        }
-        return $date;
-    }
-
-    /**
      * Calculate Nth thursday in a month
      *
      * @param int $month    month

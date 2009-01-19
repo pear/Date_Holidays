@@ -219,38 +219,6 @@ class Date_Holidays_Driver_Brazil extends Date_Holidays_Driver_Christian
     }
 
     /**
-     * Calculate Nth day of the week in a month
-     *
-     * @param int $position position
-     * @param int $weekday  day of the week starting from 1 == sunday
-     * @param int $month    month
-     *
-     * @access   private
-     * @return   object Date date
-     */
-    function _calcNthWeekDayInMonth($position, $weekday, $month)
-    {
-        if ($position  == 1) {
-            $startday = '01';
-        } elseif ($position == 2) {
-            $startday = '08';
-        } elseif ($position == 3) {
-            $startday = '15';
-        } elseif ($position == 4) {
-            $startday = '22';
-        } elseif ($position == 5) {
-            $startday = '29';
-        }
-        $month = sprintf("%02d", $month);
-
-        $date = new Date($this->_year . '-' . $month . '-' . $startday);
-        while ($date->getDayOfWeek() != $weekday) {
-            $date = $date->getNextDay();
-        }
-        return $date;
-    }
-
-    /**
      * Method that returns an array containing the ISO3166 codes that may possibly
      * identify a driver.
      *

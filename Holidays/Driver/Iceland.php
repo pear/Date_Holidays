@@ -301,43 +301,5 @@ class Date_Holidays_Driver_Iceland extends Date_Holidays_Driver
     {
         return array('is', 'isl');
     }
-    /**
-     * A helper method
-     *
-     * @param integer $month month
-     *
-     * @access   private
-     * @return   object Date date of first monday in specified month.
-     */
-    function _calcFirstMonday($month)
-    {
-        $date = new Date($this->_year . "-$month-01");
-        while ($date->getDayOfWeek() != 1) {
-            $date = $date->getNextDay();
-        }
-        return ($date);
-    }
-    /**
-     * A helper method
-     *
-     * @param integer $month month
-     *
-     * @access   private
-     * @return   object Date date of last monday in specified month.
-     */
-    function _calcLastMonday($month)
-    {
-        //work backwards from the first day of the next month.
-        $nm = ((int) $month ) + 1;
-        if ($nm > 12) {
-            $nm = 1;
-        }
-        $date = new Date($this->_year . "-$nm-01");
-        $date = $date->getPrevDay();
-        while ($date->getDayOfWeek() != 1) {
-            $date = $date->getPrevDay();
-        }
-        return ($date);
-    }
 }
 ?>
