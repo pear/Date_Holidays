@@ -64,7 +64,9 @@ include EasternChristian driver.
      <file baseinstalldir="Date" name="Composite.php" role="php" />
      <file baseinstalldir="Date" name="Whitelist.php" role="php" />
     </dir> <!-- /Holidays/Filter -->
-    <file baseinstalldir="Date" name="Driver.php" role="php" />
+    <file baseinstalldir="Date" name="Driver.php" role="php" >
+     <tasks:replace from="@DATA-DIR@" to="data_dir" type="pear-config" />
+    </file>
     <file baseinstalldir="Date" name="Filter.php" role="php" />
     <file baseinstalldir="Date" name="Holiday.php" role="php" />
    </dir> <!-- /Holidays -->
