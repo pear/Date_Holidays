@@ -302,9 +302,14 @@ class Date_Holidays_Driver
         $matches = array();
         $loaded = false;
 
-        $stubdir = $data_dir . "/Date_Holidays_{$drivername}/lang/{$drivername}/";
-        if (! is_dir($stubdir)) {
-            $stubdir = $data_dir . "/Date_Holidays/lang/";
+        //Christian driver is exceptional...
+        if ($drivername == 'Christian') {
+            $stubdir = $data_dir . "/Date_Holidays/lang/Christian/";
+        } else {
+            $stubdir = $data_dir . "/Date_Holidays_{$drivername}/lang/{$drivername}/";
+            if (! is_dir($stubdir)) {
+                $stubdir = $data_dir . "/Date_Holidays/lang/";
+            }
         }
         if (is_dir($stubdir)) {
             if ($dh = opendir($stubdir)) {
@@ -1225,6 +1230,8 @@ class Date_Holidays_Driver
     function setLocale($locale)
     {
         $this->_locale = $locale;
+        //if possible, load the translation files for this locale
+        $this->addTranslation($locale);
     }
 
     /**
