@@ -282,6 +282,72 @@ class Date_Holidays_Driver
     }
 
     /**
+     * addTranslation
+     *
+     * Search for installed language files appropriate for the specified
+     * locale and add them to the driver
+     *
+     * @param string $locale locale setting to be used
+     *
+     * @access public
+     * @return boolean true on success, otherwise false
+     */
+    function addTranslation($locale)
+    {
+        $data_dir = "@DATA-DIR@";
+        $bestLocale = $this->_findBestLocale($locale);
+        $name = get_class($this);
+        $parts = explode("_", $name);
+        $drivername = $parts[3];
+        $matches = array();
+        $loaded = false;
+
+        $stubdir = $data_dir . "/Date_Holidays_{$drivername}/lang/{$drivername}/";
+        if (! is_dir($stubdir)) {
+            $stubdir = $data_dir . "/Date_Holidays/lang/";
+        }
+        if (is_dir($stubdir)) {
+            if ($dh = opendir($stubdir)) {
+                while (($file = readdir($dh)) !== false) {
+                    if (strlen($locale) == 5) {
+                        if (((strncasecmp($file, $bestLocale, 5) == 0))
+                            || (strncasecmp($file, $locale, 5) == 0)
+                        ) {
+                            array_push($matches, $file);
+                        }
+                    }
+                    if (strlen($locale) == 2) {
+                        if (((strncasecmp($file, $bestLocale, 2) == 0))
+                            || (strncasecmp($file, $locale, 2) == 0)
+                        ) {
+                            array_push($matches, $file);
+                        }
+                    }
+                }
+                closedir($dh);
+                $forget = array();
+                sort($matches);
+                foreach ($matches as $am) {
+                    if (strpos($am, ".ser") !== false) {
+                        $this->addCompiledTranslationFile($stubdir . $am, $locale);
+                        $loaded = true;
+                        array_push($forget, basename($am, ".ser") . ".xml");
+                    } else {
+                        if (!in_array($am, $forget)) {
+                            $this->addTranslationFile(
+                                $stubdir . $am,
+                                str_replace(".xml", "", $am)
+                            );
+                            $loaded = true;
+                        }
+                    }
+                }
+            }
+        }
+        return $loaded;
+    }
+
+    /**
      * Remove a driver component
      *
      * @param object $driver Date_Holidays_Driver driver-object
@@ -940,6 +1006,10 @@ class Date_Holidays_Driver
         }
 
         $content = $unserializer->getUnserializedData();
+        if (PEAR::isError($content)) {
+            return Date_Holidays::raiseError($content->getCode(),
+                                             $content->getMessage());
+        }
         return $this->_addTranslationData($content, $locale);
     }
 
