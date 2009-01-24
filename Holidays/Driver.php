@@ -304,46 +304,52 @@ class Date_Holidays_Driver
 
         //Christian driver is exceptional...
         if ($drivername == 'Christian') {
-            $stubdir = $data_dir . "/Date_Holidays/lang/Christian/";
+            $stubdir = "$data_dir/Date_Holidays/lang/Christian/";
         } else {
-            $stubdir = $data_dir . "/Date_Holidays_{$drivername}/lang/{$drivername}/";
+            $stubdir = "$data_dir/Date_Holidays_{$drivername}/lang/{$drivername}/";
             if (! is_dir($stubdir)) {
                 $stubdir = $data_dir . "/Date_Holidays/lang/";
             }
         }
-        if (is_dir($stubdir)) {
-            if ($dh = opendir($stubdir)) {
-                while (($file = readdir($dh)) !== false) {
-                    if (strlen($locale) == 5) {
-                        if (((strncasecmp($file, $bestLocale, 5) == 0))
-                            || (strncasecmp($file, $locale, 5) == 0)
-                        ) {
-                            array_push($matches, $file);
+        $stubdirs = array(
+            $stubdir,
+            "$data_dir/Date_Holidays_{$drivername}/lang/Christian/");
+
+        foreach ($stubdirs as $stubdir) {
+            if (is_dir($stubdir)) {
+                if ($dh = opendir($stubdir)) {
+                    while (($file = readdir($dh)) !== false) {
+                        if (strlen($locale) == 5) {
+                            if (((strncasecmp($file, $bestLocale, 5) == 0))
+                                || (strncasecmp($file, $locale, 5) == 0)
+                            ) {
+                                array_push($matches, $file);
+                            }
+                        }
+                        if (strlen($locale) == 2) {
+                            if (((strncasecmp($file, $bestLocale, 2) == 0))
+                                || (strncasecmp($file, $locale, 2) == 0)
+                            ) {
+                                array_push($matches, $file);
+                            }
                         }
                     }
-                    if (strlen($locale) == 2) {
-                        if (((strncasecmp($file, $bestLocale, 2) == 0))
-                            || (strncasecmp($file, $locale, 2) == 0)
-                        ) {
-                            array_push($matches, $file);
-                        }
-                    }
-                }
-                closedir($dh);
-                $forget = array();
-                sort($matches);
-                foreach ($matches as $am) {
-                    if (strpos($am, ".ser") !== false) {
-                        $this->addCompiledTranslationFile($stubdir . $am, $locale);
-                        $loaded = true;
-                        array_push($forget, basename($am, ".ser") . ".xml");
-                    } else {
-                        if (!in_array($am, $forget)) {
-                            $this->addTranslationFile(
-                                $stubdir . $am,
-                                str_replace(".xml", "", $am)
-                            );
+                    closedir($dh);
+                    $forget = array();
+                    sort($matches);
+                    foreach ($matches as $am) {
+                        if (strpos($am, ".ser") !== false) {
+                            $this->addCompiledTranslationFile($stubdir.$am, $locale);
                             $loaded = true;
+                            array_push($forget, basename($am, ".ser") . ".xml");
+                        } else {
+                            if (!in_array($am, $forget)) {
+                                $this->addTranslationFile(
+                                    $stubdir . $am,
+                                    str_replace(".xml", "", $am)
+                                );
+                                $loaded = true;
+                            }
                         }
                     }
                 }
