@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<package packagerversion="1.7.1" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0 http://pear.php.net/dtd/tasks-1.0.xsd http://pear.php.net/dtd/package-2.0 http://pear.php.net/dtd/package-2.0.xsd">
+<package packagerversion="1.7.2" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0 http://pear.php.net/dtd/tasks-1.0.xsd http://pear.php.net/dtd/package-2.0 http://pear.php.net/dtd/package-2.0.xsd">
  <name>Date_Holidays_Denmark</name>
  <channel>pear.php.net</channel>
  <summary>Driver based class to calculate holidays in Denmark.</summary>
  <description>Date_Holidays helps you calculate the dates and titles of holidays and other special celebrations. This is the driver for calculating holidays in Denmark.</description>
  <lead>
-  <name>Carsten Lucke</name>
-  <user>luckec</user>
-  <email>luckec@php.net</email>
-  <active>yes</active>
- </lead>
- <lead>
   <name>Ken Guest</name>
   <user>kguest</user>
   <email>ken@linux.ie</email>
+  <active>yes</active>
+ </lead>
+ <lead>
+  <name>Carsten Lucke</name>
+  <user>luckec</user>
+  <email>luckec@php.net</email>
   <active>yes</active>
  </lead>
  <developer>
@@ -28,10 +28,10 @@
   <email>wiesemann@php.net</email>
   <active>no</active>
  </contributor>
- <date>2008-08-23</date>
- <time>00:41:19</time>
+ <date>2009-01-26</date>
+ <time>18:35:33</time>
  <version>
-  <release>0.1.1</release>
+  <release>0.1.2</release>
   <api>0.17.2</api>
  </version>
  <stability>
@@ -40,7 +40,7 @@
  </stability>
  <license uri="http://www.php.net/license">PHP License</license>
  <notes>
-Slight changes to testsuite so it works when installed rather than in developers environment.
+ * Implement Feature #13923: locale da_DK.utf8 not working [kguest]
  </notes>
  <contents>
   <dir name="/">
@@ -86,8 +86,8 @@ Slight changes to testsuite so it works when installed rather than in developers
   </release>
   <release>
    <version>
-    <release>0.1.1</release>
-    <api>0.1.0</api>
+    <release>0.1.2</release>
+    <api>0.17.2</api>
    </version>
    <stability>
     <release>alpha</release>
