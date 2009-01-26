@@ -28,10 +28,10 @@
   <email>wiesemann@php.net</email>
   <active>no</active>
  </contributor>
- <date>2008-08-23</date>
- <time>01:20:19</time>
+ <date>2009-01-26</date>
+ <time>18:14:41</time>
  <version>
-  <release>0.20.1</release>
+  <release>0.21.0</release>
   <api>0.17.2</api>
  </version>
  <stability>
@@ -40,7 +40,12 @@
  </stability>
  <license uri="http://www.php.net/license">PHP License</license>
  <notes>
-include EasternChristian driver.
+ * Fix Bug #10221: Easier language selection [kguest]
+ * Fix Bug #14638: Improper use of function_exists() [kguest]
+ * Fix Bug #15046: Avoid arbitrary file inclusion. [kguest]
+ * Fix Bug #15079: fix use of easter_days function [kguest]
+ * Fix Bug #15360: Double error in Christian.php [doconnor]
+ * Fix Bug #15676: Date_Holidays_EnglandWalse [kguest]
  </notes>
  <contents>
   <dir name="/">
@@ -55,8 +60,8 @@ include EasternChristian driver.
    <dir name="Holidays">
     <dir name="Driver">
      <file baseinstalldir="Date" name="Christian.php" role="php" />
-     <file baseinstalldir="Date" name="EasternChristian.php" role="php" />
      <file baseinstalldir="Date" name="Composite.php" role="php" />
+     <file baseinstalldir="Date" name="EasternChristian.php" role="php" />
      <file baseinstalldir="Date" name="Jewish.php" role="php" />
     </dir> <!-- /Holidays/Driver -->
     <dir name="Filter">
