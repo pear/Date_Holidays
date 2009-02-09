@@ -155,7 +155,8 @@ class Date_Holidays
             $locale = setlocale(LC_MESSAGES, 0);
             //encoding might be appended to the locale, For example en_IE.UTF-8
             //so ignore it
-            $locale = explode(".", $locale);
+            $tmp    = explode(".", $locale);
+            $locale = $tmp[0];
         }
         $driver->setLocale($locale);
         return $driver;
