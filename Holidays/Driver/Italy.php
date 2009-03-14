@@ -41,6 +41,14 @@ require_once 'Date/Holidays/Driver/Christian.php';
 class Date_Holidays_Driver_Italy extends Date_Holidays_Driver
 {
     /**
+     * this driver's name
+     *
+     * @access   protected
+     * @var      string
+     */
+    var $_driverName = 'Italy';
+
+    /**
      * Constructor
      *
      * Use the Date_Holidays::factory() method to construct an object of a

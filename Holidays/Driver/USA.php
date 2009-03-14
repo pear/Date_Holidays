@@ -39,6 +39,14 @@
 class Date_Holidays_Driver_USA extends Date_Holidays_Driver
 {
     /**
+     * this driver's name
+     *
+     * @access   protected
+     * @var      string
+     */
+    var $_driverName = 'USA';
+
+    /**
      * Constructor
      *
      * Use the Date_Holidays::factory() method to construct an object of a

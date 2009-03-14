@@ -34,8 +34,16 @@
  * @version    CVS: $Id$
  * @link       http://pear.php.net/package/Date_Holidays
  */
-class Date_Holidays_Driver_Eastern_Christian extends Date_Holidays_Driver
+class Date_Holidays_Driver_EasternChristian extends Date_Holidays_Driver
 {
+    /**
+     * this driver's name
+     *
+     * @access   protected
+     * @var      string
+     */
+    var $_driverName = 'EasternChristian';
+
     /**
      * Constructor
      *
@@ -44,7 +52,7 @@ class Date_Holidays_Driver_Eastern_Christian extends Date_Holidays_Driver
      *
      * @access   protected
      */
-    function Date_Holidays_Driver_Eastern_Christian()
+    function Date_Holidays_Driver_EasternChristian()
     {
     }
 

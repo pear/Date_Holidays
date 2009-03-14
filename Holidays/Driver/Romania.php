@@ -39,6 +39,14 @@ require_once 'Date/Holidays/Driver/EasternChristian.php';
 class Date_Holidays_Driver_Romania extends Date_Holidays_Driver
 {
     /**
+     * this driver's name
+     *
+     * @access   protected
+     * @var      string
+     */
+    var $_driverName = 'Romania';
+
+    /**
      * Constructor
      *
      * Use the Date_Holidays::factory() method to construct an object of a
@@ -115,7 +123,7 @@ class Date_Holidays_Driver_Romania extends Date_Holidays_Driver
      */
     function calcEaster($year)
     {
-        return Date_Holidays_Driver_Eastern_Christian::calcEaster($year);
+        return Date_Holidays_Driver_EasternChristian::calcEaster($year);
     }
 
     /**

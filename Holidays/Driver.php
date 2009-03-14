@@ -124,6 +124,13 @@ define('DATE_HOLIDAYS_DRIVER_IDENTIFY_ISO3166_METHOD', 'getISO3166Codes');
  */
 class Date_Holidays_Driver
 {
+    /**
+     * this driver's name
+     *
+     * @access   protected
+     * @var      string
+     */
+    var $_driverName;
 
     /**
      * locale setting for output
@@ -296,24 +303,21 @@ class Date_Holidays_Driver
     {
         $data_dir = "@DATA-DIR@";
         $bestLocale = $this->_findBestLocale($locale);
-        $name = get_class($this);
-        $parts = explode("_", $name);
-        $drivername = $parts[3];
         $matches = array();
         $loaded = false;
 
         //Christian driver is exceptional...
-        if ($drivername == 'Christian') {
+        if ($this->_driverName == 'Christian') {
             $stubdir = "$data_dir/Date_Holidays/lang/Christian/";
         } else {
-            $stubdir = "$data_dir/Date_Holidays_{$drivername}/lang/{$drivername}/";
+            $stubdir = "$data_dir/Date_Holidays_{$this->_driverName}/lang/{$this->_driverName}/";
             if (! is_dir($stubdir)) {
                 $stubdir = $data_dir . "/Date_Holidays/lang/";
             }
         }
         $stubdirs = array(
             $stubdir,
-            "$data_dir/Date_Holidays_{$drivername}/lang/Christian/");
+            "$data_dir/Date_Holidays_{$this->_driverName}/lang/Christian/");
 
         foreach ($stubdirs as $stubdir) {
             if (is_dir($stubdir)) {

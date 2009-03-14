@@ -100,6 +100,14 @@ define('DATE_HOLIDAYS_AUTUMNAL_EQUINOX_PARAM_2150', 24.2488);
 class Date_Holidays_Driver_Japan extends Date_Holidays_Driver
 {
     /**
+     * this driver's name
+     *
+     * @access   protected
+     * @var      string
+     */
+    var $_driverName = 'Japan';
+
+    /**
      * a translation file name
      *
      * @access  private

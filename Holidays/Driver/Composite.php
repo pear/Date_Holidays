@@ -44,6 +44,14 @@ define('DATE_HOLIDAYS_DRIVER_NOT_FOUND', 100);
 class Date_Holidays_Driver_Composite extends Date_Holidays_Driver
 {
     /**
+     * this driver's name
+     *
+     * @access   protected
+     * @var      string
+     */
+    var $_driverName = 'Composite';
+
+    /**
      * compound of drivers
      *
      * @access   private
