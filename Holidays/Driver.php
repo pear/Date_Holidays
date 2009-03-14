@@ -1368,5 +1368,35 @@ class Date_Holidays_Driver
         return $date;
     }
 
+    /**
+     * Converts the date to the specified no of days from the given date
+     *
+     * To subtract days use a negative value for the '$pn_days' parameter
+     *
+     * @param Date $date Date object
+     * @param int $pn_days days to add
+     *
+     * @return   Date
+     * @access   protected
+     */
+    function _addDays($date, $pn_days)
+    {
+        list($hs_year, $hs_month, $hs_day) =
+            explode(" ", Date_Calc::addDays($pn_days,
+                                            $date->day,
+                                            $date->month,
+                                            $date->year,
+                                            "%Y %m %d"));
+        $date = new Date($date);
+        $date->setLocalTime($hs_day,
+                            $hs_month,
+                            $hs_year,
+                            $date->hour,
+                            $date->minute,
+                            $date->second,
+                            $date->partsecond);
+        return $date;
+    }
+
 }
 ?>
