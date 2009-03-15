@@ -13,7 +13,7 @@
  */
 /**
  * Example test class.
- * 
+ *
  * @uses Date_Holidays_Driver
  * @category Date
  * @package  Date_Holidays
@@ -22,11 +22,12 @@
  * @version  CVS: $Id$
  * @link     http://pear.php.net/package/Date_Holidays
  */
+require_once 'Date/Holidays.php';
 class Example extends Date_Holidays_Driver
 {
     /**
-     * _buildHolidays 
-     * 
+     * _buildHolidays
+     *
      * @access protected
      * @return boolean
      */
@@ -36,12 +37,12 @@ class Example extends Date_Holidays_Driver
         parent::_buildHolidays();
 
         // add a static holiday
-        $this->_addHoliday('jesusCircumcision', 
-                           $this->_year . '-01-01', 
+        $this->_addHoliday('jesusCircumcision',
+                           $this->_year . '-01-01',
                            'Circumcision of Jesus');
 
         // a calculated holiday
-        // Whether to use helper methods to calculate movable holidays 
+        // Whether to use helper methods to calculate movable holidays
         // is your own decision
         $fooDate = $this->_calcFirstMondayInJanuary();
         $this->_addHoliday('firstMondayInJan', $fooDate, 'First monday in January');
@@ -69,7 +70,7 @@ class Example extends Date_Holidays_Driver
 
     /**
      * Helper method to calcuate the date of the first Monday in January
-     * 
+     *
      * @access protected
      * @return string
      */

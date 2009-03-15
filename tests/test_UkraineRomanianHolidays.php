@@ -10,7 +10,7 @@
 
 require_once "Date/Holidays.php";
 
-$countries = array("Romania", "Ukraine");
+$countries = array("Romania", "Ukraine", "Ireland");
 foreach($countries as $country) {
     echo  "\n$country\n";
     echo str_pad("", strlen($country),"="), "\n";

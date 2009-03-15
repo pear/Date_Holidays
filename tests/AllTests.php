@@ -87,11 +87,8 @@ class Date_Holidays_AllTests
         $suite->addTestSuite('Date_Holidays_Driver_Ukraine_TestSuite');
         $suite->addTestSuite('Date_Holidays_Driver_UNO_TestSuite');
         $suite->addTestSuite('Date_Holidays_Driver_USA_TestSuite');
-        #$suite->addTestSuite('Date_Holidays_Driver_TestSuite');
+        $suite->addTestSuite('Date_Holidays_Driver_TestSuite');
         $suite->addTestSuite('Date_Holidays_TestSuite');
-        /*
-
-*/
         return $suite;
     }
 }

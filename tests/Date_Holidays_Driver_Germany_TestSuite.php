@@ -49,9 +49,6 @@ class Date_Holidays_Driver_Germany_TestSuite extends PHPUnit_Framework_TestCase
                 'valentinesDay'             => array('day' => 14,
                                                      'month' => 2,
                                                      'year' => 2005),
-                'womenFasnet'               => array('day' => 3,
-                                                     'month' => 2,
-                                                     'year' => 2005),
                 'fasnet'                    => array('day' => 8,
                                                      'month' => 2,
                                                      'year' => 2005),
@@ -184,6 +181,7 @@ class Date_Holidays_Driver_Germany_TestSuite extends PHPUnit_Framework_TestCase
 
         foreach ($this->testDates2005 as $name => $dateInfo) {
             $day = $drv->getHoliday($name);
+
             $this->assertFalse(Date_Holidays::isError($day));
             if (Date_Holidays::isError($day)) {
                 die($day->getMessage());
