@@ -99,16 +99,14 @@ class Date_Holidays_Driver_Denmark extends Date_Holidays_Driver
         /**
          * Palm Sunday
          */
-        $palmSundayDate = new Date($easterDate);
-        $palmSundayDate->subtractSpan(new Date_Span('7, 0, 0, 0'));
+        $palmSundayDate = $this->_addDays($easterDate, -7);
         $this->_addHoliday('palmSunday', $palmSundayDate, 'Palm Sunday');
         $this->_addTranslationForHoliday('palmSunday', 'da_DK', 'Palme Søndag');
 
         /**
          * Good Friday / Black Friday
          */
-        $goodFridayDate = new Date($easterDate);
-        $goodFridayDate->subtractSpan(new Date_Span('2, 0, 0, 0'));
+        $goodFridayDate = $this->_addDays($easterDate, -2);
         $this->_addHoliday('goodFriday', $goodFridayDate, 'Good Friday');
         $this->_addTranslationForHoliday('goodFriday', 'da_DK', 'Langfredag');
 
@@ -124,8 +122,7 @@ class Date_Holidays_Driver_Denmark extends Date_Holidays_Driver
          * Whitsun (determines Whit Monday, Ascension Day and
          * Feast of Corpus Christi)
          */
-        $whitsunDate = new Date($easterDate);
-        $whitsunDate->addSpan(new Date_Span('49, 0, 0, 0'));
+        $whitsunDate = $this->_addDays($easterDate, 49);
         $this->_addHoliday('whitsun', $whitsunDate, 'Whitsun');
         $this->_addTranslationForHoliday('whitsun', 'da_DK', 'Pinsedag');
 
@@ -140,8 +137,7 @@ class Date_Holidays_Driver_Denmark extends Date_Holidays_Driver
         /**
          * Ascension Day
          */
-        $ascensionDayDate = new Date($whitsunDate);
-        $ascensionDayDate->subtractSpan(new Date_Span('10, 0, 0, 0'));
+        $ascensionDayDate = $this->_addDays($whitsunDate, -10);
         $this->_addHoliday('ascensionDay', $ascensionDayDate, 'Ascension Day');
         $this->_addTranslationForHoliday('ascensionDay', 'da_DK', 'Kr. Himmelfart');
 
@@ -150,8 +146,7 @@ class Date_Holidays_Driver_Denmark extends Date_Holidays_Driver
          *
          * Friday of the 3rd week past Whitsun
          */
-        $heartJesusDate = new Date($goodFridayDate);
-        $heartJesusDate->addSpan(new Date_Span('28, 0, 0, 0'));
+        $heartJesusDate = $this->_addDays($goodFridayDate, 28);
         $this->_addHoliday('heartJesus',
                            $heartJesusDate,
                            'Heart of Jesus celebration');

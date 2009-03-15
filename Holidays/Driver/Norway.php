@@ -85,8 +85,7 @@ class Date_Holidays_Driver_Norway extends Date_Holidays_Driver
         /**
          * Good Friday / Black Friday
          */
-        $goodFridayDate = new Date($easterDate);
-        $goodFridayDate->subtractSpan(new Date_Span('2, 0, 0, 0'));
+        $goodFridayDate = $this->_addDays($easterDate, -2);
         $this->_addHoliday('goodFriday', $goodFridayDate, 'Good Friday');
 
         /**
@@ -105,15 +104,13 @@ class Date_Holidays_Driver_Norway extends Date_Holidays_Driver
          * Pentecost (determines Whit Monday, Ascension Day and Feast of
          * Corpus Christi)
          */
-        $pentecostDate = new Date($easterDate);
-        $pentecostDate->addSpan(new Date_Span('49, 0, 0, 0'));
+        $pentecostDate = $this->_addDays($easterDate, 49);
         $this->_addHoliday('pentecost', $pentecostDate, 'Pentecost');
 
         /**
          * Ascension Day
          */
-        $ascensionDayDate = new Date($pentecostDate);
-        $ascensionDayDate->subtractSpan(new Date_Span('10, 0, 0, 0'));
+        $ascensionDayDate = $this->_addDays($pentecostDate, -10);
         $this->_addHoliday('ascensionDay', $ascensionDayDate, 'Ascension Day');
 
         /**

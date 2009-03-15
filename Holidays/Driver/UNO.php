@@ -342,7 +342,8 @@ class Date_Holidays_Driver_UNO extends Date_Holidays_Driver
         while ($peaceDayDate->getDayOfWeek() != 2) {
             $peaceDayDate = $peaceDayDate->getNextDay();
         }
-        $peaceDayDate->addSpan(new Date_Span('14, 0, 0, 0'));
+        $peaceDayDate = $this->_addDays($peaceDayDate, 14);
+
         $this->_addHoliday('intPeaceDay',
                            $peaceDayDate,
                            'International day of peace');

@@ -133,8 +133,7 @@ class Date_Holidays_Driver_Netherlands extends Date_Holidays_Driver
         /**
          * Good Friday / Black Friday
          */
-        $goodFridayDate = new Date($easterDate);
-        $goodFridayDate->subtractSpan(new Date_Span('2, 0, 0, 0'));
+        $goodFridayDate = $this->_addDays($easterDate, 2);
         $this->_addHoliday('goodFriday', $goodFridayDate, 'Good Friday');
         $this->_addTranslationForHoliday('goodFriday', 'DU_NL', 'Goede Vrijdag');
 
@@ -142,8 +141,7 @@ class Date_Holidays_Driver_Netherlands extends Date_Holidays_Driver
          * Whitsun (determines Whit Monday, Ascension Day and Feast of
          * Corpus Christi)
          */
-        $whitsunDate = new Date($easterDate);
-        $whitsunDate->addSpan(new Date_Span('49, 0, 0, 0'));
+        $whitsunDate = $this->_addDays($easterDate, 49);
         $this->_addHoliday('whitsun', $whitsunDate, 'Whitsun');
         $this->_addTranslationForHoliday('whitsun', 'DU_NL', '1e Pinksterdag');
 
@@ -156,8 +154,7 @@ class Date_Holidays_Driver_Netherlands extends Date_Holidays_Driver
         /**
          * Ascension Day
          */
-        $ascensionDayDate = new Date($whitsunDate);
-        $ascensionDayDate->subtractSpan(new Date_Span('10, 0, 0, 0'));
+        $ascensionDayDate = $this->_addDays($whitsunDate, -10);
         $this->_addHoliday('ascensionDay', $ascensionDayDate, 'Ascension Day');
         $this->_addTranslationForHoliday('ascensionDay', 'DU_NL', 'Hemelvaartsdag');
 

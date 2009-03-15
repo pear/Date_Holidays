@@ -110,41 +110,35 @@ class Date_Holidays_Driver_Iceland extends Date_Holidays_Driver
         $this->_addHoliday('womansDay', $wdate, 'Woman\'s Day');
         $this->_addTranslationForHoliday('womansDay', 'is_IS', 'Konudagur');
 
-        $shroveMondayDate = new Date($easterDate);
-        $shroveMondayDate->subtractSpan(new Date_Span('41, 0, 0, 0'));
+        $shroveMondayDate = $this->_addDays($easterDate, -41);
         $this->_addHoliday('shroveMonday', $shroveMondayDate, 'Shrove Monday');
         $this->_addTranslationForHoliday('shroveMonday', 'is_IS', 'Bolludagur');
 
-        $shroveTuesdayDate = new Date($easterDate);
-        $shroveTuesdayDate->subtractSpan(new Date_Span('40, 0, 0, 0'));
+        $shroveTuesdayDate = $this->_addDays($easterDate, -40);
         $this->_addHoliday('shroveTuesday', $shroveTuesdayDate, 'Shrove Tuesday');
         $this->_addTranslationForHoliday('shroveTuesday', 'is_IS', 'Sprengidagur');
 
-        $ashWednesdayDate = new Date($easterDate);
-        $ashWednesdayDate->subtractSpan(new Date_Span('39, 0, 0, 0'));
+        $ashWednesdayDate = $this->_addDays($easterDate, -39);
         $this->_addHoliday('ashWednesday', $ashWednesdayDate, 'Ash Wednesday');
         $this->_addTranslationForHoliday('ashWednesday', 'is_IS', 'Öskudagur');
 
         /**
          * Palm Sunday
          */
-        $palmSundayDate = new Date($easterDate);
-        $palmSundayDate->subtractSpan(new Date_Span('7, 0, 0, 0'));
+        $palmSundayDate = $this->_addDays($easterDate, -7);
         $this->_addHoliday('palmSunday', $palmSundayDate, 'Palm Sunday');
         $this->_addTranslationForHoliday('palmSunday', 'is_IS', 'Pálmasunnudagur');
 
         /**
          * Maundy Thursday
          */
-        $maundyThursdayDate = new Date($easterDate);
-        $maundyThursdayDate->subtractSpan(new Date_Span('3, 0, 0, 0'));
+        $maundyThursdayDate = $this->_addDays($easterDate, -3);
         $this->_addHoliday('maundyThursday', $maundyThursdayDate, 'Maundy Thursday');
         $this->_addTranslationForHoliday('maundyThursday', 'is_IS', 'Skírdagur');
         /**
          * Good Friday / Black Friday
          */
-        $goodFridayDate = new Date($easterDate);
-        $goodFridayDate->subtractSpan(new Date_Span('2, 0, 0, 0'));
+        $goodFridayDate = $this->_addDays($easterDate, -2);
         $this->_addHoliday('goodFriday', $goodFridayDate, 'Good Friday');
         $this->_addTranslationForHoliday('goodFriday',
                                          'is_IS',
@@ -172,8 +166,7 @@ class Date_Holidays_Driver_Iceland extends Date_Holidays_Driver
          */
         $juneDate  = new Date($this->_year . '-04-18');
         $dayOfWeek = $juneDate->getDayOfWeek();
-        $juneDate->addSpan(new Date_Span(sprintf('%d, 0, 0, 0', 4 - $dayOfWeek)));
-        $midSummerDate = $juneDate;
+        $midSummerDate = $this->_addDays($juneDate, 4 - $dayOfWeek);
         $this->_addHoliday('firstDayOfSummer',
                            $midSummerDate,
                            'First Day of Summer');
@@ -190,8 +183,7 @@ class Date_Holidays_Driver_Iceland extends Date_Holidays_Driver
         $this->_addTranslationForHoliday('mothersDay', 'is_IS', 'Mæðradagurinn');
 
 
-        $whitsunDate = new Date($easterDate);
-        $whitsunDate->addSpan(new Date_Span('49, 0, 0, 0'));
+        $whitsunDate = $this->_addDays($easterDate, 49);
         $this->_addHoliday('whitsun', $whitsunDate, 'White Sunday');
         $this->_addTranslationForHoliday('whitsun', 'is_IS', 'Hvítasunnudagur');
 
@@ -203,8 +195,7 @@ class Date_Holidays_Driver_Iceland extends Date_Holidays_Driver
                                          'is_IS',
                                          'Annar í hvítasunnu');
 
-        $ascensionDayDate = new Date($whitsunDate);
-        $ascensionDayDate->subtractSpan(new Date_Span('10, 0, 0, 0'));
+        $ascensionDayDate = $this->_addDays($whitsunDate, -10);
         $this->_addHoliday('ascensionDay', $ascensionDayDate, 'Ascension Day');
         $this->_addTranslationForHoliday('ascensionDay',
                                          'is_IS',
@@ -228,8 +219,7 @@ class Date_Holidays_Driver_Iceland extends Date_Holidays_Driver
 
         $augDate   = new Date($this->_year . '-08-01');
         $dayOfWeek = $augDate->getDayOfWeek();
-        $augDate->addSpan(new Date_Span(sprintf('%d, 0, 0, 0', 2 - $dayOfWeek)));
-        $commerceDate = $augDate;
+        $commerceDate = $this->_addDays($augDate, 6 - $dayOfWeek);
         $this->_addHoliday('commerceDay', $commerceDate, 'Commerce Day');
         $this->_addTranslationForHoliday('commerceDay',
                                          'is_IS',

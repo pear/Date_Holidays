@@ -94,7 +94,7 @@ class Date_Holidays_Driver_EnglandWales extends Date_Holidays_Driver
          * Good Friday
          */
         $goodFridayDate = new Date($easterDate);
-        $goodFridayDate->subtractSpan(new Date_Span('2, 0, 0, 0'));
+        $goodFridayDate = $this->_addDays($easterDate, -2);
         $this->_addHoliday('goodFriday', $goodFridayDate, 'Good Friday');
 
         /**

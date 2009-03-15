@@ -94,8 +94,7 @@ class Date_Holidays_Driver_Italy extends Date_Holidays_Driver
         /**
          * Good Friday / Black Friday
          */
-        $goodFridayDate = new Date($easterDate);
-        $goodFridayDate->subtractSpan(new Date_Span('2, 0, 0, 0'));
+        $goodFridayDate = $this->_addDays($easterDate, -2);
         $this->_addHoliday('goodFriday', $goodFridayDate, 'Good Friday');
         $this->_addTranslationForHoliday('goodFriday',
                                          'it_IT',

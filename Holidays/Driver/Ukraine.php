@@ -86,8 +86,7 @@ class Date_Holidays_Driver_Ukraine extends Date_Holidays_Driver
         /**
          * Triytsia
          */
-        $triyDate = new Date($easterDate);
-        $triyDate->addSpan(new Date_Span('49, 0, 0, 0'));
+        $triyDate = $this->_addDays($easterDate, 49);
         $this->_addHoliday('triytsia', $triyDate, 'Triytsia');
 
         /**
