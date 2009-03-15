@@ -184,6 +184,12 @@
       <channel>pear.php.net</channel>
     </package>
   </group>
+  <group name="Date_Holidays_Italy" hint="Italy subpackage">
+    <package>
+      <name>Date_Holidays_Italy</name>
+      <channel>pear.php.net</channel>
+    </package>
+  </group>
   <group name="Date_Holidays_Japan" hint="Japan subpackage">
     <package>
       <name>Date_Holidays_Japan</name>
