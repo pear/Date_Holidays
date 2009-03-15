@@ -45,22 +45,6 @@ class Date_Holidays_Driver_Christian extends Date_Holidays_Driver
     var $_driverName = 'Christian';
 
     /**
-     * this driver's name
-     *
-     * @access   protected
-     * @var      string
-     */
-    var $_driverName = 'Christian';
-
-    /**
-     * this driver's name
-     *
-     * @access   protected
-     * @var      string
-     */
-    var $_driverName = 'Christian';
-
-    /**
      * Constructor
      *
      * Use the Date_Holidays::factory() method to construct an object of a
