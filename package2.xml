@@ -28,10 +28,10 @@
   <email>wiesemann@php.net</email>
   <active>no</active>
  </contributor>
- <date>2009-01-26</date>
- <time>18:14:41</time>
+ <date>2009-03-15</date>
+ <time>23:30:41</time>
  <version>
-  <release>0.21.0</release>
+  <release>0.21.1</release>
   <api>0.17.2</api>
  </version>
  <stability>
@@ -40,12 +40,11 @@
  </stability>
  <license uri="http://www.php.net/license">PHP License</license>
  <notes>
- * Fix Bug #10221: Easier language selection [kguest]
- * Fix Bug #14638: Improper use of function_exists() [kguest]
- * Fix Bug #15046: Avoid arbitrary file inclusion. [kguest]
- * Fix Bug #15079: fix use of easter_days function [kguest]
- * Fix Bug #15360: Double error in Christian.php [doconnor]
- * Fix Bug #15676: Date_Holidays_EnglandWalse [kguest]
+ * Fix Bug #13865: One-hour-shift in Christian driver
+ * Fix Bug #15047: Don't use LC_ALL
+ * Fix Bug #15475: function getNextDay() does not seem to exist
+ * Fix Bug #16021: PHP 4 regression
+ * Add Date_Holidays_Italy as a group item.
  </notes>
  <contents>
   <dir name="/">
@@ -281,6 +280,10 @@
     </package>
     <package>
       <name>Date_Holidays_Ireland</name>
+      <channel>pear.php.net</channel>
+    </package>
+    <package>
+      <name>Date_Holidays_Italy</name>
       <channel>pear.php.net</channel>
     </package>
     <package>
@@ -579,6 +582,26 @@
    * Include Japan subpackage.
    * Include EasternChristian driver for Romania and Ukraine subpackages.
    * Removed testsuite for Brazil driver - belongs in Brazil subpackage.
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>0.21.0</release>
+    <api>0.17.2</api>
+   </version>
+   <stability>
+    <release>alpha</release>
+    <api>alpha</api>
+   </stability>
+   <date>2009-01-26</date>
+   <license uri="http://www.php.net/license">PHP License</license>
+   <notes>
+ * Fix Bug #10221: Easier language selection [kguest]
+ * Fix Bug #14638: Improper use of function_exists() [kguest]
+ * Fix Bug #15046: Avoid arbitrary file inclusion. [kguest]
+ * Fix Bug #15079: fix use of easter_days function [kguest]
+ * Fix Bug #15360: Double error in Christian.php [doconnor]
+ * Fix Bug #15676: Date_Holidays_EnglandWalse [kguest]
    </notes>
   </release>
  </changelog>
