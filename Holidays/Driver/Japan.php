@@ -254,7 +254,7 @@ class Date_Holidays_Driver_Japan extends Date_Holidays_Driver
                          floor(($this->_year - 1980) / 4));
         }
         if (!is_null($day)) {
-            $this->_addHoliday('Vernal Equinox Day',
+            $this->_addHoliday('vernalEquinoxDay',
                                sprintf('%04d-%02d-%02d', $this->_year, 3, $day),
                                'Vernal Equinox Day');
         }
@@ -268,18 +268,22 @@ class Date_Holidays_Driver_Japan extends Date_Holidays_Driver
      */
     function _buildShowaDay()
     {
-        $name = null;
+        $internalName = null;
+        $title = null;
         if ($this->_year >= 2007) {
-            $name = 'Showa Day';
+            $internalName = 'showaDay';
+            $title = 'Showa Day';
         } else if ($this->_year >= 1989) {
-            $name = 'Greenery Day';
+            $internalName = 'greeneryDay';
+            $title = 'Greenery Day';
         } else if ($this->_year >= 1949) {
-            $name = 'Showa Emperor\'s Birthday';
+            $internalName = 'showaEmperorsBirthday';
+            $title = 'Showa Emperor\'s Birthday';
         }
-        if (!is_null($name)) {
-            $this->_addHoliday('showaDay',
+        if (!is_null($internalName)) {
+            $this->_addHoliday($internalName,
                                $this->_year . '-04-29',
-                               $name);
+                               $title);
         }
     }
 
@@ -306,19 +310,22 @@ class Date_Holidays_Driver_Japan extends Date_Holidays_Driver
      */
     function _buildGreeneryDay()
     {
-        $name = null;
+        $internalName = null;
+        $title = null;
         if ($this->_year >= 2007) {
-            $name = 'Greenery Day';
+            $internalName = 'greeneryDay';
+            $title = 'Greenery Day';
         } else if ($this->_year >= 1986) {
             $date =& new Date($this->_year . '-05-04');
             if ($date->getDayOfWeek() != 0) {
-                $name = 'National Holiday';
+                $internalName = 'nationalHoliday';
+                $title = 'National Holiday';
             }
         }
-        if (!is_null($name)) {
-            $this->_addHoliday('greeneryDay',
+        if (!is_null($internalName)) {
+            $this->_addHoliday($internalName,
                                $this->_year . '-05-04',
-                               $name);
+                               $title);
         }
     }
 
@@ -506,9 +513,11 @@ class Date_Holidays_Driver_Japan extends Date_Holidays_Driver
                                'The Funeral Ceremony of Emperor Showa.');
         }
         if ($this->_year == 1990) {
-            $this->_addHoliday('theCeremonyoftheEnthronementofHisMajestytheEmperor(attheSeiden)',
+            $this->_addHoliday('theCeremonyoftheEnthronementof'
+                             . 'HisMajestytheEmperor(attheSeiden)',
                                $this->_year . '-11-12',
-                               'The Ceremony of the Enthronement of His Majesty the Emperor (at the Seiden)');
+                               'The Ceremony of the Enthronement of ' .
+                               'His Majesty the Emperor (at the Seiden)');
         }
         if ($this->_year == 1993) {
             $this->_addHoliday('theRiteofWeddingofHIHCrownPrinceNaruhito',
@@ -553,40 +562,17 @@ class Date_Holidays_Driver_Japan extends Date_Holidays_Driver
         // reset translated titles if set.
         // because substitute Holidays change each year.
         if (!is_null($this->_translationFile)) {
-            $this->addTranslationFile($this->_translationFile, $this->_translationLocale);
+            $ext = substr($this->_translationFile, -3);
+            if ($ext === 'xml') {
+                $this->addTranslationFile($this->_translationFile,
+                                          $this->_translationLocale);
+            } else if ($ext === 'ser') {
+                $this->addCompiledTranslationFile($this->_translationFile,
+                                                  $this->_translationLocale);
+            }
         }
     }
 
-    /**
-     * Calculate Nth monday in a month
-     *
-     * @param int $month    month
-     * @param int $position position
-     *
-     * @access   private
-     * @return   object Date date
-     */
-    function _calcNthMondayInMonth($month, $position)
-    {
-        if ($position  == 1) {
-            $startday = '01';
-        } elseif ($position == 2) {
-            $startday = '08';
-        } elseif ($position == 3) {
-            $startday = '15';
-        } elseif ($position == 4) {
-            $startday = '22';
-        } elseif ($position == 5) {
-            $startday = '29';
-        }
-        $month = sprintf("%02d", $month);
-
-        $date = new Date($this->_year . '-' . $month . '-' . $startday);
-        while ($date->getDayOfWeek() != 1) {
-            $date = $date->getNextDay();
-        }
-        return $date;
-    }
 
     /**
      * Add a language-file's content
@@ -608,7 +594,7 @@ class Date_Holidays_Driver_Japan extends Date_Holidays_Driver
         if (PEAR::isError($result)) {
             return $result;
         }
-        $this->_translationFile = $file;
+        $this->_translationFile   = $file;
         $this->_translationLocale = $locale;
         return $result;
     }
@@ -633,7 +619,7 @@ class Date_Holidays_Driver_Japan extends Date_Holidays_Driver
         if (PEAR::isError($result)) {
             return $result;
         }
-        $this->_translationFile = $file;
+        $this->_translationFile   = $file;
         $this->_translationLocale = $locale;
         return $result;
     }
@@ -646,10 +632,10 @@ class Date_Holidays_Driver_Japan extends Date_Holidays_Driver
      */
     function _clearHolidays()
     {
-        $this->_holidays = array();
+        $this->_holidays      = array();
         $this->_internalNames = array();
-        $this->_dates = array();
-        $this->_titles = array();
+        $this->_dates         = array();
+        $this->_titles        = array();
     }
 }
 ?>

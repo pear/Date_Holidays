@@ -10,10 +10,10 @@
   <email>ken@linux.ie</email>
   <active>yes</active>
  </lead>
- <date>2008-08-23</date>
- <time>01:06:33</time>
+ <date>2008-05-07</date>
+ <time>00:41:19</time>
  <version>
-  <release>0.1.1</release>
+  <release>0.1.0</release>
   <api>0.1.0</api>
  </version>
  <stability>
@@ -22,15 +22,15 @@
  </stability>
  <license uri="http://www.php.net/license">PHP License</license>
  <notes>
-Slight changes to testsuite so it works when installed rather than in developers environment.
+ Initial release as a subpackage.
  </notes>
  <contents>
   <dir name="/">
    <dir name="Holidays">
     <dir name="Driver">
      <file baseinstalldir="Date" name="Brazil.php" role="php" />
-    </dir> <!-- //Holidays/Driver -->
-   </dir> <!-- //Holidays -->
+    </dir> <!-- /Holidays/Driver -->
+   </dir> <!-- /Holidays -->
    <dir name="tests">
     <file baseinstalldir="Date" name="Date_Holidays_Driver_Brazil_TestSuite.php" role="test" />
    </dir> <!-- /tests -->
@@ -55,7 +55,7 @@ Slight changes to testsuite so it works when installed rather than in developers
  <changelog>
   <release>
    <version>
-    <release>0.1.1</release>
+    <release>0.1.0</release>
     <api>0.1.0</api>
    </version>
    <stability>
@@ -64,20 +64,7 @@ Slight changes to testsuite so it works when installed rather than in developers
    </stability>
    <date>2008-05-07</date>
    <license uri="http://www.php.net/license">PHP License</license>
-   <notes>Initial release as a subpackage.</notes>
-  </release>
-  <release>
-   <version>
-    <release>0.1.1</release>
-    <api>0.1.0</api>
-   </version>
-   <stability>
-    <release>alpha</release>
-    <api>alpha</api>
-   </stability>
-   <date>2008-08-23</date>
-   <license uri="http://www.php.net/license">PHP License</license>
-   <notes>Slight changes to testsuite so it works when installed rather than in developers environment.</notes>
+   <notes>initial pear release</notes>
   </release>
  </changelog>
 </package>

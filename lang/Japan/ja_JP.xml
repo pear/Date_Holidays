@@ -14,8 +14,12 @@
             <translation>建国記念の日</translation>
         </holiday>
         <holiday>
-            <internal-name>Vernal Equinox Day</internal-name>
+            <internal-name>vernalEquinoxDay</internal-name>
             <translation>春分の日</translation>
+        </holiday>
+        <holiday>
+            <internal-name>showaEmperorsBirthday</internal-name>
+            <translation>天皇誕生日</translation>
         </holiday>
         <holiday>
             <internal-name>showaDay</internal-name>
@@ -28,6 +32,10 @@
         <holiday>
             <internal-name>greeneryDay</internal-name>
             <translation>みどりの日</translation>
+        </holiday>
+        <holiday>
+            <internal-name>nationalHoliday</internal-name>
+            <translation>国民の休日</translation>
         </holiday>
         <holiday>
             <internal-name>childrensDay</internal-name>
@@ -94,7 +102,7 @@
             <translation>振替休日</translation>
         </holiday>
         <holiday>
-            <internal-name>substituteHolidayForVernal Equinox Day</internal-name>
+            <internal-name>substituteHolidayForvernalEquinoxDay</internal-name>
             <translation>振替休日</translation>
         </holiday>
         <holiday>
