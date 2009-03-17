@@ -16,10 +16,10 @@
   <email>luckec@php.net</email>
   <active>yes</active>
  </lead>
- <date>2009-03-15</date>
- <time>23:44:41</time>
+ <date>2008-09-21</date>
+ <time>16:44:41</time>
  <version>
-  <release>0.1.3</release>
+  <release>0.1.2</release>
   <api>0.1.0</api>
  </version>
  <stability>
@@ -28,7 +28,7 @@
  </stability>
  <license uri="http://www.php.net/license">PHP License</license>
  <notes>
- * Utilise fix for Bug #13865: One-hour-shift in Christian driver
+ * Implement Feature #14605: Adding more austrian dates [kguest]
  </notes>
  <contents>
   <dir name="/">
@@ -53,7 +53,7 @@
    <package>
     <name>Date_Holidays</name>
     <channel>pear.php.net</channel>
-    <min>0.21.1</min>
+    <min>0.18.0</min>
    </package>
   </required>
  </dependencies>
@@ -74,7 +74,7 @@
   </release>
   <release>
    <version>
-    <release>0.1.1</release>
+    <release>0.1.2</release>
     <api>0.1.0</api>
    </version>
    <stability>
@@ -84,21 +84,6 @@
    <date>2008-08-23</date>
    <license uri="http://www.php.net/license">PHP License</license>
    <notes>Slight changes to testsuite so it works when installed rather than in developers environment.</notes>
-  </release>
-  <release>
-   <version>
-    <release>0.1.2</release>
-    <api>0.1.0</api>
-   </version>
-   <stability>
-    <release>alpha</release>
-    <api>alpha</api>
-   </stability>
-   <date>2008-09-21</date>
-   <license uri="http://www.php.net/license">PHP License</license>
-   <notes>
- * Implement Feature #14605: Adding more austrian dates [kguest]
-   </notes>
   </release>
  </changelog>
 </package>

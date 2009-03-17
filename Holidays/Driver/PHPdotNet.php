@@ -37,14 +37,6 @@
 class Date_Holidays_Driver_PHPdotNet extends Date_Holidays_Driver
 {
     /**
-     * this driver's name
-     *
-     * @access   protected
-     * @var      string
-     */
-    var $_driverName = 'PHPdotNet';
-
-    /**
      * Constructor
      *
      * Use the Date_Holidays::factory() method to construct an object of a
@@ -106,10 +98,10 @@ class Date_Holidays_Driver_PHPdotNet extends Date_Holidays_Driver
                 'date'          => '03-31',
                 'title'         => 'Ryan King'
             ),
-            // Helgi 脼ormar 脼orbj枚rnsson: 4 November 1986, Iceland
+            // Helgi 辭rmar 辭rbj鰎nsson: 4 November 1986, Iceland
             'dufuz'   => array(
                 'date'          => '11-04',
-                'title'         => 'Helgi 脼ormar 脼orbj枚rnsson'
+                'title'         => 'Helgi 辭rmar 辭rbj鰎nsson'
             ),
             // Tobias Schlitt: 19 May 1980, Germany
             'toby'   => array(
@@ -136,21 +128,16 @@ class Date_Holidays_Driver_PHPdotNet extends Date_Holidays_Driver
                 'date'          => '01-10',
                 'title'         => 'James McGlinn'
             ),
-            // Wilfredo Ignacio Pach贸n L贸pez: 31 July 1977, Colombia
+            // Wilfredo Ignacio Pach髇 L髉ez: 31 July 1977, Colombia
             'lopez'   => array(
                 'date'          => '07-31',
-                'title'         => 'Wilfredo Ignacio Pach贸n L贸pez'
+                'title'         => 'Wilfredo Ignacio Pach髇 L髉ez'
             ),
             //Chuck Burgess
             'ashnazg' => array(
                 'date'          => '01-09',
                 'title'         => 'Chuck Burgess'
-            ),
-            //Amir Mohammad Saied: Feb 16, 1986
-            'amir' => array(
-                'date'          => '02-16',
-                'title'         => 'Amir Mohammad Saied'
-            ),
+            )
         );
 
         $this->_addStaticHolidays($static);

@@ -38,14 +38,6 @@
 class Date_Holidays_Driver_UNO extends Date_Holidays_Driver
 {
     /**
-     * this driver's name
-     *
-     * @access   protected
-     * @var      string
-     */
-    var $_driverName = 'UNO';
-
-    /**
      * Constructor
      *
      * Use the Date_Holidays::factory() method to construct an object of a
@@ -342,8 +334,7 @@ class Date_Holidays_Driver_UNO extends Date_Holidays_Driver
         while ($peaceDayDate->getDayOfWeek() != 2) {
             $peaceDayDate = $peaceDayDate->getNextDay();
         }
-        $peaceDayDate = $this->_addDays($peaceDayDate, 14);
-
+        $peaceDayDate->addSpan(new Date_Span('14, 0, 0, 0'));
         $this->_addHoliday('intPeaceDay',
                            $peaceDayDate,
                            'International day of peace');

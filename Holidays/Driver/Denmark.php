@@ -39,14 +39,6 @@ require_once 'Date/Holidays/Driver/Christian.php';
 class Date_Holidays_Driver_Denmark extends Date_Holidays_Driver
 {
     /**
-     * this driver's name
-     *
-     * @access   protected
-     * @var      string
-     */
-    var $_driverName = 'Denmark';
-
-    /**
      * Constructor
      *
      * Use the Date_Holidays::factory() method to construct an object of a
@@ -99,14 +91,16 @@ class Date_Holidays_Driver_Denmark extends Date_Holidays_Driver
         /**
          * Palm Sunday
          */
-        $palmSundayDate = $this->_addDays($easterDate, -7);
+        $palmSundayDate = new Date($easterDate);
+        $palmSundayDate->subtractSpan(new Date_Span('7, 0, 0, 0'));
         $this->_addHoliday('palmSunday', $palmSundayDate, 'Palm Sunday');
         $this->_addTranslationForHoliday('palmSunday', 'da_DK', 'Palme Søndag');
 
         /**
          * Good Friday / Black Friday
          */
-        $goodFridayDate = $this->_addDays($easterDate, -2);
+        $goodFridayDate = new Date($easterDate);
+        $goodFridayDate->subtractSpan(new Date_Span('2, 0, 0, 0'));
         $this->_addHoliday('goodFriday', $goodFridayDate, 'Good Friday');
         $this->_addTranslationForHoliday('goodFriday', 'da_DK', 'Langfredag');
 
@@ -122,7 +116,8 @@ class Date_Holidays_Driver_Denmark extends Date_Holidays_Driver
          * Whitsun (determines Whit Monday, Ascension Day and
          * Feast of Corpus Christi)
          */
-        $whitsunDate = $this->_addDays($easterDate, 49);
+        $whitsunDate = new Date($easterDate);
+        $whitsunDate->addSpan(new Date_Span('49, 0, 0, 0'));
         $this->_addHoliday('whitsun', $whitsunDate, 'Whitsun');
         $this->_addTranslationForHoliday('whitsun', 'da_DK', 'Pinsedag');
 
@@ -137,7 +132,8 @@ class Date_Holidays_Driver_Denmark extends Date_Holidays_Driver
         /**
          * Ascension Day
          */
-        $ascensionDayDate = $this->_addDays($whitsunDate, -10);
+        $ascensionDayDate = new Date($whitsunDate);
+        $ascensionDayDate->subtractSpan(new Date_Span('10, 0, 0, 0'));
         $this->_addHoliday('ascensionDay', $ascensionDayDate, 'Ascension Day');
         $this->_addTranslationForHoliday('ascensionDay', 'da_DK', 'Kr. Himmelfart');
 
@@ -146,7 +142,8 @@ class Date_Holidays_Driver_Denmark extends Date_Holidays_Driver
          *
          * Friday of the 3rd week past Whitsun
          */
-        $heartJesusDate = $this->_addDays($goodFridayDate, 28);
+        $heartJesusDate = new Date($goodFridayDate);
+        $heartJesusDate->addSpan(new Date_Span('28, 0, 0, 0'));
         $this->_addHoliday('heartJesus',
                            $heartJesusDate,
                            'Heart of Jesus celebration');

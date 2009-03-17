@@ -40,7 +40,7 @@
  </stability>
  <license uri="http://www.php.net/license">PHP License</license>
  <notes>
- * Utilise fix for Bug #13865: One-hour-shift in Christian driver
+Slight changes to testsuite so it works when installed rather than in developers environment.
  </notes>
  <contents>
   <dir name="/">
