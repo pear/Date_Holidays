@@ -28,10 +28,10 @@
   <email>wiesemann@php.net</email>
   <active>no</active>
  </contributor>
- <date>2008-08-23</date>
+ <date>2009-03-17</date>
  <time>00:41:19</time>
  <version>
-  <release>0.1.1</release>
+  <release>0.1.2</release>
   <api>0.17.2</api>
  </version>
  <stability>
@@ -72,7 +72,7 @@ Slight changes to testsuite so it works when installed rather than in developers
    <package>
     <name>Date_Holidays</name>
     <channel>pear.php.net</channel>
-    <min>0.18.0</min>
+    <min>0.21.1</min>
    </package>
   </required>
  </dependencies>
