@@ -100,7 +100,7 @@
    <package>
     <name>Date_Holidays</name>
     <channel>pear.php.net</channel>
-    <min>0.18.0</min>
+    <min>0.21.1</min>
    </package>
   </required>
  </dependencies>
