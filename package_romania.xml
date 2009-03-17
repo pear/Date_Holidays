@@ -10,10 +10,10 @@
   <email>ken@linux.ie</email>
   <active>yes</active>
  </lead>
- <date>2008-08-23</date>
+ <date>2009-03-17</date>
  <time>00:41:19</time>
  <version>
-  <release>0.1.1</release>
+  <release>0.1.2</release>
   <api>0.17.2</api>
  </version>
  <stability>
@@ -22,7 +22,7 @@
  </stability>
  <license uri="http://www.php.net/license">PHP License</license>
  <notes>
- Tidied up testsuites and associated files.
+ * Utilise fix for Bug #13865: One-hour-shift in Christian driver
  </notes>
  <contents>
   <dir name="/">
@@ -47,7 +47,7 @@
    <package>
     <name>Date_Holidays</name>
     <channel>pear.php.net</channel>
-    <min>0.18.0</min>
+    <min>0.21.1</min>
    </package>
   </required>
  </dependencies>
