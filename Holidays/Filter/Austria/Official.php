@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab tabstop=4 shiftwidth=4: */
 /**
- * Filter for Official holidays in Ireland.
+ * Filter for Official holidays in Austria.
  *
  * PHP Version 4
  *
@@ -25,6 +25,7 @@
 
 /**
  * Filter that only accepts official Austria holidays.
+ * By Karin Seifert-Lorenz; based on Ireland/Official.php by Ken Guest.
  *
  * @category   Date
  * @package    Date_Holidays
