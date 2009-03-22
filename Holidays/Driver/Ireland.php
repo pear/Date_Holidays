@@ -125,7 +125,7 @@ class Date_Holidays_Driver_Ireland extends Date_Holidays_Driver
          */
         $this->_addHoliday('mothersDay',
                            $this->_addDays($easterDate, -21),
-                           'Mothers Day');
+                           'Mother\'s Day');
 
 
         /**
@@ -164,6 +164,10 @@ class Date_Holidays_Driver_Ireland extends Date_Holidays_Driver
         $this->_addTranslationForHoliday('juneBankHoliday',
                                          'ga_IE',
                                          'Lá Meitheamh');
+
+
+        $dn = $this->_calcNthWeekDayInMonth(3, 1, '06-20');
+        $this->_addHoliday('fathersDay', $dn, 'Father\'s Day');
 
         /**
          * Midsummer
