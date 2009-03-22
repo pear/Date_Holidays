@@ -121,6 +121,14 @@ class Date_Holidays_Driver_Ireland extends Date_Holidays_Driver
                                          'Luan Cásca');
 
         /**
+         * Mothers Day
+         */
+        $this->_addHoliday('mothersDay',
+                           $this->_addDays($easterDate, -21),
+                           'Mothers Day');
+
+
+        /**
          * May Bank Holiday
          */
         $dn = $this->_calcFirstMonday('05');
