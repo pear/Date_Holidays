@@ -1381,21 +1381,15 @@ class Date_Holidays_Driver
      */
     function _addDays($date, $pn_days)
     {
-        list($hs_year, $hs_month, $hs_day) =
-            explode(" ", Date_Calc::addDays($pn_days,
-                                            $date->day,
-                                            $date->month,
-                                            $date->year,
-                                            "%Y %m %d"));
-        $date = new Date($date);
-        $date->setLocalTime($hs_day,
-                            $hs_month,
-                            $hs_year,
-                            $date->hour,
-                            $date->minute,
-                            $date->second,
-                            $date->partsecond);
-        return $date;
+        $new_date = new Date($date);
+        list($new_date->year, $new_date->month, $new_date->day) =
+            explode(' ',
+                    Date_Calc::daysToDate(Date_Calc::dateToDays($date->day,
+                                                                $date->month,
+                                                                $date->year) +
+                                          $pn_days,
+                                          '%Y %m %d'));
+        return $new_date;
     }
 
 }
