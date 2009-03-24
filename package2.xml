@@ -31,7 +31,7 @@
  <date>2009-03-15</date>
  <time>23:30:41</time>
  <version>
-  <release>0.21.1</release>
+  <release>0.21.2</release>
   <api>0.17.2</api>
  </version>
  <stability>
@@ -40,11 +40,9 @@
  </stability>
  <license uri="http://www.php.net/license">PHP License</license>
  <notes>
- * Fix Bug #13865: One-hour-shift in Christian driver
- * Fix Bug #15047: Don't use LC_ALL
- * Fix Bug #15475: function getNextDay() does not seem to exist
- * Fix Bug #16021: PHP 4 regression
- * Add Date_Holidays_Italy as a group item.
+ * Fix Bug #16053: Dependency regression added with 0.21.1
+ * Dependency on PEAR updated to version 1.6.0
+ * Dependency on PHP updated to 4.4.9 or newer
  </notes>
  <contents>
   <dir name="/">
@@ -110,10 +108,10 @@
  <dependencies>
   <required>
    <php>
-    <min>4.0.0</min>
+    <min>4.4.9</min>
    </php>
    <pearinstaller>
-    <min>1.4.0b1</min>
+    <min>1.6.0</min>
    </pearinstaller>
    <package>
     <name>PEAR</name>
@@ -601,7 +599,26 @@
  * Fix Bug #15046: Avoid arbitrary file inclusion. [kguest]
  * Fix Bug #15079: fix use of easter_days function [kguest]
  * Fix Bug #15360: Double error in Christian.php [doconnor]
- * Fix Bug #15676: Date_Holidays_EnglandWalse [kguest]
+ * Fix Bug #15676: Date_Holidays_EnglandWales [kguest]
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>0.21.1</release>
+    <api>0.17.2</api>
+   </version>
+   <stability>
+    <release>alpha</release>
+    <api>alpha</api>
+   </stability>
+   <date>2009-03-15</date>
+   <license uri="http://www.php.net/license">PHP License</license>
+   <notes>
+ * Fix Bug #13865: One-hour-shift in Christian driver
+ * Fix Bug #15047: Don't use LC_ALL
+ * Fix Bug #15475: function getNextDay() does not seem to exist
+ * Fix Bug #16021: PHP 4 regression
+ * Add Date_Holidays_Italy as a group item.
    </notes>
   </release>
  </changelog>
