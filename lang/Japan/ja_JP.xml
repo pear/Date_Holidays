@@ -169,5 +169,9 @@
             <internal-name>substituteHolidayFortheRiteofWeddingofHIHCrownPrinceNaruhito</internal-name>
             <translation>振替休日</translation>
         </holiday>
+        <holiday>
+            <internal-name>substituteHolidayForshowaEmperorsBirthday</internal-name>
+            <translation>振替休日</translation>
+        </holiday>
     </holidays>
 </driver-data>
