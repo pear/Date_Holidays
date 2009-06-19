@@ -1582,6 +1582,32 @@ class Date_Holidays_Driver_Japan_TestSuite extends PHPUnit_Framework_TestCase
         $this->assertEquals('みどりの日', $obj->getHolidayForDate('2007-05-04', 'ja_JP')->getTitle(), 'showa day in 2007');
     }
 
+    /**
+     * bug #16338
+     *
+     * @access public
+     * @return void
+     */
+    function test16338()
+    {
+        for ($year = 1900; $year < date('Y'); $year++) {
+            $obj = Date_Holidays::factory('Japan', $year, 'ja_JP');
+            if (Date_Holidays::isError($obj)) {
+                $this->fail('Factory was unable to produce driver-object');
+            }
+            $obj->addTranslationFile(LANG_FILE . '/Japan/ja_JP.xml', 'ja_JP');
+            if (Date_Holidays::isError($obj)) {
+                $this->fail('fail to add translation file');
+            }
+            $holidays = array();
+            foreach ($obj->getHolidays() as $h) {
+                if (PEAR::isError($h)) {
+                    $this->fail('test failed');
+                }
+                $holidays[$h->getDate()->format('%Y-%m-%d')] = $h->getTitle();
+            }
+        }
+    }
 }
 
 ?>
