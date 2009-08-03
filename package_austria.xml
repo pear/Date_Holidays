@@ -19,7 +19,7 @@
  <date>2009-03-15</date>
  <time>23:44:41</time>
  <version>
-  <release>0.1.3</release>
+  <release>0.1.4</release>
   <api>0.1.0</api>
  </version>
  <stability>
@@ -28,7 +28,7 @@
  </stability>
  <license uri="http://www.php.net/license">PHP License</license>
  <notes>
- * Utilise fix for Bug #13865: One-hour-shift in Christian driver
+ * Add Official filter - thanks to Karin Seifert-Lorenz
  </notes>
  <contents>
   <dir name="/">
@@ -103,6 +103,21 @@
    <license uri="http://www.php.net/license">PHP License</license>
    <notes>
  * Implement Feature #14605: Adding more austrian dates [kguest]
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>0.1.3</release>
+    <api>0.1.0</api>
+   </version>
+   <stability>
+    <release>alpha</release>
+    <api>alpha</api>
+   </stability>
+   <date>2009-03-15</date>
+   <license uri="http://www.php.net/license">PHP License</license>
+   <notes>
+ * Utilise fix for Bug #13865: One-hour-shift in Christian driver
    </notes>
   </release>
  </changelog>
