@@ -1,4 +1,4 @@
-#!/usr/bin/php
+#!@PHP-BIN@
 <?php
 /**
  * Converts the old-style INI-language files into XML-files that

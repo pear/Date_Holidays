@@ -28,10 +28,10 @@
   <email>wiesemann@php.net</email>
   <active>no</active>
  </contributor>
- <date>2009-03-24</date>
- <time>00:12:41</time>
+ <date>2009-08-03</date>
+ <time>18:33:41</time>
  <version>
-  <release>0.21.2</release>
+  <release>0.21.3</release>
   <api>0.17.2</api>
  </version>
  <stability>
@@ -40,9 +40,7 @@
  </stability>
  <license uri="http://www.php.net/license">PHP License</license>
  <notes>
- * Fix Bug #16053: Dependency regression added with 0.21.1
- * Dependency on PEAR updated to version 1.6.0
- * Dependency on PHP updated to 4.4.9 or newer
+ * Fix Bug #16423: Path to php binary should not be hardcoded
  </notes>
  <contents>
   <dir name="/">
@@ -101,7 +99,9 @@
     <file baseinstalldir="Date" name="test_missingLocale.php" role="test" />
    </dir> <!-- /tests -->
    <file baseinstalldir="Date" name="Holidays.php" role="php" />
-   <file baseinstalldir="/" name="pear-dh-compile-translationfile" role="script" />
+   <file baseinstalldir="/" name="pear-dh-compile-translationfile" role="script">
+     <tasks:replace from="@PHP-BIN@" to="php_bin" type="pear-config" />
+   </file>
    <file baseinstalldir="/" name="pear-dh-ini2xml" role="script" />
   </dir> <!-- / -->
  </contents>
@@ -619,6 +619,23 @@
  * Fix Bug #15475: function getNextDay() does not seem to exist
  * Fix Bug #16021: PHP 4 regression
  * Add Date_Holidays_Italy as a group item.
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>0.21.2</release>
+    <api>0.17.2</api>
+   </version>
+   <stability>
+    <release>alpha</release>
+    <api>alpha</api>
+   </stability>
+   <date>2009-03-24</date>
+   <license uri="http://www.php.net/license">PHP License</license>
+   <notes>
+ * Fix Bug #16053: Dependency regression added with 0.21.1
+ * Dependency on PEAR updated to version 1.6.0
+ * Dependency on PHP updated to 4.4.9 or newer
    </notes>
   </release>
  </changelog>
