@@ -28,10 +28,10 @@
   <email>wiesemann@php.net</email>
   <active>no</active>
  </contributor>
- <date>2009-08-03</date>
- <time>18:33:41</time>
+ <date>2009-08-010</date>
+ <time>10:33:41</time>
  <version>
-  <release>0.21.3</release>
+  <release>0.21.4</release>
   <api>0.17.2</api>
  </version>
  <stability>
