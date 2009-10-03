@@ -53,9 +53,4 @@ foreach ($_SERVER['argv'] as $filename) {
     
 }
 
-
-
-
-
-
 ?>
