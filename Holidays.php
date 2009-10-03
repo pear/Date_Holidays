@@ -362,6 +362,9 @@ class Date_Holidays
      */
     function isError($data, $code = null)
     {
+        if (!is_object($data)) {
+            return false;
+        }
         $errorClass = get_class($data);
         switch (strtolower($errorClass)) {
         case 'pear_error':
