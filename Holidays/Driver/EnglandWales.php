@@ -23,10 +23,9 @@
  * @link     http://pear.php.net/package/Date_Holidays
  */
 require_once 'Date/Holidays/Driver/Christian.php';
-require_once 'Date/Holidays/Driver/USA.php';
 
 /**
- * Driver class that calculates Danish holidays
+ * Driver class that calculates holidays in England and Wales
  *
  * @category   Date
  * @package    Date_Holidays
@@ -114,19 +113,19 @@ class Date_Holidays_Driver_EnglandWales extends Date_Holidays_Driver
         /**
          * May Day Bank Holiday
          */
-        $earlyMayDate = Date_Holidays_Driver_USA::_calcNthMondayInMonth(5, 1);
+        $earlyMayDate = Date_Holidays_Driver::_calcFirstMonday(5);
         $this->_addHoliday('mayDay', $earlyMayDate, 'May Day Bank Holiday');
 
         /**
          * Spring Bank Holiday
          */
-        $springBankDate = Date_Holidays_Driver_USA::_calcLastMondayInMonth(5);
+        $springBankDate = Date_Holidays_Driver::_calcLastMonday(5);
         $this->_addHoliday('springBank', $springBankDate, 'Spring Bank Holiday');
 
         /**
          * Summer Bank Holiday
          */
-        $summerBankDate = Date_Holidays_Driver_USA::_calcLastMondayInMonth(8);
+        $summerBankDate = Date_Holidays_Driver::_calcLastMonday(8);
         $this->_addHoliday('summerBank', $summerBankDate, 'Summer Bank Holiday');
 
         /**

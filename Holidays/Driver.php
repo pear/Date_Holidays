@@ -1277,6 +1277,7 @@ class Date_Holidays_Driver
      */
     function _calcFirstMonday($month)
     {
+        $month = sprintf("%02d", $month);
         $date = new Date($this->_year . "-$month-01");
         while ($date->getDayOfWeek() != 1) {
             $date = $date->getNextDay();
@@ -1294,10 +1295,13 @@ class Date_Holidays_Driver
     function _calcLastMonday($month)
     {
         //work backwards from the first day of the next month.
+        $month = sprintf("%02d", $month);
         $nm = ((int) $month ) + 1;
         if ($nm > 12) {
             $nm = 1;
         }
+        $nm = sprintf("%02d", $nm);
+
         $date = new Date($this->_year . "-$nm-01");
         $date = $date->getPrevDay();
         while ($date->getDayOfWeek() != 1) {
