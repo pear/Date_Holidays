@@ -119,9 +119,6 @@ class Date_Holidays_Driver_EnglandWales_TestSuite extends PHPUnit_Framework_Test
         foreach ($this->testDates2009 as $name => $dateInfo) {
             $day = $drv->getHoliday($name);
             $this->assertFalse(Date_Holidays::isError($day));
-            if (Date_Holidays::isError($day)) {
-                die($day->getMessage());
-            }
             $this->assertEquals($name, $day->getInternalName());
             $date = $day->getDate();
             $this->assertEquals($dateInfo['day'], $date->getDay(), $name);
@@ -140,16 +137,9 @@ class Date_Holidays_Driver_EnglandWales_TestSuite extends PHPUnit_Framework_Test
     {
         $drv = Date_Holidays::factory('EnglandWales', 2010, 'en_EN');
         $this->assertFalse(Date_Holidays::isError($drv));
-        if (Date_Holidays::isError($drv)) {
-            print_r($drv);
-            die($drv->getMessage());
-        }
         foreach ($this->testDates2010 as $name => $dateInfo) {
             $day = $drv->getHoliday($name);
             $this->assertFalse(Date_Holidays::isError($day));
-            if (Date_Holidays::isError($day)) {
-                die($day->getMessage());
-            }
             $this->assertEquals($name, $day->getInternalName());
             $date = $day->getDate();
             $this->assertEquals($dateInfo['day'], $date->getDay(), $name);
