@@ -57,7 +57,7 @@ $result = $package->setOptions(array(
     'version'           => $version,
     'state'             => $state,
     'license'           => 'PHP License',
-    'filelistgenerator' => 'cvs',
+    'filelistgenerator' => 'svn',
     'ignore'            => array(
             'mkSource.php', 'package.php', 'package.xml', 'package2.xml',
             'test.php', 'docs/', 'tests/test_missingLocale.php',
@@ -86,7 +86,7 @@ $package->addMaintainer('schst', 'developer', 'Stephan Schmidt', 'schst@php.net'
 $package->addMaintainer('wiesemann', 'contributor', 'Mark Wiesemann', 'wiesemann@php.net');
 $package->addMaintainer('kguest', 'lead', 'Ken Guest', 'ken@linux.ie');
 
-$package->addDependency('PEAR', '1.3.1', 'ge', 'pkg', false);
+$package->addDependency('PEAR', '1.5.6', 'ge', 'pkg', false);
 $package->addDependency('Date', '', 'has', 'pkg', false);
 $package->addDependency('XML_Serializer', '', 'has', 'pkg', false);
 $package->addDependency('Console_Getargs', '', 'has', 'pkg', true);

@@ -43,7 +43,7 @@
  * Fix Bug #16423: Path to php binary should not be hardcoded
  </notes>
  <contents>
-  <dir name="/">
+  <dir baseinstalldir="/" name="/">
    <dir name="examples">
     <file baseinstalldir="Date" name="addingTranslations.php" role="doc" />
     <file baseinstalldir="Date" name="creating_drivers.php" role="doc" />
