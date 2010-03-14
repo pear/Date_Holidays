@@ -43,49 +43,51 @@
  * Utilise fix for Bug #13865: One-hour-shift in Christian driver
  </notes>
  <contents>
-  <dir name="/">
+  <dir baseinstalldir="/" name="/">
+  <dir name="Date">
    <dir name="Holidays">
     <dir name="Driver">
-     <file baseinstalldir="Date" name="Germany.php" role="php" />
+     <file name="Germany.php" role="php" />
     </dir> <!-- /Holidays/Driver -->
     <dir name="Filter">
      <dir name="Germany">
-      <file baseinstalldir="Date" name="BadenWuerttemberg.php" role="php" />
-      <file baseinstalldir="Date" name="Bavaria.php" role="php" />
-      <file baseinstalldir="Date" name="Berlin.php" role="php" />
-      <file baseinstalldir="Date" name="Brandenburg.php" role="php" />
-      <file baseinstalldir="Date" name="Bremen.php" role="php" />
-      <file baseinstalldir="Date" name="Hamburg.php" role="php" />
-      <file baseinstalldir="Date" name="Hesse.php" role="php" />
-      <file baseinstalldir="Date" name="LowerSaxony.php" role="php" />
-      <file baseinstalldir="Date" name="MecklenburgWesternPomerania.php" role="php" />
-      <file baseinstalldir="Date" name="NorthRhineWestphalia.php" role="php" />
-      <file baseinstalldir="Date" name="Official.php" role="php" />
-      <file baseinstalldir="Date" name="RhinelandPalatinate.php" role="php" />
-      <file baseinstalldir="Date" name="Saarland.php" role="php" />
-      <file baseinstalldir="Date" name="Saxony.php" role="php" />
-      <file baseinstalldir="Date" name="SaxonyAnhalt.php" role="php" />
-      <file baseinstalldir="Date" name="SchleswigHolstein.php" role="php" />
-      <file baseinstalldir="Date" name="Thuringia.php" role="php" />
+      <file name="BadenWuerttemberg.php" role="php" />
+      <file name="Bavaria.php" role="php" />
+      <file name="Berlin.php" role="php" />
+      <file name="Brandenburg.php" role="php" />
+      <file name="Bremen.php" role="php" />
+      <file name="Hamburg.php" role="php" />
+      <file name="Hesse.php" role="php" />
+      <file name="LowerSaxony.php" role="php" />
+      <file name="MecklenburgWesternPomerania.php" role="php" />
+      <file name="NorthRhineWestphalia.php" role="php" />
+      <file name="Official.php" role="php" />
+      <file name="RhinelandPalatinate.php" role="php" />
+      <file name="Saarland.php" role="php" />
+      <file name="Saxony.php" role="php" />
+      <file name="SaxonyAnhalt.php" role="php" />
+      <file name="SchleswigHolstein.php" role="php" />
+      <file name="Thuringia.php" role="php" />
      </dir> <!-- /Holidays/Filter/Germany -->
     </dir> <!-- /Holidays/Filter -->
    </dir> <!-- /Holidays -->
+  </dir> <!-- / -->
    <dir name="lang">
     <dir name="Christian">
-     <file baseinstalldir="Date" name="de_DE.ser" role="data" />
-     <file baseinstalldir="Date" name="de_DE.xml" role="data" />
+     <file name="de_DE.ser" role="data" />
+     <file name="de_DE.xml" role="data" />
     </dir> <!-- /lang/Christian -->
     <dir name="Germany">
-     <file baseinstalldir="Date" name="de_DE.ser" role="data" />
-     <file baseinstalldir="Date" name="de_DE.xml" role="data" />
-     <file baseinstalldir="Date" name="en_EN.ser" role="data" />
-     <file baseinstalldir="Date" name="en_EN.xml" role="data" />
-     <file baseinstalldir="Date" name="fr_FR.ser" role="data" />
-     <file baseinstalldir="Date" name="fr_FR.xml" role="data" />
+     <file name="de_DE.ser" role="data" />
+     <file name="de_DE.xml" role="data" />
+     <file name="en_EN.ser" role="data" />
+     <file name="en_EN.xml" role="data" />
+     <file name="fr_FR.ser" role="data" />
+     <file name="fr_FR.xml" role="data" />
     </dir> <!-- /lang/Germany -->
    </dir> <!-- /lang -->
    <dir name="tests">
-    <file baseinstalldir="Date" name="Date_Holidays_Driver_Germany_TestSuite.php" role="test" />
+    <file name="Date_Holidays_Driver_Germany_TestSuite.php" role="test" />
    </dir> <!-- /tests -->
   </dir> <!-- / -->
  </contents>

@@ -25,14 +25,16 @@
 Slight changes to testsuite so it works when installed rather than in developers environment.
  </notes>
  <contents>
-  <dir name="/">
+  <dir baseinstalldir="/" name="/">
+  <dir name="Date">
    <dir name="Holidays">
     <dir name="Driver">
-     <file baseinstalldir="Date" name="Brazil.php" role="php" />
+     <file name="Brazil.php" role="php" />
     </dir> <!-- //Holidays/Driver -->
    </dir> <!-- //Holidays -->
+   </dir>
    <dir name="tests">
-    <file baseinstalldir="Date" name="Date_Holidays_Driver_Brazil_TestSuite.php" role="test" />
+    <file name="Date_Holidays_Driver_Brazil_TestSuite.php" role="test" />
    </dir> <!-- /tests -->
   </dir> <!-- / -->
  </contents>

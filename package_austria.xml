@@ -31,17 +31,19 @@
  * Add Official filter - thanks to Karin Seifert-Lorenz
  </notes>
  <contents>
-  <dir name="/">
+  <dir baseinstalldir="/" name="/">
+  <dir name="Date">
    <dir name="Holidays">
     <dir name="Driver">
-     <file baseinstalldir="Date" name="Austria.php" role="php" />
+     <file name="Austria.php" role="php" />
     </dir> <!-- /Holidays/Driver -->
     <dir name="Filter">
      <dir name="Austria">
-      <file baseinstalldir="Date" name="Official.php" role="php" />
+      <file name="Official.php" role="php" />
      </dir> <!-- /Holidays/Filter/Austria -->
     </dir> <!-- /Holidays/Filter -->
    </dir> <!-- /Holidays -->
+   </dir>
    <dir name="tests">
     <file baseinstalldir="Date" name="Date_Holidays_Driver_Austria_TestSuite.php" role="test" />
    </dir> <!-- /tests -->

@@ -31,14 +31,14 @@
  * Utilise fix for Bug #13865: One-hour-shift in Christian driver
  </notes>
  <contents>
-  <dir name="/">
+  <dir baseinstalldir="/" name="/">
+  <dir name="Date">
    <dir name="Holidays">
     <dir name="Driver">
      <file baseinstalldir="Date" name="EnglandWales.php" role="php" />
     </dir> <!-- /Holidays/Driver -->
    </dir> <!-- /Holidays -->
-   <dir name="lang">
-   </dir> <!-- /lang -->
+  </dir>
    <dir name="tests">
     <file baseinstalldir="Date" name="Date_Holidays_Driver_EnglandWales_TestSuite.php" role="test" />
    </dir> <!-- /tests -->
