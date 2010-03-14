@@ -52,24 +52,27 @@
     <file baseinstalldir="Date" name="usingCompositeDriver.php" role="doc" />
     <file baseinstalldir="Date" name="usingStandaloneDriver.php" role="doc" />
    </dir> <!-- /examples -->
+   <dir name="Date">
    <dir name="Holidays">
     <dir name="Driver">
-     <file baseinstalldir="Date" name="Christian.php" role="php" />
-     <file baseinstalldir="Date" name="Composite.php" role="php" />
-     <file baseinstalldir="Date" name="EasternChristian.php" role="php" />
-     <file baseinstalldir="Date" name="Jewish.php" role="php" />
+     <file name="Christian.php" role="php" />
+     <file name="Composite.php" role="php" />
+     <file name="EasternChristian.php" role="php" />
+     <file name="Jewish.php" role="php" />
     </dir> <!-- /Holidays/Driver -->
     <dir name="Filter">
-     <file baseinstalldir="Date" name="Blacklist.php" role="php" />
-     <file baseinstalldir="Date" name="Composite.php" role="php" />
-     <file baseinstalldir="Date" name="Whitelist.php" role="php" />
+     <file name="Blacklist.php" role="php" />
+     <file name="Composite.php" role="php" />
+     <file name="Whitelist.php" role="php" />
     </dir> <!-- /Holidays/Filter -->
-    <file baseinstalldir="Date" name="Driver.php" role="php" >
+    <file name="Driver.php" role="php" >
      <tasks:replace from="@DATA-DIR@" to="data_dir" type="pear-config" />
     </file>
-    <file baseinstalldir="Date" name="Filter.php" role="php" />
-    <file baseinstalldir="Date" name="Holiday.php" role="php" />
+    <file name="Filter.php" role="php" />
+    <file name="Holiday.php" role="php" />
    </dir> <!-- /Holidays -->
+   <file name="Holidays.php" role="php" />
+   </dir>
    <dir name="lang">
     <dir name="Christian">
      <file baseinstalldir="Date" name="de_DE.ser" role="data" />
@@ -98,7 +101,6 @@
     <file baseinstalldir="Date" name="test_getHolidays.php" role="test" />
     <file baseinstalldir="Date" name="test_missingLocale.php" role="test" />
    </dir> <!-- /tests -->
-   <file baseinstalldir="Date" name="Holidays.php" role="php" />
    <file baseinstalldir="/" name="pear-dh-compile-translationfile" role="script">
      <tasks:replace from="@PHP-BIN@" to="php_bin" type="pear-config" />
    </file>
