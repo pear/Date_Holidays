@@ -24,20 +24,22 @@
  <notes>
  * Fixed bug #14573: return incorrect titles with 'ja_JP' lang file [hshimooka] </notes>
  <contents>
-  <dir name="/">
+  <dir baseinstalldir="/" name="/">
+   <dir name="Date">
    <dir name="Holidays">
     <dir name="Driver">
-     <file baseinstalldir="Date" name="Japan.php" role="php" />
+     <file name="Japan.php" role="php" />
     </dir> <!-- /Holidays/Driver -->
    </dir> <!-- /Holidays -->
+   </dir>
    <dir name="lang">
     <dir name="Japan">
-      <file baseinstalldir="Date" name="ja_JP.ser" role="data" />
-      <file baseinstalldir="Date" name="ja_JP.xml" role="data" />
+      <file name="ja_JP.ser" role="data" />
+      <file name="ja_JP.xml" role="data" />
     </dir> <!-- /lang/Japan -->
    </dir> <!-- /lang -->
    <dir name="tests">
-    <file baseinstalldir="Date" name="Date_Holidays_Driver_Japan_TestSuite.php" role="test">
+    <file name="Date_Holidays_Driver_Japan_TestSuite.php" role="test">
      <tasks:replace from="@DATA-DIR@" to="data_dir" type="pear-config" />
     </file>
    </dir> <!-- /tests -->
