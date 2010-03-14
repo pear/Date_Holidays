@@ -1393,6 +1393,11 @@ class Date_Holidays_Driver
                                                                 $date->year) +
                                           $pn_days,
                                           '%Y %m %d'));
+        if (isset($new_date->on_standardyear)) {
+            $new_date->on_standardyear = $new_date->year;
+            $new_date->on_standardmonth = $new_date->month;
+            $new_date->on_standardday = $new_date->day;
+        }
         return $new_date;
     }
 
