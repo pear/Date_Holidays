@@ -6,7 +6,7 @@
  *
  * PHP Version 4
  *
- * Copyright (c) 1997-2008 The PHP Group
+ * Copyright (c) 1997-2010 The PHP Group
  *
  * This source file is subject to version 3.0 of the PHP license,
  * that is bundled with this package in the file LICENSE, and is
@@ -19,7 +19,7 @@
  * @category Date
  * @package  Date_Holidays
  * @author   Andrea Venturi <a.venturi@gmail.com>
- * @license  http://www.php.net/license/3_01.txt PHP License 3.0.1
+ * @license  BSD http://www.opensource.org/licenses/bsd-license.php
  * @link     http://pear.php.net/package/Date_Holidays
  */
 
@@ -32,7 +32,7 @@ require_once 'Date/Holidays/Driver/Christian.php';
  * @package    Date_Holidays
  * @subpackage Driver
  * @author     Andrea Venturi <a.venturi@gmail.com>
- * @license    http://www.php.net/license/3_01.txt PHP License 3.0.1
+ * @license    BSD http://www.opensource.org/licenses/bsd-license.php
  * @link       http://pear.php.net/package/Date_Holidays
  */
 class Date_Holidays_Driver_SanMarino extends Date_Holidays_Driver
