@@ -36,7 +36,7 @@ require_once 'Date/Holidays/Driver/Christian.php';
  * @subpackage Driver
  * @author     Jesús Espino <jespinog@gmail.com>
  * @license    http://www.php.net/license/3_01.txt PHP License 3.0.1
- * @version    CVS: $Id: Spain.php 277207 2009-03-15 20:17:00Z kguest $
+ * @version    SVN: $Id: Spain.php 277207 2009-03-15 20:17:00Z kguest $
  * @link       http://pear.php.net/package/Date_Holidays
  */
 class Date_Holidays_Driver_Spain extends Date_Holidays_Driver
