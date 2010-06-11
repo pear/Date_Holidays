@@ -126,6 +126,17 @@ class Date_Holidays_Driver_Spain extends Date_Holidays_Driver
         $this->_addHoliday('goodFriday', $goodFriday, 'Viernes Santo');
 
         /**
+         * Saint Saturday
+         */
+        $goodFriday = $this->_addDays($easterDate,-1);
+        $this->_addHoliday('saintSaturday', $goodFriday, 'Sabado Santo');
+
+        /**
+         * Easter
+         */
+        $this->_addHoliday('easter', $easterDate, 'Domingo de resurrección');
+
+        /**
          * Fathers Day
          */
         $this->_addHoliday('fathersDay', $this->_year . '-03-19', 'Día del padre');
@@ -144,7 +155,9 @@ class Date_Holidays_Driver_Spain extends Date_Holidays_Driver
          */
         $mothersDay = $this->_calcFirstMonday("05");
         $mothersDay = $mothersDay->getPrevDay();
-        $mothersDay = $this->_addDays($mothersDay, 7);
+        if($mothersDay == 30) {
+            $mothersDay = $this->_addDays($mothersDay, 7);
+        }
         $this->_addHoliday('mothersDay', $mothersDay, 'Día de la madre');
 
         /**
@@ -175,7 +188,7 @@ class Date_Holidays_Driver_Spain extends Date_Holidays_Driver
          * Hispanity Day
          */
         $this->_addHoliday(
-            'republicDaySpain',
+            'hispanityDay',
             $this->_year . '-10-12',
             'Día de la hispanidad'
         );
@@ -223,7 +236,7 @@ class Date_Holidays_Driver_Spain extends Date_Holidays_Driver
         $this->_addHoliday(
             'newYearsEve',
             $this->_year . '-12-31',
-            'Vispera de año nuevo'
+            'Noche vieja'
         );
 
         if (Date_Holidays::errorsOccurred()) {
