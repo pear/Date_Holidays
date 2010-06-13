@@ -155,7 +155,7 @@ class Date_Holidays_Driver_Spain extends Date_Holidays_Driver
          */
         $mothersDay = $this->_calcFirstMonday("05");
         $mothersDay = $mothersDay->getPrevDay();
-        if($mothersDay == 30) {
+        if($mothersDay->getDay() == 30) {
             $mothersDay = $this->_addDays($mothersDay, 7);
         }
         $this->_addHoliday('mothersDay', $mothersDay, 'Día de la madre');
