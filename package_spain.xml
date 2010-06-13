@@ -10,19 +10,31 @@
   <email>ken@linux.ie</email>
   <active>yes</active>
  </lead>
- <date>2010-06-03</date>
- <time>00:17:19</time>
+ <lead>
+  <name>Jesús Espino</name>
+  <user>jespino</user>
+  <email>jespinog@gmail.com</email>
+  <active>yes</active>
+ </lead>
+ <date>2010-06-13</date>
+ <time>22:17:19</time>
  <version>
-  <release>0.1.0</release>
+  <release>0.1.1</release>
   <api>0.1.0</api>
  </version>
  <stability>
   <release>alpha</release>
   <api>alpha</api>
  </stability>
- <license uri="http://www.gnu.org/licenses/lgpl.html">LGPL</license>
+ <license uri="http://www.php.net/license">PHP License</license>
  <notes>
- * Initial release
+ * Implemented unit tests (bug #17461).
+ * Renamed "Vispera de año nuevo" to "Noche Vieja".
+ * Changed the id "republicDaySpain" to "hispanityDay".
+ * Fixed a error calculating the mothers day.
+ * Added Saint Saturday as "Sabado Santo".
+ * Added the easter day as "Domingo de resurrección".
+ * Added a test.
  </notes>
  <contents>
   <dir baseinstalldir="/" name="/">
