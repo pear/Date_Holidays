@@ -166,7 +166,7 @@ class Date_Holidays_Driver_Ireland extends Date_Holidays_Driver
                                          'Lá Meitheamh');
 
 
-        $dn = $this->_calcNthWeekDayInMonth(3, 1, '06-20');
+        $dn = $this->_calcNthWeekDayInMonth(3, 0, 6);
         $this->_addHoliday('fathersDay', $dn, 'Father\'s Day');
 
         /**
