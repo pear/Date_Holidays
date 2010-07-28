@@ -95,7 +95,7 @@ class Date_Holidays_Driver_Ireland_TestSuite extends PHPUnit_Framework_TestCase
             'mothersDay'            => array('day' => 18,
                                              'month' => 3,
                                              'year' => 2007),
-            'fathersDay'            => array('day' => 18,
+            'fathersDay'            => array('day' => 17,
                                              'month' => 6,
                                              'year' => 2007),
             'easterMonday'          => array('day' => 9,
