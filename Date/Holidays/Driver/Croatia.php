@@ -34,6 +34,7 @@ require_once 'Date/Holidays/Driver/Christian.php';
  * @author     Valentin Vidic <Valentin.Vidic@CARNet.hr>
  * @license    http://www.php.net/license/3_01.txt PHP License 3.0.1
  * @version    CVS: $Id: Croatia.php,v 1.8 2008/10/08 22:04:12 kguest Exp $
+ * @link       http://pear.php.net/package/Date_Holidays
  */
 class Date_Holidays_Driver_Croatia extends Date_Holidays_Driver
 {
@@ -96,7 +97,11 @@ class Date_Holidays_Driver_Croatia extends Date_Holidays_Driver
         /**
          * Dan antifašističke borbe
          */
-        $this->_addHoliday('antifasizma', $this->_year . '-06-22', 'Dan antifašističke borbe');
+        $this->_addHoliday(
+            'antifasizma',
+            $this->_year . '-06-22',
+            'Dan antifašističke borbe'
+        );
 
         /**
          * Dan državnosti
@@ -106,7 +111,11 @@ class Date_Holidays_Driver_Croatia extends Date_Holidays_Driver
         /**
          * Dan domovinske zahvalnosti
          */
-        $this->_addHoliday('zahvalnosti', $this->_year . '-08-05', 'Dan domovinske zahvalnosti');
+        $this->_addHoliday(
+            'zahvalnosti',
+            $this->_year . '-08-05',
+            'Dan domovinske zahvalnosti'
+        );
 
         /**
          * Velika Gospa
@@ -116,7 +125,11 @@ class Date_Holidays_Driver_Croatia extends Date_Holidays_Driver
         /**
          * Dan neovisnosti
          */
-        $this->_addHoliday('neovisnosti', $this->_year . '-10-08', 'Dan neovisnosti');
+        $this->_addHoliday(
+            'neovisnosti',
+            $this->_year . '-10-08',
+            'Dan neovisnosti'
+        );
 
         /**
          * Dan svih svetih
@@ -149,7 +162,7 @@ class Date_Holidays_Driver_Croatia extends Date_Holidays_Driver
      */
     function getISO3166Codes()
     {
-        return array('hr');
+        return array('hr', 'hrv');
     }
 }
 ?>
