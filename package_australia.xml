@@ -36,6 +36,8 @@
    <dir name="Holidays">
     <dir name="Driver">
      <file name="Australia.php" role="php" />
+     <file name="AustraliaNSW.php" role="php" />
+     <file name="AustraliaSA.php" role="php" />
      <file name="AustraliaWA.php" role="php" />
     </dir> <!-- /Holidays/Driver -->
    </dir> <!-- /Holidays -->
