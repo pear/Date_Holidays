@@ -65,7 +65,8 @@ class Date_Holidays_Driver_AustraliaSA_TestSuite extends PHPUnit_Framework_TestC
      */
     public function testHolidays($name, $year, $dateInfo)
     {
-        $drv = Date_Holidays::factory('AustraliaSA', $year, 'en_EN');
+        $dh = new Date_Holidays();
+        $drv = $dh->factory('AustraliaSA', $year, 'en_EN');
         $this->assertFalse(Date_Holidays::isError($drv));
         if (Date_Holidays::isError($drv)) {
             print_r($drv);
