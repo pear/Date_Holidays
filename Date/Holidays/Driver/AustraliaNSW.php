@@ -1,14 +1,13 @@
 <?php
 /* vim: set expandtab tabstop=4 shiftwidth=4: */
 /**
- * This file contains only the Driver class for determining holidays in Western
- * Australia.
+ * This file contains only the Driver class for determining holidays in New South Wales
  *
  * PHP Version 4
  *
  * @category Date
  * @package  Date_Holidays
- * @author   Sam Wilson <sam@archives.org.au>
+ * @author   Daniel O'Connor <daniel.oconnor@gmail.com>
  * @license  BSD http://www.opensource.org/licenses/bsd-license.php
  * @link     http://pear.php.net/package/Date_Holidays
  */
@@ -22,7 +21,7 @@ require_once 'Date/Calc.php';
  * @category   Date
  * @package    Date_Holidays
  * @subpackage Driver
- * @author     Sam Wilson <sam@archives.org.au>
+ * @author     Daniel O'Connor <daniel.oconnor@gmail.com>
  * @license    BSD http://www.opensource.org/licenses/bsd-license.php
  * @link       http://pear.php.net/package/Date_Holidays
  */
