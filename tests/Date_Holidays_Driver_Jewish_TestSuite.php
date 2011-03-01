@@ -49,6 +49,7 @@ class Date_Holidays_Driver_Jewish_TestSuite extends PHPUnit_Framework_TestCase
      */
     function testHolidays2005()
     {
+        $this->markTestIncomplete("0% coverage");
     }
 
 }
