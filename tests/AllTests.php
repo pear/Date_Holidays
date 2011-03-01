@@ -21,6 +21,11 @@ require_once 'Date_Holidays_TestSuite.php';
 require_once 'Date_Holidays_Driver_TestSuite.php';
 require_once 'Date_Holidays_Bugfix_Retests_TestSuite.php';
 require_once 'Date_Holidays_Driver_Austria_TestSuite.php';
+require_once 'Date_Holidays_Driver_Australia_TestSuite.php';
+require_once 'Date_Holidays_Driver_AustraliaSA_TestSuite.php';
+require_once 'Date_Holidays_Driver_AustraliaNSW_TestSuite.php';
+require_once 'Date_Holidays_Driver_AustraliaWA_TestSuite.php';
+require_once 'Date_Holidays_Driver_AustraliaQLD_TestSuite.php';
 require_once 'Date_Holidays_Driver_Brazil_TestSuite.php';
 require_once 'Date_Holidays_Driver_Christian_TestSuite.php';
 require_once 'Date_Holidays_Driver_EnglandWales_TestSuite.php';
@@ -74,6 +79,11 @@ class Date_Holidays_AllTests
 
         $suite->addTestSuite('Date_Holidays_Bugfix_Retests_TestSuite');
         $suite->addTestSuite('Date_Holidays_Driver_Austria_TestSuite');
+        $suite->addTestSuite('Date_Holidays_Driver_Australia_TestSuite');
+        $suite->addTestSuite('Date_Holidays_Driver_AustraliaSA_TestSuite');
+        $suite->addTestSuite('Date_Holidays_Driver_AustraliaNSW_TestSuite');
+        $suite->addTestSuite('Date_Holidays_Driver_AustraliaWA_TestSuite');
+        $suite->addTestSuite('Date_Holidays_Driver_AustraliaQLD_TestSuite');
         $suite->addTestSuite('Date_Holidays_Driver_Christian_TestSuite');
         $suite->addTestSuite('Date_Holidays_Driver_EnglandWales_TestSuite');
         $suite->addTestSuite('Date_Holidays_Driver_Germany_TestSuite');
