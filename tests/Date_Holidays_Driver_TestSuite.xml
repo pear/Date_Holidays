@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="yes" ?>
+<driver-data>
+    <holidays>
+            
+        <holiday>
+            <internal-name>jesusCircumcision</internal-name>
+            <translation>Jesu Beschneidung</translation>
+            
+            <properties>
+                <property id="foo">bar</property>
+            </properties>
+        </holiday>
+        
+        <holiday>
+            <internal-name>epiphany</internal-name>
+            <translation>Heilige Drei Könige</translation>
+            
+            <properties>
+                <property id="test">Test-Value</property>
+                <property id="foo">bar</property>
+            </properties>
+        </holiday>
+        
+    </holidays>
+</driver-data>
