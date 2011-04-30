@@ -269,5 +269,72 @@ class Date_Holidays_Driver_Sweden_TestSuite extends PHPUnit_Framework_TestCase
                             'Translated title for \'midSummerEve\'');
     }
 
+    /**
+     * test Swedish translations of Swedish Holidays.
+     *
+     * @access public
+     * @return void
+     */
+    function testSwedishTranslations()
+    {
+        $locale = 'de_DE';
+
+        $drv = Date_Holidays::factory('Sweden', 2005, $locale);
+        $this->assertFalse(Date_Holidays::isError($drv));
+        if (Date_Holidays::isError($drv)) {
+            $this->fail($drv->getMessage());
+        }
+        if (strpos('@DATA_DIR@', LANG_FILE) === false) {
+            $result = $drv->addTranslationFile('../lang/Sweden/de_DE.xml', $locale);
+        } else {
+            $result = $drv->addTranslationFile(LANG_FILE . '/Sweden/de_DE.xml', $locale);
+        }
+        if ($result !== true) {
+            $this->markTestSkipped("Could not load translation file.");
+        }
+
+        $easter = $drv->getHoliday('easter');
+        $this->assertEquals('Ostersonntag',
+                            $easter->getTitle(),
+                            'Translated title for \'easter\'');
+    }
+
+    /**
+     * test compiled Swedish translations of Swedish Holidays.
+     *
+     * @access public
+     * @return void
+     */
+    function testcompiledSwedishTranslations()
+    {
+        $locale = 'sv_SE';
+
+        $drv = Date_Holidays::factory('Sweden', 2005, $locale);
+        $this->assertFalse(Date_Holidays::isError($drv));
+        if (Date_Holidays::isError($drv)) {
+            $this->fail($drv->getMessage());
+        }
+
+        if (strpos('@DATA_DIR@', LANG_FILE) === false) {
+            $result = $drv->addCompiledTranslationFile('../lang/Sweden/sv_SE.ser', $locale);
+        } else {
+            $result = $drv->addCompiledTranslationFile(LANG_FILE . '/Sweden/sv_SE.ser',
+                                                   $locale);
+        }
+        if ($result !== true) {
+            $this->markTestSkipped("Could not load compiled translation file.");
+        }
+
+        $easter = $drv->getHoliday('easter');
+        $this->assertEquals('Påskdagen',
+                            $easter->getTitle(),
+                            'Translated title for \'easter\'');
+
+        $midsummerEve = $drv->getHoliday('midSummerEve');
+        $this->assertEquals('Midsommarafton',
+                            $midsummerEve->getTitle(),
+                            'Translated title for \'midSummerEve\'');
+    }
+
 }
 ?>
