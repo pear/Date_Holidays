@@ -29,7 +29,9 @@
    <dir name="Date">
    <dir name="Holidays">
     <dir name="Driver">
-     <file name="Finland.php" role="php" />
+     <file name="Finland.php" role="php">
+	 <tasks:replace from="@PACKAGE_VERSION@" to="version" type="package-info" />
+	 </file>
     </dir> <!-- /Holidays/Driver -->
    </dir> <!-- /Holidays -->
    </dir>
