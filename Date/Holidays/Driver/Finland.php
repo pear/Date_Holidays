@@ -12,7 +12,7 @@
  * @author   Carsten Lucke <luckec@tool-garage.de>
  * @author   Anders Karlsson <anders.x.karlsson@tdcsong.se>
  * @license  BSD http://www.opensource.org/licenses/bsd-license.php
- * @version  SVN: $Id
+ * @version  SVN: $Id$
  * @link     http://pear.php.net/package/Date_Holidays
  */
 
