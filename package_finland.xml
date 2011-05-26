@@ -10,10 +10,10 @@
   <email>ken@linux.ie</email>
   <active>yes</active>
  </lead>
- <date>2011-05-25</date>
- <time>01:37:19</time>
+ <date>2011-05-26</date>
+ <time>23:25:19</time>
  <version>
-  <release>0.1.1</release>
+  <release>0.1.2</release>
   <api>0.17.2</api>
  </version>
  <stability>
@@ -22,7 +22,7 @@
  </stability>
 <license uri="http://www.opensource.org/licenses/bsd-license.php">BSD</license>
  <notes>
- * Initial Release
+ * Added test suite.
  </notes>
  <contents>
   <dir baseinstalldir="/" name="/">
@@ -35,6 +35,11 @@
     </dir> <!-- /Holidays/Driver -->
    </dir> <!-- /Holidays -->
    </dir>
+   <dir name="tests">
+    <file name="Date_Holidays_Driver_Finland_TestSuite.php" role="test">
+     <tasks:replace from="@DATA-DIR@" to="data_dir" type="pear-config" />
+    </file>
+   </dir> <!-- /tests -->
   </dir> <!-- / -->
  </contents>
  <dependencies>
@@ -66,6 +71,19 @@
    <date>2011-05-25</date>
    <license uri="http://www.opensource.org/licenses/bsd-license.php">BSD</license>
    <notes>initial pear release</notes>
+  </release>
+  <release>
+   <version>
+    <release>0.1.1</release>
+    <api>0.17.2</api>
+   </version>
+   <stability>
+    <release>alpha</release>
+    <api>alpha</api>
+   </stability>
+   <date>2011-05-26</date>
+   <license uri="http://www.opensource.org/licenses/bsd-license.php">BSD</license>
+   <notes>Added test suite.</notes>
   </release>
  </changelog>
 </package>

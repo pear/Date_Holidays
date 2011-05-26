@@ -30,6 +30,7 @@ require_once 'Date_Holidays_Driver_PHPdotNet_TestSuite.php';
 require_once 'Date_Holidays_Driver_UNO_TestSuite.php';
 require_once 'Date_Holidays_Driver_USA_TestSuite.php';
 require_once 'Date_Holidays_Driver_Sweden_TestSuite.php';
+require_once 'Date_Holidays_Driver_Finland_TestSuite.php';
 
 /**
  * a test class for running all Date_Holidays unit tests whilst the package is undeployed.
