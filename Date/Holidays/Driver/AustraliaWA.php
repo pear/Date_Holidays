@@ -80,14 +80,20 @@ class Date_Holidays_Driver_AustraliaWA extends Date_Holidays_Driver
          * irregularities).
          */
         $y = $this->_year;
-        $lastMonSept = new Date(Date_Calc::nWeekdayOfMonth('last', 1, 9, $y));
-        $firstMonOct = new Date(Date_Calc::nWeekdayOfMonth(1, 1, 10, $y));
-        $daysToEnd = 30 - $lastMonSept->getDay();
-        $daysToStart = $firstMonOct->getDay();
-        if ($daysToEnd < $daysToStart) {
-            $queensBirthday = $lastMonSept;
+
+        // Special case for CHOGM: the Queen's Birthday was moved in 2011 only.
+        if ($y == 2011) {
+            $queensBirthday = new Date('2011-10-28');
         } else {
-            $queensBirthday = $firstMonOct;
+            $lastMonSept = new Date(Date_Calc::nWeekdayOfMonth('last', 1, 9, $y));
+            $firstMonOct = new Date(Date_Calc::nWeekdayOfMonth(1, 1, 10, $y));
+            $daysToEnd = 30 - $lastMonSept->getDay();
+            $daysToStart = $firstMonOct->getDay();
+            if ($daysToEnd < $daysToStart) {
+                $queensBirthday = $lastMonSept;
+            } else {
+                $queensBirthday = $firstMonOct;
+            }
         }
         $this->_addHoliday('queensBirthday', $queensBirthday, "Queen's Birthday");
 
