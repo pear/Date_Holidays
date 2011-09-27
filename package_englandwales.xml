@@ -16,10 +16,10 @@
   <email>ken@linux.ie</email>
   <active>yes</active>
  </lead>
- <date>2009-03-16</date>
- <time>08:34:19</time>
+ <date>2011-09-27</date>
+ <time>17:28:19</time>
  <version>
-  <release>0.1.2</release>
+  <release>0.1.3</release>
   <api>0.17.2</api>
  </version>
  <stability>
@@ -28,7 +28,7 @@
  </stability>
  <license uri="http://www.php.net/license">PHP License</license>
  <notes>
- * Utilise fix for Bug #13865: One-hour-shift in Christian driver
+ * Utilise fix for Bug #16720: Dependancy on Date_Holidays_USA not listed
  </notes>
  <contents>
   <dir baseinstalldir="/" name="/">
@@ -61,6 +61,34 @@
  </dependencies>
  <phprelease />
  <changelog>
+  <release>
+   <version>
+    <release>0.1.3</release>
+    <api>0.17.2</api>
+   </version>
+   <stability>
+    <release>alpha</release>
+    <api>alpha</api>
+   </stability>
+   <date>2011-09-27</date>
+   <license uri="http://www.php.net/license">PHP License</license>
+   <notes>
+ * Utilise fix for Bug #16720: Dependancy on Date_Holidays_USA not listed
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>0.1.2</release>
+    <api>0.17.2</api>
+   </version>
+   <stability>
+    <release>alpha</release>
+    <api>alpha</api>
+   </stability>
+   <date>2009-03-16</date>
+   <license uri="http://www.php.net/license">PHP License</license>
+   <notes>* Utilise fix for Bug #13865: One-hour-shift in Christian driver</notes>
+  </release>
   <release>
    <version>
     <release>0.1.1</release>
