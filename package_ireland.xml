@@ -10,10 +10,10 @@
   <email>ken@linux.ie</email>
   <active>yes</active>
  </lead>
- <date>2009-03-17</date>
- <time>00:17:19</time>
+ <date>2011-09-27</date>
+ <time>21:54:19</time>
  <version>
-  <release>0.1.2</release>
+  <release>0.1.3</release>
   <api>0.1.0</api>
  </version>
  <stability>
@@ -21,9 +21,7 @@
   <api>alpha</api>
  </stability>
  <license uri="http://www.php.net/license">PHP License</license>
- <notes>
- * Utilise fix for Bug #13865: One-hour-shift in Christian driver
- </notes>
+ <notes>* Bug #17505: Dates for Fathers' Day are wrong</notes>
  <contents>
   <dir baseinstalldir="/" name="/">
    <dir name="Date">
@@ -98,6 +96,19 @@
    <date>2009-03-17</date>
    <license uri="http://www.php.net/license">PHP License</license>
    <notes>* Utilise fix for Bug #13865: One-hour-shift in Christian driver</notes>
+  </release>
+  <release>
+   <version>
+    <release>0.1.3</release>
+    <api>0.1.0</api>
+   </version>
+   <stability>
+    <release>alpha</release>
+    <api>alpha</api>
+   </stability>
+   <date>2011-09-27</date>
+   <license uri="http://www.php.net/license">PHP License</license>
+   <notes>* Bug #17505: Dates for Fathers' Day are wrong</notes>
   </release>
  </changelog>
 </package>
