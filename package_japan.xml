@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package packagerversion="1.7.1" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0 http://pear.php.net/dtd/tasks-1.0.xsd http://pear.php.net/dtd/package-2.0 http://pear.php.net/dtd/package-2.0.xsd">
+ <name>Date_Holidays_Japan</name>
+ <channel>pear.php.net</channel>
+ <summary>Driver based class to calculate holidays in Japan.</summary>
+ <description>Date_Holidays helps you calculate the dates and titles of holidays and other special celebrations. This is the driver for calculating holidays in Japan.</description>
+ <lead>
+  <name>Ken Guest</name>
+  <user>kguest</user>
+  <email>ken@linux.ie</email>
+  <active>yes</active>
+ </lead>
+ <helper>
+  <name>Hideyuki Shimooka</name>
+  <user>hshimooka</user>
+  <email>shimooka@doyouphp.jp</email>
+  <active>yes</active>
+ </helper>
+ <date>2011-09-27</date>
+ <time>17:20:19</time>
+ <version>
+  <release>0.1.2</release>
+  <api>0.1.0</api>
+ </version>
+ <stability>
+  <release>alpha</release>
+  <api>alpha</api>
+ </stability>
+ <license uri="http://www.php.net/license">PHP License</license>
+   <notes> * Fixed bug #16338: "no localized title could be found" occur with ja_JP.xml [hshimooka]</notes>
+ <contents>
+  <dir baseinstalldir="/" name="/">
+   <dir name="Date">
+   <dir name="Holidays">
+    <dir name="Driver">
+     <file name="Japan.php" role="php" />
+    </dir> <!-- /Holidays/Driver -->
+   </dir> <!-- /Holidays -->
+   </dir>
+   <dir name="lang">
+    <dir name="Japan">
+      <file name="ja_JP.ser" role="data" />
+      <file name="ja_JP.xml" role="data" />
+    </dir> <!-- /lang/Japan -->
+   </dir> <!-- /lang -->
+   <dir name="tests">
+    <file name="Date_Holidays_Driver_Japan_TestSuite.php" role="test">
+     <tasks:replace from="@DATA-DIR@" to="data_dir" type="pear-config" />
+    </file>
+   </dir> <!-- /tests -->
+  </dir> <!-- / -->
+ </contents>
+ <dependencies>
+  <required>
+   <php>
+    <min>4.0.0</min>
+   </php>
+   <pearinstaller>
+    <min>1.4.0b1</min>
+   </pearinstaller>
+   <package>
+    <name>Date_Holidays</name>
+    <channel>pear.php.net</channel>
+    <min>0.20.1</min>
+   </package>
+  </required>
+ </dependencies>
+ <phprelease />
+ <changelog>
+  <release>
+   <version>
+    <release>0.1.0</release>
+    <api>0.1.0</api>
+   </version>
+   <stability>
+    <release>alpha</release>
+    <api>alpha</api>
+   </stability>
+   <date>2008-08-23</date>
+   <license uri="http://www.php.net/license">PHP License</license>
+   <notes>initial pear release</notes>
+  </release>
+  <release>
+   <version>
+    <release>0.1.1</release>
+    <api>0.1.1</api>
+   </version>
+   <stability>
+    <release>alpha</release>
+    <api>alpha</api>
+   </stability>
+   <date>2008-12-01</date>
+   <license uri="http://www.php.net/license">PHP License</license>
+   <notes> * Fixed bug #14573: return incorrect titles with 'ja_JP' lang file [hshimooka]</notes>
+  </release>
+  <release>
+   <version>
+    <release>0.1.2</release>
+    <api>0.1.1</api>
+   </version>
+   <stability>
+    <release>alpha</release>
+    <api>alpha</api>
+   </stability>
+   <date>2011-09-27</date>
+   <license uri="http://www.php.net/license">PHP License</license>
+   <notes> * Fixed bug #16338: "no localized title could be found" occur with ja_JP.xml [hshimooka]</notes>
+  </release>
+ </changelog>
+</package>
