@@ -16,10 +16,10 @@
   <email>ken@linux.ie</email>
   <active>yes</active>
  </lead>
- <date>2011-09-27</date>
- <time>17:28:19</time>
+ <date>2011-12-03</date>
+ <time>22:20:20</time>
  <version>
-  <release>0.1.3</release>
+  <release>0.1.4</release>
   <api>0.17.2</api>
  </version>
  <stability>
@@ -28,7 +28,7 @@
  </stability>
  <license uri="http://www.php.net/license">PHP License</license>
  <notes>
- * Utilise fix for Bug #16720: Dependancy on Date_Holidays_USA not listed
+ * Bug 19060: 2012 Changes to usual Bank Holidays.
  </notes>
  <contents>
   <dir baseinstalldir="/" name="/">
@@ -61,6 +61,21 @@
  </dependencies>
  <phprelease />
  <changelog>
+  <release>
+   <version>
+    <release>0.1.4</release>
+    <api>0.17.2</api>
+   </version>
+   <stability>
+    <release>alpha</release>
+    <api>alpha</api>
+   </stability>
+   <date>2011-12-03</date>
+   <license uri="http://www.php.net/license">PHP License</license>
+   <notes>
+ * Bug 19060: 2012 Changes to usual Bank Holidays.
+   </notes>
+  </release>
   <release>
    <version>
     <release>0.1.3</release>

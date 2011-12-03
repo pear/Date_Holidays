@@ -84,6 +84,16 @@ class Date_Holidays_Driver_EnglandWales extends Date_Holidays_Driver
                                'New Year\'s Day');
         }
 
+        /*
+         * Bug 19060
+         */
+        if ($this->_year == 2012) {
+            $this->_addHoliday(
+                'queensJubilee',
+                new Date('2012-06-05'),
+                'Queen\'s Jubilee');
+        }
+
         /**
          * Easter Sunday
          */
@@ -117,10 +127,19 @@ class Date_Holidays_Driver_EnglandWales extends Date_Holidays_Driver
         $this->_addHoliday('mayDay', $earlyMayDate, 'May Day Bank Holiday');
 
         /**
-         * Spring Bank Holiday
+         * Bug 19060
+         * substitute Spring Bank Holiday in 2012.
+         * http://www.direct.gov.uk/en/Employment/Employees/Timeoffandholidays/DG_073741
          */
-        $springBankDate = Date_Holidays_Driver::_calcLastMonday(5);
-        $this->_addHoliday('springBank', $springBankDate, 'Spring Bank Holiday');
+        if ($this->_year == 2012) {
+            $this->_addHoliday(
+                'springBank',
+                new Date('2012-06-04'),
+                'Spring Bank Holiday');
+        } else {
+            $springBankDate = Date_Holidays_Driver::_calcLastMonday(5);
+            $this->_addHoliday('springBank', $springBankDate, 'Spring Bank Holiday');
+        }
 
         /**
          * Summer Bank Holiday

@@ -147,5 +147,42 @@ class Date_Holidays_Driver_EnglandWales_TestSuite extends PHPUnit_Framework_Test
             $this->assertEquals($dateInfo['year'], $date->getYear(), $name);
         }
     }
+
+    public function testQueensJubilee()
+    {
+        /*
+         * Spring Bank Holiday moved to 4th of June
+         * Additional Bank Holiday on 5th June for Queen's Jubilee.
+         * Source:
+         * http://direct.gov.uk/en/Employment/Employees/Timeoffandholidays/DG_073741
+         */
+
+        $d12 = Date_Holidays::factory('EnglandWales', 2012, 'en_EN');
+        $day = $d12->getHoliday('queensJubilee');
+        $this->assertEquals(false, Date_Holidays::isError($day));
+        $date = $day->getDate();
+        $this->assertEquals($date->getYear(), 2012);
+        $this->assertEquals($date->getMonth(), 6);
+        $this->assertEquals($date->getDay(), 5);
+
+        $sbd = $d12->getHoliday('springBank');
+        $sdate = $sbd->getDate();
+        $this->assertEquals($sdate->getYear(), 2012);
+        $this->assertEquals($sdate->getMonth(), 6);
+        $this->assertEquals($sdate->getDay(), 4);
+
+        $d11 = Date_Holidays::factory('EnglandWales', 2011, 'en_EN');
+        $day = $d11->getHoliday('queensJubilee');
+        $this->assertEquals(true, Date_Holidays::isError($day));
+        $this->assertEquals(
+            'Invalid internal name: queensJubilee',
+            $day->getMessage()
+        );
+        $sbd = $d11->getHoliday('springBank');
+        $sdate = $sbd->getDate();
+        $this->assertEquals($sdate->getYear(), 2011);
+        $this->assertEquals($sdate->getMonth(), 5);
+        $this->assertEquals($sdate->getDay(), 30);
+    }
 }
 ?>
