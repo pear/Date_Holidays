@@ -37,15 +37,15 @@ class Date_Holidays_Driver_AustraliaNSW_TestSuite extends PHPUnit_Framework_Test
         $holidays = array();
 
         // 2011
-        $holidays[] = array("queensBirthday", 2011, array('day' => 13, 'month' => 06, 'year' => 2011));
-        $holidays[] = array("labourDay", 2011, array('day' => 03, 'month' => 10, 'year' => 2011));
-        $holidays[] = array("bankHoliday", 2011, array('day' => 01, 'month' => 08, 'year' => 2011)); // Applies to banks and certain financial institutions see Retail Trading Act 2008.
+        $holidays[] = array("queensBirthday", 2011, array('day' => 13, 'month' => 6, 'year' => 2011));
+        $holidays[] = array("labourDay", 2011, array('day' => 3, 'month' => 10, 'year' => 2011));
+        $holidays[] = array("bankHoliday", 2011, array('day' => 1, 'month' => 8, 'year' => 2011)); // Applies to banks and certain financial institutions see Retail Trading Act 2008.
         $holidays[] = array("boxingDay", 2011, array('day' => 27, 'month' => 12, 'year' => 2011));
 
         // 2012
-        $holidays[] = array("queensBirthday", 2012, array('day' => 11, 'month' => 06, 'year' => 2012));
+        $holidays[] = array("queensBirthday", 2012, array('day' => 11, 'month' => 6, 'year' => 2012));
         $holidays[] = array("labourDay", 2012, array('day' => 1, 'month' => 10, 'year' => 2012));
-        $holidays[] = array("bankHoliday", 2011, array('day' => 06, 'month' => 08, 'year' => 2011)); // Applies to banks and certain financial institutions see Retail Trading Act 2008.
+        $holidays[] = array("bankHoliday", 2011, array('day' => 6, 'month' => 8, 'year' => 2011)); // Applies to banks and certain financial institutions see Retail Trading Act 2008.
         $holidays[] = array("boxingDay", 2012, array('day' => 26, 'month' => 12, 'year' => 2012));
 
         return $holidays;
