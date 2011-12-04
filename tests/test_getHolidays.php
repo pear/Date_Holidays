@@ -12,8 +12,6 @@
  * @link     http://pear.php.net/package/Date_Holidays
  */
 
-error_reporting(E_ALL);
-
 require_once 'Date/Holidays.php';
 
 $driver = Date_Holidays::factory('Germany', date('Y', time()), 'de');

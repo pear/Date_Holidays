@@ -11,8 +11,6 @@
  * @version  CVS: $Id$
  * @link     http://pear.php.net/package/Date_Holidays
  */
-error_reporting(E_ALL);
-
 require_once 'Date/Holidays.php';
 
 Date_Holidays::staticSetProperty('DIE_ON_MISSING_LOCALE', true);

@@ -12,8 +12,6 @@
  * @link     http://pear.php.net/package/Date_Holidays
  */
 
-error_reporting(E_ALL);
-
 if (!defined('PHPUnit_MAIN_METHOD')) {
     define('PHPUnit_MAIN_METHOD', 'AllTestsUndeployed::main');
 }
