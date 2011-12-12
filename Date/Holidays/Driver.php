@@ -690,6 +690,11 @@ class Date_Holidays_Driver
                 return $date;
             }
         }
+
+        if ($date->getYear() != $this->_year) {
+            return null;
+        }
+
         $isodate = mktime(0,
                           0,
                           0,
