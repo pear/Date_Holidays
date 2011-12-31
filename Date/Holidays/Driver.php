@@ -306,18 +306,25 @@ class Date_Holidays_Driver
         $matches = array();
         $loaded = false;
 
-        //Christian driver is exceptional...
-        if ($this->_driverName == 'Christian') {
-            $stubdir = "$data_dir/Date_Holidays/lang/Christian/";
+        if ($data_dir == '@'.'DATA-DIR'.'@') {
+            $data_dir = dirname(dirname(dirname(__FILE__))); 
+            $stubdirs = array(
+                "$data_dir/lang/{$this->_driverName}/",
+                "$data_dir/lang/Christian/");
         } else {
-            $stubdir = "$data_dir/Date_Holidays_{$this->_driverName}/lang/{$this->_driverName}/";
-            if (! is_dir($stubdir)) {
-                $stubdir = $data_dir . "/Date_Holidays/lang/";
+            //Christian driver is exceptional...
+            if ($this->_driverName == 'Christian') {
+                $stubdir = "$data_dir/Date_Holidays/lang/Christian/";
+            } else {
+                $stubdir = "$data_dir/Date_Holidays_{$this->_driverName}/lang/{$this->_driverName}/";
+                if (! is_dir($stubdir)) {
+                    $stubdir = $data_dir . "/Date_Holidays/lang/";
+                }
             }
+            $stubdirs = array(
+                $stubdir,
+                "$data_dir/Date_Holidays_{$this->_driverName}/lang/Christian/");
         }
-        $stubdirs = array(
-            $stubdir,
-            "$data_dir/Date_Holidays_{$this->_driverName}/lang/Christian/");
 
         foreach ($stubdirs as $stubdir) {
             if (is_dir($stubdir)) {
