@@ -15,32 +15,44 @@ if (!defined('PHPUnit_MAIN_METHOD')) {
     define('PHPUnit_MAIN_METHOD', 'Date_Holidays_AllTests::main');
 }
 
-require_once 'PHPUnit/TextUI/TestRunner.php';
+if (! $fp = @fopen('Date.php', 'r', true)) {
+    die("PEAR_Date is required for these tests to run.\n");
+}
 
-require_once 'Date_Holidays_TestSuite.php';
-require_once 'Date_Holidays_Driver_TestSuite.php';
-require_once 'Date_Holidays_Bugfix_Retests_TestSuite.php';
-require_once 'Date_Holidays_Driver_Austria_TestSuite.php';
-require_once 'Date_Holidays_Driver_Australia_TestSuite.php';
-require_once 'Date_Holidays_Driver_AustraliaSA_TestSuite.php';
-require_once 'Date_Holidays_Driver_AustraliaNSW_TestSuite.php';
-require_once 'Date_Holidays_Driver_AustraliaWA_TestSuite.php';
-require_once 'Date_Holidays_Driver_AustraliaQLD_TestSuite.php';
-require_once 'Date_Holidays_Driver_Brazil_TestSuite.php';
-require_once 'Date_Holidays_Driver_Christian_TestSuite.php';
-require_once 'Date_Holidays_Driver_EnglandWales_TestSuite.php';
-require_once 'Date_Holidays_Driver_Germany_TestSuite.php';
-require_once 'Date_Holidays_Driver_Iceland_TestSuite.php';
-require_once 'Date_Holidays_Driver_Ireland_TestSuite.php';
-require_once 'Date_Holidays_Driver_Jewish_TestSuite.php';
-require_once 'Date_Holidays_Driver_PHPdotNet_TestSuite.php';
-require_once 'Date_Holidays_Driver_Romania_TestSuite.php';
-require_once 'Date_Holidays_Driver_Ukraine_TestSuite.php';
-require_once 'Date_Holidays_Driver_UNO_TestSuite.php';
-require_once 'Date_Holidays_Driver_USA_TestSuite.php';
-require_once 'Date_Holidays_Driver_Sweden_TestSuite.php';
-require_once 'Date_Holidays_Driver_Finland_TestSuite.php';
+if ($fp = @fopen('PHPUnit/Autoload.php', 'r', true)) {
+    require_once 'PHPUnit/Autoload.php';
+} elseif ($fp = @fopen('PHPUnit/Framework.php', 'r', true)) {
+    require_once 'PHPUnit/Framework.php';
+    require_once 'PHPUnit/TextUI/TestRunner.php';
+} else {
+    die('skip could not find PHPUnit');
+}
+fclose($fp);
 
+$dir = dirname(__FILE__);
+require_once "$dir/Date_Holidays_TestSuite.php";
+require_once "$dir/Date_Holidays_Driver_TestSuite.php";
+require_once "$dir/Date_Holidays_Bugfix_Retests_TestSuite.php";
+require_once "$dir/Date_Holidays_Driver_Austria_TestSuite.php";
+require_once "$dir/Date_Holidays_Driver_Australia_TestSuite.php";
+require_once "$dir/Date_Holidays_Driver_AustraliaSA_TestSuite.php";
+require_once "$dir/Date_Holidays_Driver_AustraliaNSW_TestSuite.php";
+require_once "$dir/Date_Holidays_Driver_AustraliaWA_TestSuite.php";
+require_once "$dir/Date_Holidays_Driver_AustraliaQLD_TestSuite.php";
+require_once "$dir/Date_Holidays_Driver_Brazil_TestSuite.php";
+require_once "$dir/Date_Holidays_Driver_Christian_TestSuite.php";
+require_once "$dir/Date_Holidays_Driver_EnglandWales_TestSuite.php";
+require_once "$dir/Date_Holidays_Driver_Germany_TestSuite.php";
+require_once "$dir/Date_Holidays_Driver_Iceland_TestSuite.php";
+require_once "$dir/Date_Holidays_Driver_Ireland_TestSuite.php";
+require_once "$dir/Date_Holidays_Driver_Jewish_TestSuite.php";
+require_once "$dir/Date_Holidays_Driver_PHPdotNet_TestSuite.php";
+require_once "$dir/Date_Holidays_Driver_Romania_TestSuite.php";
+require_once "$dir/Date_Holidays_Driver_Ukraine_TestSuite.php";
+require_once "$dir/Date_Holidays_Driver_UNO_TestSuite.php";
+require_once "$dir/Date_Holidays_Driver_USA_TestSuite.php";
+require_once "$dir/Date_Holidays_Driver_Sweden_TestSuite.php";
+require_once "$dir/Date_Holidays_Driver_Finland_TestSuite.php";
 
 /**
  * a test class for running all Date_Holidays unit tests
