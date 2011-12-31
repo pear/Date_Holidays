@@ -15,19 +15,8 @@ if (!defined('PHPUnit_MAIN_METHOD')) {
     define('PHPUnit_MAIN_METHOD', 'Date_Holidays_AllTests::main');
 }
 
-if (! $fp = @fopen('Date.php', 'r', true)) {
-    die("PEAR_Date is required for these tests to run.\n");
-}
-
-if ($fp = @fopen('PHPUnit/Autoload.php', 'r', true)) {
-    require_once 'PHPUnit/Autoload.php';
-} elseif ($fp = @fopen('PHPUnit/Framework.php', 'r', true)) {
-    require_once 'PHPUnit/Framework.php';
-    require_once 'PHPUnit/TextUI/TestRunner.php';
-} else {
-    die('skip could not find PHPUnit');
-}
-fclose($fp);
+/** Set up the environment */
+require_once dirname(__FILE__) . '/helper.inc';
 
 $dir = dirname(__FILE__);
 require_once "$dir/Date_Holidays_TestSuite.php";

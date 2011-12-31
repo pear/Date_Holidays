@@ -62,9 +62,7 @@
     </dir> <!-- /lang/Sweden -->
    </dir> <!-- /lang -->
    <dir name="tests">
-    <file name="Date_Holidays_Driver_Sweden_TestSuite.php" role="test">
-     <tasks:replace from="@DATA-DIR@" to="data_dir" type="pear-config" />
-    </file>
+    <file name="Date_Holidays_Driver_Sweden_TestSuite.php" role="test" />
    </dir> <!-- /tests -->
   </dir> <!-- / -->
  </contents>

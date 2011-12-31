@@ -12,11 +12,9 @@
  * @version  CVS: $Id$
  * @link     http://pear.php.net/package/Date_Holidays
  */
-if (!defined("PHPUnit_MAIN_METHOD")) {
-    define("PHPUnit_MAIN_METHOD", "Date_HolidaysTest::main");
-}
 
-require_once 'Date/Holidays.php';
+/** Set up the environment */
+require_once dirname(__FILE__) . '/helper.inc';
 
 /**
  * Test class for running unit tests related to Christian holidays.
@@ -106,18 +104,15 @@ class Date_Holidays_Driver_Christian_TestSuite extends PHPUnit_Framework_TestCas
     {
 
         $drvChristian = Date_Holidays::factory('Christian', 2005, 'en_EN');
-        $this->assertFalse(Date_Holidays::isError($drvChristian));
         if (Date_Holidays::isError($drvChristian)) {
-            print_r($drvChristian);
-            die($drvChristian->getMessage());
+            $this->fail(helper_get_error_message($drvChristian));
         }
 
 
         foreach ($this->testDates2005 as $name => $dateInfo) {
             $day = $drvChristian->getHoliday($name);
-            $this->assertFalse(Date_Holidays::isError($day));
             if (Date_Holidays::isError($day)) {
-                die($day->getMessage());
+                $this->fail(helper_get_error_message($day));
             }
             $this->assertEquals($name, $day->getInternalName());
             $date = $day->getDate();
@@ -137,18 +132,15 @@ class Date_Holidays_Driver_Christian_TestSuite extends PHPUnit_Framework_TestCas
     {
 
         $drvChristian = Date_Holidays::factory('Christian', 2006, 'en_EN');
-        $this->assertFalse(Date_Holidays::isError($drvChristian));
         if (Date_Holidays::isError($drvChristian)) {
-            print_r($drvChristian);
-            die($drvChristian->getMessage());
+            $this->fail(helper_get_error_message($drvChristian));
         }
 
 
         foreach ($this->testDates2006 as $name => $dateInfo) {
             $day = $drvChristian->getHoliday($name);
-            $this->assertFalse(Date_Holidays::isError($day));
             if (Date_Holidays::isError($day)) {
-                die($day->getMessage());
+                $this->fail(helper_get_error_message($day));
             }
             $this->assertEquals($name, $day->getInternalName());
             $date = $day->getDate();

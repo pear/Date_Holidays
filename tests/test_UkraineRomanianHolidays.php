@@ -8,7 +8,8 @@
  * Check against data in the docs directory.
  */
 
-require_once "Date/Holidays.php";
+/** Set up the environment */
+require_once dirname(__FILE__) . '/helper.inc';
 
 $countries = array("Romania", "Ukraine", "Ireland");
 foreach($countries as $country) {

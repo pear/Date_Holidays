@@ -11,11 +11,9 @@
  * @version  CVS: $Id$
  * @link     http://pear.php.net/package/Date_Holidays
  */
-if (!defined("PHPUnit_MAIN_METHOD")) {
-    define("PHPUnit_MAIN_METHOD", "Date_HolidaysTest::main");
-}
 
-require_once 'Date/Holidays.php';
+/** Set up the environment */
+require_once dirname(__FILE__) . '/helper.inc';
 
 /**
  * Test class for running unit tests related to the driver for holidays in Ireland

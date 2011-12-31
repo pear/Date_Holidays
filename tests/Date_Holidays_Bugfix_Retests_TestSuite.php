@@ -12,13 +12,9 @@
  * @version  CVS: $Id$
  * @link     http://pear.php.net/package/Date_Holidays
  */
-if (!defined("PHPUnit_MAIN_METHOD")) {
-    define("PHPUnit_MAIN_METHOD", "Date_HolidaysTest::main");
-}
 
-//make cvs testing work
-chdir(dirname(__FILE__) . '/../');
-require_once 'Date/Holidays.php';
+/** Set up the environment */
+require_once dirname(__FILE__) . '/helper.inc';
 
 /**
  * Test class for running unit tests that make sure bugs that have been
@@ -50,13 +46,10 @@ class Date_Holidays_Bugfix_Retests_TestSuite extends PHPUnit_Framework_TestCase
      */
     function testBug12807()
     {
-        $message = '';
         $drv = Date_Holidays::factory('Denmark');
-        $this->assertFalse(Date_Holidays::isError($drv));
         if (Date_Holidays::isError($drv)) {
-            $message = $drv->getMessage();
+            $this->fail(helper_get_error_message($drv));
         }
-        $this->assertFalse(Date_Holidays::isError($drv), $message);
 
         $this->assertTrue($drv->isHoliday(mktime(1, 1, 1, 12, 25, 2007)));
         $this->assertTrue($drv->isHoliday(mktime(1, 1, 1, 1, 1, 2007)));

@@ -12,13 +12,9 @@
  * @version  CVS: $Id$
  * @link     http://pear.php.net/package/Date_Holidays
  */
-if (!defined("PHPUnit_MAIN_METHOD")) {
-    define("PHPUnit_MAIN_METHOD", "Date_HolidaysTest::main");
-}
 
-require_once 'Date/Holidays.php';
-
-define('LANG_FILE', '/usr/local/lib/php5/pear/data/Date_Holidays_Japan/lang/');
+/** Set up the environment */
+require_once dirname(__FILE__) . '/helper.inc';
 
 /**
  * Test class for running unit tests related to the driver for holidays
@@ -35,6 +31,7 @@ define('LANG_FILE', '/usr/local/lib/php5/pear/data/Date_Holidays_Japan/lang/');
 class Date_Holidays_Driver_Japan_TestSuite extends PHPUnit_Framework_TestCase
 {
     var $_holidays;
+    protected $lang_dir;
 
     /**
      * setUp
@@ -44,6 +41,7 @@ class Date_Holidays_Driver_Japan_TestSuite extends PHPUnit_Framework_TestCase
      */
     function setUp()
     {
+        $this->lang_dir = helper_get_lang_dir('Date_Holidays_Japan');
         $this->_holidays = array(
             '1970-01-01' => true,
             '1970-01-15' => true,
@@ -1343,7 +1341,7 @@ class Date_Holidays_Driver_Japan_TestSuite extends PHPUnit_Framework_TestCase
         for ($year = 1970; $year < 2051; $year++) {
             $obj =& Date_Holidays::factory('Japan', $year);
             if (Date_Holidays::isError($obj)) {
-                $this->fail('Factory was unable to produce driver-object');
+                $this->fail(helper_get_error_message($obj));
             }
 
             $invalid_holidays = array();
@@ -1373,7 +1371,7 @@ class Date_Holidays_Driver_Japan_TestSuite extends PHPUnit_Framework_TestCase
     {
         $obj = Date_Holidays::factory('Japan', 2008);
         if (Date_Holidays::isError($obj)) {
-            $this->fail('Factory was unable to produce driver-object');
+            $this->fail(helper_get_error_message($obj));
         }
         // calculate substitute holiday for Children's Day (1st time)
         $this->assertTrue($obj->isHoliday(new Date('2008-05-06')), '1st time');
@@ -1397,9 +1395,9 @@ class Date_Holidays_Driver_Japan_TestSuite extends PHPUnit_Framework_TestCase
         // with ja_JP.xml
         $obj = Date_Holidays::factory('Japan', 2008);
         if (Date_Holidays::isError($obj)) {
-            $this->fail('Factory was unable to produce driver-object');
+            $this->fail(helper_get_error_message($obj));
         }
-        $obj->addTranslationFile(LANG_FILE . '/Japan/ja_JP.xml', 'ja_JP');
+        $obj->addTranslationFile($this->lang_dir . '/Japan/ja_JP.xml', 'ja_JP');
         if (Date_Holidays::isError($obj)) {
             $this->fail('fail to add translation file');
         }
@@ -1424,9 +1422,9 @@ class Date_Holidays_Driver_Japan_TestSuite extends PHPUnit_Framework_TestCase
         // with ja_JP.ser
         $obj = Date_Holidays::factory('Japan', 2008);
         if (Date_Holidays::isError($obj)) {
-            $this->fail('Factory was unable to produce driver-object');
+            $this->fail(helper_get_error_message($obj));
         }
-        $obj->addCompiledTranslationFile(LANG_FILE . '/Japan/ja_JP.ser', 'ja_JP');
+        $obj->addCompiledTranslationFile($this->lang_dir . '/Japan/ja_JP.ser', 'ja_JP');
         if (Date_Holidays::isError($obj)) {
             $this->fail('fail to add translation file');
         }
@@ -1451,7 +1449,7 @@ class Date_Holidays_Driver_Japan_TestSuite extends PHPUnit_Framework_TestCase
     {
         $obj =& Date_Holidays::factory('Japan');
         if (Date_Holidays::isError($obj)) {
-            $this->fail('Factory was unable to produce driver-object');
+            $this->fail(helper_get_error_message($obj));
         }
         for ($year = 1970; $year < 2051; $year++) {
             $obj->setYear($year);
@@ -1483,9 +1481,9 @@ class Date_Holidays_Driver_Japan_TestSuite extends PHPUnit_Framework_TestCase
         // with ja_JP.xml
         $obj = Date_Holidays::factory('Japan', 1949);
         if (Date_Holidays::isError($obj)) {
-            $this->fail('Factory was unable to produce driver-object');
+            $this->fail(helper_get_error_message($obj));
         }
-        $obj->addTranslationFile(LANG_FILE . '/Japan/ja_JP.xml', 'ja_JP');
+        $obj->addTranslationFile($this->lang_dir . '/Japan/ja_JP.xml', 'ja_JP');
         if (Date_Holidays::isError($obj)) {
             $this->fail('fail to add translation file');
         }
@@ -1510,9 +1508,9 @@ class Date_Holidays_Driver_Japan_TestSuite extends PHPUnit_Framework_TestCase
         // with ja_JP.ser
         $obj = Date_Holidays::factory('Japan', 1949);
         if (Date_Holidays::isError($obj)) {
-            $this->fail('Factory was unable to produce driver-object');
+            $this->fail(helper_get_error_message($obj));
         }
-        $obj->addCompiledTranslationFile(LANG_FILE . '/Japan/ja_JP.ser', 'ja_JP');
+        $obj->addCompiledTranslationFile($this->lang_dir . '/Japan/ja_JP.ser', 'ja_JP');
         if (Date_Holidays::isError($obj)) {
             $this->fail('fail to add translation file');
         }
@@ -1537,9 +1535,9 @@ class Date_Holidays_Driver_Japan_TestSuite extends PHPUnit_Framework_TestCase
         // with ja_JP.xml
         $obj = Date_Holidays::factory('Japan', 1986);
         if (Date_Holidays::isError($obj)) {
-            $this->fail('Factory was unable to produce driver-object');
+            $this->fail(helper_get_error_message($obj));
         }
-        $obj->addTranslationFile(LANG_FILE . '/Japan/ja_JP.xml', 'ja_JP');
+        $obj->addTranslationFile($this->lang_dir . '/Japan/ja_JP.xml', 'ja_JP');
         if (Date_Holidays::isError($obj)) {
             $this->fail('fail to add translation file');
         }
@@ -1565,9 +1563,9 @@ class Date_Holidays_Driver_Japan_TestSuite extends PHPUnit_Framework_TestCase
         // with ja_JP.ser
         $obj = Date_Holidays::factory('Japan', 1986);
         if (Date_Holidays::isError($obj)) {
-            $this->fail('Factory was unable to produce driver-object');
+            $this->fail(helper_get_error_message($obj));
         }
-        $obj->addCompiledTranslationFile(LANG_FILE . '/Japan/ja_JP.ser', 'ja_JP');
+        $obj->addCompiledTranslationFile($this->lang_dir . '/Japan/ja_JP.ser', 'ja_JP');
         if (Date_Holidays::isError($obj)) {
             $this->fail('fail to add translation file');
         }
@@ -1593,16 +1591,16 @@ class Date_Holidays_Driver_Japan_TestSuite extends PHPUnit_Framework_TestCase
         for ($year = 1900; $year < date('Y'); $year++) {
             $obj = Date_Holidays::factory('Japan', $year, 'ja_JP');
             if (Date_Holidays::isError($obj)) {
-                $this->fail('Factory was unable to produce driver-object');
+                $this->fail(helper_get_error_message($obj));
             }
-            $obj->addTranslationFile(LANG_FILE . '/Japan/ja_JP.xml', 'ja_JP');
-            if (Date_Holidays::isError($obj)) {
-                $this->fail('fail to add translation file');
+            $res = $obj->addTranslationFile($this->lang_dir . '/Japan/ja_JP.xml', 'ja_JP');
+            if (Date_Holidays::isError($res)) {
+                $this->fail(helper_get_error_message($res));
             }
             $holidays = array();
             foreach ($obj->getHolidays() as $h) {
                 if (PEAR::isError($h)) {
-                    $this->fail('test failed');
+                    $this->fail(helper_get_error_message($h));
                 }
                 $holidays[$h->getDate()->format('%Y-%m-%d')] = $h->getTitle();
             }

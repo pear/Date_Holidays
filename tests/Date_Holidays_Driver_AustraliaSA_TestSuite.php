@@ -12,11 +12,9 @@
  * @link     http://pear.php.net/package/Date_Holidays
  * @see http://australia.gov.au/topics/australian-facts-and-figures/public-holidays
  */
-if (!defined("PHPUnit_MAIN_METHOD")) {
-    define("PHPUnit_MAIN_METHOD", "Date_HolidaysTest::main");
-}
 
-require_once 'Date/Holidays.php';
+/** Set up the environment */
+require_once dirname(__FILE__) . '/helper.inc';
 
 /**
  * Test class for running unit tests related to the driver for holidays in Austria
@@ -67,16 +65,13 @@ class Date_Holidays_Driver_AustraliaSA_TestSuite extends PHPUnit_Framework_TestC
     {
         $dh = new Date_Holidays();
         $drv = $dh->factory('AustraliaSA', $year, 'en_EN');
-        $this->assertFalse(Date_Holidays::isError($drv));
         if (Date_Holidays::isError($drv)) {
-            print_r($drv);
-            die($drv->getMessage());
+            $this->fail(helper_get_error_message($drv));
         }
 
         $day = $drv->getHoliday($name);
-        $this->assertFalse(Date_Holidays::isError($day));
         if (Date_Holidays::isError($day)) {
-            die($day->getMessage());
+            $this->fail(helper_get_error_message($day));
         }
         $this->assertEquals($name, $day->getInternalName());
         $date = $day->getDate();

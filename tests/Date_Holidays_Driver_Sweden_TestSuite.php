@@ -11,13 +11,9 @@
  * @version  CVS: $Id$
  * @link     http://pear.php.net/package/Date_Holidays
  */
-if (!defined("PHPUnit_MAIN_METHOD")) {
-    define("PHPUnit_MAIN_METHOD", "Date_HolidaysTest::main");
-}
 
-require_once 'Date/Holidays.php';
-
-define('LANG_FILE', '@DATA-DIR@/Date_Holidays_Sweden/lang/');
+/** Set up the environment */
+require_once dirname(__FILE__) . '/helper.inc';
 
 /**
  * Test class for running unit tests related to the driver for holidays in Sweden
@@ -135,6 +131,8 @@ class Date_Holidays_Driver_Sweden_TestSuite extends PHPUnit_Framework_TestCase
                                          'month'=>12,
                                          'year' => 2006));
 
+    protected $lang_dir;
+
     /**
      * setup
      *
@@ -143,6 +141,7 @@ class Date_Holidays_Driver_Sweden_TestSuite extends PHPUnit_Framework_TestCase
      */
     function setUp()
     {
+        $this->lang_dir = helper_get_lang_dir('Date_Holidays_Sweden');
     }
 
     /**
@@ -154,16 +153,14 @@ class Date_Holidays_Driver_Sweden_TestSuite extends PHPUnit_Framework_TestCase
     function testHolidays2005()
     {
         $drv = Date_Holidays::factory('Sweden', 2005, 'en_EN');
-        $this->assertFalse(Date_Holidays::isError($drv));
         if (Date_Holidays::isError($drv)) {
-            $this->fail($drv->getMessage());
+            $this->fail(helper_get_error_message($drv));
         }
 
         foreach ($this->testDates2005 as $name => $dateInfo) {
             $day = $drv->getHoliday($name);
-            $this->assertFalse(Date_Holidays::isError($day));
             if (Date_Holidays::isError($day)) {
-                die($day->getMessage());
+                $this->fail(helper_get_error_message($day));
             }
             $this->assertEquals($name, $day->getInternalName());
             $date = $day->getDate();
@@ -182,17 +179,14 @@ class Date_Holidays_Driver_Sweden_TestSuite extends PHPUnit_Framework_TestCase
     function testHolidays2006()
     {
         $drv = Date_Holidays::factory('Sweden', 2006, 'en_EN');
-        $this->assertFalse(Date_Holidays::isError($drv));
         if (Date_Holidays::isError($drv)) {
-            print_r($drv);
-            die($drv->getMessage());
+            $this->fail(helper_get_error_message($drv));
         }
 
         foreach ($this->testDates2006 as $name => $dateInfo) {
             $day = $drv->getHoliday($name);
-            $this->assertFalse(Date_Holidays::isError($day));
             if (Date_Holidays::isError($day)) {
-                die($day->getMessage());
+                $this->fail(helper_get_error_message($day));
             }
             $this->assertEquals($name, $day->getInternalName());
             $date = $day->getDate();
@@ -213,17 +207,13 @@ class Date_Holidays_Driver_Sweden_TestSuite extends PHPUnit_Framework_TestCase
         $locale = 'de_DE';
 
         $drv = Date_Holidays::factory('Sweden', 2005, $locale);
-        $this->assertFalse(Date_Holidays::isError($drv));
         if (Date_Holidays::isError($drv)) {
-            $this->fail($drv->getMessage());
+            $this->fail(helper_get_error_message($drv));
         }
-        if (strpos('@DATA_DIR@', LANG_FILE) === false) {
-            $result = $drv->addTranslationFile('../lang/Sweden/de_DE.xml', $locale);
-        } else {
-            $result = $drv->addTranslationFile(LANG_FILE . '/Sweden/de_DE.xml', $locale);
-        }
+        $result = $drv->addTranslationFile(
+                $this->lang_dir . '/Sweden/de_DE.xml', $locale);
         if ($result !== true) {
-            $this->markTestSkipped("Could not load translation file.");
+            $this->fail(helper_get_error_message($result));
         }
 
         $easter = $drv->getHoliday('easter');
@@ -243,19 +233,13 @@ class Date_Holidays_Driver_Sweden_TestSuite extends PHPUnit_Framework_TestCase
         $locale = 'de_DE';
 
         $drv = Date_Holidays::factory('Sweden', 2005, $locale);
-        $this->assertFalse(Date_Holidays::isError($drv));
         if (Date_Holidays::isError($drv)) {
-            $this->fail($drv->getMessage());
+            $this->fail(helper_get_error_message($drv));
         }
-
-        if (strpos('@DATA_DIR@', LANG_FILE) === false) {
-            $result = $drv->addCompiledTranslationFile('../lang/Sweden/de_DE.ser', $locale);
-        } else {
-            $result = $drv->addCompiledTranslationFile(LANG_FILE . '/Sweden/de_DE.ser',
-                                                   $locale);
-        }
+        $result = $drv->addCompiledTranslationFile(
+                $this->lang_dir . '/Sweden/de_DE.ser',$locale);
         if ($result !== true) {
-            $this->markTestSkipped("Could not load compiled translation file.");
+            $this->fail(helper_get_error_message($result));
         }
 
         $easter = $drv->getHoliday('easter');
@@ -280,17 +264,13 @@ class Date_Holidays_Driver_Sweden_TestSuite extends PHPUnit_Framework_TestCase
         $locale = 'de_DE';
 
         $drv = Date_Holidays::factory('Sweden', 2005, $locale);
-        $this->assertFalse(Date_Holidays::isError($drv));
         if (Date_Holidays::isError($drv)) {
-            $this->fail($drv->getMessage());
+            $this->fail(helper_get_error_message($drv));
         }
-        if (strpos('@DATA_DIR@', LANG_FILE) === false) {
-            $result = $drv->addTranslationFile('../lang/Sweden/de_DE.xml', $locale);
-        } else {
-            $result = $drv->addTranslationFile(LANG_FILE . '/Sweden/de_DE.xml', $locale);
-        }
+        $result = $drv->addTranslationFile(
+                $this->lang_dir . '/Sweden/de_DE.xml', $locale);
         if ($result !== true) {
-            $this->markTestSkipped("Could not load translation file.");
+            $this->fail(helper_get_error_message($result));
         }
 
         $easter = $drv->getHoliday('easter');
@@ -310,19 +290,13 @@ class Date_Holidays_Driver_Sweden_TestSuite extends PHPUnit_Framework_TestCase
         $locale = 'sv_SE';
 
         $drv = Date_Holidays::factory('Sweden', 2005, $locale);
-        $this->assertFalse(Date_Holidays::isError($drv));
         if (Date_Holidays::isError($drv)) {
-            $this->fail($drv->getMessage());
+            $this->fail(helper_get_error_message($drv));
         }
-
-        if (strpos('@DATA_DIR@', LANG_FILE) === false) {
-            $result = $drv->addCompiledTranslationFile('../lang/Sweden/sv_SE.ser', $locale);
-        } else {
-            $result = $drv->addCompiledTranslationFile(LANG_FILE . '/Sweden/sv_SE.ser',
-                                                   $locale);
-        }
+        $result = $drv->addCompiledTranslationFile(
+                $this->lang_dir . '/Sweden/sv_SE.ser', $locale);
         if ($result !== true) {
-            $this->markTestSkipped("Could not load compiled translation file.");
+            $this->fail(helper_get_error_message($result));
         }
 
         $easter = $drv->getHoliday('easter');

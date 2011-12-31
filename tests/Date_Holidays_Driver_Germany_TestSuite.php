@@ -11,11 +11,9 @@
  * @version  CVS: $Id$
  * @link     http://pear.php.net/package/Date_Holidays
  */
-if (!defined("PHPUnit_MAIN_METHOD")) {
-    define("PHPUnit_MAIN_METHOD", "Date_HolidaysTest::main");
-}
 
-require_once 'Date/Holidays.php';
+/** Set up the environment */
+require_once dirname(__FILE__) . '/helper.inc';
 
 /**
  * Test class for running unit tests related to the driver for holidays in Austria
@@ -172,19 +170,15 @@ class Date_Holidays_Driver_Germany_TestSuite extends PHPUnit_Framework_TestCase
     function testHolidays2005()
     {
         $drv = Date_Holidays::factory('Germany', 2005, 'en_EN');
-        $this->assertFalse(Date_Holidays::isError($drv));
         if (Date_Holidays::isError($drv)) {
-            print_r($drv);
-            die($drv->getMessage());
+            $this->fail(helper_get_error_message($drv));
         }
 
 
         foreach ($this->testDates2005 as $name => $dateInfo) {
             $day = $drv->getHoliday($name);
-
-            $this->assertFalse(Date_Holidays::isError($day));
             if (Date_Holidays::isError($day)) {
-                die($day->getMessage());
+                $this->fail(helper_get_error_message($day));
             }
             $this->assertEquals($name, $day->getInternalName());
             $date = $day->getDate();
@@ -204,18 +198,15 @@ class Date_Holidays_Driver_Germany_TestSuite extends PHPUnit_Framework_TestCase
     function testHolidays2006()
     {
         $drv = Date_Holidays::factory('Germany', 2006, 'en_EN');
-        $this->assertFalse(Date_Holidays::isError($drv));
         if (Date_Holidays::isError($drv)) {
-            print_r($drv);
-            die($drv->getMessage());
+            $this->fail(helper_get_error_message($drv));
         }
 
 
         foreach ($this->testDates2006 as $name => $dateInfo) {
             $day = $drv->getHoliday($name);
-            $this->assertFalse(Date_Holidays::isError($day));
             if (Date_Holidays::isError($day)) {
-                die($day->getMessage());
+                $this->fail(helper_get_error_message($day));
             }
             $this->assertEquals($name, $day->getInternalName());
             $date = $day->getDate();
@@ -234,9 +225,8 @@ class Date_Holidays_Driver_Germany_TestSuite extends PHPUnit_Framework_TestCase
     function testHolidays2005stampsAndSavingsDay()
     {
         $drv = Date_Holidays::factory('Germany', 2005);
-        $this->assertFalse(Date_Holidays::isError($drv));
         if (Date_Holidays::isError($drv)) {
-            die($drv->getMessage());
+            $this->fail(helper_get_error_message($drv));
         }
         $holidays = $drv->getHolidayForDate('2005-10-30', null, true);
         $this->assertEquals('savingsDay',

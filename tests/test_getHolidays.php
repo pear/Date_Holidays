@@ -12,10 +12,11 @@
  * @link     http://pear.php.net/package/Date_Holidays
  */
 
-require_once 'Date/Holidays.php';
+/** Set up the environment */
+require_once dirname(__FILE__) . '/helper.inc';
 
 $driver = Date_Holidays::factory('Germany', date('Y', time()), 'de');
-$langer = "/var/www/devel/pear/Date_Holidays/lang";
+$langer = helper_get_lang_dir('Date_Holidays');
 $driver->addTranslationFile($langer . '/Christian/de_DE.ini', 'de');
 $driver->addTranslationFile($langer . '/Germany/de_DE.ini', 'de');
 

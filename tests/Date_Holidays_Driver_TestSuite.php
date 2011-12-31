@@ -11,19 +11,9 @@
  * @version  CVS: $Id$
  * @link     http://pear.php.net/package/Date_Holidays
  */
-define('PEAR_DATADIR', '@data_dir@');
-if (is_dir(PEAR_DATADIR)) {
-    define('LANG_DIR', PEAR_DATADIR . '/Date_Holidays/lang');
-} else {
-    define('LANG_DIR', dirname(__FILE__) . '/../lang');
-//    chdir(dirname(__FILE__) . '/../');
-}
-if (!defined("PHPUnit_MAIN_METHOD")) {
-    //make cvs testing work
-    define("PHPUnit_MAIN_METHOD", "Date_HolidaysTest::main");
-}
 
-require_once 'Date/Holidays.php';
+/** Set up the environment */
+require_once dirname(__FILE__) . '/helper.inc';
 
 /**
  * Test class for running driver related unit tests.
@@ -38,8 +28,8 @@ require_once 'Date/Holidays.php';
  */
 class Date_Holidays_Driver_TestSuite extends PHPUnit_Framework_TestCase
 {
-
     var $driver;
+    protected $lang_dir;
 
     /**
      * setup 
@@ -49,23 +39,23 @@ class Date_Holidays_Driver_TestSuite extends PHPUnit_Framework_TestCase
      */
     function setUp()
     {
-        $this->driver = Date_Holidays::factory('Germany', 2005, 'C');
+        $this->lang_dir = helper_get_lang_dir('Date_Holidays');
+
+        $this->driver = Date_Holidays::factory('Germany', 2005, 'de_DE');
         if (Date_Holidays::isError($this->driver)) {
-            echo "Driver creation failed: \n";
-            foreach ($this->driver->getErrors() as $error) {
-                echo $error['message'] . "\n";
-            }
-            //$this->markTestSkipped("KWG");
-            die();
+            $this->fail(helper_get_error_message($this->driver));
+        }
 
-        } else {
+        $ret = $this->driver->addCompiledTranslationFile(
+                $this->lang_dir . '/Christian/de_DE.ser', 'de_DE');
+        if (Date_Holidays::isError($ret)) {
+            $this->fail(helper_get_error_message($ret));
+        }
 
-            $this->driver->addCompiledTranslationFile(LANG_DIR .
-                                                      '/Christian/de_DE.ser',
-                                                      'de_DE');
-            $this->driver->addCompiledTranslationFile(LANG_DIR .
-                                                      '/Germany/de_DE.ser', 
-                                                      'de_DE');
+        $ret = $this->driver->addCompiledTranslationFile(
+                $this->lang_dir . '/Germany/de_DE.ser', 'de_DE');
+        if (Date_Holidays::isError($ret)) {
+            $this->fail(helper_get_error_message($ret));
         }
     }
 
@@ -77,13 +67,18 @@ class Date_Holidays_Driver_TestSuite extends PHPUnit_Framework_TestCase
      */
     function testAddCompiledTranslationFile()
     {
-        $result = $this->driver->addCompiledTranslationFile(LANG_DIR .
-                                                         '/Christian/de_DE.ser', 
-                                                         'de_DE');
+        $result = $this->driver->addCompiledTranslationFile(
+                $this->lang_dir . '/Christian/de_DE.ser', 'de_DE');
+        if (Date_Holidays::isError($result)) {
+            $this->fail(helper_get_error_message($result));
+        }
         $this->assertTrue($result);
-        $result = $this->driver->addCompiledTranslationFile(LANG_DIR .
-                                                         '/Germany/de_DE.ser', 
-                                                         'de_DE');
+
+        $result = $this->driver->addCompiledTranslationFile(
+                $this->lang_dir . '/Germany/de_DE.ser', 'de_DE');
+        if (Date_Holidays::isError($result)) {
+            $this->fail(helper_get_error_message($result));
+        }
         $this->assertTrue($result);
     }
     /**
@@ -94,8 +89,11 @@ class Date_Holidays_Driver_TestSuite extends PHPUnit_Framework_TestCase
      */
     function testAddTranslationFile()
     {               
-        $result = $this->driver->addTranslationFile(LANG_DIR . '/Germany/de_DE.xml',
-                                                    'de_DE');
+        $result = $this->driver->addTranslationFile(
+                $this->lang_dir . '/Germany/de_DE.xml', 'de_DE');
+        if (Date_Holidays::isError($result)) {
+            $this->fail(helper_get_error_message($result));
+        }
         $this->assertTrue($result);
     }
 
@@ -127,7 +125,7 @@ class Date_Holidays_Driver_TestSuite extends PHPUnit_Framework_TestCase
     {
         $holidays = $this->driver->getHolidays();
         foreach ($holidays as $holiday) {
-            $this->assertTrue(is_a($holiday, 'Date_Holidays_Holiday'));
+            $this->assertInstanceOf('Date_Holidays_Holiday', $holiday);
         }
 
         $filter   = new Date_Holidays_Filter_Whitelist(array('ascensionDay', 
@@ -151,14 +149,16 @@ class Date_Holidays_Driver_TestSuite extends PHPUnit_Framework_TestCase
     function testGetHoliday()
     {
         $holiday = $this->driver->getHoliday('ascensionDay');
-        $this->assertTrue(is_a($holiday, 'Date_Holidays_Holiday'));
-
+        $this->assertInstanceOf('Date_Holidays_Holiday', $holiday);
         $this->assertEquals('ascensionDay', $holiday->getInternalName());
 
-        $result = $this->driver->addCompiledTranslationFile(LANG_DIR . 
-                                                            '/Germany/de_DE.ser', 
-                                                            'de_DE');
+        $result = $this->driver->addCompiledTranslationFile(
+                $this->lang_dir . '/Germany/de_DE.ser', 'de_DE');
+        if (Date_Holidays::isError($result)) {
+            $this->fail(helper_get_error_message($result));
+        }
         $this->assertTrue($result, 'Adding compiled translation file');
+
         $holiday = $this->driver->getHoliday('ascensionDay', 'de_DE');
         $this->assertEquals('Christi Himmelfahrt', $holiday->getTitle());
     }
@@ -172,7 +172,7 @@ class Date_Holidays_Driver_TestSuite extends PHPUnit_Framework_TestCase
     function testGetHolidayDate()
     {
         $date = $this->driver->getHolidayDate('ascensionDay');
-        $this->assertTrue(is_a($date, 'Date'));
+        $this->assertInstanceOf('Date', $date);
         $this->assertTrue($date->equals(new Date('2005-05-05')));
     }
 
@@ -186,7 +186,7 @@ class Date_Holidays_Driver_TestSuite extends PHPUnit_Framework_TestCase
     {
         $dates = $this->driver->getHolidayDates();
         foreach ($dates as $date) {
-            $this->assertTrue(is_a($date, 'Date'));
+            $this->assertInstanceOf('Date', $date);
         }
 
         $restrict = array('ascensionDay', 'easter');
@@ -213,25 +213,33 @@ class Date_Holidays_Driver_TestSuite extends PHPUnit_Framework_TestCase
     function testGetHolidayForDate()
     {
         $holiday = $this->driver->getHolidayForDate('2005-05-05');
-        $this->assertFalse(Date_Holidays::isError($holiday));
+        if (Date_Holidays::isError($holiday)) {
+            $this->fail(helper_get_error_message($holiday));
+        }
 
-        $result  = $this->driver->addCompiledTranslationFile(LANG_DIR .
-                                                             '/Germany/de_DE.ser',
-                                                             'de_DE');
+        $result  = $this->driver->addCompiledTranslationFile(
+                $this->lang_dir . '/Germany/de_DE.ser', 'de_DE');
+        if (Date_Holidays::isError($result)) {
+            $this->fail(helper_get_error_message($result));
+        }
+
         $holiday = $this->driver->getHolidayForDate('2005-05-05', 'de_DE');
         $this->assertEquals('Christi Himmelfahrt', $holiday->getTitle());
 
         $result = $this->driver->getHolidayForDate('2005-05-05', 
                                                    null, 
                                                    true);
-        $this->assertTrue(is_array($result));
+        $this->assertInternalType('array', $result);
         $this->assertTrue(count($result) > 1);
 
         foreach ($result as $holiday) {
-            $this->assertTrue(is_a($holiday, 'Date_Holidays_Holiday'));
+            $this->assertInstanceOf('Date_Holidays_Holiday', $holiday);
         }
 
         $germany  = Date_Holidays::factory('Germany', 2005, 'de_DE');
+        if (Date_Holidays::isError($germany)) {
+            $this->fail(helper_get_error_message($germany));
+        }
         $holidays = $germany->getHolidayForDate(mktime(0, 0, 0, 10, 30, 2005), 
                                                 null, 
                                                 true);
@@ -268,6 +276,9 @@ class Date_Holidays_Driver_TestSuite extends PHPUnit_Framework_TestCase
         $result = $this->driver->addTranslationFile(dirname(__FILE__) . 
                                           '/Date_Holidays_Driver_TestSuite.xml', 
                                                     'de_DE');
+        if (Date_Holidays::isError($result)) {
+            $this->fail(helper_get_error_message($result));
+        }
         $this->assertTrue($result);
 
         $properties = $this->driver->getHolidayProperties('jesusCircumcision', 'en');
@@ -302,7 +313,7 @@ class Date_Holidays_Driver_TestSuite extends PHPUnit_Framework_TestCase
         $internalNames = array();
         foreach ($holidays as $holiday) {
             $internalNames[] = $holiday->getInternalName();
-            $this->assertTrue(is_a($holiday, 'Date_Holidays_Holiday'));
+            $this->assertInstanceOf('Date_Holidays_Holiday', $holiday);
         }
 
         $this->assertContains('laughingDay', $internalNames);
@@ -410,9 +421,9 @@ class Date_Holidays_Driver_TestSuite extends PHPUnit_Framework_TestCase
      */
     function testSetYear()
     {
-        $driver = Date_Holidays::factory('Germany', 2005, 'C');
+        $driver = Date_Holidays::factory('Germany', 2005, 'de_DE');
         if (Date_Holidays::isError($driver)) {
-            $this->fail('Driver creation failed: ' . $driver->getMessage());
+            $this->fail(helper_get_error_message($driver));
         }
 
         $driver->setYear(1999);

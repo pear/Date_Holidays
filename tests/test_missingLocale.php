@@ -11,12 +11,14 @@
  * @version  CVS: $Id$
  * @link     http://pear.php.net/package/Date_Holidays
  */
-require_once 'Date/Holidays.php';
+
+/** Set up the environment */
+require_once dirname(__FILE__) . '/helper.inc';
 
 Date_Holidays::staticSetProperty('DIE_ON_MISSING_LOCALE', true);
 
 $germany = Date_Holidays::factory('Germany', 2004, 'fr');
-$langer  = "/var/www/devel/pear/Date_Holidays/lang";
+$langer = helper_get_lang_dir('Date_Holidays');
 $germany->addTranslationFile($langer . '/Germany/de_DE.ini', 'de');
 $germany->addTranslationFile($langer . '/Germany/fr_FR.ini', 'fr_FR');
 
