@@ -38,9 +38,9 @@ class Date_Holidays_Driver_Australia_TestSuite extends PHPUnit_Framework_TestCas
         $holidays[] = array("newYearsDay", 2011, array('day' => 3, 'month' => 1, 'year' => 2011));
         $holidays[] = array("australiaDay", 2011, array('day' => 26, 'month' => 1, 'year' => 2011));
         $holidays[] = array("goodFriday", 2011, array('day' => 22, 'month' => 04, 'year' => 2011));
-        $holidays[] = array("easterSaturday", 2011, array('day' => 23, 'month' => 04, 'year' => 2011));
+        //$holidays[] = array("easterSaturday", 2011, array('day' => 23, 'month' => 04, 'year' => 2011));
         $holidays[] = array("anzacDay", 2011, array('day' => 25, 'month' => 04, 'year' => 2011));
-        $holidays[] = array("easterMonday", 2011, array('day' => 26, 'month' => 04, 'year' => 2011)); // Though actually Easter Tuesday
+        $holidays[] = array("easterMonday", 2011, array('day' => 25, 'month' => 04, 'year' => 2011)); // Though actually Easter Tuesday
         $holidays[] = array("easterTuesday", 2011, array('day' => 26, 'month' => 04, 'year' => 2011)); // Though actually Easter Tuesday
         $holidays[] = array("christmasDay", 2011, array('day' => 26, 'month' => 12, 'year' => 2011));
         $holidays[] = array("boxingDay", 2011, array('day' => 27, 'month' => 12, 'year' => 2011)); // Sort of: SA has proclamation day
@@ -49,9 +49,9 @@ class Date_Holidays_Driver_Australia_TestSuite extends PHPUnit_Framework_TestCas
 
         $holidays[] = array("newYearsDay", 2012, array('day' => 2, 'month' => 1, 'year' => 2012));
         $holidays[] = array("australiaDay", 2012, array('day' => 26, 'month' => 1, 'year' => 2012));
-        $holidays[] = array("goodFriday", 2012, array('day' => 06, 'month' => 04, 'year' => 2011));
-        $holidays[] = array("easterSaturday", 2012, array('day' => 07, 'month' => 04, 'year' => 2011));
-        $holidays[] = array("easterMonday", 2012, array('day' => 26, 'month' => 04, 'year' => 2012));
+        $holidays[] = array("goodFriday", 2012, array('day' => 06, 'month' => 04, 'year' => 2012));
+        //$holidays[] = array("easterSaturday", 2012, array('day' => 07, 'month' => 04, 'year' => 2012));
+        $holidays[] = array("easterMonday", 2012, array('day' => 9, 'month' => 04, 'year' => 2012));
         $holidays[] = array("anzacDay", 2012, array('day' => 25, 'month' => 04, 'year' => 2012));
         $holidays[] = array("christmasDay", 2012, array('day' => 25, 'month' => 12, 'year' => 2012));
         $holidays[] = array("boxingDay", 2012, array('day' => 26, 'month' => 12, 'year' => 2012)); // Sort of: SA has proclamation day
@@ -61,8 +61,8 @@ class Date_Holidays_Driver_Australia_TestSuite extends PHPUnit_Framework_TestCas
         $holidays[] = array("newYearsDay", 2013, array('day' => 1, 'month' => 1, 'year' => 2013));
         $holidays[] = array("australiaDay", 2013, array('day' => 28, 'month' => 1, 'year' => 2013));
         $holidays[] = array("goodFriday", 2013, array('day' => 29, 'month' => 03, 'year' => 2013));
-        $holidays[] = array("easterSaturday", 2013, array('day' => 30, 'month' => 03, 'year' => 2013));
-        $holidays[] = array("easterMonday", 2013, array('day' => 26, 'month' => 04, 'year' => 2013)); // Though actually Easter Tuesday
+        //$holidays[] = array("easterSaturday", 2013, array('day' => 30, 'month' => 03, 'year' => 2013));
+        $holidays[] = array("easterMonday", 2013, array('day' => 1, 'month' => 04, 'year' => 2013)); // Though actually Easter Tuesday
         $holidays[] = array("anzacDay", 2013, array('day' => 25, 'month' => 04, 'year' => 2013));
         $holidays[] = array("christmasDay", 2013, array('day' => 25, 'month' => 12, 'year' => 2013));
         $holidays[] = array("boxingDay", 2013, array('day' => 26, 'month' => 12, 'year' => 2013)); // Sort of: SA has proclamation day

@@ -1,7 +1,7 @@
 <?php
 
 if (! $fp = @fopen('Date.php', 'r', true)) {
-    die("PEAR_Date is required for these tests to run.\n");
+    die("skip PEAR_Date is required for these tests to run.\n");
 }
 
 if ($fp = @fopen('PHPUnit/Autoload.php', 'r', true)) {

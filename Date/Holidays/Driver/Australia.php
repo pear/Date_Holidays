@@ -70,6 +70,7 @@ class Date_Holidays_Driver_Australia extends Date_Holidays_Driver
             $newYearsDay = $this->_year . '-01-03';
         }
         $this->_addHoliday('newYearsDay', $newYearsDay, 'New Year\'s Day');
+        $this->_addTranslationForHoliday('newYearsDay', 'en_EN', 'New Year\'s Day');
 
         /*
          * Australia Day
@@ -81,27 +82,39 @@ class Date_Holidays_Driver_Australia extends Date_Holidays_Driver
             $australiaDay = $this->_year . '-01-28';
         }
         $this->_addHoliday('australiaDay', $australiaDay, 'Australia Day');
-
+        $this->_addTranslationForHoliday('australiaDay', 'en_EN', 'Australia Day');
         /*
          * Easter
          */
         $easter = Date_Holidays_Driver_Christian::calcEaster($this->_year);
         $goodFridayDate = new Date($easter);
         $goodFridayDate = $this->_addDays($easter, -2);
+        $easterMonday = $easter->getNextDay();
+
+        // Conflicts with Anzac day?
+        if ($easterMonday->getDay() == 25) {
+            $this->_addHoliday('easterTuesday', $easterMonday->getNextDay(), 'Easter Tuesday');
+            $this->_addTranslationForHoliday('easterTuesday', 'en_EN', 'Easter Tuesday');
+        }
+
         $this->_addHoliday('goodFriday', $goodFridayDate, 'Good Friday');
-        $this->_addHoliday('easterMonday', $easter->getNextDay(), 'Easter Monday');
+        $this->_addHoliday('easterMonday', $easterMonday, 'Easter Monday');
+        $this->_addTranslationForHoliday('goodFriday', 'en_EN', 'Good Friday');
+        $this->_addTranslationForHoliday('easterMonday', 'en_EN', 'Easter Monday');
+        
 
         /*
          * Anzac Day
          */
         $anzacDay = new Date($this->_year . '-04-25');
         $this->_addHoliday('anzacDay', $anzacDay, 'Anzac Day');
+        $this->_addTranslationForHoliday('anzacDay', 'en_EN', "Anzac Day");
         if ($anzacDay->getDayOfWeek() == 0) { // 0 = Sunday
             $anzacDayHol = $this->_year . '-04-26';
-            $this->_addHoliday('anzacDayHoliday', $anzacDayHol, 'Anzac Day Holiday');
+            $this->_addHoliday('anzacDay', $anzacDayHol, 'Anzac Day Holiday');
         } elseif ($anzacDay->getDayOfWeek() == 6) { // 6 = Saturday
             $anzacDayHol = $this->_year . '-04-27';
-            $this->_addHoliday('anzacDayHoliday', $anzacDayHol, 'Anzac Day Holiday');
+            $this->_addHoliday('anzacDay', $anzacDayHol, 'Anzac Day Holiday');
         }
 
         /*
@@ -110,30 +123,54 @@ class Date_Holidays_Driver_Australia extends Date_Holidays_Driver
          */
         $queensBirthday = Date_Calc::nWeekdayOfMonth(1, 1, 6, $this->_year);
         $this->_addHoliday('queensBirthday', $queensBirthday, "Queen's Birthday");
+        $this->_addTranslationForHoliday('queensBirthday', 'en_EN', "Queen's Birthday");
 
         /*
          * Christmas and Boxing days
          */
-        $christmasDay = new Date($this->_year.'-12-25');
-        $boxingDay = new Date($this->_year.'-12-26');
-        $this->_addHoliday('christmasDay', $christmasDay, 'Christmas Day');
-        $this->_addHoliday('boxingDay', $boxingDay, 'Boxing Day');
-        if ($christmasDay->getDayName() == 'Sunday') {
-            $this->_addHoliday(
-                'boxingDayHoliday', $this->_year.'-12-27', 'Boxing Day Holiday'
-            );
-        } elseif ($christmasDay->getDayName() == 'Friday') {
-            $this->_addHoliday(
-                'boxingDayHoliday', $this->_year.'-12-28', 'Boxing Day Holiday'
-            );
-        } elseif ($christmasDay->getDayName() == 'Saturday') {
-            $this->_addHoliday(
-                'christmasDayHoliday', $this->_year.'-12-27', 'Christmas Day Holiday'
-            );
-            $this->_addHoliday(
-                'boxingDayHoliday', $this->_year.'-12-28', 'Boxing Day Holiday'
-            );
+        $christmasDay = new Date($this->_year . '-12-25');
+        if ($christmasDay->getDayOfWeek() == 6) {
+            // 25 December - if that date falls on a Saturday the public holiday transfers to the following Monday.
+            $this->_addHoliday('christmasDay',
+                               $this->_year . '-12-27',
+                               'Substitute Bank Holiday in lieu of Christmas Day');
+
+        } else if ($christmasDay->getDayOfWeek() == 0) {
+            // If that date falls on a Sunday that day and the following Monday will be public holidays.
+            $this->_addHoliday('christmasDay',
+                               $this->_year . '-12-26',
+                               'Substitute Bank Holiday in lieu of Christmas Day');
+        } else {
+            $this->_addHoliday('christmasDay', $christmasDay, 'Christmas Day');
         }
+
+        // Boxing day isn't quite a national holiday, as it's labelled Proclamation day in SA.
+        // See AustraliaNSW for this implementation.
+        $boxingDay = new Date($this->_year . '-12-26');
+        if ($boxingDay->getDayOfWeek() == 6) {
+            //26 December - if that date falls on a Saturday the public holiday transfers to the following Monday.
+            $this->_addHoliday('boxingDay',
+                               $this->_year . '-12-28',
+                               'Substitute Bank Holiday in lieu of Boxing Day');
+        } else if ($boxingDay->getDayOfWeek() == 0) {
+            // If that date falls on a Sunday that day and the following Tuesday will be public holidays.
+            $this->_addHoliday('boxingDay',
+                               $this->_year . '-12-28',
+                               'Substitute Bank Holiday in lieu of Boxing Day');
+        } else if ($boxingDay->getDayOfWeek() == 1) {
+            // If that date falls on a Monday that day and the following Tuesday will be public holidays.
+            $this->_addHoliday('boxingDay',
+                               $this->_year . '-12-26',
+                               'Substitute Bank Holiday in lieu of Boxing Day');
+            $this->_addHoliday('boxingDay',
+                               $this->_year . '-12-27',
+                               'Substitute Bank Holiday in lieu of Boxing Day');
+        } else {
+            $this->_addHoliday('boxingDay', $this->_year . '-12-26', 'Boxing Day');
+        }
+
+        $this->_addTranslationForHoliday('christmasDay', 'en_EN', 'Christmas Day');
+        $this->_addTranslationForHoliday('boxingDay', 'en_EN', 'Boxing Day');
 
         /*
          * Check for errors, and return.
