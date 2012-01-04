@@ -37,39 +37,40 @@ class Date_Holidays_Driver_AustraliaQLD_TestSuite extends PHPUnit_Framework_Test
 
         // 2008
         $holidays[] = array("boxingDay", 2008, array('day' => 26, 'month' => 12, 'year' => 2008));
-        $holidays[] = array("queensBirthday", 2008, array('day' => 09, 'month' => 06, 'year' => 2008));
-        $holidays[] = array("labourDay", 2008, array('day' => 03, 'month' => 10, 'year' => 2008));
-        $holidays[] = array("royalQueenslandShow", 2008, array('day' => 13, 'month' => 08, 'year' => 2008));
+        $holidays[] = array("queensBirthday", 2008, array('day' => 9, 'month' => 6, 'year' => 2008));
+        $holidays[] = array("labourDay", 2008, array('day' => 5, 'month' => 5, 'year' => 2008));
+        $holidays[] = array("royalQueenslandShow", 2008, array('day' => 13, 'month' => 8, 'year' => 2008));
 
         // 2009
         $holidays[] = array("boxingDay", 2009, array('day' => 28, 'month' => 12, 'year' => 2009));
-        $holidays[] = array("queensBirthday", 2009, array('day' => 08, 'month' => 06, 'year' => 2009));
-        $holidays[] = array("labourDay", 2009, array('day' => 03, 'month' => 10, 'year' => 2009));
-        $holidays[] = array("royalQueenslandShow", 2009, array('day' => 12, 'month' => 08, 'year' => 2009));
+        $holidays[] = array("queensBirthday", 2009, array('day' => 8, 'month' => 6, 'year' => 2009));
+        $holidays[] = array("labourDay", 2009, array('day' => 4, 'month' => 5, 'year' => 2009));
+        $holidays[] = array("royalQueenslandShow", 2009, array('day' => 12, 'month' => 8, 'year' => 2009));
 
         // 2010
-        $holidays[] = array("boxingDay", 2010, array('day' => 27, 'month' => 12, 'year' => 2010));
-        $holidays[] = array("queensBirthday", 2010, array('day' => 14, 'month' => 06, 'year' => 2010));
-        $holidays[] = array("labourDay", 2010, array('day' => 03, 'month' => 10, 'year' => 2010));
-        $holidays[] = array("royalQueenslandShow", 2010, array('day' => 11, 'month' => 08, 'year' => 2010));
+        $holidays[] = array("boxingDay", 2010, array('day' => 28, 'month' => 12, 'year' => 2010));
+        $holidays[] = array("queensBirthday", 2010, array('day' => 14, 'month' => 6, 'year' => 2010));
+        $holidays[] = array("labourDay", 2010, array('day' => 3, 'month' => 5, 'year' => 2010));
+        $holidays[] = array("royalQueenslandShow", 2010, array('day' => 11, 'month' => 8, 'year' => 2010));
 
         // 2011
         $holidays[] = array("boxingDay", 2011, array('day' => 27, 'month' => 12, 'year' => 2011));
-        $holidays[] = array("queensBirthday", 2011, array('day' => 13, 'month' => 06, 'year' => 2011));
-        $holidays[] = array("labourDay", 2011, array('day' => 03, 'month' => 10, 'year' => 2011));
-        $holidays[] = array("royalQueenslandShow", 2011, array('day' => 17, 'month' => 08, 'year' => 2011));
+        $holidays[] = array("queensBirthday", 2011, array('day' => 13, 'month' => 6, 'year' => 2011));
+        $holidays[] = array("labourDay", 2011, array('day' => 2, 'month' => 5, 'year' => 2011));
+        $holidays[] = array("royalQueenslandShow", 2011, array('day' => 17, 'month' => 8, 'year' => 2011));
 
         // 2012
         $holidays[] = array("boxingDay", 2012, array('day' => 26, 'month' => 12, 'year' => 2012));
-        $holidays[] = array("queensBirthday", 2012, array('day' => 11, 'month' => 06, 'year' => 2012));
-        $holidays[] = array("labourDay", 2012, array('day' => 1, 'month' => 10, 'year' => 2012));
-        $holidays[] = array("royalQueenslandShow", 2012, array('day' => 15, 'month' => 08, 'year' => 2012));
+        $holidays[] = array("queensDiamondJubilee", 2012, array('day' => 11, 'month' => 6, 'year' => 2012));
+        $holidays[] = array("queensBirthday", 2012, array('day' => 1, 'month' => 10, 'year' => 2012));
+        $holidays[] = array("labourDay", 2012, array('day' => 7, 'month' => 5, 'year' => 2012));
+        $holidays[] = array("royalQueenslandShow", 2012, array('day' => 15, 'month' => 8, 'year' => 2012));
 
         // 2013
         $holidays[] = array("boxingDay", 2013, array('day' => 26, 'month' => 12, 'year' => 2013));
-        $holidays[] = array("queensBirthday", 2013, array('day' => 10, 'month' => 06, 'year' => 2013));
-        $holidays[] = array("labourDay", 2013, array('day' => 7, 'month' => 10, 'year' => 2013));
-        $holidays[] = array("royalQueenslandShow", 2013, array('day' => 14, 'month' => 08, 'year' => 2013));
+        $holidays[] = array("queensBirthday", 2013, array('day' => 7, 'month' => 10, 'year' => 2013));
+        $holidays[] = array("labourDay", 2013, array('day' => 6, 'month' => 5, 'year' => 2013));
+        $holidays[] = array("royalQueenslandShow", 2013, array('day' => 14, 'month' => 8, 'year' => 2013));
 
         return $holidays;
     }

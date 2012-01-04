@@ -70,13 +70,82 @@ class Date_Holidays_Driver_AustraliaQLD extends Date_Holidays_Driver
          */
         $labourDay = Date_Calc::nWeekdayOfMonth(1, 1, 5, $this->_year);
         $this->_addHoliday('labourDay', $labourDay, "Labour Day");
+        $this->_addTranslationForHoliday('labourDay', 'en_EN', 'Labour Day');
 
         // Royal National Agricultural (RNA) Show Day (Brisbane only) usually held on second Wednesday in August except when there are five Wednesdays in August it is held on third Wednesday.
-        $royalQueenslandShow = Date_Calc::nWeekdayOfMonth(2, 3, 8, $this->_year);
+        if (Date_Calc::nWeekdayOfMonth(5, 3, 8, $this->_year) !== -1) {
+            $royalQueenslandShow = Date_Calc::nWeekdayOfMonth(3, 3, 8, $this->_year);
+        } else {
+            $royalQueenslandShow = Date_Calc::nWeekdayOfMonth(2, 3, 8, $this->_year);
+        }
         $this->_addHoliday('royalQueenslandShow', $royalQueenslandShow, "Royal Queensland Show"); // Brisbane area only
+        $this->_addTranslationForHoliday('royalQueenslandShow', 'en_EN', 'Royal Queensland Show');
+
+        /**
+         * Christmas and Boxing Day
+         */
+        $christmasDay = new Date($this->_year . '-12-25');
+        if ($christmasDay->getDayOfWeek() == 6) {
+            // 25 December - if that date falls on a Saturday the public holiday transfers to the following Monday.
+            $this->_addHoliday('christmasDay',
+                               $this->_year . '-12-27',
+                               'Substitute Bank Holiday in lieu of Christmas Day');
+
+        } else if ($christmasDay->getDayOfWeek() == 0) {
+            // If that date falls on a Sunday that day and the following Monday will be public holidays.
+            $this->_addHoliday('christmasDay',
+                               $this->_year . '-12-26',
+                               'Substitute Bank Holiday in lieu of Christmas Day');
+        } else {
+            $this->_addHoliday('christmasDay', $christmasDay, 'Christmas Day');
+        }
+
+        $boxingDay = new Date($this->_year . '-12-26');
+        if ($boxingDay->getDayOfWeek() == 6) {
+            //26 December - if that date falls on a Saturday the public holiday transfers to the following Monday.
+            $this->_addHoliday('boxingDay',
+                               $this->_year . '-12-28',
+                               'Substitute Bank Holiday in lieu of Boxing Day');
+        } else if ($boxingDay->getDayOfWeek() == 0) {
+            // If that date falls on a Sunday that day and the following Tuesday will be public holidays.
+            $this->_addHoliday('boxingDay',
+                               $this->_year . '-12-28',
+                               'Substitute Bank Holiday in lieu of Boxing Day');
+        } else if ($boxingDay->getDayOfWeek() == 1) {
+            // If that date falls on a Monday that day and the following Tuesday will be public holidays.
+            $this->_addHoliday('boxingDay',
+                               $this->_year . '-12-26',
+                               'Substitute Bank Holiday in lieu of Boxing Day');
+            $this->_addHoliday('boxingDay',
+                               $this->_year . '-12-27',
+                               'Substitute Bank Holiday in lieu of Boxing Day');
+        } else {
+            $this->_addHoliday('boxingDay', $this->_year . '-12-26', 'Boxing Day');
+        }
+
+        $this->_addTranslationForHoliday('christmasDay', 'en_EN', 'Christmas Day');
+        $this->_addTranslationForHoliday('boxingDay', 'en_EN', 'Boxing Day');
 
 
+        /*
+         * See http://en.wikipedia.org/wiki/Queen%27s_Official_Birthday#Australia
+         */
+        if ($this->_year < 2012) {
+            $queensBirthday = Date_Calc::nWeekdayOfMonth(2, 1, 6, $this->_year);
+            $this->_addHoliday('queensBirthday', $queensBirthday, "Queen's Birthday");
+            $this->_addTranslationForHoliday('queensBirthday', 'en_EN', "Queen's Birthday");
+        }
 
+        if ($this->_year == '2012') {
+            $this->_addHoliday('queensDiamondJubilee', Date_Calc::nWeekdayOfMonth(2, 1, 6, $this->_year), "Queen's Diamond Jubilee");
+            $this->_addTranslationForHoliday('queensDiamondJubilee', 'en_EN', "Queen's Diamond Jubilee");
+        }
+
+        if ($this->_year >= 2012) {
+            $queensBirthday = Date_Calc::nWeekdayOfMonth(1, 1, 10, $this->_year);
+            $this->_addHoliday('queensBirthday', $queensBirthday, "Queen's Birthday");
+            $this->_addTranslationForHoliday('queensBirthday', 'en_EN', "Queen's Birthday");
+        }
     } // _buildHolidays()
 
 } // Date_Holidays_Driver_AustraliaQLD
