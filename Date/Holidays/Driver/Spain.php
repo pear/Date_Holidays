@@ -65,7 +65,7 @@ class Date_Holidays_Driver_Spain extends Date_Holidays_Driver
         /**
          * New Year's Day
          */
-        $this->_addHoliday('newYearsDay', $this->_year . '-01-01', 'Año nuevo');
+        $this->_addHoliday('newYearsDay', $this->_year . '-01-01', 'Año Nuevo');
 
         /**
          * Epiphanias
@@ -97,13 +97,13 @@ class Date_Holidays_Driver_Spain extends Date_Holidays_Driver
          * Ash Wednesday
          */
         $ashWednesday = $this->_addDays($easterDate, -46);
-        $this->_addHoliday('ashWednesday', $ashWednesday, 'Miercoles de Ceniza');
+        $this->_addHoliday('ashWednesday', $ashWednesday, 'Miércoles de Ceniza');
 
         /**
          * Palm Sunday
          */
         $palmSunday = $this->_addDays($easterDate, -7);
-        $this->_addHoliday('palmSunday', $palmSunday, 'Domingo de ramos');
+        $this->_addHoliday('palmSunday', $palmSunday, 'Domingo de Ramos');
 
         /**
          * Maundy Thursday
@@ -121,17 +121,17 @@ class Date_Holidays_Driver_Spain extends Date_Holidays_Driver
          * Saint Saturday
          */
         $goodFriday = $this->_addDays($easterDate, -1);
-        $this->_addHoliday('saintSaturday', $goodFriday, 'Sabado Santo');
+        $this->_addHoliday('saintSaturday', $goodFriday, 'Sábado Santo');
 
         /**
          * Easter
          */
-        $this->_addHoliday('easter', $easterDate, 'Domingo de resurrección');
+        $this->_addHoliday('easter', $easterDate, 'Domingo de Resurrección');
 
         /**
          * Fathers Day
          */
-        $this->_addHoliday('fathersDay', $this->_year . '-03-19', 'Día del padre');
+        $this->_addHoliday('fathersDay', $this->_year . '-03-19', 'Día del Padre');
 
         /**
          * Day of Work
@@ -139,7 +139,7 @@ class Date_Holidays_Driver_Spain extends Date_Holidays_Driver
         $this->_addHoliday(
             'dayOfWork',
             $this->_year . '-05-01',
-            'Día del trabajador'
+            'Día del Trabajador'
         );
 
         /**
@@ -150,13 +150,13 @@ class Date_Holidays_Driver_Spain extends Date_Holidays_Driver
         if ($mothersDay->getDay() == 30) {
             $mothersDay = $this->_addDays($mothersDay, 7);
         }
-        $this->_addHoliday('mothersDay', $mothersDay, 'Día de la madre');
+        $this->_addHoliday('mothersDay', $mothersDay, 'Día de la Madre');
 
         /**
          * Corpus Christi
          */
         $corpusChristi = $this->_addDays($easterDate, 60);
-        $this->_addHoliday('corpusChristi', $corpusChristi, 'Corpo de Deus');
+        $this->_addHoliday('corpusChristi', $corpusChristi, 'Corpus Cristi');
 
         /**
          * Apostle Santiago
@@ -164,7 +164,7 @@ class Date_Holidays_Driver_Spain extends Date_Holidays_Driver
         $this->_addHoliday(
             'apostleSantiago',
             $this->_year . '-07-25',
-            'Santiago apóstol'
+            'Santiago Apóstol'
         );
 
         /**
@@ -182,7 +182,7 @@ class Date_Holidays_Driver_Spain extends Date_Holidays_Driver
         $this->_addHoliday(
             'hispanityDay',
             $this->_year . '-10-12',
-            'Día de la hispanidad'
+            'Día de la Hispanidad'
         );
 
         /**
@@ -191,7 +191,7 @@ class Date_Holidays_Driver_Spain extends Date_Holidays_Driver
         $this->_addHoliday(
             'allSaintsDay',
             $this->_year . '-11-01',
-            'Todos los santos'
+            'Todos los Santos'
         );
 
         /**
@@ -209,13 +209,13 @@ class Date_Holidays_Driver_Spain extends Date_Holidays_Driver
         $this->_addHoliday(
             'immaculateConceptionDay',
             $this->_year . '-12-08',
-            'Inmaculada concepción'
+            'Inmaculada Concepción'
         );
 
         /**
          * Christmas Eve
          */
-        $this->_addHoliday('christmasEve', $this->_year . '-12-24', 'Noche buena');
+        $this->_addHoliday('christmasEve', $this->_year . '-12-24', 'Noche Buena');
 
         /**
          * Christmas day
