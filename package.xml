@@ -8,7 +8,7 @@
   <name>Carsten Lucke</name>
   <user>luckec</user>
   <email>luckec@php.net</email>
-  <active>yes</active>
+  <active>no</active>
  </lead>
  <lead>
   <name>Ken Guest</name>
@@ -28,10 +28,10 @@
   <email>wiesemann@php.net</email>
   <active>no</active>
  </contributor>
- <date>2011-04-28</date>
- <time>21:54:16</time>
+ <date>2012-02-27</date>
+ <time>22:11:16</time>
  <version>
-  <release>0.21.5</release>
+  <release>0.21.6</release>
   <api>0.17.2</api>
  </version>
  <stability>
@@ -40,9 +40,7 @@
  </stability>
  <license uri="http://www.php.net/license">PHP License</license>
  <notes>
-* Fix Bug #16423: Path to php binary should not be hardcoded [kguest]
- * Fix Bug #16595: Inkompatibility to current version of PHP [kguest]
- * Fix Bug #16731: _addDays is broken with Date 1.5.0a1 [kguest]
+* Fix Bug #19151: Easter Monday is always on the next day
  </notes>
  <contents>
   <dir baseinstalldir="/" name="/">
@@ -681,10 +679,12 @@ Added driver and English languagefile for USA built by Kevin English.
     <release>alpha</release>
     <api>alpha</api>
    </stability>
-   <date>2009-08-10</date>
+   <date>2011-04-28</date>
    <license uri="http://www.php.net/license">PHP License</license>
    <notes>
 * Fix Bug #16423: Path to php binary should not be hardcoded
+* Fix Bug #16595: Inkompatibility to current version of PHP [kguest]
+* Fix Bug #16731: _addDays is broken with Date 1.5.0a1 [kguest]
    </notes>
   </release>
  </changelog>
