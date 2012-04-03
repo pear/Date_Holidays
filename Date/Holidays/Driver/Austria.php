@@ -138,7 +138,7 @@ class Date_Holidays_Driver_Austria extends Date_Holidays_Driver
          * Day of Work
          */
         $this->_addHoliday('dayOfWork', $this->_year . '-05-01', 'Staatsfeiertag Österreich');
-        $this->_addTranslationForHoliday('easterMonday', 'en_EN', 'Day of Work');
+        $this->_addTranslationForHoliday('dayOfWork', 'en_EN', 'Day of Work');
 
         /**
          * Saint Florian
