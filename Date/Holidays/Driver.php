@@ -1017,26 +1017,18 @@ class Date_Holidays_Driver
             return Date_Holidays::getErrorStack();
         }
 
-        include_once 'XML/Unserializer.php';
-        $options = array('parseAttributes' => false,
-                         'attributesArray' => false,
-                         'keyAttribute'    => array('property' => 'id'),
-                         'forceEnum'       => array('holiday'));
-
         // unserialize the document
-        $unserializer = new XML_Unserializer($options);
-        $status       = $unserializer->unserialize($file, true);
+        $document = simplexml_load_file($file);
 
-        if (PEAR::isError($status)) {
-            return Date_Holidays::raiseError($status->getCode(),
-                                             $status->getMessage());
+        $content = array();
+        $content['holidays'] = array();
+        $content['holidays']['holiday'] = array();
+
+        $nodes = $document->xpath('//holiday');
+        foreach ($nodes as $node) {
+            $content['holidays']['holiday'][] = (array)$node;
         }
 
-        $content = $unserializer->getUnserializedData();
-        if (PEAR::isError($content)) {
-            return Date_Holidays::raiseError($content->getCode(),
-                                             $content->getMessage());
-        }
         return $this->_addTranslationData($content, $locale);
     }
 

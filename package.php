@@ -88,7 +88,6 @@ $package->addMaintainer('kguest', 'lead', 'Ken Guest', 'ken@linux.ie');
 
 $package->addDependency('PEAR', '1.5.6', 'ge', 'pkg', false);
 $package->addDependency('Date', '', 'has', 'pkg', false);
-$package->addDependency('XML_Serializer', '', 'has', 'pkg', false);
 $package->addDependency('Console_Getargs', '', 'has', 'pkg', true);
 
 if (isset($_GET['make']) ||
