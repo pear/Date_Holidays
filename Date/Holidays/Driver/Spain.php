@@ -3,7 +3,7 @@
 /**
  * Driver for holidays in Spain
  *
- * PHP Version 4
+ * PHP Version 5
  *
  * Copyright (c) 1997-2011 The PHP Group
  *

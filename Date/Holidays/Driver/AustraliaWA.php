@@ -4,7 +4,7 @@
  * This file contains only the Driver class for determining holidays in Western
  * Australia.
  *
- * PHP Version 4
+ * PHP Version 5
  *
  * @category Date
  * @package  Date_Holidays

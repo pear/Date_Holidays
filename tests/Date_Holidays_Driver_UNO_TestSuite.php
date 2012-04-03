@@ -2,7 +2,7 @@
 /**
  * TestSuite for UNO Holidays
  *
- * PHP Version 4
+ * PHP Version 5
  *
  * @category Date
  * @package  Date_Holidays

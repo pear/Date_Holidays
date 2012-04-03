@@ -3,7 +3,7 @@
 /**
  * Driver.php
  *
- * PHP Version 4
+ * PHP Version 5
  *
  * Copyright (c) 1997-2008 The PHP Group
  *
@@ -307,7 +307,7 @@ class Date_Holidays_Driver
         $loaded = false;
 
         if ($data_dir == '@'.'DATA-DIR'.'@') {
-            $data_dir = dirname(dirname(dirname(__FILE__))); 
+            $data_dir = dirname(dirname(dirname(__FILE__)));
             $stubdirs = array(
                 "$data_dir/lang/{$this->_driverName}/",
                 "$data_dir/lang/Christian/");

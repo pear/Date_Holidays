@@ -2,7 +2,7 @@
 /**
  * Rudimentary example of using Date_Holiday packages from the command line.
  *
- * PHP Version 4
+ * PHP Version 5
  *
  * @category Date
  * @package  Date_Holidays

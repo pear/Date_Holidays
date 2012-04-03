@@ -3,7 +3,7 @@
 /**
  * UNO
  *
- * PHP Version 4
+ * PHP Version 5
  *
  * Authors:
  * Copyright (c) 1997-2008 The PHP Group

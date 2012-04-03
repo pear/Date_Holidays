@@ -2,26 +2,26 @@
 /**
  * Example that shows how to get localized holiday titles
  *
- * PHP Version 4
+ * PHP Version 5
  *
  * @category Date
  * @package  Date_Holidays
  * @author   Carsten Lucke <luckec@tool-garage.de>
  * @license  http://www.php.net/license/3_01.txt PHP License 3.0.1
  * @link     http://pear.php.net/package/Date_Holidays
- */ 
+ */
 
 require_once 'Date/Holidays.php';
 
 /**
- * Set static property concerning the behaviour when translations for a 
+ * Set static property concerning the behaviour when translations for a
  * holiday-title is missing
- * 
- * If DIE_ON_MISSING_LOCALE is true, you will get an error if you request a 
+ *
+ * If DIE_ON_MISSING_LOCALE is true, you will get an error if you request a
  * holiday/ holiday-title.
- * If this is set false, the driver's internal default title (English) will be 
- * returned. When you are using another locale-setting than English, you could 
- * get mixed translations. 
+ * If this is set false, the driver's internal default title (English) will be
+ * returned. When you are using another locale-setting than English, you could
+ * get mixed translations.
  * Default this option is set true.
  */
 Date_Holidays::staticSetProperty('DIE_ON_MISSING_LOCALE', true);

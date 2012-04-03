@@ -3,7 +3,7 @@
 /**
  * Driver for determining holidays in Finland
  *
- * PHP Version 4 5
+ * PHP Version 5 5
  *
  * Copyright (c) 2011 The PHP Group
  *

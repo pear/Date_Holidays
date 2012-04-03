@@ -6,7 +6,7 @@
  *
  * @see http://www.safework.sa.gov.au/show_page.jsp?id=2483
  *
- * PHP Version 4
+ * PHP Version 5
  *
  * Copyright (c) 1997-2008 The PHP Group
  *

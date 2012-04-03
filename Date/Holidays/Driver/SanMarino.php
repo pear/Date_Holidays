@@ -4,7 +4,7 @@
 /**
  * Driver for determining holidays in San Marino.
  *
- * PHP Version 4
+ * PHP Version 5
  *
  * @category Date
  * @package  Date_Holidays

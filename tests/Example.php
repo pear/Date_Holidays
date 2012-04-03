@@ -2,7 +2,7 @@
 /**
  * Example of writing a test.
  *
- * PHP Version 4
+ * PHP Version 5
  *
  * @category Date
  * @package  Date_Holidays

@@ -3,19 +3,19 @@
  * Example how to use a composite driver to determine holidays from
  * several combined drivers
  *
- * PHP Version 4
+ * PHP Version 5
  *
  * @category Date
  * @package  Date_Holidays
  * @author   Carsten Lucke <luckec@tool-garage.de>
  * @license  http://www.php.net/license/3_01.txt PHP License 3.0.1
  * @link     http://pear.php.net/package/Date_Holidays
- */ 
+ */
 
 require_once 'Date/Holidays.php';
 
 /**
- * First thing to do is creating a Composite driver object 
+ * First thing to do is creating a Composite driver object
  * and some other drivers.
  *
  * You must determine a valid driver-name.
@@ -26,16 +26,16 @@ $comp      = Date_Holidays::factory('Composite');
 $germany03 = Date_Holidays::factory('Germany', 2003, 'en_EN');
 $germany   = Date_Holidays::factory('Germany', 2004, 'en_EN');
 $uno       = Date_Holidays::factory('UNO', 2004, 'en_EN');
-if (Date_Holidays::isError($comp) || 
-        Date_Holidays::isError($germany03) || 
-        Date_Holidays::isError($germany) || 
+if (Date_Holidays::isError($comp) ||
+        Date_Holidays::isError($germany03) ||
+        Date_Holidays::isError($germany) ||
         Date_Holidays::isError($uno)) {
     die('Factory was unable to produce driver-object');
 }
 
 /**
  * Adding the drivers to the composite driver object
- * 
+ *
  * For some methods of the composite driver the importance of
  * the added drivers is relevant for the returned result.
  * The rule of priority is pretty easy, the earlier you add a
@@ -57,11 +57,11 @@ $comp->addDriver($uno);
  * However some of the methods won't do anything, like setYear() or getYear().
  * You should execute those ones on a standalone driver.
  */
- 
- 
+
+
 /**
- * Date holidays uses an internal name for each holiday and many methods 
- * require one as a parameter. 
+ * Date holidays uses an internal name for each holiday and many methods
+ * require one as a parameter.
  * The following method returns an array with all available internal names.
  *
  * It returns the internal names of all drivers in the compound. Higher priorized
@@ -74,7 +74,7 @@ print_r($internalNames);
 /**
  * Let's retrieve holiday data for Easter.
  *
- * On success an object will be returned, that contains 
+ * On success an object will be returned, that contains
  * the data about the requested holiday.
  *
  * You may specify a locale that differs from the driver's one
@@ -110,13 +110,13 @@ if (! Date_Holidays::isError($holiday) && ! is_null($holiday)) {
 
 
 /**
- * As many driver may contain lots of holidays, most methods accept a param 
+ * As many driver may contain lots of holidays, most methods accept a param
  * $restrict that allows you to limit the relevant holidays.
  *
  * If you don't specify $restrict, all holidays the driver knows will be processed.
  *
- * If the composite drivers contains two or more drivers with equal internal 
- * holiday names the one of the driver with the highest priority will be 
+ * If the composite drivers contains two or more drivers with equal internal
+ * holiday names the one of the driver with the highest priority will be
  * returned (the one who was added earliest).
  */
 $restrict = array(

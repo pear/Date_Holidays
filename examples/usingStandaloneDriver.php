@@ -2,14 +2,14 @@
 /**
  * Example how to use a driver to determine holidays
  *
- * PHP Version 4
+ * PHP Version 5
  *
  * @category Date
  * @package  Date_Holidays
  * @author   Carsten Lucke <luckec@tool-garage.de>
  * @license  http://www.php.net/license/3_01.txt PHP License 3.0.1
  * @link     http://pear.php.net/package/Date_Holidays
- */ 
+ */
 
 require_once 'Date/Holidays.php';
 
@@ -29,12 +29,12 @@ if (Date_Holidays::isError($germany)) {
  * Now that you have created a driver, all the methods that Date_Holidays_Driver
  * defines are available for usage. {@link Date_Holidays_Driver}
  */
- 
- 
+
+
 /**
- * Date holidays uses an internal name for each holiday and many methods 
- * require one as a parameter. 
- * The following method returns an array with internal names of all holidays 
+ * Date holidays uses an internal name for each holiday and many methods
+ * require one as a parameter.
+ * The following method returns an array with internal names of all holidays
  * the driver knows.
  */
 $internalNames = $germany->getInternalHolidayNames();
@@ -43,7 +43,7 @@ print_r($internalNames);
 /**
  * Let's retrieve holiday data for Easter.
  *
- * On success an object will be returned, that contains 
+ * On success an object will be returned, that contains
  * the data about the requested holiday.
  *
  * You may specify a locale that differs from the driver's one
@@ -67,16 +67,16 @@ if (! Date_Holidays::isError($holiday) && ! is_null($holiday)) {
 
 /**
  * Although you will certainly not use it very often, you may change the
- * driver's locale setting. This will affect all methods that are executed 
+ * driver's locale setting. This will affect all methods that are executed
  * after changing the locale!
  *
- * Many methods also accept a locale setting that 
+ * Many methods also accept a locale setting that
  * will be temporarily used during the method's processing time.
  */
 $germany->setLocale('de_DE');
 
 /**
- * As many driver may contain lots of holidays, most methods 
+ * As many driver may contain lots of holidays, most methods
  * accept a param $restrict that allows you to limit the relevant holidays.
  *
  * If you don't specify $restrict, all holidays the driver knows will be processed.
@@ -96,9 +96,9 @@ if (! Date_Holidays::isError($titles)) {
 /**
  * When you produce a driver the current year or the one you specified will be
  * set and the holidays for this year will be calculated.
- * 
+ *
  * To change the year at a later point you can use Date_Holidays_Driver::setYear().
- * When doing so, the driver-class will automatically calculate the new year's 
+ * When doing so, the driver-class will automatically calculate the new year's
  * holidays.
  */
 echo $germany->getYear() . "\n";

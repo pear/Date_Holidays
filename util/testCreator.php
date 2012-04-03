@@ -1,16 +1,16 @@
 <?php
 /**
- * Little script that creates the test-code for all 
+ * Little script that creates the test-code for all
  * holidays the specified driver can calculate
  *
  * Usage: php testCreator.php <drivername> <year>
- * 
+ *
  * Placeholders:
  * --
  * [%1] internal-name
  * [%2] year
  *
- * PHP Version 4
+ * PHP Version 5
  *
  * @category Date
  * @package  Date_Holidays
@@ -22,16 +22,16 @@
  */
 
 //
-// Little script that creates the test-code for all 
+// Little script that creates the test-code for all
 // holidays the specified driver can calculate
 //
 // Usage: php testCreator.php <drivername> <year>
-// 
+//
 // Placeholders:
 // --
 // [%1] internal-name
 // [%2] year
-// 
+//
 
 if ($_SERVER['argc'] != 3) {
     die("Usage: php {$_SERVER['argv'][0]} <drivername> <year>");
@@ -39,7 +39,7 @@ if ($_SERVER['argc'] != 3) {
 
 $template = <<<EOT
 
-// test [%1] 
+// test [%1]
 \$day = \$drv->getHoliday('[%1]');
 \$this->assertFalse(Date_Holidays::isError(\$day));
 if (Date_Holidays::isError(\$day)) {
@@ -65,7 +65,7 @@ $internalNames = $driver->getInternalHolidayNames();
 foreach ($internalNames as $internalName) {
     $tmp = str_replace('[%1]', $internalName, $template);
     $tmp = str_replace('[%2]', $_SERVER['argv'][2], $tmp);
-    
+
     $output .= $tmp;
 }
 

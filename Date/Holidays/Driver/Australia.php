@@ -3,7 +3,7 @@
 /**
  * This file contains only the Driver class for determining holidays in Australia.
  *
- * PHP Version 4
+ * PHP Version 5
  *
  * @category Date
  * @package  Date_Holidays
@@ -101,7 +101,7 @@ class Date_Holidays_Driver_Australia extends Date_Holidays_Driver
         $this->_addHoliday('easterMonday', $easterMonday, 'Easter Monday');
         $this->_addTranslationForHoliday('goodFriday', 'en_EN', 'Good Friday');
         $this->_addTranslationForHoliday('easterMonday', 'en_EN', 'Easter Monday');
-        
+
 
         /*
          * Anzac Day

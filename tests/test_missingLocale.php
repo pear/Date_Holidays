@@ -2,7 +2,7 @@
 /**
  * script for testing behaviour when locale is missing
  *
- * PHP Version 4
+ * PHP Version 5
  *
  * @category Date
  * @package  Date_Holidays

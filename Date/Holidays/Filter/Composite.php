@@ -3,7 +3,7 @@
 /**
  * Holiday.php
  *
- * PHP Version 4
+ * PHP Version 5
  *
  * Copyright (c) 1997-2008 The PHP Group
  *
