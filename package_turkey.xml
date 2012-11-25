@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package packagerversion="1.9.4" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0 http://pear.php.net/dtd/tasks-1.0.xsd http://pear.php.net/dtd/package-2.0 http://pear.php.net/dtd/package-2.0.xsd">
+ <name>Date_Holidays_Turkey</name>
+ <channel>pear.php.net</channel>
+ <summary>Driver based class to calculate holidays in Turkey.</summary>
+ <description>Date_Holidays helps you calculate the dates and titles of holidays and other special celebrations. This is the driver for calculating holidays in Turkey.</description>
+ <lead>
+  <name>Serkan Cetintopcu</name>
+  <user>alastyr</user>
+  <email>serkan.cetintopcu@alastyr.com</email>
+  <active>yes</active>
+ </lead>
+ <lead>
+  <name>Ken Guest</name>
+  <user>kguest</user>
+  <email>ken@linux.ie</email>
+  <active>yes</active>
+ </lead>
+ <date>2012-11-25</date>
+ <time>00:11:16</time>
+ <version>
+  <release>0.1.1</release>
+  <api>0.1.0</api>
+ </version>
+ <stability>
+  <release>alpha</release>
+  <api>alpha</api>
+ </stability>
+ <license uri="http://www.opensource.org/licenses/bsd-license.html">BSD License</license>
+ <notes>
+Slight changes to testsuite so it works when installed rather than in developers environment.
+ </notes>
+ <contents>
+  <dir baseinstalldir="/" name="/">
+   <file baseinstalldir="/" md5sum="232bac820854ec8a716dfc2e07e54e58" name="Date/Holidays/Driver/Turkey.php" role="php" />
+   <file baseinstalldir="/" md5sum="b4154ce4ddef81bfe24b92e662e29ddb" name="tests/Date_Holidays_Driver_Turkey_TestSuite.php" role="test" />
+  </dir>
+ </contents>
+ <dependencies>
+  <required>
+   <php>
+    <min>4.0.0</min>
+   </php>
+   <pearinstaller>
+    <min>1.4.0b1</min>
+   </pearinstaller>
+   <package>
+    <name>Date_Holidays</name>
+    <channel>pear.php.net</channel>
+    <min>0.21.1</min>
+   </package>
+  </required>
+ </dependencies>
+ <phprelease />
+ <changelog>
+  <release>
+   <version>
+    <release>0.1.0</release>
+    <api>0.1.0</api>
+   </version>
+   <stability>
+    <release>alpha</release>
+    <api>alpha</api>
+   </stability>
+   <date>2008-05-07</date>
+   <license uri="http://www.opensource.org/licenses/bsd-license.html">BSD License</license>
+   <notes>
+initial pear release
+   </notes>
+  </release>
+ </changelog>
+</package>
