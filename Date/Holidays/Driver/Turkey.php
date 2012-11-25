@@ -24,7 +24,6 @@
  */
 //
 
-
 /**
  * class that calculates observed Turkey holidays
  *
@@ -59,37 +58,54 @@ class Date_Holidays_Driver_Turkey extends Date_Holidays_Driver
      */
     function _buildHolidays()
     {
- 
- 
+
         $newYearsDay = $this->_calcNearestWorkDay('01', '01');
         $this->_addHoliday('newYearsDay', $newYearsDay, 'Yılbaşı');
 
+        $this->_addHoliday(
+            'egemenlikDay',
+            $this->_year.'-04-23',
+            'Ulusal Egemenlik ve Çocuk Bayramı'
+        );
 
-        $this->_addHoliday('egemenlikDay', $this->_year.'-04-23', 'Ulusal Egemenlik ve Çocuk Bayramı');
-								
-								
-								$this->_addHoliday('genclikDay', $this->_year.'-05-19', 'Atatürk\'ü Anma Gençlik ve Spor Bayramı');
-								
-								$this->_addHoliday('zaferDay', $this->_year.'-08-30', 'Zafer Bayramı');
-								
-								$this->_addHoliday('cumhuriyetDay', $this->_year.'-10-29', 'Cumhuriyet Bayramı');
+        $this->_addHoliday(
+            'genclikDay',
+            $this->_year.'-05-19',
+            'Atatürk\'ü Anma Gençlik ve Spor Bayramı'
+        );
 
+        $this->_addHoliday('zaferDay', $this->_year.'-08-30', 'Zafer Bayramı');
 
+        $this->_addHoliday(
+            'cumhuriyetDay',
+            $this->_year.'-10-29',
+            'Cumhuriyet Bayramı'
+        );
 
         return true;
     }
 
-  
+    /**
+     * Calculate nearest workday for a certain day
+     *
+     * @param int $month month
+     * @param int $day   day
+     *
+     * @access   private
+     * @return   object Date date
+     */
     function _calcNearestWorkDay($month, $day)
     {
         $month = sprintf("%02d", $month);
         $day   = sprintf("%02d", $day);
         $date  = new Date($this->_year . '-' . $month . '-' . $day);
 
-        // When one of these holidays falls on a Saturday, the previous day is
-        // also a holiday
-        // When New Year's Day, Independence Day, or Christmas Day falls on a
-        // Sunday, the next day is also a holiday.
+        /*
+         * When one of these holidays falls on a Saturday, the previous day is
+         * also a holiday.
+         * When New Year's Day, Independence Day, or Christmas Day falls on a
+         * Sunday, the next day is also a holiday.
+         */
         if ($date->getDayOfWeek() == 0 ) {
             // bump it up one
             $date = $date->getNextDay();
@@ -102,7 +118,14 @@ class Date_Holidays_Driver_Turkey extends Date_Holidays_Driver
         return $date;
     }
 
-
+    /**
+     * Method that returns an array containing the ISO3166 codes that may possibly
+     * identify a driver.
+     *
+     * @static
+     * @access public
+     * @return array possible ISO3166 codes
+     */
     function getISO3166Codes()
     {
         return array('tr', 'tur');
