@@ -40,7 +40,7 @@
  </stability>
  <license uri="http://www.php.net/license">PHP License</license>
  <notes>
-* Fix Bug #19151: Easter Monday is always on the next day
+* Request #19716: Add Dutch translation for Christian driver
  </notes>
  <contents>
   <dir baseinstalldir="/" name="/">
@@ -83,6 +83,8 @@
      <file baseinstalldir="Date" name="fr_FR.xml" role="data" />
      <file baseinstalldir="Date" name="it_IT.ser" role="data" />
      <file baseinstalldir="Date" name="it_IT.xml" role="data" />
+     <file baseinstalldir="Date" name="nl_NL.xml" role="data" />
+     <file baseinstalldir="Date" name="nl_NL.xml" role="data" />
     </dir> <!-- /lang/Christian -->
    </dir> <!-- /lang -->
    <dir name="tests">
@@ -685,6 +687,21 @@ Added driver and English languagefile for USA built by Kevin English.
 * Fix Bug #16423: Path to php binary should not be hardcoded
 * Fix Bug #16595: Inkompatibility to current version of PHP [kguest]
 * Fix Bug #16731: _addDays is broken with Date 1.5.0a1 [kguest]
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>0.21.6</release>
+    <api>0.17.2</api>
+   </version>
+   <stability>
+    <release>alpha</release>
+    <api>alpha</api>
+   </stability>
+   <date>2012-02-27</date>
+   <license uri="http://www.php.net/license">PHP License</license>
+   <notes>
+* Fix Bug #19151: Easter Monday is always on the next day
    </notes>
   </release>
  </changelog>
