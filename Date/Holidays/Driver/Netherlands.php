@@ -18,8 +18,9 @@
  * @category Date
  * @package  Date_Holidays
  * @author   Jos van der Woude <jos@veerkade.com>
+ * @author   Arjen de Korte <build+date_holidays@de-korte.org>
  * @license  http://www.php.net/license/3_01.txt PHP License 3.0.1
- * @version  CVS: $Id$
+ * @version  CVS: $Id: Netherlands.php,v 1.9 2009/03/15 20:17:00 kguest Exp $
  * @link     http://pear.php.net/package/Date_Holidays
  */
 
@@ -32,8 +33,9 @@ require_once 'Date/Holidays/Driver/Christian.php';
  * @package    Date_Holidays
  * @subpackage Driver
  * @author     Jos van der Woude <jos@veerkade.com>
+ * @author     Arjen de Korte <build+date_holidays@de-korte.org>
  * @license    http://www.php.net/license/3_01.txt PHP License 3.0.1
- * @version    $Id$
+ * @version    $Id: Netherlands.php,v 1.9 2009/03/15 20:17:00 kguest Exp $
  * @link       http://pear.php.net/package/Date_Holidays
  */
 
@@ -69,116 +71,272 @@ class Date_Holidays_Driver_Netherlands extends Date_Holidays_Driver
     function _buildHolidays()
     {
         /**
+         * Start with all holidays that are on a fixed date each year
+         */
+
+        /**
          * New Year's Day
          */
-        $this->_addHoliday('newYearsDay',
-                           $this->_year . '-01-01',
-                           'New Year\'s Day');
-        $this->_addTranslationForHoliday('newYearsDay', 'DU_NL', 'Nieuwjaarsdag');
+        $this->_addHoliday(
+            'newYearsDay',
+            $this->_year . '-01-01',
+            'New Year\'s Day'
+        );
 
         /**
          * Epiphanias
          */
         $this->_addHoliday('epiphany', $this->_year . '-01-06', 'Epiphany');
-        $this->_addTranslationForHoliday('epiphany', 'DU_NL', 'Drie Koningen');
 
         /**
          * Valentine's Day
          */
-        $this->_addHoliday('valentineDay',
-                           $this->_year . '-02-14',
-                           'Valentine\'s Day');
-        $this->_addTranslationForHoliday('valentineDay', 'DU_NL', 'Valentijnsdag');
+        $this->_addHoliday(
+            'valentineDay',
+            $this->_year . '-02-14',
+            'Valentine\'s Day'
+        );
 
         /**
          * Queen's Day
          */
         $this->_addHoliday('queenDay', $this->_year . '-04-30', 'Queen\'s Day');
-        $this->_addTranslationForHoliday('queenDay', 'DU_NL', 'Koninginnedag');
 
         /**
-         * Commemoration Day Day
+         * Labour Day
          */
-        $this->_addHoliday('commemorationDay',
-                           $this->_year . '-05-04',
-                           'Commemoration Day');
-        $this->_addTranslationForHoliday('commemorationDay',
-                                         'DU_NL',
-                                         'Dodenherdenking');
+        $this->_addHoliday('labourDay', $this->_year . '-05-01', 'Labour Day');
+
+        /**
+         * Commemoration Day
+         */
+        $this->_addHoliday(
+            'commemorationDay',
+            $this->_year . '-05-04',
+            'Commemoration Day'
+        );
 
         /**
          * Liberation Day
          */
-        $this->_addHoliday('liberationDay',
-                           $this->_year . '-05-05',
-                           'Liberation Day');
-        $this->_addTranslationForHoliday('liberationDay', 'DU_NL', 'Bevrijdingsdag');
-
-
-        /**
-         * Easter Sunday
-         */
-        $easterDate = Date_Holidays_Driver_Christian::calcEaster($this->_year);
-        $this->_addHoliday('easter', $easterDate, 'Easter Sunday');
-        $this->_addTranslationForHoliday('easter', 'DU_NL', '1e Paasdag');
+        $this->_addHoliday(
+            'liberationDay',
+            $this->_year . '-05-05',
+            'Liberation Day'
+        );
 
         /**
-         * Easter Monday
+         * World Animal Day
          */
-        $this->_addHoliday('easterMonday',
-                           $easterDate->getNextDay(),
-                           'Easter Monday');
-        $this->_addTranslationForHoliday('easterMonday', 'DU_NL', '2e Paasdag');
+        $this->_addHoliday(
+            'worldAnimalDay',
+            $this->_year . '-10-04',
+            'World Animal Day'
+        );
 
         /**
-         * Good Friday / Black Friday
+         * Halloween
          */
-        $goodFridayDate = $this->_addDays($easterDate, 2);
-        $this->_addHoliday('goodFriday', $goodFridayDate, 'Good Friday');
-        $this->_addTranslationForHoliday('goodFriday', 'DU_NL', 'Goede Vrijdag');
+        $this->_addHoliday('halloween', $this->_year . '-10-31', 'Halloween');
 
         /**
-         * Whitsun (determines Whit Monday, Ascension Day and Feast of
-         * Corpus Christi)
+         * St. Martins Day
          */
-        $whitsunDate = $this->_addDays($easterDate, 49);
-        $this->_addHoliday('whitsun', $whitsunDate, 'Whitsun');
-        $this->_addTranslationForHoliday('whitsun', 'DU_NL', '1e Pinksterdag');
+        $this->_addHoliday(
+            'stMartinsDay',
+            $this->_year . '-11-11',
+            'St. Martin\'s Day'
+        );
 
         /**
-         * Whit Monday
+         * St. Nicholas' Day
          */
-        $this->_addHoliday('whitMonday', $whitsunDate->getNextDay(), 'Whit Monday');
-        $this->_addTranslationForHoliday('whitMonday', 'DU_NL', '2e Pinksterdag');
-
-        /**
-         * Ascension Day
-         */
-        $ascensionDayDate = $this->_addDays($whitsunDate, -10);
-        $this->_addHoliday('ascensionDay', $ascensionDayDate, 'Ascension Day');
-        $this->_addTranslationForHoliday('ascensionDay', 'DU_NL', 'Hemelvaartsdag');
+        $this->_addHoliday(
+            'stNicholasDay',
+            $this->_year . '-12-05',
+            'St. Nicholas\' Day'
+        );
 
         /**
          * Christmas day
          */
-        $this->_addHoliday('christmasDay', $this->_year . '-12-25', 'Christmas Day');
-        $this->_addTranslationForHoliday('christmasDay', 'DU_NL', '1e Kerstdag');
+        $this->_addHoliday(
+            'christmasDay',
+            $this->_year . '-12-25',
+            'Christmas Day'
+        );
 
         /**
          * Second Christmas Day
          */
-        $this->_addHoliday('secondChristmasDay',
-                           $this->_year . '-12-26',
-                           'Boxing Day');
-        $this->_addTranslationForHoliday('secondChristmasDay',
-                                         'DU_NL',
-                                         '2e Kerstdag');
+        $this->_addHoliday(
+            'secondChristmasDay',
+            $this->_year . '-12-26',
+            'Boxing Day'
+        );
 
         /**
          * New Year's Eve
          */
-        $this->_addHoliday('newYearsEve', $this->_year . '-12-31', "New Year's Eve");
-        $this->_addTranslationForHoliday('newYearsEve', 'DU_NL', 'Oudjaarsdag');
+        $this->_addHoliday(
+            'newYearsEve',
+            $this->_year . '-12-31',
+            'New Year\'s Eve'
+        );
+
+
+        /**
+         * Following section is holidays that are a fixed offset from Easter (which
+         * differs each year)
+         */
+        $easterDate = Date_Holidays_Driver_Christian::calcEaster($this->_year);
+
+        /**
+         * Carnival
+         */
+        $this->_addHoliday(
+            'carnival1',
+            $this->_addDays($easterDate, -49),
+            'Carnival'
+        );
+        $this->_addHoliday(
+            'carnival2',
+            $this->_addDays($easterDate, -48),
+            'Carnival'
+        );
+        $this->_addHoliday(
+            'carnival3',
+            $this->_addDays($easterDate, -47),
+            'Carnival'
+        );
+
+        /**
+         * Ash Wednesday
+         */
+        $this->_addHoliday(
+            'ashWednesday',
+            $this->_addDays($easterDate, -46),
+            'Ash Wednesday'
+        );
+
+        /**
+         * Green Thursday
+         */
+        $this->_addHoliday(
+            'greenThursday',
+            $this->_addDays($easterDate, -3),
+            'Green Thursday'
+        );
+
+        /**
+         * Good Friday / Black Friday
+         */
+        $this->_addHoliday(
+            'goodFriday',
+            $this->_addDays($easterDate, -2),
+            'Good Friday'
+        );
+
+        /**
+         * Silent Saturday
+         */
+        $this->_addHoliday(
+            'silentSaturday',
+            $this->_addDays($easterDate, -1),
+            'Silent Saturday'
+        );
+
+        /**
+         * Easter Sunday
+         */
+        $this->_addHoliday('easter', $easterDate, 'Easter Sunday');
+
+        /**
+         * Easter Monday
+         */
+        $this->_addHoliday(
+            'easterMonday',
+            $this->_addDays($easterDate, 1),
+            'Easter Monday'
+        );
+
+        /**
+         * Ascension Day
+         */
+        $this->_addHoliday(
+            'ascensionDay',
+            $this->_addDays($easterDate, 39),
+            'Ascension Day'
+        );
+
+        /**
+         * Whitsun
+         */
+        $this->_addHoliday('whitsun', $this->_addDays($easterDate, 49), 'Whitsun');
+
+        /**
+         * Whit Monday
+         */
+        $this->_addHoliday(
+            'whitMonday',
+            $this->_addDays($easterDate, 50),
+            'Whit Monday'
+        );
+
+
+        /**
+         * Lastly a number of holidays that are the second/third/last Sunday
+         * or Tuesday in a specific month (offset is calculated from the first
+         * of last possible date)
+         */
+
+        /**
+         * Summertime last sunday of march
+         */
+        $summerTime = new Date($this->_year . '-03-31');
+        $dayOfWeek  = $summerTime->getDayOfWeek();
+        $summerTime = $this->_addDays($summerTime, -$dayOfWeek);
+        $this->_addHoliday('summerTime', $summerTime, 'Summertime');
+
+        /**
+         * Mothers' Day second sunday of may
+         */
+        $mothersDay = new Date($this->_year . '-05-08');
+        $dayOfWeek  = $mothersDay->getDayOfWeek();
+        if ($dayOfWeek != 0) {
+            $mothersDay = $this->_addDays($mothersDay, 7 - $dayOfWeek);
+        }
+        $this->_addHoliday('mothersDay', $mothersDay, 'Mothers\' Day');
+
+        /**
+         * Fathers' Day third sunday of june
+         */
+        $fathersDay = new Date($this->_year . '-06-15');
+        $dayOfWeek  = $fathersDay->getDayOfWeek();
+        if ($dayOfWeek != 0) {
+            $fathersDay = $this->_addDays($fathersDay, 7 - $dayOfWeek);
+        }
+        $this->_addHoliday('fathersDay', $fathersDay, 'Fathers\' Day');
+
+        /**
+         * Start of Parliamentary Year third tuesday of september
+         */
+        $princesDay = new Date($this->_year . '-09-15');
+        $dayOfWeek  = $princesDay->getDayOfWeek();
+        if ($dayOfWeek <= 2) {
+            $princesDay = $this->_addDays($princesDay, 2 - $dayOfWeek);
+        } else {
+            $princesDay = $this->_addDays($princesDay, 9 - $dayOfWeek);
+        }
+        $this->_addHoliday('princesDay', $princesDay, 'Start of Parliamentary Year');
+
+        /**
+         * Wintertime last sunday of october
+         */
+        $winterTime = new Date($this->_year . '-10-31');
+        $dayOfWeek  = $winterTime->getDayOfWeek();
+        $winterTime = $this->_addDays($winterTime, -$dayOfWeek);
+        $this->_addHoliday('winterTime', $winterTime, 'Wintertime');
 
         if (Date_Holidays::errorsOccurred()) {
             return Date_Holidays::getErrorStack();
@@ -197,7 +355,7 @@ class Date_Holidays_Driver_Netherlands extends Date_Holidays_Driver
      */
     function getISO3166Codes()
     {
-        return array('NL', 'NLD');
+        return array('nl', 'nld');
     }
 }
 ?>
