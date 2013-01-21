@@ -80,17 +80,21 @@ class Date_Holidays_Driver_Austria extends Date_Holidays_Driver
         /**
          * Epiphanias
          */
-        $this->_addHoliday('epiphany',
-                           $this->_year . '-01-06',
-                           'Heilige Drei Könige');
+        $this->_addHoliday(
+            'epiphany',
+            $this->_year . '-01-06',
+            'Heilige Drei Könige'
+        );
         $this->_addTranslationForHoliday('epiphany', 'en_EN', 'Epiphany');
 
         /**
          * Valentine´s Day
          */
-        $this->_addHoliday('valentinesDay',
-                           $this->_year . '-02-14',
-                           'Valentinstag');
+        $this->_addHoliday(
+            'valentinesDay',
+            $this->_year . '-02-14',
+            'Valentinstag'
+        );
         $this->_addTranslationForHoliday('valentinesDay', 'en_EN', 'Valentines Day');
 
         /**
@@ -119,7 +123,11 @@ class Date_Holidays_Driver_Austria extends Date_Holidays_Driver
          */
         $maundyThursday = $this->_addDays($easterDate, -3);
         $this->_addHoliday('maundyThursday', $maundyThursday, 'Gründonnerstag');
-        $this->_addTranslationForHoliday('maundyThursday', 'en_EN', 'Maundy Thursday');
+        $this->_addTranslationForHoliday(
+            'maundyThursday',
+            'en_EN',
+            'Maundy Thursday'
+        );
 
         /**
          * Good Friday
@@ -137,7 +145,10 @@ class Date_Holidays_Driver_Austria extends Date_Holidays_Driver
         /**
          * Day of Work
          */
-        $this->_addHoliday('dayOfWork', $this->_year . '-05-01', 'Staatsfeiertag Österreich');
+        $this->_addHoliday(
+            'dayOfWork', $this->_year . '-05-01',
+            'Staatsfeiertag Österreich'
+        );
         $this->_addTranslationForHoliday('dayOfWork', 'en_EN', 'Day of Work');
 
         /**
@@ -163,15 +174,6 @@ class Date_Holidays_Driver_Austria extends Date_Holidays_Driver
         $this->_addTranslationForHoliday('ascensionDate', 'en_EN', 'Ascension Day');
 
         /**
-         * Ascension Day
-         */
-        //$ascensionDayDate = new Date($whitsunDate);
-        //$ascensionDayDate->subtractSpan(new Date_Span('10, 0, 0, 0'));
-        //$this->_addHoliday('ascensionDay',
-        //                   $ascensionDayDate,
-        //                   'Christi Himmelfahrt');
-
-        /**
          * Whitsun (determines Whit Monday, Ascension Day and
          * Feast of Corpus Christi)
          */
@@ -182,7 +184,11 @@ class Date_Holidays_Driver_Austria extends Date_Holidays_Driver
         /**
          * Whit Monday
          */
-        $this->_addHoliday('whitMonday', $whitsunDate->getNextDay(), 'Pfingstmontag');
+        $this->_addHoliday(
+            'whitMonday',
+            $whitsunDate->getNextDay(),
+            'Pfingstmontag'
+        );
         $this->_addTranslationForHoliday('whitMonday', 'en_EN', 'Whit Monday');
 
         /**
@@ -198,136 +204,185 @@ class Date_Holidays_Driver_Austria extends Date_Holidays_Driver
         $fathersDay = $this->_calcFirstMonday("06");
         $fathersDay = $fathersDay->getPrevDay();
         $fathersDay = $this->_addDays($fathersDay, 7);
-        $this->_addHoliday('fathersDay',
-                           $fathersDay,
-                           'Vatertag');
+        $this->_addHoliday(
+            'fathersDay',
+            $fathersDay,
+            'Vatertag'
+        );
         $this->_addTranslationForHoliday('fathersDay', 'en_EN', 'Fathers Day');
 
         /**
          * Ascension of Maria
          */
-        $this->_addHoliday('mariaAscension',
-                           $this->_year . '-08-15',
-                           'Maria Himmelfahrt');
-        $this->_addTranslationForHoliday('mariaAscension', 'en_EN', 'Ascension of Maria');
+        $this->_addHoliday(
+            'mariaAscension',
+            $this->_year . '-08-15',
+            'Maria Himmelfahrt'
+        );
+        $this->_addTranslationForHoliday(
+            'mariaAscension',
+            'en_EN',
+            'Ascension of Maria'
+        );
 
         /**
          * Österreichischer Nationalfeiertag
          */
-        $this->_addHoliday('nationalDayAustria',
-                           $this->_year . '-10-26',
-                           'Österreichischer Nationalfeiertag');
-        $this->_addTranslationForHoliday('nationalDayAustria', 'en_EN', 'Österreichischer Nationalfeiertag');
+        $this->_addHoliday(
+            'nationalDayAustria',
+            $this->_year . '-10-26',
+            'Österreichischer Nationalfeiertag'
+        );
+        $this->_addTranslationForHoliday(
+            'nationalDayAustria',
+            'en_EN',
+            'Österreichischer Nationalfeiertag'
+        );
 
         /**
          * All Saints' Day
          */
-        $this->_addHoliday('allSaintsDay',
-                           $this->_year . '-11-01',
-                           'Allerheiligen');
+        $this->_addHoliday(
+            'allSaintsDay',
+            $this->_year . '-11-01',
+            'Allerheiligen'
+        );
         $this->_addTranslationForHoliday('allSaintsDay', 'en_EN', 'All Saints Day');
 
         /**
          *All Souls´ Day
          */
-        $this->_addHoliday('allSoulsDay',
-                           $this->_year . '-11-02',
-                           'Allerseelen');
+        $this->_addHoliday(
+            'allSoulsDay',
+            $this->_year . '-11-02',
+            'Allerseelen'
+        );
         $this->_addTranslationForHoliday('allSoulsDay', 'en_EN', 'All Souls Day');
 
         /**
          * Santa Claus
          */
-        $this->_addHoliday('santasDay',
-                           $this->_year . '-12-06',
-                           'St. Nikolaus');
+        $this->_addHoliday(
+            'santasDay',
+            $this->_year . '-12-06',
+            'St. Nikolaus'
+        );
         $this->_addTranslationForHoliday('santasDay', 'en_EN', 'St. Nikolaus');
 
         /**
          * Immaculate Conception
          */
-        $this->_addHoliday('immaculateConceptionDay',
-                           $this->_year . '-12-08',
-                           'Maria Empfängnis');
-        $this->_addTranslationForHoliday('immaculateConceptionDay', 'en_EN', 'Immaculate Conception Day');
+        $this->_addHoliday(
+            'immaculateConceptionDay',
+            $this->_year . '-12-08',
+            'Maria Empfängnis'
+        );
+        $this->_addTranslationForHoliday(
+            'immaculateConceptionDay',
+            'en_EN',
+            'Immaculate Conception Day'
+        );
 
         /**
          * Sunday in commemoration of the dead (sundayIcotd)
          */
         $sundayIcotd = $this->_calcFirstMonday(12);
         $sundayIcotd = $this->_addDays($this->_calcFirstMonday(12), -8);
-        $this->_addHoliday('sundayIcotd',
-                           $sundayIcotd,
-                           'Totensonntag');
-        $this->_addTranslationForHoliday('sundayIcotd', 'en_EN', 'Sunday in commemoration of the dead');
+        $this->_addHoliday(
+            'sundayIcotd',
+            $sundayIcotd,
+            'Totensonntag'
+        );
+        $this->_addTranslationForHoliday(
+            'sundayIcotd',
+            'en_EN',
+            'Sunday in commemoration of the dead'
+        );
 
         /**
          * 1. Advent
          */
-        $firstAdv = $this->_calcFirstMonday(12);
-        $firstAdv = $firstAdv->getPrevDay();
-        $this->_addHoliday('firstAdvent',
-                           $firstAdv,
-                           '1. Advent');
+        $firstAdv = new Date($this->_year . '-12-03');
+        $dayOfWeek = $firstAdv->getDayOfWeek();
+        $firstAdv = $this->_addDays($firstAdv, -$dayOfWeek);
+        $this->_addHoliday(
+            'firstAdvent',
+            $firstAdv,
+            '1. Advent'
+        );
         $this->_addTranslationForHoliday('firstAdvent', 'en_EN', '1. Advent');
 
         /**
          * 2. Advent
          */
         $secondAdv = $this->_addDays($firstAdv, 7);
-        $this->_addHoliday('secondAdvent',
-                           $secondAdv,
-                           '2. Advent');
+        $this->_addHoliday(
+            'secondAdvent',
+            $secondAdv,
+            '2. Advent'
+        );
         $this->_addTranslationForHoliday('secondAdvent', 'en_EN', '2. Advent');
 
         /**
          * 3. Advent
          */
         $thirdAdv = $this->_addDays($firstAdv, 14);
-        $this->_addHoliday('thirdAdvent',
-                           $thirdAdv,
-                           '3. Advent');
+        $this->_addHoliday(
+            'thirdAdvent',
+            $thirdAdv,
+            '3. Advent'
+        );
         $this->_addTranslationForHoliday('thirdAdvent', 'en_EN', '3. Advent');
 
         /**
          * 4. Advent
          */
         $fourthAdv = $this->_addDays($firstAdv, 21);
-        $this->_addHoliday('fourthAdvent',
-                           $fourthAdv,
-                           '4. Advent');
+        $this->_addHoliday(
+            'fourthAdvent',
+            $fourthAdv,
+            '4. Advent'
+        );
         $this->_addTranslationForHoliday('fourthAdvent', 'en_EN', '4. Advent');
 
         /**
          * Christmas Eve
          */
-        $this->_addHoliday('christmasEve',
-                           $this->_year . '-12-24',
-                           'Heiliger Abend');
+        $this->_addHoliday(
+            'christmasEve',
+            $this->_year . '-12-24',
+            'Heiliger Abend'
+        );
         $this->_addTranslationForHoliday('christmasEve', 'en_EN', 'Christmas Eve');
 
         /**
          * Christmas day
          */
-        $this->_addHoliday('christmasDay',
-                           $this->_year . '-12-25',
-                           'Christtag');
+        $this->_addHoliday(
+            'christmasDay',
+            $this->_year . '-12-25',
+            'Christtag'
+        );
         $this->_addTranslationForHoliday('christmasDay', 'en_EN', 'Christmas Day');
 
         /**
          * Boxing day
          */
-        $this->_addHoliday('boxingDay',
-                           $this->_year . '-12-26',
-                           'Stefanitag');
+        $this->_addHoliday(
+            'boxingDay',
+            $this->_year . '-12-26',
+            'Stefanitag'
+        );
         $this->_addTranslationForHoliday('boxingDay', 'en_EN', 'Boxing Day');
 
         /**
          * New Year´s Eve
          */
-        $this->_addHoliday('newYearsEve',
-                           $this->_year . '-12-31',
-                           'Silvester');
+        $this->_addHoliday(
+            'newYearsEve',
+            $this->_year . '-12-31',
+            'Silvester'
+        );
         $this->_addTranslationForHoliday('newYearsEve', 'en_EN', 'New Years Eve');
 
         if (Date_Holidays::errorsOccurred()) {
