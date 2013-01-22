@@ -13,10 +13,7 @@ http://pear.php.net/dtd/package-2.0.xsd">
         Date_Holidays helps you calculate the dates and titles of
         holidays and other special celebrations.
         This is the driver for calculating holidays in Russia.
-        Thanks to:  Mika Vainikka <Mika.Vainikka@lut.fi>,
-        Verónica Morales Márquez <Veronica.Morales.Marquez@lut.fi>,
-        Samu Suurinkeroinen <Samu.Suurinkeroinen@lut.fi>,
-        Anni Siren <anni.siren@lut.fi>
+        Thanks to:  Mika Vainikka, Verónica Morales Márquez, Samu Suurinkeroinen and Anni Siren
     </description>
     <lead>
         <name>Ken Guest</name>
