@@ -28,10 +28,10 @@
   <email>wiesemann@php.net</email>
   <active>no</active>
  </contributor>
- <date>2012-11-25</date>
+ <date>2013-01-22</date>
  <time>00:11:16</time>
  <version>
-  <release>0.21.7</release>
+  <release>0.21.8</release>
   <api>0.17.2</api>
  </version>
  <stability>
@@ -40,7 +40,7 @@
  </stability>
  <license uri="http://www.php.net/license">PHP License</license>
  <notes>
-* Request #19716: Add Dutch translation for Christian driver
+* New drivers.
  </notes>
  <contents>
   <dir baseinstalldir="/" name="/">
@@ -141,6 +141,12 @@
     <channel>pear.php.net</channel>
    </package>
   </optional>
+  <group hint="Australia subpackage" name="Date_Holidays_Australia">
+   <package>
+    <name>Date_Holidays_Australia</name>
+    <channel>pear.php.net</channel>
+   </package>
+  </group>
   <group hint="Austria subpackage" name="Date_Holidays_Austria">
    <package>
     <name>Date_Holidays_Austria</name>
@@ -150,6 +156,18 @@
   <group hint="Brazil subpackage" name="Date_Holidays_Brazil">
    <package>
     <name>Date_Holidays_Brazil</name>
+    <channel>pear.php.net</channel>
+   </package>
+  </group>
+  <group hint="Croatia subpackage" name="Date_Holidays_Croatia">
+   <package>
+    <name>Date_Holidays_Croatia</name>
+    <channel>pear.php.net</channel>
+   </package>
+  </group>
+  <group hint="Czech subpackage" name="Date_Holidays_Czech">
+   <package>
+    <name>Date_Holidays_Czech</name>
     <channel>pear.php.net</channel>
    </package>
   </group>
@@ -168,6 +186,12 @@
   <group hint="EnglandWales subpackage" name="Date_Holidays_EnglandWales">
    <package>
     <name>Date_Holidays_EnglandWales</name>
+    <channel>pear.php.net</channel>
+   </package>
+  </group>
+  <group hint="Finland subpackage" name="Date_Holidays_Finland">
+   <package>
+    <name>Date_Holidays_Finland</name>
     <channel>pear.php.net</channel>
    </package>
   </group>
@@ -219,9 +243,33 @@
     <channel>pear.php.net</channel>
    </package>
   </group>
+  <group hint="Portugal subpackage" name="Date_Holidays_Portugal">
+   <package>
+    <name>Date_Holidays_Portugal</name>
+    <channel>pear.php.net</channel>
+   </package>
+  </group>
   <group hint="Romania subpackage" name="Date_Holidays_Romania">
    <package>
     <name>Date_Holidays_Romania</name>
+    <channel>pear.php.net</channel>
+   </package>
+  </group>
+  <group hint="Russia subpackage" name="Date_Holidays_Russia">
+   <package>
+    <name>Date_Holidays_Russia</name>
+    <channel>pear.php.net</channel>
+   </package>
+  </group>
+  <group hint="SanMarino subpackage" name="Date_Holidays_SanMarino">
+   <package>
+    <name>Date_Holidays_SanMarino</name>
+    <channel>pear.php.net</channel>
+   </package>
+  </group>
+  <group hint="Serbia subpackage" name="Date_Holidays_Serbia">
+   <package>
+    <name>Date_Holidays_Serbia</name>
     <channel>pear.php.net</channel>
    </package>
   </group>
@@ -231,9 +279,21 @@
     <channel>pear.php.net</channel>
    </package>
   </group>
+  <group hint="Spain subpackage" name="Date_Holidays_Spain">
+   <package>
+    <name>Date_Holidays_Spain</name>
+    <channel>pear.php.net</channel>
+   </package>
+  </group>
   <group hint="Sweden subpackage" name="Date_Holidays_Sweden">
    <package>
     <name>Date_Holidays_Sweden</name>
+    <channel>pear.php.net</channel>
+   </package>
+  </group>
+  <group hint="Turkey subpackage" name="Date_Holidays_Turkey">
+   <package>
+    <name>Date_Holidays_Turkey</name>
     <channel>pear.php.net</channel>
    </package>
   </group>
@@ -255,13 +315,31 @@
     <channel>pear.php.net</channel>
    </package>
   </group>
+  <group hint="Venezuela subpackage" name="Date_Holidays_Venezuela">
+   <package>
+    <name>Date_Holidays_Venezuela</name>
+    <channel>pear.php.net</channel>
+   </package>
+  </group>
   <group hint="all subpackages (for bulk install and uninstall)" name="all">
+   <package>
+    <name>Date_Holidays_Australia</name>
+    <channel>pear.php.net</channel>
+   </package>
    <package>
     <name>Date_Holidays_Austria</name>
     <channel>pear.php.net</channel>
    </package>
    <package>
     <name>Date_Holidays_Brazil</name>
+    <channel>pear.php.net</channel>
+   </package>
+   <package>
+    <name>Date_Holidays_Croatia</name>
+    <channel>pear.php.net</channel>
+   </package>
+   <package>
+    <name>Date_Holidays_Czech</name>
     <channel>pear.php.net</channel>
    </package>
    <package>
@@ -274,6 +352,10 @@
    </package>
    <package>
     <name>Date_Holidays_EnglandWales</name>
+    <channel>pear.php.net</channel>
+   </package>
+   <package>
+    <name>Date_Holidays_Finland</name>
     <channel>pear.php.net</channel>
    </package>
    <package>
@@ -309,7 +391,23 @@
     <channel>pear.php.net</channel>
    </package>
    <package>
+    <name>Date_Holidays_Portugal</name>
+    <channel>pear.php.net</channel>
+   </package>
+   <package>
     <name>Date_Holidays_Romania</name>
+    <channel>pear.php.net</channel>
+   </package>
+   <package>
+    <name>Date_Holidays_Russia</name>
+    <channel>pear.php.net</channel>
+   </package>
+   <package>
+    <name>Date_Holidays_SanMarino</name>
+    <channel>pear.php.net</channel>
+   </package>
+   <package>
+    <name>Date_Holidays_Serbia</name>
     <channel>pear.php.net</channel>
    </package>
    <package>
@@ -317,7 +415,15 @@
     <channel>pear.php.net</channel>
    </package>
    <package>
+    <name>Date_Holidays_Spain</name>
+    <channel>pear.php.net</channel>
+   </package>
+   <package>
     <name>Date_Holidays_Sweden</name>
+    <channel>pear.php.net</channel>
+   </package>
+   <package>
+    <name>Date_Holidays_Turkey</name>
     <channel>pear.php.net</channel>
    </package>
    <package>
@@ -330,6 +436,10 @@
    </package>
    <package>
     <name>Date_Holidays_USA</name>
+    <channel>pear.php.net</channel>
+   </package>
+   <package>
+    <name>Date_Holidays_Venezuela</name>
     <channel>pear.php.net</channel>
    </package>
   </group>
@@ -702,6 +812,21 @@ Added driver and English languagefile for USA built by Kevin English.
    <license uri="http://www.php.net/license">PHP License</license>
    <notes>
 * Fix Bug #19151: Easter Monday is always on the next day
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>0.21.7</release>
+    <api>0.17.2</api>
+   </version>
+   <stability>
+    <release>alpha</release>
+    <api>alpha</api>
+   </stability>
+   <date>2012-11-25</date>
+   <license uri="http://www.php.net/license">PHP License</license>
+   <notes>
+* Request #19716: Add Dutch translation for Christian driver
    </notes>
   </release>
  </changelog>
