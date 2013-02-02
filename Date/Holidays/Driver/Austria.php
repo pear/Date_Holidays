@@ -304,7 +304,7 @@ class Date_Holidays_Driver_Austria extends Date_Holidays_Driver
          */
         $firstAdv = new Date($this->_year . '-12-03');
         $dayOfWeek = $firstAdv->getDayOfWeek();
-        $firstAdv = $this->_addDays($firstAdv, -$dayOfWeek);
+        $firstAdv = $this->_addDays($firstAdv, - $dayOfWeek);
         $this->_addHoliday(
             'firstAdvent',
             $firstAdv,
