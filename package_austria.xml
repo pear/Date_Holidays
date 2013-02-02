@@ -28,7 +28,7 @@
  </stability>
  <license uri="http://www.php.net/license">PHP License</license>
  <notes>
- * Add Official filter - thanks to Karin Seifert-Lorenz
+ Bug #18953: Wrong calculation of Advent Holidays.
  </notes>
  <contents>
   <dir baseinstalldir="/" name="/">
