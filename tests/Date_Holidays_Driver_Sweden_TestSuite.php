@@ -211,15 +211,18 @@ class Date_Holidays_Driver_Sweden_TestSuite extends PHPUnit_Framework_TestCase
             $this->fail(helper_get_error_message($drv));
         }
         $result = $drv->addTranslationFile(
-                $this->lang_dir . '/Sweden/de_DE.xml', $locale);
+            $this->lang_dir . '/Sweden/de_DE.xml', $locale
+        );
         if ($result !== true) {
             $this->fail(helper_get_error_message($result));
         }
 
         $easter = $drv->getHoliday('easter');
-        $this->assertEquals('Ostersonntag',
-                            $easter->getTitle(),
-                            'Translated title for \'easter\'');
+        $this->assertEquals(
+            'Ostersonntag',
+            $easter->getTitle(),
+            'Translated title for \'easter\''
+        );
     }
 
     /**
@@ -237,20 +240,25 @@ class Date_Holidays_Driver_Sweden_TestSuite extends PHPUnit_Framework_TestCase
             $this->fail(helper_get_error_message($drv));
         }
         $result = $drv->addCompiledTranslationFile(
-                $this->lang_dir . '/Sweden/de_DE.ser',$locale);
+            $this->lang_dir . '/Sweden/de_DE.ser', $locale
+        );
         if ($result !== true) {
             $this->fail(helper_get_error_message($result));
         }
 
         $easter = $drv->getHoliday('easter');
-        $this->assertEquals('Ostersonntag',
-                            $easter->getTitle(),
-                            'Translated title for \'easter\'');
+        $this->assertEquals(
+            'Ostersonntag',
+            $easter->getTitle(),
+            'Translated title for \'easter\''
+        );
 
         $midsummerEve = $drv->getHoliday('midSummerEve');
-        $this->assertEquals('Mittsommerabend',
-                            $midsummerEve->getTitle(),
-                            'Translated title for \'midSummerEve\'');
+        $this->assertEquals(
+            'Mittsommerabend',
+            $midsummerEve->getTitle(),
+            'Translated title for \'midSummerEve\''
+        );
     }
 
     /**
@@ -268,15 +276,18 @@ class Date_Holidays_Driver_Sweden_TestSuite extends PHPUnit_Framework_TestCase
             $this->fail(helper_get_error_message($drv));
         }
         $result = $drv->addTranslationFile(
-                $this->lang_dir . '/Sweden/de_DE.xml', $locale);
+            $this->lang_dir . '/Sweden/de_DE.xml', $locale
+        );
         if ($result !== true) {
             $this->fail(helper_get_error_message($result));
         }
 
         $easter = $drv->getHoliday('easter');
-        $this->assertEquals('Ostersonntag',
-                            $easter->getTitle(),
-                            'Translated title for \'easter\'');
+        $this->assertEquals(
+            'Ostersonntag',
+            $easter->getTitle(),
+            'Translated title for \'easter\''
+        );
     }
 
     /**
@@ -294,21 +305,27 @@ class Date_Holidays_Driver_Sweden_TestSuite extends PHPUnit_Framework_TestCase
             $this->fail(helper_get_error_message($drv));
         }
         $result = $drv->addCompiledTranslationFile(
-                $this->lang_dir . '/Sweden/sv_SE.ser', $locale);
+            $this->lang_dir . '/Sweden/sv_SE.ser', $locale
+        );
         if ($result !== true) {
             $this->fail(helper_get_error_message($result));
         }
 
         $easter = $drv->getHoliday('easter');
-        $this->assertEquals('Påskdagen',
-                            $easter->getTitle(),
-                            'Translated title for \'easter\'');
+        $this->assertEquals(
+            'Påskdagen',
+            $easter->getTitle(),
+            'Translated title for \'easter\''
+        );
 
         $midsummerEve = $drv->getHoliday('midSummerEve');
-        $this->assertEquals('Midsommarafton',
-                            $midsummerEve->getTitle(),
-                            'Translated title for \'midSummerEve\'');
+        $this->assertEquals(
+            'Midsommarafton',
+            $midsummerEve->getTitle(),
+            'Translated title for \'midSummerEve\''
+        );
     }
 
 }
+// vim:set et ts=4 sw=4:
 ?>

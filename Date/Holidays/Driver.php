@@ -914,16 +914,12 @@ class Date_Holidays_Driver
      * @param string $title        title
      *
      * @access   protected
-     * @return   true on success, otherwise a PEAR_Error object
-     * @throws   object PEAR_Error       DATE_HOLIDAYS_INVALID_INTERNAL_NAME
+     * @return   true on success, otherwise false
      */
     function _addTranslationForHoliday($internalName, $locale, $title)
     {
         if (! in_array($internalName, $this->_internalNames)) {
-            $msg = 'Couldn\'t add translation (' . $locale . ') ' .
-                   'for holiday with this internal name: ' . $internalName;
-            return Date_Holidays::raiseError(DATE_HOLIDAYS_INVALID_INTERNAL_NAME,
-                                             $msg);
+            return false;
         }
 
         if (! in_array($locale, $this->_availableLocales)) {

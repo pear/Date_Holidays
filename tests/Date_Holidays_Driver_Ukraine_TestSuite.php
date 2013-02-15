@@ -121,7 +121,7 @@ class Date_Holidays_Driver_Ukraine_TestSuite extends PHPUnit_Framework_TestCase
      */
     function testHolidays2007()
     {
-        $drv = Date_Holidays::factory('Ukraine', 2007, 'en_EN');
+        $drv = Date_Holidays::factory('Ukraine', 2007, 'C');
         if (Date_Holidays::isError($drv)) {
             $this->fail(helper_get_error_message($drv));
         }
@@ -147,7 +147,7 @@ class Date_Holidays_Driver_Ukraine_TestSuite extends PHPUnit_Framework_TestCase
      */
     function testHolidays2006()
     {
-        $drv = Date_Holidays::factory('Ukraine', 2006, 'en_EN');
+        $drv = Date_Holidays::factory('Ukraine', 2006, 'C');
         if (Date_Holidays::isError($drv)) {
             $this->fail(helper_get_error_message($drv));
         }

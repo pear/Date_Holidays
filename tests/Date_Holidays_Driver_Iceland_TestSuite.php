@@ -223,7 +223,7 @@ class Date_Holidays_Driver_Iceland_TestSuite extends PHPUnit_Framework_TestCase
      */
     function testHolidays2007()
     {
-        $drv = Date_Holidays::factory('Iceland', 2007, 'en_EN');
+        $drv = Date_Holidays::factory('Iceland', 2007);
         $this->assertFalse(Date_Holidays::isError($drv), "Holidays Driver for Iceland");
 
         foreach ($this->testDates2007 as $name => $dateInfo) {
@@ -245,7 +245,7 @@ class Date_Holidays_Driver_Iceland_TestSuite extends PHPUnit_Framework_TestCase
      */
     function testHolidays2006()
     {
-        $drv = Date_Holidays::factory('Iceland', 2006, 'en_EN');
+        $drv = Date_Holidays::factory('Iceland', 2006);
         $this->assertFalse(Date_Holidays::isError($drv), "Holidays Driver for Iceland");
 
         foreach ($this->testDates2006 as $name => $dateInfo) {

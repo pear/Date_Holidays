@@ -133,9 +133,11 @@ class Date_Holidays_Driver_Ireland_TestSuite extends PHPUnit_Framework_TestCase
         foreach ($this->testTranslations as $name => $translation) {
             $day  = $drv->getHoliday($name);
             $name = $day->getInternalName();
-            $this->assertEquals($translation,
+            $this->assertEquals(
+                $translation,
                 $day->getTitle(),
-                "Translated title for '$name'");
+                "Translated title for '$name'"
+            );
         }
     }
 
@@ -147,11 +149,14 @@ class Date_Holidays_Driver_Ireland_TestSuite extends PHPUnit_Framework_TestCase
      */
     function testHolidays2007()
     {
-        $drv = Date_Holidays::factory('Ireland', 2007, 'en_EN');
+        $drv = Date_Holidays::factory('Ireland', 2007);
         $this->assertFalse(Date_Holidays::isError($drv), "Driver construction");
 
         foreach ($this->testDates2007 as $name => $dateInfo) {
             $day = $drv->getHoliday($name);
+            if (Date_Holidays::isError($day)) {
+                $this->fail(helper_get_error_message($day));
+            }
             $this->assertFalse(Date_Holidays::isError($day));
             $this->assertEquals($name, $day->getInternalName());
             $date = $day->getDate();
@@ -169,12 +174,18 @@ class Date_Holidays_Driver_Ireland_TestSuite extends PHPUnit_Framework_TestCase
      */
     function testHolidays2006()
     {
-        $drv = Date_Holidays::factory('Ireland', 2006, 'en_EN');
+        $drv = Date_Holidays::factory('Ireland', 2006);
+        if (Date_Holidays::isError($drv)) {
+            $this->fail(helper_get_error_message($drv));
+        }
         $this->assertFalse(Date_Holidays::isError($drv));
 
         foreach ($this->testDates2006 as $name => $dateInfo) {
 
             $day = $drv->getHoliday($name);
+            if (Date_Holidays::isError($day)) {
+                $this->fail(helper_get_error_message($day));
+            }
             $this->assertFalse(Date_Holidays::isError($day));
             $this->assertEquals($name, $day->getInternalName());
             $date = $day->getDate();
