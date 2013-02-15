@@ -83,7 +83,7 @@
      <file baseinstalldir="Date" name="fr_FR.xml" role="data" />
      <file baseinstalldir="Date" name="it_IT.ser" role="data" />
      <file baseinstalldir="Date" name="it_IT.xml" role="data" />
-     <file baseinstalldir="Date" name="nl_NL.xml" role="data" />
+     <file baseinstalldir="Date" name="nl_NL.ser" role="data" />
      <file baseinstalldir="Date" name="nl_NL.xml" role="data" />
     </dir> <!-- /lang/Christian -->
    </dir> <!-- /lang -->
