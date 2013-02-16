@@ -24,6 +24,11 @@
         </holiday>
 
         <holiday>
+            <internal-name>kingsDay</internal-name>
+            <translation>Koningsdag</translation>
+        </holiday>
+
+        <holiday>
             <internal-name>labourDay</internal-name>
             <translation>Dag van de Arbeid</translation>
         </holiday>
