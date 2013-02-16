@@ -98,11 +98,6 @@ class Date_Holidays_Driver_Netherlands extends Date_Holidays_Driver
         );
 
         /**
-         * Queen's Day
-         */
-        $this->_addHoliday('queenDay', $this->_year . '-04-30', 'Queen\'s Day');
-
-        /**
          * Labour Day
          */
         $this->_addHoliday('labourDay', $this->_year . '-05-01', 'Labour Day');
@@ -112,7 +107,7 @@ class Date_Holidays_Driver_Netherlands extends Date_Holidays_Driver
          */
         $this->_addHoliday(
             'commemorationDay',
-            $this->_year . '-05-04',
+            ($this->_year >= 1947) ? $this->_year . '-05-04' : '1947-05-04',
             'Commemoration Day'
         );
 
@@ -121,7 +116,7 @@ class Date_Holidays_Driver_Netherlands extends Date_Holidays_Driver
          */
         $this->_addHoliday(
             'liberationDay',
-            $this->_year . '-05-05',
+            ($this->_year >= 1947) ? $this->_year . '-05-05' : '1947-05-05',
             'Liberation Day'
         );
 
@@ -282,6 +277,37 @@ class Date_Holidays_Driver_Netherlands extends Date_Holidays_Driver
             $this->_addDays($easterDate, 50),
             'Whit Monday'
         );
+
+
+        /**
+         * Queen's Day was celebrated between 1891 and 1948 (inclusive) on
+         * August 31. Between 1949 and 2013 (inclusive) it was celebrated
+         * April 30.
+         * If these dates are on a Sunday, Queen's Day was celebrated one
+         * day later until 1980 (on the following Monday), starting 1980 one
+         * day earlier (on the preceding Saturday).
+         */
+        if (($this->_year >= 1891) && ($this->_year <= 2013)) {
+            $queenDay = new Date(($this->_year <= 1948) ? $this->_year . '-08-31' : $this->_year . '-04-30');
+            if ($queenDay->getDayOfWeek() == 0) {
+                $queenDay = $this->_addDays($queenDay, ($this->_year < 1980) ? 1 : -1);
+            }
+        }
+        $this->_addHoliday('queenDay', isset($queenDay) ? $queenDay : '1980-04-30', 'Queen\'s Day');
+
+
+        /**
+         * King's Day is celebrated from 2014 onwards on April 27th. But
+         * here also, if this happens to be on a Sunday, it will be
+         * celebrated the day before instead.
+         */
+        if ($this->_year >= 2014) {
+            $kingsDay = new Date($this->_year . '-04-27');
+            if ($kingsDay->getDayOfWeek() == 0) {
+                $kingsDay = $this->_addDays($kingsDay, -1);
+            }
+        }
+        $this->_addHoliday('kingsDay', isset($kingsDay) ? $kingsDay : '2014-04-27', 'King\'s Day');
 
 
         /**
