@@ -114,13 +114,6 @@ class Date_Holidays_Driver_EnglandWales extends Date_Holidays_Driver
                            'Easter Monday');
 
         /**
-         * Mothers Day
-         */
-        $this->_addHoliday('mothersDay',
-                           $this->_addDays($easterDate, -21),
-                           'Mother\'s Day');
-
-        /**
          * May Day Bank Holiday
          */
         $earlyMayDate = Date_Holidays_Driver::_calcFirstMonday(5);

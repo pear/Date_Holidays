@@ -16,10 +16,10 @@
   <email>ken@linux.ie</email>
   <active>yes</active>
  </lead>
- <date>2011-12-03</date>
- <time>22:20:20</time>
+ <date>2013-06-01</date>
+ <time>13:20:20</time>
  <version>
-  <release>0.1.4</release>
+  <release>0.1.5</release>
   <api>0.17.2</api>
  </version>
  <stability>
@@ -28,7 +28,7 @@
  </stability>
  <license uri="http://www.php.net/license">PHP License</license>
  <notes>
- * Bug 19060: 2012 Changes to usual Bank Holidays.
+ * Bug 19960: Mother's day incorrectly reported as a holiday.
  </notes>
  <contents>
   <dir baseinstalldir="/" name="/">
@@ -61,6 +61,21 @@
  </dependencies>
  <phprelease />
  <changelog>
+  <release>
+   <version>
+    <release>0.1.5</release>
+    <api>0.17.2</api>
+   </version>
+   <stability>
+    <release>alpha</release>
+    <api>alpha</api>
+   </stability>
+   <date>2013-06-01</date>
+   <license uri="http://www.php.net/license">PHP License</license>
+   <notes>
+ * Bug 19960: Mother's day incorrectly reported as a holiday.
+   </notes>
+  </release>
   <release>
    <version>
     <release>0.1.4</release>
