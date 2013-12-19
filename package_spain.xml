@@ -16,10 +16,10 @@
   <email>jespinog@gmail.com</email>
   <active>yes</active>
  </lead>
- <date>2012-02-14</date>
- <time>10:43:25</time>
+ <date>2013-12-10</date>
+ <time>21:37:25</time>
  <version>
-  <release>0.1.3</release>
+  <release>0.1.4</release>
   <api>0.1.0</api>
  </version>
  <stability>
@@ -28,7 +28,7 @@
  </stability>
  <license uri="http://www.gnu.org/licenses/lgpl.html">LGPL</license>
  <notes>
- * Fixed misspells errors.
+ * Added 3 characters ISO3166 code.
  </notes>
  <contents>
   <dir baseinstalldir="/" name="/">
@@ -105,6 +105,21 @@
     <license uri="http://www.gnu.org/licenses/lgpl.html">LGPL</license>
     <notes>
     * Change of license from PHP License to LGPL (Doc Bug #18232).
+    </notes>
+  </release>
+  <release>
+    <version>
+     <release>0.1.3</release>
+     <api>0.1.0</api>
+    </version>
+    <stability>
+     <release>alpha</release>
+     <api>alpha</api>
+    </stability>
+    <date>2012-02-14</date>
+    <license uri="http://www.gnu.org/licenses/lgpl.html">LGPL</license>
+    <notes>
+    * Fixed misspells errors.
     </notes>
   </release>
  </changelog>

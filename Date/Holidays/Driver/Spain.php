@@ -247,7 +247,7 @@ class Date_Holidays_Driver_Spain extends Date_Holidays_Driver
      */
     function getISO3166Codes()
     {
-        return array('es');
+        return array('es', 'esp');
     }
 }
 ?>
