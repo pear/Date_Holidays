@@ -1,0 +1,41 @@
+{
+    "authors": [
+        {
+            "email": "luckec@php.net",
+            "name": "Carsten Lucke",
+            "role": "Lead"
+        },
+        {
+            "email": "ken@linux.ie",
+            "name": "Ken Guest",
+            "role": "Lead"
+        },
+        {
+            "email": "schst@php.net",
+            "name": "Stephan Schmidt",
+            "role": "Developer"
+        }
+    ],
+    "autoload": {
+        "psr-0": {
+            "Date_Holidays": "./"
+        }
+    },
+    "description": "More info available on: http://pear.php.net/package/Date_Holidays",
+    "include-path": [
+        "./"
+    ],
+    "license": "PHP License",
+    "name": "pear/date_holidays",
+    "support": {
+        "issues": "http://pear.php.net/bugs/search.php?cmd=display&package_name[]=Date_Holidays",
+        "source": "https://github.com/pear/Date_Holidays"
+    },
+    "type": "library",
+    "require": {
+        "pear/pear_exception": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "*"
+    }
+}
