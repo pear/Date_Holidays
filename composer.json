@@ -18,7 +18,7 @@
     ],
     "autoload": {
         "psr-0": {
-            "Date_Holidays": "./"
+            "Date": "./"
         }
     },
     "description": "More info available on: http://pear.php.net/package/Date_Holidays",
@@ -33,9 +33,13 @@
     },
     "type": "library",
     "require": {
-        "pear/pear_exception": "*"
+        "pear/pear_exception": "*",
+        "pear/pear": "*"
     },
     "require-dev": {
         "phpunit/phpunit": "*"
+    },
+    "suggest": {
+        "pear/console_getargs": "Install optionally via your project's composer.json"
     }
 }
