@@ -10,10 +10,10 @@
   <email>ken@linux.ie</email>
   <active>yes</active>
  </lead>
- <date>2010-05-15</date>
- <time>00:17:19</time>
+ <date>2014-04-09</date>
+ <time>22:33:19</time>
  <version>
-  <release>0.1.0</release>
+  <release>0.1.1</release>
   <api>0.1.0</api>
  </version>
  <stability>
@@ -22,7 +22,7 @@
  </stability>
  <license uri="http://www.php.net/license">PHP License</license>
  <notes>
- * Initial release
+ * Bug #20178 - garbled portugeuse character output
  </notes>
  <contents>
   <dir baseinstalldir="/" name="/">
@@ -60,6 +60,19 @@
  </dependencies>
  <phprelease />
  <changelog>
+  <release>
+   <version>
+    <release>0.1.1</release>
+    <api>0.1.0</api>
+   </version>
+   <stability>
+    <release>alpha</release>
+    <api>alpha</api>
+   </stability>
+   <date>2014-04-09</date>
+   <license uri="http://www.php.net/license">PHP License</license>
+   <notes>Bug #20178 - garbled portugeuse character output</notes>
+  </release>
   <release>
    <version>
     <release>0.1.0</release>
