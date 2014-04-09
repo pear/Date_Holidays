@@ -94,7 +94,7 @@ class Date_Holidays_Driver_Portugal extends Date_Holidays_Driver
          * Easter Sunday
          */
         $easterDate = Date_Holidays_Driver_Christian::calcEaster($this->_year);
-        $this->_addHoliday('easter', $easterDate, 'Páscoa');
+        $this->_addHoliday('easter', $easterDate, 'PÃ¡scoa');
 
         /**
          * Carnival
@@ -132,7 +132,7 @@ class Date_Holidays_Driver_Portugal extends Date_Holidays_Driver
         $this->_addHoliday(
             'easterMonday',
             $easterDate->getNextDay(),
-            'Segunda de Páscoa'
+            'Segunda de PÃ¡scoa'
         );
 
         /**
@@ -160,7 +160,7 @@ class Date_Holidays_Driver_Portugal extends Date_Holidays_Driver
 
         /**
          * Portugal National Day
-         * (In 1580 - Day of the death of Luís Vaz de Camões poet)
+         * (In 1580 - Day of the death of LuÃ­s Vaz de CamÃµes poet)
          */
         $this->_addHoliday(
             'nationalDayPortugal',
@@ -174,13 +174,13 @@ class Date_Holidays_Driver_Portugal extends Date_Holidays_Driver
         $mothersDay = $this->_calcFirstMonday("05");
         $mothersDay = $mothersDay->getPrevDay();
         $mothersDay = $this->_addDays($mothersDay, 7);
-        $this->_addHoliday('mothersDay', $mothersDay, 'Dia da Mãe');
+        $this->_addHoliday('mothersDay', $mothersDay, 'Dia da MÃ£e');
 
         /**
          * Ascension Day
          */
         $ascensionDate = $this->_addDays($easterDate, 39);
-        $this->_addHoliday('ascensionDate', $ascensionDate, 'Dia da Ascensão');
+        $this->_addHoliday('ascensionDate', $ascensionDate, 'Dia da AscensÃ£o');
 
         /**
          * Whitsun (determines Whit Monday, Ascension Day and
@@ -210,7 +210,7 @@ class Date_Holidays_Driver_Portugal extends Date_Holidays_Driver
         $this->_addHoliday(
             'mariaAscension',
             $this->_year . '-08-15',
-            'Assunção de Maria'
+            'AssunÃ§Ã£o de Maria'
         );
 
         /**
@@ -219,7 +219,7 @@ class Date_Holidays_Driver_Portugal extends Date_Holidays_Driver
         $this->_addHoliday(
             'republicDayPortugal',
             $this->_year . '-10-05',
-            'Implantação da República'
+            'ImplantaÃ§Ã£o da RepÃºblica'
         );
 
         /**
@@ -242,7 +242,7 @@ class Date_Holidays_Driver_Portugal extends Date_Holidays_Driver
         $this->_addHoliday(
             'independenceOfPortugal',
             $this->_year . '-12-01',
-            'Restauração da Independência'
+            'RestauraÃ§Ã£o da IndependÃªncia'
         );
 
         /**
@@ -260,7 +260,7 @@ class Date_Holidays_Driver_Portugal extends Date_Holidays_Driver
         $this->_addHoliday(
             'immaculateConceptionDay',
             $this->_year . '-12-08',
-            'Imaculada Conceição'
+            'Imaculada ConceiÃ§Ã£o'
         );
 
         /**
@@ -326,12 +326,12 @@ class Date_Holidays_Driver_Portugal extends Date_Holidays_Driver
         $this->_addHoliday('christmasDay', $this->_year . '-12-25', 'Natal');
 
         /**
-         * New Year´s Eve
+         * New YearÂ´s Eve
          */
         $this->_addHoliday(
             'newYearsEve',
             $this->_year . '-12-31',
-            'Véspera de Ano Novo'
+            'VÃ©spera de Ano Novo'
         );
 
         if (Date_Holidays::errorsOccurred()) {
