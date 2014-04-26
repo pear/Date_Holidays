@@ -51,6 +51,12 @@
  </notes>
  <contents>
   <dir baseinstalldir="/" name="/">
+   <dir name="lang">
+    <dir name="Netherlands">
+     <file baseinstalldir="Date" name="nl_NL.xml" role="data" />
+     <file baseinstalldir="Date" name="nl_NL.ser" role="data" />
+    </dir> <!-- /lang/Christian -->
+   </dir>
    <dir name="Date">
    <dir name="Holidays">
     <dir name="Driver">
