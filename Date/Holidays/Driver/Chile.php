@@ -253,12 +253,18 @@ class Date_Holidays_Driver_Chile extends Date_Holidays_Driver
         if ($date->getDayOfWeek() == 2) {
             $date = $date->getPrevDay();
         } elseif ($date->getDayOfWeek() == 3) {
-            $date->addDays(-2);
+            $date = $date->getPrevDay();
+            $date = $date->getPrevDay();
         } elseif ($date->getDayOfWeek() == 4) {
-            $date->addDays(-3);
+            $date = $date->getPrevDay();
+            $date = $date->getPrevDay();
+            $date = $date->getPrevDay();
         } elseif ($date->getDayOfWeek() == 5) {
             // for fridays it gets bumped to the next monday
-            $date->addDays(3);
+            $date = $date->getNextDay();
+            $date = $date->getNextDay();
+            $date = $date->getNextDay();
+            $date = $date->getNextDay();
         }
         return $date;
     }
@@ -284,10 +290,14 @@ class Date_Holidays_Driver_Chile extends Date_Holidays_Driver
 
         if ($date->getDayOfWeek() == 2) {
             // for tuesdays it gets bumped to the previous monday
-            $date->addDays(-4);
+            $date = $date->getPrevDay();
+            $date = $date->getPrevDay();
+            $date = $date->getPrevDay();
+            $date = $date->getPrevDay();
         } elseif ($date->getDayOfWeek() == 3) {
             // for wednesdays it gets bumped to the next monday
-            $date->addDays(2);
+            $date = $date->getNextDay();
+            $date = $date->getNextDay();
         }
         return $date;
     }
