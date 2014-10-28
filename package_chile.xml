@@ -26,7 +26,7 @@
   <release>beta</release>
   <api>beta</api>
  </stability>
- <license uri="http://www.php.net/license/">PHP License</license>
+ <license uri="http://www.opensource.org/licenses/bsd-license.html">BSD License</license>
  <notes>
 Initial release
  </notes>
@@ -62,7 +62,7 @@ Initial release
     <api>beta</api>
    </stability>
    <date>2014-10-22</date>
-   <license uri="http://www.php.net/license">PHP License</license>
+     <license uri="http://www.opensource.org/licenses/bsd-license.html">BSD License</license>
    <notes>
 Initial release
    </notes>
