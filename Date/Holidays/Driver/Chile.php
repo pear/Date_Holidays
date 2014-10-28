@@ -42,10 +42,10 @@ require_once 'Date/Holidays/Driver/Christian.php';
 class Date_Holidays_Driver_Chile extends Date_Holidays_Driver
 {
     /**
-     * this driver's name
+     * This driver's name
      *
-     * @access   protected
-     * @var      string
+     * @access protected
+     * @var    string
      */
     var $_driverName = 'Chile';
 
@@ -55,7 +55,7 @@ class Date_Holidays_Driver_Chile extends Date_Holidays_Driver
      * Use the Date_Holidays::factory() method to construct an object of a certain
      * driver
      *
-     * @access   protected
+     * @access protected
      */
     function Date_Holidays_Driver_Chile()
     {
@@ -64,9 +64,9 @@ class Date_Holidays_Driver_Chile extends Date_Holidays_Driver
     /**
      * Build the internal arrays that contain data about the calculated holidays
      *
-     * @access   protected
-     * @return   boolean true on success, otherwise a PEAR_ErrorStack object
-     * @throws   object PEAR_ErrorStack
+     * @access protected
+     * @return boolean true on success, otherwise a PEAR_ErrorStack object
+     * @throws object PEAR_ErrorStack
      */
     function _buildHolidays()
     {
@@ -99,13 +99,21 @@ class Date_Holidays_Driver_Chile extends Date_Holidays_Driver
         /**
          * Navy Day
          */
-        $this->_addHoliday('navyDay', $this->_year . '-05-21', 'Día de las glorias navales');
+        $this->_addHoliday(
+            'navyDay',
+            $this->_year . '-05-21',
+            'Día de las glorias navales'
+        );
 
         /**
          * Saint Peter and Saint Paul
          */
         $petrusAndPaulus = $this->_calcNearestMonday('06', '29');
-        $this->_addHoliday('petrusAndPaulus', $petrusAndPaulus, 'San Pedro y San Pablo');
+        $this->_addHoliday(
+            'petrusAndPaulus',
+            $petrusAndPaulus,
+            'San Pedro y San Pablo'
+        );
 
         /**
          * Our Lady of Mount Carmel
@@ -131,18 +139,30 @@ class Date_Holidays_Driver_Chile extends Date_Holidays_Driver
          */
         $fiestasPatrias_17 = new Date($this->_year . '-09-17');
         if ($fiestasPatrias_17->getDayOfWeek() == 1) {
-            $this->_addHoliday('fiestasPatrias', $fiestasPatrias_17, 'Fiestas Patrias');
+            $this->_addHoliday(
+                'fiestasPatrias',
+                $fiestasPatrias_17,
+                'Fiestas Patrias'
+            );
         }
 
         /**
          * Independence Day
          */
-        $this->_addHoliday('independenceDay', $this->_year . '-09-18', 'Independencia Nacional');
+        $this->_addHoliday(
+            'independenceDay',
+            $this->_year . '-09-18',
+            'Independencia Nacional'
+        );
 
         /**
          * Army Day
          */
-        $this->_addHoliday('armyDay', $this->_year . '-09-19', 'Día de las Glorias del Ejército');
+        $this->_addHoliday(
+            'armyDay',
+            $this->_year . '-09-19',
+            'Día de las Glorias del Ejército'
+        );
 
         /**
          * Fiestas Patrias (national holidays, september 20)
@@ -150,20 +170,32 @@ class Date_Holidays_Driver_Chile extends Date_Holidays_Driver
          */
         $fiestasPatrias_20 = new Date($this->_year . '-09-20');
         if ($fiestasPatrias_20->getDayOfWeek() == 5) {
-            $this->_addHoliday('fiestasPatrias', $fiestasPatrias_20, 'Fiestas Patrias');
+            $this->_addHoliday(
+                'fiestasPatrias',
+                $fiestasPatrias_20,
+                'Fiestas Patrias'
+            );
         }
 
         /**
          * Columbus Day
          */
         $columbusDay = $this->_calcNearestMonday('10', '12');
-        $this->_addHoliday('columbusDay', $columbusDay, 'Día del descubrimiento de dos mundos');
+        $this->_addHoliday(
+            'columbusDay',
+            $columbusDay,
+            'Día del descubrimiento de dos mundos'
+        );
 
         /**
          * Reformation Day
          */
         $reformationDay = $this->_calcNearestFriday('10', '31');
-        $this->_addHoliday('reformationDay', $reformationDay, 'Día de las Iglesias Evangélicas y Protestantes');
+        $this->_addHoliday(
+            'reformationDay',
+            $reformationDay,
+            'Día de las Iglesias Evangélicas y Protestantes'
+        );
 
         /**
          * All Saints' Day
@@ -207,8 +239,8 @@ class Date_Holidays_Driver_Chile extends Date_Holidays_Driver
      * @param int $month month
      * @param int $day   day
      *
-     * @access   private
-     * @return   object Date date
+     * @access private
+     * @return object Date date
      */
     function _calcNearestMonday($month, $day)
     {
@@ -220,15 +252,12 @@ class Date_Holidays_Driver_Chile extends Date_Holidays_Driver
         // to the previous monday
         if ($date->getDayOfWeek() == 2) {
             $date = $date->getPrevDay();
-        }
-        elseif ($date->getDayOfWeek() == 3) {
+        } elseif ($date->getDayOfWeek() == 3) {
             $date->addDays(-2);
-        }
-        elseif ($date->getDayOfWeek() == 4) {
+        } elseif ($date->getDayOfWeek() == 4) {
             $date->addDays(-3);
-        }
-        // for fridays it gets bumped to the next monday
-        elseif ($date->getDayOfWeek() == 5) {
+        } elseif ($date->getDayOfWeek() == 5) {
+            // for fridays it gets bumped to the next monday
             $date->addDays(3);
         }
         return $date;
@@ -244,8 +273,8 @@ class Date_Holidays_Driver_Chile extends Date_Holidays_Driver
      * @param int $month month
      * @param int $day   day
      *
-     * @access   private
-     * @return   object Date date
+     * @access private
+     * @return object Date date
      */
     function _calcNearestFriday($month, $day)
     {
@@ -253,12 +282,11 @@ class Date_Holidays_Driver_Chile extends Date_Holidays_Driver
         $day   = sprintf("%02d", $day);
         $date  = new Date($this->_year . '-' . $month . '-' . $day);
 
-        // for tuesdays it gets bumped to the previous monday
         if ($date->getDayOfWeek() == 2) {
+            // for tuesdays it gets bumped to the previous monday
             $date->addDays(-4);
-        }
-        // for wednesdays it gets bumped to the next monday
-        elseif ($date->getDayOfWeek() == 3) {
+        } elseif ($date->getDayOfWeek() == 3) {
+            // for wednesdays it gets bumped to the next monday
             $date->addDays(2);
         }
         return $date;
