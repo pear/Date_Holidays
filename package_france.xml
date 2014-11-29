@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package packagerversion="1.9.4" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0 http://pear.php.net/dtd/tasks-1.0.xsd http://pear.php.net/dtd/package-2.0 http://pear.php.net/dtd/package-2.0.xsd">
+ <name>Date_Holidays_France</name>
+ <channel>pear.php.net</channel>
+ <summary>Driver based class to calculate holidays in France.</summary>
+ <description>Date_Holidays helps you calculate the dates and titles of holidays and other special celebrations. This is the driver for calculating holidays in France.</description>
+ <lead>
+  <name>Xavier Noguer</name>
+  <user>xnoguer</user>
+  <email>xnoguer@neozet.com</email>
+  <active>yes</active>
+ </lead>
+ <lead>
+  <name>Ken Guest</name>
+  <user>kguest</user>
+  <email>ken@linux.ie</email>
+  <active>yes</active>
+ </lead>
+ <date>2014-11-29</date>
+ <time>22:39:33</time>
+ <version>
+  <release>0.1.0</release>
+  <api>1.4.0</api>
+ </version>
+ <stability>
+  <release>beta</release>
+  <api>beta</api>
+ </stability>
+ <license uri="http://www.opensource.org/licenses/bsd-license.html">BSD License</license>
+ <notes>
+Initial release
+ </notes>
+ <contents>
+  <dir baseinstalldir="/" name="/">
+   <file baseinstalldir="/" md5sum="5ce0de8ee194abecbe554d336232e8ca" name="Date/Holidays/Driver/France.php" role="php" />
+   <file baseinstalldir="/" md5sum="5ce0de8ee194abecbe554d336232e8ca" name="Date/Holidays/Filter/France/Official.php" role="php" />
+  </dir>
+ </contents>
+ <dependencies>
+  <required>
+   <php>
+    <min>4.0.0</min>
+   </php>
+   <pearinstaller>
+    <min>1.7.1</min>
+   </pearinstaller>
+   <package>
+    <name>Date_Holidays</name>
+    <channel>pear.php.net</channel>
+    <min>0.21.4</min>
+   </package>
+  </required>
+ </dependencies>
+ <phprelease />
+ <changelog>
+  <release>
+   <version>
+    <release>0.1.0</release>
+    <api>0.17.2</api>
+   </version>
+   <stability>
+    <release>beta</release>
+    <api>beta</api>
+   </stability>
+   <date>2014-10-22</date>
+     <license uri="http://www.opensource.org/licenses/bsd-license.html">BSD License</license>
+   <notes>
+Initial release
+   </notes>
+  </release>
+ </changelog>
+</package>
