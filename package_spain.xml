@@ -16,7 +16,7 @@
   <email>jespinog@gmail.com</email>
   <active>yes</active>
  </lead>
- <date>2013-12-10</date>
+ <date>2014-11-29</date>
  <time>21:37:25</time>
  <version>
   <release>0.1.4</release>
@@ -28,7 +28,8 @@
  </stability>
  <license uri="http://www.gnu.org/licenses/lgpl.html">LGPL</license>
  <notes>
- * Added 3 characters ISO3166 code.
+ * Added 3 character ISO3166 code.
+ * Packet archive contains only package.xml (bug #20455).
  </notes>
  <contents>
   <dir baseinstalldir="/" name="/">
