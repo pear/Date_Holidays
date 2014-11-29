@@ -155,6 +155,7 @@ class Date_Holidays_Driver_Japan extends Date_Holidays_Driver
         $this->_buildGreeneryDay();
         $this->_buildChildrensDay();
         $this->_buildMarineDay();
+        $this->_buildMountainDay();
         $this->_buildRespectfortheAgedDay();
         $this->_buildAutumnalEquinoxDay();
         $this->_buildHealthandSportsDay();
@@ -370,6 +371,25 @@ class Date_Holidays_Driver_Japan extends Date_Holidays_Driver
             $this->_addHoliday('marineDay',
                                $date,
                                'Marine Day');
+        }
+    }
+
+    /**
+     * build day of Mountain Day
+     *
+     * @access   private
+     * @return   void
+     */
+    function _buildMountainDay()
+    {
+        $date = null;
+        if ($this->_year >= 2016) {
+            $date = $this->_year . '-08-11';
+        }
+        if (!is_null($date)) {
+            $this->_addHoliday('mountainDay',
+                               $date,
+                               'Mountain Day');
         }
     }
 

@@ -46,6 +46,10 @@
             <translation>海の日</translation>
         </holiday>
         <holiday>
+            <internal-name>mountainDay</internal-name>
+            <translation>山の日</translation>
+        </holiday>
+        <holiday>
             <internal-name>respectfortheAgedDay</internal-name>
             <translation>敬老の日</translation>
         </holiday>
@@ -123,6 +127,10 @@
         </holiday>
         <holiday>
             <internal-name>substituteHolidayFormarineDay</internal-name>
+            <translation>振替休日</translation>
+        </holiday>
+        <holiday>
+            <internal-name>substituteHolidayFormountainDay</internal-name>
             <translation>振替休日</translation>
         </holiday>
         <holiday>
