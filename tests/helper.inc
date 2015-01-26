@@ -1,5 +1,5 @@
 <?php
-
+error_reporting(E_ALL ^ E_STRICT);
 if (! $fp = @fopen('Date.php', 'r', true)) {
     die("skip PEAR_Date is required for these tests to run.\n");
 }
@@ -10,9 +10,13 @@ if ($fp = @fopen('PHPUnit/Autoload.php', 'r', true)) {
     require_once 'PHPUnit/Framework.php';
     require_once 'PHPUnit/TextUI/TestRunner.php';
 } else {
-    die('skip could not find PHPUnit');
+    if (!class_exists("PHPUnit_Framework_TestCase")) {
+        die('skip could not find PHPUnit');
+    }
 }
-fclose($fp);
+if ($fp !== false) {
+    fclose($fp);
+}
 
 if ('@data_dir@' == '@'.'data_dir'.'@') {
     // This package hasn't been installed.
