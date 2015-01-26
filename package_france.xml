@@ -5,19 +5,19 @@
  <summary>Driver based class to calculate holidays in France.</summary>
  <description>Date_Holidays helps you calculate the dates and titles of holidays and other special celebrations. This is the driver for calculating holidays in France.</description>
  <lead>
-  <name>Xavier Noguer</name>
-  <user>xnoguer</user>
-  <email>xnoguer@neozet.com</email>
-  <active>yes</active>
- </lead>
- <lead>
   <name>Ken Guest</name>
   <user>kguest</user>
   <email>ken@linux.ie</email>
   <active>yes</active>
  </lead>
- <date>2014-11-29</date>
- <time>22:39:33</time>
+ <lead>
+  <name>Pascal Rigaux</name>
+  <user>prigaux</user>
+  <email>pascal@rigaux.org</email>
+  <active>yes</active>
+ </lead>
+ <date>2015-01-26</date>
+ <time>20:51:33</time>
  <version>
   <release>0.1.0</release>
   <api>1.4.0</api>
@@ -32,9 +32,22 @@ Initial release
  </notes>
  <contents>
   <dir baseinstalldir="/" name="/">
-   <file baseinstalldir="/" md5sum="5ce0de8ee194abecbe554d336232e8ca" name="Date/Holidays/Driver/France.php" role="php" />
-   <file baseinstalldir="/" md5sum="5ce0de8ee194abecbe554d336232e8ca" name="Date/Holidays/Filter/France/Official.php" role="php" />
-  </dir>
+  <dir name="Date">
+   <dir name="Holidays">
+    <dir name="Driver">
+     <file name="France.php" role="php" />
+    </dir> <!-- /Holidays/Driver -->
+    <dir name="Filter">
+     <dir name="France">
+      <file name="Official.php" role="php" />
+     </dir> <!-- /Holidays/Filter/France -->
+    </dir> <!-- /Holidays/Filter -->
+   </dir> <!-- /Holidays -->
+   </dir>
+   <dir name="tests">
+    <file name="Date_Holidays_Driver_France_TestSuite.php" role="test" />
+   </dir> <!-- /tests -->
+  </dir> <!-- / -->
  </contents>
  <dependencies>
   <required>
