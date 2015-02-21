@@ -40,7 +40,7 @@ class Date_Holidays_Driver_AustraliaNSW extends Date_Holidays_Driver
      *
      * @access   protected
      */
-    function Date_Holidays_Driver_AustraliaNSW()
+    protected function __construct()
     {
     }
 

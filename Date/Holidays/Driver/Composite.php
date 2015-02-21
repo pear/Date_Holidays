@@ -75,7 +75,7 @@ class Date_Holidays_Driver_Composite extends Date_Holidays_Driver
      *
      * @access   protected
      */
-    function Date_Holidays_Driver_Composite()
+    protected function __construct()
     {
     }
 

@@ -217,7 +217,7 @@ class Date_Holidays_Driver
      *
      * @access   protected
      */
-    function Date_Holidays_Driver()
+    protected function __construct()
     {
     }
 

@@ -78,7 +78,7 @@ class Date_Holidays_Holiday
      * @access public
      * @return void
      */
-    function Date_Holidays_Holiday($internalName, $title, &$date, $properties)
+    public function __construct($internalName, $title, &$date, $properties)
     {
         $this->_internalName = $internalName;
         $this->_title        = $title;

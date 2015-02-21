@@ -58,7 +58,7 @@ class Date_Holidays_Driver_Czech extends Date_Holidays_Driver
      *
      * @access   protected
      */
-    function Date_Holidays_Driver_Czech()
+    protected function __construct()
     {
     }
 

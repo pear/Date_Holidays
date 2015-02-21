@@ -53,7 +53,7 @@ class Date_Holidays_Driver_Discordian extends Date_Holidays_Driver
      *
      * @access   protected
      */
-    function Date_Holidays_Driver_Discordian()
+    protected function __construct()
     {
     }
 

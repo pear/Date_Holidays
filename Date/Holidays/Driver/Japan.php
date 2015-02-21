@@ -129,7 +129,7 @@ class Date_Holidays_Driver_Japan extends Date_Holidays_Driver
      *
      * @access   protected
      */
-    function Date_Holidays_Driver_Japan()
+    protected function __construct()
     {
     }
 

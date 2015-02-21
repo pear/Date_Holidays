@@ -54,7 +54,7 @@ class Date_Holidays_Driver_Denmark extends Date_Holidays_Driver
      *
      * @access   protected
      */
-    function Date_Holidays_Driver_Denmark()
+    protected function __construct()
     {
     }
 

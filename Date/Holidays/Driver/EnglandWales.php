@@ -53,7 +53,7 @@ class Date_Holidays_Driver_EnglandWales extends Date_Holidays_Driver
      *
      * @access protected
      */
-    function Date_Holidays_Driver_EnglandWales()
+    protected function __construct()
     {
     }
 

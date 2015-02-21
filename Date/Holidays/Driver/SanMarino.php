@@ -43,7 +43,7 @@ class Date_Holidays_Driver_SanMarino extends Date_Holidays_Driver
      *
      * @access   protected
      */
-    function Date_Holidays_Driver_SanMarino()
+    protected function __construct()
     {
     }
 

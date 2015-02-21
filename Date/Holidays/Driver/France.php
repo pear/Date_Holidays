@@ -59,7 +59,7 @@ class Date_Holidays_Driver_France extends Date_Holidays_Driver
      *
      * @access   protected
      */
-    function Date_Holidays_Driver_France()
+    protected function __construct()
     {
     }
 

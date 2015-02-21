@@ -39,7 +39,7 @@ class Date_Holidays_Driver_Venezuela extends Date_Holidays_Driver_Christian
      *
      * @access   protected
      */
-    function Date_Holidays_Driver_Venezuela()
+    protected function __construct()
     {
     }
 

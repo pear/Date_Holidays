@@ -57,7 +57,7 @@ class Date_Holidays_Driver_Chile extends Date_Holidays_Driver
      *
      * @access protected
      */
-    function Date_Holidays_Driver_Chile()
+    protected function __construct()
     {
     }
 

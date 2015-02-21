@@ -36,7 +36,7 @@ class Date_Holidays_Driver_Croatia extends Date_Holidays_Driver
      *
      * @access   protected
      */
-    function Date_Holidays_Driver_Croatia()
+    protected function __construct()
     {
     }
 
