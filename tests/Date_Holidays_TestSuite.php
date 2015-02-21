@@ -19,8 +19,10 @@ if (!defined("PHPUnit_MAIN_METHOD")) {
 chdir(dirname(__FILE__) . '/../');
 require_once 'Date/Holidays.php';
 
-require_once "PHPUnit/Framework/TestCase.php";
-require_once "PHPUnit/Framework/TestSuite.php";
+if (stream_resolve_include_path('PHPUnit/Framework/TestCase.php')) {
+    require_once "PHPUnit/Framework/TestCase.php";
+    require_once "PHPUnit/Framework/TestSuite.php";
+}
 
 /**
  * Date_Holidays_TestSuite
