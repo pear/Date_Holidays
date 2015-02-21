@@ -45,7 +45,7 @@ class Date_Holidays_Driver_Turkey extends Date_Holidays_Driver
      *
      * @access   protected
      */
-    protected function __construct()
+    public function __construct()
     {
     }
 

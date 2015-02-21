@@ -98,7 +98,7 @@ class Date_Holidays
      *
      * @access   protected
      */
-    protected function __construct()
+    public function __construct()
     {
     }
 

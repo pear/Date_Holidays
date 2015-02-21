@@ -57,7 +57,7 @@ class Date_Holidays_Driver_Brazil extends Date_Holidays_Driver_Christian
      *
      * @access   protected
      */
-    protected function __construct()
+    public function __construct()
     {
     }
 

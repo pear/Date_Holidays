@@ -56,7 +56,7 @@ class Date_Holidays_Driver_Norway extends Date_Holidays_Driver
      *
      * @access   protected
      */
-    protected function __construct()
+    public function __construct()
     {
     }
 

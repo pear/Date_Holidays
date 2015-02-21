@@ -53,7 +53,7 @@ class Date_Holidays_Driver_UNO extends Date_Holidays_Driver
      *
      * @access   protected
      */
-    protected function __construct()
+    public function __construct()
     {
     }
 
