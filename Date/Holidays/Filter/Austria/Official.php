@@ -48,7 +48,7 @@ class Date_Holidays_Filter_Austria_Official extends Date_Holidays_Filter_Whiteli
                                   'easterMonday',
                                   'dayOfWork',
                                   'ascensionDate',
-                                  'whitsun',
+                                  'whitMonday',
                                   'corpusChristi',
                                   'mariaAscension',
                                   'nationalDayAustria',
@@ -62,9 +62,9 @@ class Date_Holidays_Filter_Austria_Official extends Date_Holidays_Filter_Whiteli
      * Constructor.
      *
      * Only accepts official Austria public holidays as described on
-     * https://www.bmf.gv.at/Finanzministerium/GesetzlicheFeiertag_4523/_start.htm/
+     * https://www.ris.bka.gv.at/Dokument.wxe?Abfrage=Bundesnormen&Dokumentnummer=NOR40060439
      *
-     * @link https://www.bmf.gv.at/Finanzministerium/GesetzlicheFeiertag_4523/_start.htm/
+     * @link https://www.ris.bka.gv.at/Dokument.wxe?Abfrage=Bundesnormen&Dokumentnummer=NOR40060439
      */
     function Date_Holidays_Filter_Austria_Official()
     {
