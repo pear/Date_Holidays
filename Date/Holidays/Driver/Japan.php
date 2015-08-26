@@ -30,63 +30,63 @@
 require_once 'Date/Holidays/Driver.php';
 
 /**
- * the gradient parameter of the approximate expression
+ * The gradient parameter of the approximate expression
  * to calculate equinox day
  *
- * @access  public
+ * @access public
  */
 define('DATE_HOLIDAYS_EQUINOX_GRADIENT', 0.242194);
 
 /**
- * the initial parameter of the approximate expression
+ * The initial parameter of the approximate expression
  * to calculate vernal equinox day from 1948 to 1979
  *
- * @access  public
+ * @access public
  */
 define('DATE_HOLIDAYS_VERNAL_EQUINOX_PARAM_1979', 20.8357);
 
 /**
- * the initial parameter of the approximate expression
+ * The initial parameter of the approximate expression
  * to calculate vernal equinox day from 1980 to 2099
  *
- * @access  public
+ * @access public
  */
 define('DATE_HOLIDAYS_VERNAL_EQUINOX_PARAM_2099', 20.8431);
 
 /**
- * the initial parameter of the approximate expression
+ * The initial parameter of the approximate expression
  * to calculate vernal equinox day from 2100 to 2150
  *
- * @access  public
+ * @access public
  */
 define('DATE_HOLIDAYS_VERNAL_EQUINOX_PARAM_2150', 21.8510);
 
 /**
- * the initial parameter of the approximate expression
+ * The initial parameter of the approximate expression
  * to calculate autumnal equinox day from 1948 to 1979
  *
- * @access  public
+ * @access public
  */
 define('DATE_HOLIDAYS_AUTUMNAL_EQUINOX_PARAM_1979', 23.2588);
 
 /**
- * the initial parameter of the approximate expression
+ * The initial parameter of the approximate expression
  * to calculate autumnal equinox day from 1980 to 2099
  *
- * @access  public
+ * @access public
  */
 define('DATE_HOLIDAYS_AUTUMNAL_EQUINOX_PARAM_2099', 23.2488);
 
 /**
- * the initial parameter of the approximate expression
+ * The initial parameter of the approximate expression
  * to calculate autumnal equinox day from 2100 to 2150
  *
- * @access  public
+ * @access public
  */
 define('DATE_HOLIDAYS_AUTUMNAL_EQUINOX_PARAM_2150', 24.2488);
 
 /**
- * class that calculates Japanese holidays
+ * Class that calculates Japanese holidays
  *
  * @category   Date
  * @package    Date_Holidays
@@ -100,24 +100,24 @@ define('DATE_HOLIDAYS_AUTUMNAL_EQUINOX_PARAM_2150', 24.2488);
 class Date_Holidays_Driver_Japan extends Date_Holidays_Driver
 {
     /**
-     * this driver's name
+     * This driver's name
      *
-     * @access   protected
-     * @var      string
+     * @access protected
+     * @var    string
      */
     var $_driverName = 'Japan';
 
     /**
-     * a translation file name
+     * A translation file name
      *
-     * @access  private
+     * @access private
      */
     var $_translationFile = null;
 
     /**
-     * a translation locale
+     * A translation locale
      *
-     * @access  private
+     * @access private
      */
     var $_translationLocale = null;
 
@@ -127,7 +127,7 @@ class Date_Holidays_Driver_Japan extends Date_Holidays_Driver
      * Use the Date_Holidays::factory() method to construct an object of a
      * certain driver
      *
-     * @access   protected
+     * @access protected
      */
     public function __construct()
     {
@@ -136,9 +136,9 @@ class Date_Holidays_Driver_Japan extends Date_Holidays_Driver
     /**
      * Build the internal arrays that contain data about the calculated holidays
      *
-     * @access   protected
-     * @return   boolean true on success, otherwise a PEAR_ErrorStack object
-     * @throws   object PEAR_ErrorStack
+     * @access protected
+     * @return boolean true on success, otherwise a PEAR_ErrorStack object
+     * @throws object PEAR_ErrorStack
      */
     function _buildHolidays()
     {
@@ -184,25 +184,27 @@ class Date_Holidays_Driver_Japan extends Date_Holidays_Driver
     }
 
     /**
-     * build day of New Year's Day
+     * Build day of New Year's Day
      *
-     * @access   private
-     * @return   void
+     * @access private
+     * @return void
      */
     function _buildNewYearsDay()
     {
         if ($this->_year >= 1949) {
-            $this->_addHoliday('newYearsDay',
-                               $this->_year . '-01-01',
-                               'New Year\'s Day');
+            $this->_addHoliday(
+                'newYearsDay',
+                $this->_year . '-01-01',
+                'New Year\'s Day'
+            );
         }
     }
 
     /**
-     * build day of Coming of Age Day
+     * Build day of Coming of Age Day
      *
-     * @access   private
-     * @return   void
+     * @access private
+     * @return void
      */
     function _buildComingofAgeDay()
     {
@@ -213,67 +215,79 @@ class Date_Holidays_Driver_Japan extends Date_Holidays_Driver
             $date = $this->_year . '-01-15';
         }
         if (!is_null($date)) {
-            $this->_addHoliday('comingOfAgeDay',
-                               $date,
-                               'Coming of Age Day');
+            $this->_addHoliday(
+                'comingOfAgeDay',
+                $date,
+                'Coming of Age Day'
+            );
         }
     }
 
     /**
-     * build day of National Foundation Day
+     * Build day of National Foundation Day
      *
-     * @access   private
-     * @return   void
+     * @access private
+     * @return void
      */
     function _buildNationalFoundationDay()
     {
         if ($this->_year >= 1949) {
-            $this->_addHoliday('nationalFoundationDay',
-                               $this->_year . '-02-11',
-                               'National Foundation Day');
+            $this->_addHoliday(
+                'nationalFoundationDay',
+                $this->_year . '-02-11',
+                'National Foundation Day'
+            );
         }
     }
 
     /**
-     * build day of Vernal Equinox Day
+     * Build day of Vernal Equinox Day
      *
-     * use approximate expression to calculate equinox day internally.
+     * Use approximate expression to calculate equinox day internally.
      *
-     * @access   private
-     * @return   void
-     * @see      http://www.h3.dion.ne.jp/~sakatsu/holiday_topic.htm (in Japanese)
+     * @access private
+     * @return void
+     * @see    http://www.h3.dion.ne.jp/~sakatsu/holiday_topic.htm (in Japanese)
      */
     function _buildVernalEquinoxDay()
     {
         $day = null;
         if ($this->_year >= 1948 && $this->_year <= 1979) {
-            $day = floor(DATE_HOLIDAYS_VERNAL_EQUINOX_PARAM_1979 +
-                         DATE_HOLIDAYS_EQUINOX_GRADIENT *
-                         ($this->_year - 1980) -
-                         floor(($this->_year - 1980) / 4));
+            $day = floor(
+                DATE_HOLIDAYS_VERNAL_EQUINOX_PARAM_1979 +
+                DATE_HOLIDAYS_EQUINOX_GRADIENT *
+                ($this->_year - 1980) -
+                floor(($this->_year - 1980) / 4)
+            );
         } else if ($this->_year <= 2099) {
-            $day = floor(DATE_HOLIDAYS_VERNAL_EQUINOX_PARAM_2099 +
-                         DATE_HOLIDAYS_EQUINOX_GRADIENT *
-                         ($this->_year - 1980) -
-                         floor(($this->_year - 1980) / 4));
+            $day = floor(
+                DATE_HOLIDAYS_VERNAL_EQUINOX_PARAM_2099 +
+                DATE_HOLIDAYS_EQUINOX_GRADIENT *
+                ($this->_year - 1980) -
+                floor(($this->_year - 1980) / 4)
+            );
         } else if ($this->_year <= 2150) {
-            $day = floor(DATE_HOLIDAYS_VERNAL_EQUINOX_PARAM_2150 +
-                         DATE_HOLIDAYS_EQUINOX_GRADIENT *
-                         ($this->_year - 1980) -
-                         floor(($this->_year - 1980) / 4));
+            $day = floor(
+                DATE_HOLIDAYS_VERNAL_EQUINOX_PARAM_2150 +
+                DATE_HOLIDAYS_EQUINOX_GRADIENT *
+                ($this->_year - 1980) -
+                floor(($this->_year - 1980) / 4)
+            );
         }
         if (!is_null($day)) {
-            $this->_addHoliday('vernalEquinoxDay',
-                               sprintf('%04d-%02d-%02d', $this->_year, 3, $day),
-                               'Vernal Equinox Day');
+            $this->_addHoliday(
+                'vernalEquinoxDay',
+                sprintf('%04d-%02d-%02d', $this->_year, 3, $day),
+                'Vernal Equinox Day'
+            );
         }
     }
 
     /**
-     * build day of Showa Day
+     * Build day of Showa Day
      *
-     * @access   private
-     * @return   void
+     * @access private
+     * @return void
      */
     function _buildShowaDay()
     {
@@ -290,32 +304,36 @@ class Date_Holidays_Driver_Japan extends Date_Holidays_Driver
             $title = 'Showa Emperor\'s Birthday';
         }
         if (!is_null($internalName)) {
-            $this->_addHoliday($internalName,
-                               $this->_year . '-04-29',
-                               $title);
+            $this->_addHoliday(
+                $internalName,
+                $this->_year . '-04-29',
+                $title
+            );
         }
     }
 
     /**
-     * build day of Constitution Memorial Day
+     * Build day of Constitution Memorial Day
      *
-     * @access   private
-     * @return   void
+     * @access private
+     * @return void
      */
     function _buildConstitutionMemorialDay()
     {
         if ($this->_year >= 1949) {
-            $this->_addHoliday('constitutionMemorialDay',
-                               $this->_year . '-05-03',
-                               'Constitution Memorial Day');
+            $this->_addHoliday(
+                'constitutionMemorialDay',
+                $this->_year . '-05-03',
+                'Constitution Memorial Day'
+            );
         }
     }
 
     /**
-     * build day of Greenery Day
+     * Build day of Greenery Day
      *
-     * @access   private
-     * @return   void
+     * @access private
+     * @return void
      */
     function _buildGreeneryDay()
     {
@@ -325,39 +343,43 @@ class Date_Holidays_Driver_Japan extends Date_Holidays_Driver
             $internalName = 'greeneryDay';
             $title = 'Greenery Day';
         } else if ($this->_year >= 1986) {
-            $date =& new Date($this->_year . '-05-04');
+            $date = new Date($this->_year . '-05-04');
             if ($date->getDayOfWeek() != 0) {
                 $internalName = 'nationalHoliday';
                 $title = 'National Holiday';
             }
         }
         if (!is_null($internalName)) {
-            $this->_addHoliday($internalName,
-                               $this->_year . '-05-04',
-                               $title);
+            $this->_addHoliday(
+                $internalName,
+                $this->_year . '-05-04',
+                $title
+            );
         }
     }
 
     /**
-     * build day of Children's Day
+     * Build day of Children's Day
      *
-     * @access   private
-     * @return   void
+     * @access private
+     * @return void
      */
     function _buildChildrensDay()
     {
         if ($this->_year >= 1949) {
-            $this->_addHoliday('childrensDay',
-                               $this->_year . '-05-05',
-                               'Children\'s Day');
+            $this->_addHoliday(
+                'childrensDay',
+                $this->_year . '-05-05',
+                'Children\'s Day'
+            );
         }
     }
 
     /**
-     * build day of Marine Day
+     * Build day of Marine Day
      *
-     * @access   private
-     * @return   void
+     * @access private
+     * @return void
      */
     function _buildMarineDay()
     {
@@ -368,17 +390,19 @@ class Date_Holidays_Driver_Japan extends Date_Holidays_Driver
             $date = $this->_year . '-07-20';
         }
         if (!is_null($date)) {
-            $this->_addHoliday('marineDay',
-                               $date,
-                               'Marine Day');
+            $this->_addHoliday(
+                'marineDay',
+                $date,
+                'Marine Day'
+            );
         }
     }
 
     /**
-     * build day of Mountain Day
+     * Build day of Mountain Day
      *
-     * @access   private
-     * @return   void
+     * @access private
+     * @return void
      */
     function _buildMountainDay()
     {
@@ -387,17 +411,19 @@ class Date_Holidays_Driver_Japan extends Date_Holidays_Driver
             $date = $this->_year . '-08-11';
         }
         if (!is_null($date)) {
-            $this->_addHoliday('mountainDay',
-                               $date,
-                               'Mountain Day');
+            $this->_addHoliday(
+                'mountainDay',
+                $date,
+                'Mountain Day'
+            );
         }
     }
 
     /**
-     * build day of Respect for the Aged Day
+     * Build day of Respect for the Aged Day
      *
-     * @access   private
-     * @return   void
+     * @access private
+     * @return void
      */
     function _buildRespectfortheAgedDay()
     {
@@ -408,17 +434,19 @@ class Date_Holidays_Driver_Japan extends Date_Holidays_Driver
             $date = $this->_year . '-09-15';
         }
         if (!is_null($date)) {
-            $this->_addHoliday('respectfortheAgedDay',
-                               $date,
-                               'Respect for the Aged Day');
+            $this->_addHoliday(
+                'respectfortheAgedDay',
+                $date,
+                'Respect for the Aged Day'
+            );
         }
     }
 
     /**
-     * build day of Health and Sports Day
+     * Build day of Health and Sports Day
      *
-     * @access   private
-     * @return   void
+     * @access private
+     * @return void
      */
     function _buildHealthandSportsDay()
     {
@@ -429,136 +457,163 @@ class Date_Holidays_Driver_Japan extends Date_Holidays_Driver
             $date = $this->_year . '-10-10';
         }
         if (!is_null($date)) {
-            $this->_addHoliday('healthandSportsDay',
-                               $date,
-                               'Health and Sports Day');
+            $this->_addHoliday(
+                'healthandSportsDay',
+                $date,
+                'Health and Sports Day'
+            );
         }
     }
 
     /**
-     * build day of Autumnal Equinox Day
+     * Build day of Autumnal Equinox Day
      *
-     * use approximate expression to calculate equinox day internally.
+     * Use approximate expression to calculate equinox day internally.
      *
-     * @access   private
-     * @return   void
-     * @see      http://www.h3.dion.ne.jp/~sakatsu/holiday_topic.htm (in Japanese)
+     * @access private
+     * @return void
+     * @see    http://www.h3.dion.ne.jp/~sakatsu/holiday_topic.htm (in Japanese)
      */
     function _buildAutumnalEquinoxDay()
     {
         $day = null;
         if ($this->_year >= 1948 && $this->_year <= 1979) {
-            $day = floor(DATE_HOLIDAYS_AUTUMNAL_EQUINOX_PARAM_1979 +
-                         DATE_HOLIDAYS_EQUINOX_GRADIENT *
-                         ($this->_year - 1980) -
-                         floor(($this->_year - 1980) / 4));
+            $day = floor(
+                DATE_HOLIDAYS_AUTUMNAL_EQUINOX_PARAM_1979 +
+                DATE_HOLIDAYS_EQUINOX_GRADIENT *
+                ($this->_year - 1980) -
+                floor(($this->_year - 1980) / 4)
+            );
         } else if ($this->_year <= 2099) {
-            $day = floor(DATE_HOLIDAYS_AUTUMNAL_EQUINOX_PARAM_2099 +
-                         DATE_HOLIDAYS_EQUINOX_GRADIENT *
-                         ($this->_year - 1980) -
-                         floor(($this->_year - 1980) / 4));
+            $day = floor(
+                DATE_HOLIDAYS_AUTUMNAL_EQUINOX_PARAM_2099 +
+                DATE_HOLIDAYS_EQUINOX_GRADIENT *
+                ($this->_year - 1980) -
+                floor(($this->_year - 1980) / 4)
+            );
         } else if ($this->_year <= 2150) {
-            $day = floor(DATE_HOLIDAYS_AUTUMNAL_EQUINOX_PARAM_2150 +
-                         DATE_HOLIDAYS_EQUINOX_GRADIENT *
-                         ($this->_year - 1980) -
-                         floor(($this->_year - 1980) / 4));
+            $day = floor(
+                DATE_HOLIDAYS_AUTUMNAL_EQUINOX_PARAM_2150 +
+                DATE_HOLIDAYS_EQUINOX_GRADIENT *
+                ($this->_year - 1980) -
+                floor(($this->_year - 1980) / 4)
+            );
         }
         if (!is_null($day)) {
-            $this->_addHoliday('autumnalEquinoxDay',
-                               sprintf('%04d-%02d-%02d', $this->_year, 9, $day),
-                               'Autumnal Equinox Day');
+            $this->_addHoliday(
+                'autumnalEquinoxDay',
+                sprintf('%04d-%02d-%02d', $this->_year, 9, $day),
+                'Autumnal Equinox Day'
+            );
 
-            if ($this->_year >= 2003 &&
-                $this->getHolidayDate('autumnalEquinoxDay')->getDayOfWeek() == 3) {
-                $this->_addHoliday('nationalHolidayBeforeAutumnalEquinoxDay',
+            if ($this->_year >= 2003 
+                && $this->getHolidayDate('autumnalEquinoxDay')->getDayOfWeek() == 3
+            ) {
+                $this->_addHoliday(
+                    'nationalHolidayBeforeAutumnalEquinoxDay',
                     $this->getHolidayDate('autumnalEquinoxDay')->getPrevDay(),
-                    'National Holiday before Autumnal Equinox Day');
+                    'National Holiday before Autumnal Equinox Day'
+                );
             }
         }
     }
 
     /**
-     * build day of National Culture Day
+     * Build day of National Culture Day
      *
-     * @access   private
-     * @return   void
+     * @access private
+     * @return void
      */
     function _buildNationalCultureDay()
     {
         if ($this->_year >= 1948) {
-            $this->_addHoliday('nationalCultureDay',
-                               $this->_year . '-11-03',
-                               'National Culture Day');
+            $this->_addHoliday(
+                'nationalCultureDay',
+                $this->_year . '-11-03',
+                'National Culture Day'
+            );
         }
     }
 
     /**
-     * build day of Labor Thanksgiving Day
+     * Build day of Labor Thanksgiving Day
      *
-     * @access   private
-     * @return   void
+     * @access private
+     * @return void
      */
     function _buildLaborThanksgivingDay()
     {
         if ($this->_year >= 1948) {
-            $this->_addHoliday('laborThanksgivingDay',
-                               $this->_year . '-11-23',
-                               'Labor Thanksgiving Day');
+            $this->_addHoliday(
+                'laborThanksgivingDay',
+                $this->_year . '-11-23',
+                'Labor Thanksgiving Day'
+            );
         }
     }
 
     /**
-     * build day of Emperor's Birthday
+     * Build day of Emperor's Birthday
      *
-     * @access   private
-     * @return   void
+     * @access private
+     * @return void
      */
     function _buildEmperorsBirthday()
     {
         if ($this->_year >= 1989) {
-            $this->_addHoliday('emperorsBirthday',
-                               $this->_year . '-12-23',
-                               'Emperor\'s Birthday');
+            $this->_addHoliday(
+                'emperorsBirthday',
+                $this->_year . '-12-23',
+                'Emperor\'s Birthday'
+            );
         }
     }
 
     /**
-     * build day of Emperor's Birthday
+     * Build day of Emperor's Birthday
      *
-     * @access   private
-     * @return   void
+     * @access private
+     * @return void
      */
     function _buildOtherMemorialDays()
     {
         if ($this->_year == 1959) {
-            $this->_addHoliday('theRiteofWeddingofHIHCrownPrinceAkihito',
-                               $this->_year . '-04-10',
-                               'The Rite of Wedding of HIH Crown Prince Akihito');
+            $this->_addHoliday(
+                'theRiteofWeddingofHIHCrownPrinceAkihito',
+                $this->_year . '-04-10',
+                'The Rite of Wedding of HIH Crown Prince Akihito'
+            );
         }
         if ($this->_year == 1989) {
-            $this->_addHoliday('theFuneralCeremonyofEmperorShowa.',
-                               $this->_year . '-02-24',
-                               'The Funeral Ceremony of Emperor Showa.');
+            $this->_addHoliday(
+                'theFuneralCeremonyofEmperorShowa.',
+                $this->_year . '-02-24',
+                'The Funeral Ceremony of Emperor Showa.'
+            );
         }
         if ($this->_year == 1990) {
-            $this->_addHoliday('theCeremonyoftheEnthronementof'
-                             . 'HisMajestytheEmperor(attheSeiden)',
-                               $this->_year . '-11-12',
-                               'The Ceremony of the Enthronement of ' .
-                               'His Majesty the Emperor (at the Seiden)');
+            $this->_addHoliday(
+                'theCeremonyoftheEnthronementof'
+                . 'HisMajestytheEmperor(attheSeiden)',
+                $this->_year . '-11-12',
+                'The Ceremony of the Enthronement of ' .
+                'His Majesty the Emperor (at the Seiden)'
+            );
         }
         if ($this->_year == 1993) {
-            $this->_addHoliday('theRiteofWeddingofHIHCrownPrinceNaruhito',
-                               $this->_year . '-06-09',
-                               'The Rite of Wedding of HIH Crown Prince Naruhito');
+            $this->_addHoliday(
+                'theRiteofWeddingofHIHCrownPrinceNaruhito',
+                $this->_year . '-06-09',
+                'The Rite of Wedding of HIH Crown Prince Naruhito'
+            );
         }
     }
 
     /**
-     * build day of substitute holiday
+     * Build day of substitute holiday
      *
-     * @access   private
-     * @return   void
+     * @access private
+     * @return void
      */
     function _buildSubstituteHolidays()
     {
@@ -579,10 +634,12 @@ class Date_Holidays_Driver_Japan extends Date_Holidays_Driver
                 }
                 if (!is_null($date)) {
                     $name = 'substituteHolidayFor' . $internalName;
-                    $this->_addHoliday($name,
-                                       $date,
-                                       'Substitute Holiday for ' .
-                                       $this->_titles['C'][$internalName]);
+                    $this->_addHoliday(
+                        $name,
+                        $date,
+                        'Substitute Holiday for ' .
+                        $this->_titles['C'][$internalName]
+                    );
                 }
             }
         }
@@ -592,11 +649,15 @@ class Date_Holidays_Driver_Japan extends Date_Holidays_Driver
         if (!is_null($this->_translationFile)) {
             $ext = substr($this->_translationFile, -3);
             if ($ext === 'xml') {
-                $this->addTranslationFile($this->_translationFile,
-                                          $this->_translationLocale);
+                $this->addTranslationFile(
+                    $this->_translationFile,
+                    $this->_translationLocale
+                );
             } else if ($ext === 'ser') {
-                $this->addCompiledTranslationFile($this->_translationFile,
-                                                  $this->_translationLocale);
+                $this->addCompiledTranslationFile(
+                    $this->_translationFile,
+                    $this->_translationLocale
+                );
             }
         }
     }
@@ -612,9 +673,9 @@ class Date_Holidays_Driver_Japan extends Date_Holidays_Driver
      * @param string $file   filename of the language file
      * @param string $locale locale-code of the translation
      *
-     * @access   public
-     * @return   boolean true on success, otherwise a PEAR_ErrorStack object
-     * @throws   object PEAR_Errorstack
+     * @access public
+     * @return boolean true on success, otherwise a PEAR_ErrorStack object
+     * @throws object PEAR_Errorstack
      */
     function addTranslationFile($file, $locale)
     {
@@ -637,9 +698,9 @@ class Date_Holidays_Driver_Japan extends Date_Holidays_Driver
      * @param string $file   filename of the compiled language file
      * @param string $locale locale-code of the translation
      *
-     * @access   public
-     * @return   boolean true on success, otherwise a PEAR_ErrorStack object
-     * @throws   object PEAR_Errorstack
+     * @access public
+     * @return boolean true on success, otherwise a PEAR_ErrorStack object
+     * @throws object PEAR_Errorstack
      */
     function addCompiledTranslationFile($file, $locale)
     {
@@ -653,10 +714,10 @@ class Date_Holidays_Driver_Japan extends Date_Holidays_Driver
     }
 
     /**
-     * clear all holidays
+     * Clear all holidays
      *
-     * @access   private
-     * @return   void
+     * @access private
+     * @return void
      */
     function _clearHolidays()
     {
