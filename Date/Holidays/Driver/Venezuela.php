@@ -70,10 +70,10 @@ class Date_Holidays_Driver_Venezuela extends Date_Holidays_Driver_Christian
         $this->_addTranslationForHoliday('newYearsDay', 'es_VE', 'Año Nuevo');
 
         // carnaval
-        $carnival = new Date($ashWednesdayDate);
-        $carnival = $carnival->getPrevDay();
+        $carnival = new DateTime($ashWednesdayDate);
+        $carnival = $carnival->sub( new DateInterval('P1D'));
         $this->_addHoliday('carnival2', $carnival, 'Carnival');
-        $carnival = $carnival->getPrevDay();
+        $carnival = $carnival->sub( new DateInterval('P1D'));
         $this->_addHoliday('carnival1', $carnival, 'Carnival');
         $this->_addTranslationForHoliday('carnival1', 'es_VE', 'Carnaval');
         $this->_addTranslationForHoliday('carnival2', 'es_VE', 'Carnaval');

@@ -85,7 +85,7 @@ class Date_Holidays_Holiday
         $this->_date         = null;
         $this->_properties   = array();
 
-        if (is_a($date, 'Date')) {
+        if (is_a($date, 'DateTime')) {
             $this->_date = $date;
         }
 

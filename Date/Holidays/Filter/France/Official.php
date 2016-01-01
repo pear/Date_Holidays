@@ -56,7 +56,8 @@ class Date_Holidays_Filter_France_Official extends Date_Holidays_Filter_Whitelis
                   'allSaintsDay',
                   'armisticeDay',
                   'christmasDay',
-            );
+            )
+        );
     }
 
     /**

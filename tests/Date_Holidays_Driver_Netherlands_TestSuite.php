@@ -203,9 +203,9 @@ class Date_Holidays_Driver_Netherlands_TestSuite extends PHPUnit_Framework_TestC
             $this->assertFalse(Date_Holidays::isError($day));
             $this->assertEquals($name, $day->getInternalName());
             $date = $day->getDate();
-            $this->assertEquals($dateInfo['day'], $date->getDay(), $name);
-            $this->assertEquals($dateInfo['month'], $date->getMonth(), $name);
-            $this->assertEquals($dateInfo['year'], $date->getYear(), $name);
+            $this->assertEquals($dateInfo['day'], $date->format('d'), $name);
+            $this->assertEquals($dateInfo['month'], $date->format('m'), $name);
+            $this->assertEquals($dateInfo['year'], $date->format('Y'), $name);
         }
     }
 
@@ -225,9 +225,9 @@ class Date_Holidays_Driver_Netherlands_TestSuite extends PHPUnit_Framework_TestC
             $this->assertFalse(Date_Holidays::isError($day));
             $this->assertEquals($name, $day->getInternalName());
             $date = $day->getDate();
-            $this->assertEquals($dateInfo['day'], $date->getDay(), $name);
-            $this->assertEquals($dateInfo['month'], $date->getMonth(), $name);
-            $this->assertEquals($dateInfo['year'], $date->getYear(), $name);
+            $this->assertEquals($dateInfo['day'], $date->format('d'), $name);
+            $this->assertEquals($dateInfo['month'], $date->format('m'), $name);
+            $this->assertEquals($dateInfo['year'], $date->format('Y'), $name);
         }
     }
 
@@ -248,9 +248,9 @@ class Date_Holidays_Driver_Netherlands_TestSuite extends PHPUnit_Framework_TestC
             $this->assertFalse(Date_Holidays::isError($day));
             $this->assertEquals($name, $day->getInternalName());
             $date = $day->getDate();
-            $this->assertEquals($dateInfo['day'], $date->getDay(), $name);
-            $this->assertEquals($dateInfo['month'], $date->getMonth(), $name);
-            $this->assertEquals($dateInfo['year'], $date->getYear(), $name);
+            $this->assertEquals($dateInfo['day'], $date->format('d'), $name);
+            $this->assertEquals($dateInfo['month'], $date->format('m'), $name);
+            $this->assertEquals($dateInfo['year'], $date->format('Y'), $name);
         }
     }
 

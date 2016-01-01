@@ -58,9 +58,9 @@ class Date_Holidays_Driver_USA_TestSuite extends PHPUnit_Framework_TestCase
         if (Date_Holidays::isError($day)) {
             die('Factory was unable to make newYearsDay');
         }
-        $this->assertEquals(12, $day->getMonth());
-        $this->assertEquals(31, $day->getDay());
-        $this->assertEquals(2004, $day->getYear());
+        $this->assertEquals(12, $day->format('m'));
+        $this->assertEquals(31, $day->format('d'));
+        $this->assertEquals(2004, $day->format('Y'));
 
         // Test Martin Luther King Day
         $day = $holidays->getHolidayDate('mlkDay');
@@ -68,73 +68,73 @@ class Date_Holidays_Driver_USA_TestSuite extends PHPUnit_Framework_TestCase
             die('Factory was unable to that day');
         }
 
-        $this->assertEquals(1, $day->getMonth());
-        $this->assertEquals(17, $day->getDay());
+        $this->assertEquals(1, $day->format('m'));
+        $this->assertEquals(17, $day->format('d'));
 
         // Test Prez Day Luther King Day
         $day = $holidays->getHolidayDate('presidentsDay');
         if (Date_Holidays::isError($day)) {
             die('Factory was unable to that day');
         }
-        $this->assertEquals(2, $day->getMonth());
-        $this->assertEquals(21, $day->getDay());
+        $this->assertEquals(2, $day->format('m'));
+        $this->assertEquals(21, $day->format('d'));
 
         // Test Memorial Day Luther King Day
         $day = $holidays->getHolidayDate('memorialDay');
         if (Date_Holidays::isError($day)) {
             die('Factory was unable to create memorialDay day');
         }
-        $this->assertEquals(5, $day->getMonth());
-        $this->assertEquals(30, $day->getDay());
+        $this->assertEquals(5, $day->format('m'));
+        $this->assertEquals(30, $day->format('d'));
 
         // Test 4th of July, It was on sunday this year
         $day = $holidays->getHolidayDate('independenceDay');
         if (Date_Holidays::isError($day)) {
             die('Factory was unable to create independenceDay day');
         }
-        $this->assertEquals(7, $day->getMonth());
-        $this->assertEquals(4, $day->getDay());
+        $this->assertEquals(7, $day->format('m'));
+        $this->assertEquals(4, $day->format('d'));
 
         // Test Labor Day, end of summer
         $day = $holidays->getHolidayDate('laborDay');
         if (Date_Holidays::isError($day)) {
             die('Factory was unable to create laborDay day');
         }
-        $this->assertEquals(9, $day->getMonth());
-        $this->assertEquals(5, $day->getDay());
+        $this->assertEquals(9, $day->format('m'));
+        $this->assertEquals(5, $day->format('d'));
 
         // Test Columbus Day, end of summer
         $day = $holidays->getHolidayDate('columbusDay');
         if (Date_Holidays::isError($day)) {
             die('Factory was unable to create columbusDay day');
         }
-        $this->assertEquals(10, $day->getMonth());
-        $this->assertEquals(10, $day->getDay());
+        $this->assertEquals(10, $day->format('m'));
+        $this->assertEquals(10, $day->format('d'));
 
         // Test Veteran's Day
         $day = $holidays->getHolidayDate('veteransDay');
         if (Date_Holidays::isError($day)) {
             die('Factory was unable to create veteransDay day');
         }
-        $this->assertEquals(11, $day->getMonth());
-        $this->assertEquals(11, $day->getDay());
+        $this->assertEquals(11, $day->format('m'));
+        $this->assertEquals(11, $day->format('d'));
 
         // Test Thanksgiving Day
         $day = $holidays->getHolidayDate('thanksgivingDay');
         if (Date_Holidays::isError($day)) {
             die('Factory was unable to create thanksgivingDay day');
         }
-        $this->assertEquals(11, $day->getMonth());
-        $this->assertEquals(24, $day->getDay());
+        $this->assertEquals(11, $day->format('m'));
+        $this->assertEquals(24, $day->format('d'));
 
         // Test Christmas Day
         $day = $holidays->getHolidayDate('christmasDay');
         if (Date_Holidays::isError($day)) {
             die('Factory was unable to create christmasDay day');
         }
-        $this->assertEquals(12, $day->getMonth());
-        $this->assertEquals(26, $day->getDay());
-        $this->assertFalse($day->getDay() == 25);
+        $this->assertEquals(12, $day->format('m'));
+        $this->assertEquals(26, $day->format('d'));
+        $this->assertFalse($day->format('d') == 25);
 
     }
 
@@ -159,73 +159,73 @@ class Date_Holidays_Driver_USA_TestSuite extends PHPUnit_Framework_TestCase
             die('Factory was unable to that day');
         }
 
-        $this->assertTrue($day->getMonth()==1 && $day->getDay()==19);
-        $this->assertEquals(1, $day->getMonth());
-        $this->assertEquals(19, $day->getDay());
+        $this->assertTrue($day->format('m')==1 && $day->format('d')==19);
+        $this->assertEquals(1, $day->format('m'));
+        $this->assertEquals(19, $day->format('d'));
 
         // Test Prez Day Luther King Day
         $day = $holidays->getHolidayDate('presidentsDay');
         if (Date_Holidays::isError($day)) {
             die('Factory was unable to that day');
         }
-        $this->assertEquals(2, $day->getMonth());
-        $this->assertEquals(16, $day->getDay());
+        $this->assertEquals(2, $day->format('m'));
+        $this->assertEquals(16, $day->format('d'));
 
         // Test Memorial Day Luther King Day
         $day = $holidays->getHolidayDate('memorialDay');
         if (Date_Holidays::isError($day)) {
             die('Factory was unable to create memorialDay day');
         }
-        $this->assertEquals(5, $day->getMonth());
-        $this->assertEquals(31, $day->getDay());
+        $this->assertEquals(5, $day->format('m'));
+        $this->assertEquals(31, $day->format('d'));
 
         // Test 4th of July, It was on sunday this year
         $day = $holidays->getHolidayDate('independenceDay');
         if (Date_Holidays::isError($day)) {
             die('Factory was unable to create independenceDay day');
         }
-        $this->assertEquals(7, $day->getMonth());
-        $this->assertEquals(5, $day->getDay());
+        $this->assertEquals(7, $day->format('m'));
+        $this->assertEquals(5, $day->format('d'));
 
         // Test Labor Day, end of summer
         $day = $holidays->getHolidayDate('laborDay');
         if (Date_Holidays::isError($day)) {
             die('Factory was unable to create laborDay day');
         }
-        $this->assertEquals(9, $day->getMonth());
-        $this->assertEquals(6, $day->getDay());
+        $this->assertEquals(9, $day->format('m'));
+        $this->assertEquals(6, $day->format('d'));
 
         // Test Columbus Day, end of summer
         $day = $holidays->getHolidayDate('columbusDay');
         if (Date_Holidays::isError($day)) {
             die('Factory was unable to create columbusDay day');
         }
-        $this->assertEquals(10, $day->getMonth());
-        $this->assertEquals(11, $day->getDay());
+        $this->assertEquals(10, $day->format('m'));
+        $this->assertEquals(11, $day->format('d'));
 
         // Test Veteran's Day
         $day = $holidays->getHolidayDate('veteransDay');
         if (Date_Holidays::isError($day)) {
             die('Factory was unable to create veteransDay day');
         }
-        $this->assertEquals(11, $day->getMonth());
-        $this->assertEquals(11, $day->getDay());
+        $this->assertEquals(11, $day->format('m'));
+        $this->assertEquals(11, $day->format('d'));
 
         // Test Thanksgiving Day
         $day = $holidays->getHolidayDate('thanksgivingDay');
         if (Date_Holidays::isError($day)) {
             die('Factory was unable to create thanksgivingDay day');
         }
-        $this->assertEquals(11, $day->getMonth());
-        $this->assertEquals(25, $day->getDay());
+        $this->assertEquals(11, $day->format('m'));
+        $this->assertEquals(25, $day->format('d'));
 
         // Test Christmas Day
         $day = $holidays->getHolidayDate('christmasDay');
         if (Date_Holidays::isError($day)) {
             die('Factory was unable to create christmasDay day');
         }
-        $this->assertEquals(12, $day->getMonth());
-        $this->assertEquals(24, $day->getDay());
+        $this->assertEquals(12, $day->format('m'));
+        $this->assertEquals(24, $day->format('d'));
 
     }
 
@@ -248,9 +248,9 @@ class Date_Holidays_Driver_USA_TestSuite extends PHPUnit_Framework_TestCase
         if (Date_Holidays::isError($day)) {
             die('Factory was unable to make newYearsDay');
         }
-        $this->assertEquals(1, $day->getMonth());
-        $this->assertEquals(2, $day->getDay());
-        $this->assertEquals(2006, $day->getYear());
+        $this->assertEquals(1, $day->format('m'));
+        $this->assertEquals(2, $day->format('d'));
+        $this->assertEquals(2006, $day->format('Y'));
 
         // Test Martin Luther King Day
         $day = $holidays->getHolidayDate('mlkDay');
@@ -258,73 +258,73 @@ class Date_Holidays_Driver_USA_TestSuite extends PHPUnit_Framework_TestCase
             die('Factory was unable to that day');
         }
 
-        $this->assertEquals(1, $day->getMonth());
-        $this->assertEquals(16, $day->getDay());
+        $this->assertEquals(1, $day->format('m'));
+        $this->assertEquals(16, $day->format('d'));
 
         // Test Prez Day Luther King Day
         $day = $holidays->getHolidayDate('presidentsDay');
         if (Date_Holidays::isError($day)) {
             die('Factory was unable to that day');
         }
-        $this->assertEquals(2, $day->getMonth());
-        $this->assertEquals(20, $day->getDay());
+        $this->assertEquals(2, $day->format('m'));
+        $this->assertEquals(20, $day->format('d'));
 
         // Test Memorial Day
         $day = $holidays->getHolidayDate('memorialDay');
         if (Date_Holidays::isError($day)) {
             die('Factory was unable to create memorialDay day');
         }
-        $this->assertEquals(5, $day->getMonth());
-        $this->assertEquals(29, $day->getDay());
+        $this->assertEquals(5, $day->format('m'));
+        $this->assertEquals(29, $day->format('d'));
 
         // Test 4th of July, It was on sunday this year
         $day = $holidays->getHolidayDate('independenceDay');
         if (Date_Holidays::isError($day)) {
             die('Factory was unable to create independenceDay day');
         }
-        $this->assertEquals(7, $day->getMonth());
-        $this->assertEquals(4, $day->getDay());
+        $this->assertEquals(7, $day->format('m'));
+        $this->assertEquals(4, $day->format('d'));
 
         // Test Labor Day, end of summer
         $day = $holidays->getHolidayDate('laborDay');
         if (Date_Holidays::isError($day)) {
             die('Factory was unable to create laborDay day');
         }
-        $this->assertEquals(9, $day->getMonth());
-        $this->assertEquals(4, $day->getDay());
+        $this->assertEquals(9, $day->format('m'));
+        $this->assertEquals(4, $day->format('d'));
 
         // Test Columbus Day, end of summer
         $day = $holidays->getHolidayDate('columbusDay');
         if (Date_Holidays::isError($day)) {
             die('Factory was unable to create columbusDay day');
         }
-        $this->assertEquals(10, $day->getMonth());
-        $this->assertEquals(9, $day->getDay());
+        $this->assertEquals(10, $day->format('m'));
+        $this->assertEquals(9, $day->format('d'));
 
         // Test Veteran's Day
         $day = $holidays->getHolidayDate('veteransDay');
         if (Date_Holidays::isError($day)) {
             die('Factory was unable to create veteransDay day');
         }
-        $this->assertEquals(11, $day->getMonth());
-        $this->assertEquals(11, $day->getDay());
+        $this->assertEquals(11, $day->format('m'));
+        $this->assertEquals(11, $day->format('d'));
 
         // Test Thanksgiving Day
         $day = $holidays->getHolidayDate('thanksgivingDay');
         if (Date_Holidays::isError($day)) {
             die('Factory was unable to create thanksgivingDay day');
         }
-        $this->assertEquals(11, $day->getMonth());
-        $this->assertEquals(23, $day->getDay());
+        $this->assertEquals(11, $day->format('m'));
+        $this->assertEquals(23, $day->format('d'));
 
         // Test Christmas Day
         $day = $holidays->getHolidayDate('christmasDay');
         if (Date_Holidays::isError($day)) {
             die('Factory was unable to create christmasDay day');
         }
-        $this->assertEquals(12, $day->getMonth());
-        $this->assertEquals(25, $day->getDay());
-        $this->assertFalse($day->getDay() == 27);
+        $this->assertEquals(12, $day->format('m'));
+        $this->assertEquals(25, $day->format('d'));
+        $this->assertFalse($day->format('d') == 27);
 
     }
     /**
@@ -341,13 +341,13 @@ class Date_Holidays_Driver_USA_TestSuite extends PHPUnit_Framework_TestCase
 
         }
         // this was labor day this year
-        $this->assertTrue($holidays->isHoliday(new Date('2004-09-06')));
+        $this->assertTrue($holidays->isHoliday(new DateTime('2004-09-06')));
         // this was thanksgiving year
-        $this->assertTrue($holidays->isHoliday(new Date('2004-11-25')));
+        $this->assertTrue($holidays->isHoliday(new DateTime('2004-11-25')));
         // Chrismas is on the 24th
-        $this->assertFalse($holidays->isHoliday(new Date('2004-12-25')));
+        $this->assertFalse($holidays->isHoliday(new DateTime('2004-12-25')));
         // Chrismas is on the 24th
-        $this->assertTrue($holidays->isHoliday(new Date('2004-12-24')));
+        $this->assertTrue($holidays->isHoliday(new DateTime('2004-12-24')));
     }
 
 }

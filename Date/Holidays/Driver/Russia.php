@@ -65,9 +65,9 @@ class Date_Holidays_Driver_Russia extends Date_Holidays_Driver
         /**
          * New Year's Day and Christmas
          */
-        $newYearsDay1 = new Date($this->_year . '-01-01');
+        $newYearsDay1 = new DateTime($this->_year . '-01-01');
         $this->_addHoliday('newYearsDay1', $newYearsDay1, 'New Year\'s Day');
-        if ($newYearsDay1->getDayOfWeek() == 0) { // 0 = Sunday
+        if ($newYearsDay1->format('w') == 0) { // 0 = Sunday
             $this->_addHoliday(
                 'newYearsDay2',
                 $this->_year . '-01-02',
@@ -98,7 +98,7 @@ class Date_Holidays_Driver_Russia extends Date_Holidays_Driver
                 $this->_year . '-01-07',
                 'Christmas Day'
             );
-        } elseif ($newYearsDay1->getDayOfWeek() == 1) { // 1 = Monday
+        } elseif ($newYearsDay1->format('w') == 1) { // 1 = Monday
             $this->_addHoliday(
                 'newYearsDay2',
                 $this->_year . '-01-02',
@@ -129,7 +129,7 @@ class Date_Holidays_Driver_Russia extends Date_Holidays_Driver
                 $this->_year . '-01-08',
                 'New Year\'s Day'
             );
-        } elseif ($newYearsDay1->getDayOfWeek() == 2) { // 2 = Tuesday
+        } elseif ($newYearsDay1->format('w') == 2) { // 2 = Tuesday
             $this->_addHoliday(
                 'newYearsDay2',
                 $this->_year . '-01-02',
@@ -155,7 +155,7 @@ class Date_Holidays_Driver_Russia extends Date_Holidays_Driver
                 $this->_year . '-01-08',
                 'New Year\'s Day'
             );
-        } elseif ($newYearsDay1->getDayOfWeek() == 3) { // 3 = Wednesday
+        } elseif ($newYearsDay1->format('w') == 3) { // 3 = Wednesday
             $this->_addHoliday(
                 'newYearsDay2',
                 $this->_year . '-01-02',
@@ -181,7 +181,7 @@ class Date_Holidays_Driver_Russia extends Date_Holidays_Driver
                 $this->_year . '-01-08',
                 'New Year\'s Day'
             );
-        } elseif ($newYearsDay1->getDayOfWeek() == 4) { // 4 = Thursday
+        } elseif ($newYearsDay1->format('w') == 4) { // 4 = Thursday
             $this->_addHoliday(
                 'newYearsDay2',
                 $this->_year . '-01-02',
@@ -207,7 +207,7 @@ class Date_Holidays_Driver_Russia extends Date_Holidays_Driver
                 $this->_year . '-01-08',
                 'New Year\'s Day'
             );
-        } elseif ($newYearsDay1->getDayOfWeek() == 5) { // 5 = Friday
+        } elseif ($newYearsDay1->format('w') == 5) { // 5 = Friday
             $this->_addHoliday(
                 'newYearsDay2',
                 $this->_year . '-01-04',
@@ -233,7 +233,7 @@ class Date_Holidays_Driver_Russia extends Date_Holidays_Driver
                 $this->_year . '-01-08',
                 'New Year\'s Day'
             );
-        } elseif ($newYearsDay1->getDayOfWeek() == 6) { // 6 = Saturday
+        } elseif ($newYearsDay1->format('w') == 6) { // 6 = Saturday
             $this->_addHoliday(
                 'newYearsDay2',
                 $this->_year . '-03-03',
@@ -269,9 +269,9 @@ class Date_Holidays_Driver_Russia extends Date_Holidays_Driver
         /**
          * International Women's Day
          */
-        $womensDay = new Date($this->_year . '-03-08');
+        $womensDay = new DateTime($this->_year . '-03-08');
         /*bridge and moving holidays*/
-        if ($womensDay->getDayOfWeek() == 2) { // 2 = Tuesday
+        if ($womensDay->format('w') == 2) { // 2 = Tuesday
             $this->_addHoliday(
                 'womensDay1',
                 $this->_year . '-03-07',
@@ -282,7 +282,7 @@ class Date_Holidays_Driver_Russia extends Date_Holidays_Driver
                 $this->_year . '-03-08',
                 'International Women\'s Day'
             );
-        } elseif ($womensDay->getDayOfWeek() == 4) { // 4 = Thursday
+        } elseif ($womensDay->format('w') == 4) { // 4 = Thursday
             $this->_addHoliday(
                 'womensDay1',
                 $this->_year . '-03-08',
@@ -294,9 +294,9 @@ class Date_Holidays_Driver_Russia extends Date_Holidays_Driver
                 'International Women\'s Day'
             );
         } else {
-            if ($womensDay->getDayOfWeek() == 6) { // 6=Saturday
+            if ($womensDay->format('w') == 6) { // 6=Saturday
                 $womensDay = $this->_year . '-03-10';
-            } elseif ($womensDay->getDayOfWeek() == 0) { // 0=Sunday
+            } elseif ($womensDay->format('w') == 0) { // 0=Sunday
                 $womensDay = $this->_year . '-03-09';
             }
             $this->_addHoliday(
@@ -309,9 +309,9 @@ class Date_Holidays_Driver_Russia extends Date_Holidays_Driver
         /**
          * Defender of the Fatherland Day
          */
-        $defenderFatherlandDay = new Date($this->_year . '-02-23');
+        $defenderFatherlandDay = new DateTime($this->_year . '-02-23');
         /*bridge and moving holidays*/
-        if ($defenderFatherlandDay->getDayOfWeek() == 2) { // 2 = Tuesday
+        if ($defenderFatherlandDay->format('w') == 2) { // 2 = Tuesday
             $this->_addHoliday(
                 'defenderFatherlandDay1',
                 $this->_year . '-02-22',
@@ -322,7 +322,7 @@ class Date_Holidays_Driver_Russia extends Date_Holidays_Driver
                 $this->_year . '-02-23',
                 'Defender of the Fatherland Day'
             );
-        } elseif ($defenderFatherlandDay->getDayOfWeek() == 4) { // 4 = Thursday
+        } elseif ($defenderFatherlandDay->format('w') == 4) { // 4 = Thursday
             $this->_addHoliday(
                 'defenderFatherlandDay1',
                 $this->_year . '-02-23',
@@ -334,10 +334,10 @@ class Date_Holidays_Driver_Russia extends Date_Holidays_Driver
                 'Defender of the Fatherland Day'
             );
         } else {
-            if ($defenderFatherlandDay->getDayOfWeek() == 6) { // 6=Saturday
+            if ($defenderFatherlandDay->format('w') == 6) { // 6=Saturday
                 $defenderFatherlandDay = $this->_year . '-02-25';
 
-            } elseif ($defenderFatherlandDay->getDayOfWeek() == 0) { // 0=Sunday
+            } elseif ($defenderFatherlandDay->format('w') == 0) { // 0=Sunday
                 $defenderFatherlandDay = $this->_year . '-02-24';
             }
             $this->_addHoliday(
@@ -350,9 +350,9 @@ class Date_Holidays_Driver_Russia extends Date_Holidays_Driver
         /**
          * Spring and Labour Day
          */
-        $springLabourDay = new Date($this->_year . '-05-01');
+        $springLabourDay = new DateTime($this->_year . '-05-01');
         /*bridge and moving holidays*/
-        if ($springLabourDay->getDayOfWeek() == 2) { // 2 = Tuesday
+        if ($springLabourDay->format('w') == 2) { // 2 = Tuesday
             $this->_addHoliday(
                 'springLabourDay1',
                 $this->_year . '-04-30',
@@ -363,7 +363,7 @@ class Date_Holidays_Driver_Russia extends Date_Holidays_Driver
                 $this->_year . '-05-01',
                 'Spring and Labour Day'
             );
-        } elseif ($springLabourDay->getDayOfWeek() == 4) { // 4 = Thursday
+        } elseif ($springLabourDay->format('w') == 4) { // 4 = Thursday
             $this->_addHoliday(
                 'springLabourDay1',
                 $this->_year . '-05-01',
@@ -375,10 +375,10 @@ class Date_Holidays_Driver_Russia extends Date_Holidays_Driver
                 'Spring and Labour Day'
             );
         } else {
-            if ($springLabourDay->getDayOfWeek() == 6) { // 6=Saturday
+            if ($springLabourDay->format('w') == 6) { // 6=Saturday
                 $springLabourDay = $this->_year . '-05-03';
 
-            } elseif ($springLabourDay->getDayOfWeek() == 0) { // 0=Sunday
+            } elseif ($springLabourDay->format('w') == 0) { // 0=Sunday
                 $springLabourDay = $this->_year . '-05-02';
             }
             $this->_addHoliday(
@@ -391,9 +391,9 @@ class Date_Holidays_Driver_Russia extends Date_Holidays_Driver
         /**
          * Victory Day
          */
-        $victoryDay = new Date($this->_year . '-05-09');
+        $victoryDay = new DateTime($this->_year . '-05-09');
         /*bridge and moving holidays*/
-        if ($victoryDay->getDayOfWeek() == 2) { // 2 = Tuesday
+        if ($victoryDay->format('w') == 2) { // 2 = Tuesday
             $this->_addHoliday(
                 'victoryDay1',
                 $this->_year . '-05-08',
@@ -404,7 +404,7 @@ class Date_Holidays_Driver_Russia extends Date_Holidays_Driver
                 $this->_year . '-05-09',
                 'Victory Day'
             );
-        } elseif ($victoryDay->getDayOfWeek() == 4) { // 4 = Thursday
+        } elseif ($victoryDay->format('w') == 4) { // 4 = Thursday
             $this->_addHoliday(
                 'victoryDay1',
                 $this->_year . '-05-09',
@@ -416,10 +416,10 @@ class Date_Holidays_Driver_Russia extends Date_Holidays_Driver
                 'Victory Day'
             );
         } else {
-            if ($victoryDay->getDayOfWeek() == 6) { // 6=Saturday
+            if ($victoryDay->format('w') == 6) { // 6=Saturday
                 $victoryDay = $this->_year . '-05-11';
 
-            } elseif ($victoryDay->getDayOfWeek() == 0) { // 0=Sunday
+            } elseif ($victoryDay->format('w') == 0) { // 0=Sunday
                 $victoryDay = $this->_year . '-05-10';
             }
             $this->_addHoliday('victoryDay', $victoryDay, 'Victory Day');
@@ -428,19 +428,19 @@ class Date_Holidays_Driver_Russia extends Date_Holidays_Driver
         /**
          * Russia Day
          */
-        $russiaDay = new Date($this->_year . '-06-12');
+        $russiaDay = new DateTime($this->_year . '-06-12');
         /*bridge and moving holidays*/
-        if ($russiaDay->getDayOfWeek() == 2) { // 2 = Tuesday
+        if ($russiaDay->format('w') == 2) { // 2 = Tuesday
             $this->_addHoliday('russiaDay1', $this->_year . '-06-11', 'Russia Day');
             $this->_addHoliday('russiaDay2', $this->_year . '-06-12', 'Russia Day');
-        } elseif ($russiaDay->getDayOfWeek() == 4) { // 4 = Thursday
+        } elseif ($russiaDay->format('w') == 4) { // 4 = Thursday
             $this->_addHoliday('russiaDay1', $this->_year . '-06-12', 'Russia Day');
             $this->_addHoliday('russiaDay2', $this->_year . '-06-13', 'Russia Day');
         } else {
-            if ( $russiaDay->getDayOfWeek() == 6) { // 6=Saturday
+            if ( $russiaDay->format('w') == 6) { // 6=Saturday
                 $russiaDay = $this->_year . '-06-14';
 
-            } elseif ($russiaDay->getDayOfWeek() == 0) { // 0=Sunday
+            } elseif ($russiaDay->format('w') == 0) { // 0=Sunday
                 $russiaDay = $this->_year . '-06-13';
             }
             $this->_addHoliday('russiaDay', $russiaDay, 'Russia Day');
@@ -449,19 +449,19 @@ class Date_Holidays_Driver_Russia extends Date_Holidays_Driver
         /**
          * Unity Day
          */
-        $unityDay = new Date($this->_year . '-11-04');
+        $unityDay = new DateTime($this->_year . '-11-04');
         /*bridge and moving holidays*/
-        if ($unityDay->getDayOfWeek() == 2) { // 2 = Tuesday
+        if ($unityDay->format('w') == 2) { // 2 = Tuesday
             $this->_addHoliday('unityDay1', $this->_year . '-11-03', 'Unity Day');
             $this->_addHoliday('unityDay2', $this->_year . '-11-04', 'Unity Day');
-        } elseif ($unityDay->getDayOfWeek() == 4) { // 4 = Thursday
+        } elseif ($unityDay->format('w') == 4) { // 4 = Thursday
             $this->_addHoliday('unityDay1', $this->_year . '-11-04', 'Unity Day');
             $this->_addHoliday('unityDay2', $this->_year . '-11-05', 'Unity Day');
         } else {
-            if ($unityDay->getDayOfWeek() == 6) { // 6=Saturday
+            if ($unityDay->format('w') == 6) { // 6=Saturday
                 $unityDay = $this->_year . '-11-06';
 
-            } elseif ($unityDay->getDayOfWeek() == 0) { // 0=Sunday
+            } elseif ($unityDay->format('w') == 0) { // 0=Sunday
                 $unityDay = $this->_year . '-11-05';
             }
             $this->_addHoliday('unityDay', $unityDay, 'Unity Day');

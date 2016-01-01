@@ -63,10 +63,10 @@ class Date_Holidays_Driver_Australia extends Date_Holidays_Driver
         /*
          * New Year's Day
          */
-        $newYearsDay = new Date($this->_year . '-01-01');
-        if ($newYearsDay->getDayOfWeek() == 0) { // 0 = Sunday
+        $newYearsDay = new DateTime($this->_year . '-01-01');
+        if ($newYearsDay->format('w') == 0) { // 0 = Sunday
             $newYearsDay = $this->_year . '-01-02';
-        } elseif ($newYearsDay->getDayOfWeek() == 6) { // 6 = Saturday
+        } elseif ($newYearsDay->format('w') == 6) { // 6 = Saturday
             $newYearsDay = $this->_year . '-01-03';
         }
         $this->_addHoliday('newYearsDay', $newYearsDay, 'New Year\'s Day');
@@ -75,10 +75,10 @@ class Date_Holidays_Driver_Australia extends Date_Holidays_Driver
         /*
          * Australia Day
          */
-        $australiaDay = new Date($this->_year . '-01-26');
-        if ($australiaDay->getDayOfWeek() == 0) { // 0 = Sunday
+        $australiaDay = new DateTime($this->_year . '-01-26');
+        if ($australiaDay->format('w') == 0) { // 0 = Sunday
             $australiaDay = $this->_year . '-01-27';
-        } elseif ($australiaDay->getDayOfWeek() == 6) { // 6 = Saturday
+        } elseif ($australiaDay->format('w') == 6) { // 6 = Saturday
             $australiaDay = $this->_year . '-01-28';
         }
         $this->_addHoliday('australiaDay', $australiaDay, 'Australia Day');
@@ -87,13 +87,13 @@ class Date_Holidays_Driver_Australia extends Date_Holidays_Driver
          * Easter
          */
         $easter = Date_Holidays_Driver_Christian::calcEaster($this->_year);
-        $goodFridayDate = new Date($easter);
+        
         $goodFridayDate = $this->_addDays($easter, -2);
-        $easterMonday = $easter->getNextDay();
+        $easterMonday = $this->_addDays($easter, 1);
 
         // Conflicts with Anzac day?
-        if ($easterMonday->getDay() == 25) {
-            $this->_addHoliday('easterTuesday', $easterMonday->getNextDay(), 'Easter Tuesday');
+        if ($easterMonday->format('d') == 25) {
+            $this->_addHoliday('easterTuesday', $this->_addDays($easterMonday, 1), 'Easter Tuesday');
             $this->_addTranslationForHoliday('easterTuesday', 'en_EN', 'Easter Tuesday');
         }
 
@@ -106,13 +106,13 @@ class Date_Holidays_Driver_Australia extends Date_Holidays_Driver
         /*
          * Anzac Day
          */
-        $anzacDay = new Date($this->_year . '-04-25');
+        $anzacDay = new DateTime($this->_year . '-04-25');
         $this->_addHoliday('anzacDay', $anzacDay, 'Anzac Day');
         $this->_addTranslationForHoliday('anzacDay', 'en_EN', "Anzac Day");
-        if ($anzacDay->getDayOfWeek() == 0) { // 0 = Sunday
+        if ($anzacDay->format('w') == 0) { // 0 = Sunday
             $anzacDayHol = $this->_year . '-04-26';
             $this->_addHoliday('anzacDay', $anzacDayHol, 'Anzac Day Holiday');
-        } elseif ($anzacDay->getDayOfWeek() == 6) { // 6 = Saturday
+        } elseif ($anzacDay->format('w') == 6) { // 6 = Saturday
             $anzacDayHol = $this->_year . '-04-27';
             $this->_addHoliday('anzacDay', $anzacDayHol, 'Anzac Day Holiday');
         }
@@ -121,21 +121,21 @@ class Date_Holidays_Driver_Australia extends Date_Holidays_Driver
          * The Queen's Birthday.
          * See http://en.wikipedia.org/wiki/Queen%27s_Official_Birthday#Australia
          */
-        $queensBirthday = Date_Calc::nWeekdayOfMonth(1, 1, 6, $this->_year);
+        $queensBirthday = self::nWeekdayOfMonth(1, 1, 6, $this->_year);
         $this->_addHoliday('queensBirthday', $queensBirthday, "Queen's Birthday");
         $this->_addTranslationForHoliday('queensBirthday', 'en_EN', "Queen's Birthday");
 
         /*
          * Christmas and Boxing days
          */
-        $christmasDay = new Date($this->_year . '-12-25');
-        if ($christmasDay->getDayOfWeek() == 6) {
+        $christmasDay = new DateTime($this->_year . '-12-25');
+        if ($christmasDay->format('w') == 6) {
             // 25 December - if that date falls on a Saturday the public holiday transfers to the following Monday.
             $this->_addHoliday('christmasDay',
                                $this->_year . '-12-27',
                                'Substitute Bank Holiday in lieu of Christmas Day');
 
-        } else if ($christmasDay->getDayOfWeek() == 0) {
+        } else if ($christmasDay->format('w') == 0) {
             // If that date falls on a Sunday that day and the following Monday will be public holidays.
             $this->_addHoliday('christmasDay',
                                $this->_year . '-12-26',
@@ -146,18 +146,18 @@ class Date_Holidays_Driver_Australia extends Date_Holidays_Driver
 
         // Boxing day isn't quite a national holiday, as it's labelled Proclamation day in SA.
         // See AustraliaNSW for this implementation.
-        $boxingDay = new Date($this->_year . '-12-26');
-        if ($boxingDay->getDayOfWeek() == 6) {
+        $boxingDay = new DateTime($this->_year . '-12-26');
+        if ($boxingDay->format('w') == 6) {
             //26 December - if that date falls on a Saturday the public holiday transfers to the following Monday.
             $this->_addHoliday('boxingDay',
                                $this->_year . '-12-28',
                                'Substitute Bank Holiday in lieu of Boxing Day');
-        } else if ($boxingDay->getDayOfWeek() == 0) {
+        } else if ($boxingDay->format('w') == 0) {
             // If that date falls on a Sunday that day and the following Tuesday will be public holidays.
             $this->_addHoliday('boxingDay',
                                $this->_year . '-12-28',
                                'Substitute Bank Holiday in lieu of Boxing Day');
-        } else if ($boxingDay->getDayOfWeek() == 1) {
+        } else if ($boxingDay->format('w') == 1) {
             // If that date falls on a Monday that day and the following Tuesday will be public holidays.
             $this->_addHoliday('boxingDay',
                                $this->_year . '-12-26',

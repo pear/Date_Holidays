@@ -92,7 +92,7 @@ class Date_Holidays_Driver_Norway extends Date_Holidays_Driver
          * Easter Monday
          */
         $this->_addHoliday('easterMonday',
-                           $easterDate->getNextDay(),
+                           $easterDate->add( new DateInterval('P1D')),
                            'Easter Monday');
 
         /**

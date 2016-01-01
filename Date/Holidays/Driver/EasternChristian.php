@@ -115,7 +115,7 @@ class Date_Holidays_Driver_EasternChristian extends Date_Holidays_Driver
         /**
          * Passion Sunday
          */
-        $passionSundayDate = new Date($palmSundayDate);
+        $passionSundayDate = new DateTime($palmSundayDate);
         #$passionSundayDate->subtractSpan(new Date_Span('7, 0, 0, 0'));
         $passionSundayDate = $this->_addDays($palmSundayDate, -7);
         $this->_addHoliday('passionSunday', $passionSundayDate, 'Passion Sunday');
@@ -123,7 +123,7 @@ class Date_Holidays_Driver_EasternChristian extends Date_Holidays_Driver
         /**
          * Painful Friday
          */
-        #$painfulFridayDate = new Date($palmSundayDate);
+        #$painfulFridayDate = new DateTime($palmSundayDate);
         #$painfulFridayDate->subtractSpan(new Date_Span('2, 0, 0, 0'));
         $painfulFridayDate = $this->_addDays($palmSundayDate, -2);
         $this->_addHoliday('painfulFriday', $painfulFridayDate, 'Painful Friday');
@@ -131,7 +131,7 @@ class Date_Holidays_Driver_EasternChristian extends Date_Holidays_Driver
         /**
          * White Sunday
          */
-        #$whiteSundayDate = new Date($easterDate);
+        #$whiteSundayDate = new DateTime($easterDate);
         #$whiteSundayDate->addSpan(new Date_Span('7, 0, 0, 0'));
         $whiteSundayDate = $this->_addDays($easterDate, 7);
         $this->_addHoliday('whiteSunday', $whiteSundayDate, 'White Sunday');
@@ -139,7 +139,7 @@ class Date_Holidays_Driver_EasternChristian extends Date_Holidays_Driver
         /**
          * Ash Wednesday
          */
-        #$ashWednesdayDate = new Date($easterDate);
+        #$ashWednesdayDate = new DateTime($easterDate);
         #$ashWednesdayDate->subtractSpan(new Date_Span('46, 0, 0, 0'));
         $ashWednesdayDate = $this->_addDays($easterDate, -46);
         $this->_addHoliday('ashWednesday', $ashWednesdayDate, 'Ash Wednesday');
@@ -147,7 +147,7 @@ class Date_Holidays_Driver_EasternChristian extends Date_Holidays_Driver
         /**
          * Good Friday / Black Friday
          */
-        #$goodFridayDate = new Date($easterDate);
+        #$goodFridayDate = new DateTime($easterDate);
         #$goodFridayDate->subtractSpan(new Date_Span('2, 0, 0, 0'));
         $goodFridayDate = $this->_addDays($easterDate, -2);
         $this->_addHoliday('goodFriday', $goodFridayDate, 'Good Friday');
@@ -156,20 +156,20 @@ class Date_Holidays_Driver_EasternChristian extends Date_Holidays_Driver
          * Green Thursday
          */
         $this->_addHoliday('greenThursday',
-                           $goodFridayDate->getPrevDay(),
+                           $goodFridayDate->sub( new DateInterval('P1D')),
                            'Green Thursday');
 
         /**
          * Easter Monday
          */
         $this->_addHoliday('easterMonday',
-                           $easterDate->getNextDay(),
+                           $easterDate->add( new DateInterval('P1D')),
                            'Easter Monday');
 
         /**
          * Triytsia
          */
-        #$triyDate = new Date($easterDate);
+        #$triyDate = new DateTime($easterDate);
         #$triyDate->addSpan(new Date_Span('49, 0, 0, 0'));
         $triyDate = $this->_addDays($easterDate, 49);
 
@@ -207,7 +207,7 @@ class Date_Holidays_Driver_EasternChristian extends Date_Holidays_Driver
         $r5 = $rb % 7;
         $rc = $r4 + $r5 + $julianOffset;
 
-        $offset = new Date("$year-03-21");
+        $offset = new DateTime("$year-03-21");
         #$offset->addSpan(new Date_Span("$rc, 0, 0, 0"));
         $offset = $this->_addDays($offset, $rc);
 

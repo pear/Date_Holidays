@@ -92,7 +92,7 @@ class Date_Holidays_Driver_Denmark extends Date_Holidays_Driver
          * Easter Monday
          */
         $this->_addHoliday('easterMonday',
-                           $easterDate->getNextDay(),
+                           $easterDate->add( new DateInterval('P1D')),
                            'Easter Monday');
         $this->_addTranslationForHoliday('easterMonday', 'da_DK', '2. Påskedag');
 
@@ -114,7 +114,7 @@ class Date_Holidays_Driver_Denmark extends Date_Holidays_Driver
          * Green Thursday
          */
         $this->_addHoliday('greenThursday',
-                           $goodFridayDate->getPrevDay(),
+                           $goodFridayDate->sub( new DateInterval('P1D')),
                            'Green Thursday');
         $this->_addTranslationForHoliday('greenThursday', 'da_DK', 'Skærtorsdag');
 
@@ -130,7 +130,7 @@ class Date_Holidays_Driver_Denmark extends Date_Holidays_Driver
          * Whit Monday
          */
         $this->_addHoliday('whitMonday',
-                           $whitsunDate->getNextDay(),
+                           $whitsunDate->add( new DateInterval('P1D')),
                            'Whit Monday');
         $this->_addTranslationForHoliday('whitMonday', 'da_DK', '2. Pinsedag');
 

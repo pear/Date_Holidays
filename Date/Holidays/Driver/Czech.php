@@ -162,7 +162,7 @@ class Date_Holidays_Driver_Czech extends Date_Holidays_Driver
          */
         $this->_addHoliday(
             'easterMonday',
-            $easterDate->getNextDay(),
+            $easterDate->add( new DateInterval('P1D')),
             'Velikonoční pondělí'
         );
 
@@ -188,7 +188,7 @@ class Date_Holidays_Driver_Czech extends Date_Holidays_Driver
          * Mothers Day
          */
         $mothersDay = $this->_calcFirstMonday("05");
-        $mothersDay = $mothersDay->getPrevDay();
+        $mothersDay = $mothersDay->sub( new DateInterval('P1D'));
         $mothersDay = $this->_addDays($mothersDay, 7);
         $this->_addHoliday(
             'mothersDay',
@@ -222,7 +222,7 @@ class Date_Holidays_Driver_Czech extends Date_Holidays_Driver
          */
         $this->_addHoliday(
             'whitMonday',
-            $whitsunDate->getNextDay(),
+            $whitsunDate->add( new DateInterval('P1D')),
             'Svatodušní pondělí'
         );
 
@@ -330,8 +330,8 @@ class Date_Holidays_Driver_Czech extends Date_Holidays_Driver
         /**
          * 1. Advent
          */
-        $firstAdv = new Date($this->_year . '-12-03');
-        $dayOfWeek = $firstAdv->getDayOfWeek();
+        $firstAdv = new DateTime($this->_year . '-12-03');
+        $dayOfWeek = $firstAdv->format('w');
         $firstAdv = $this->_addDays($firstAdv, -$dayOfWeek);
         $this->_addHoliday(
             'firstAdvent',

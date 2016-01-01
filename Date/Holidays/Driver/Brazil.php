@@ -109,8 +109,8 @@ class Date_Holidays_Driver_Brazil extends Date_Holidays_Driver_Christian
         /**
          * Carnival
          */
-        $carnival = new Date($ashWednesdayDate);
-        $carnival = $carnival->getPrevDay();
+        $carnival = new DateTime($ashWednesdayDate);
+        $carnival = $carnival->sub( new DateInterval('P1D'));
         $this->_addHoliday('carnival',
                            $carnival,
                            'Carnival');

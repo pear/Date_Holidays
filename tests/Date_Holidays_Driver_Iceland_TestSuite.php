@@ -231,9 +231,9 @@ class Date_Holidays_Driver_Iceland_TestSuite extends PHPUnit_Framework_TestCase
             $this->assertFalse(Date_Holidays::isError($day), "$name is an error?");
             $this->assertEquals($name, $day->getInternalName(), $day->getInternalName() . " is not the same as $name");
             $date = $day->getDate();
-            $this->assertEquals($dateInfo['day'], $date->getDay(), $name);
-            $this->assertEquals($dateInfo['month'], $date->getMonth(), $name);
-            $this->assertEquals($dateInfo['year'], $date->getYear(), $name);
+            $this->assertEquals($dateInfo['day'], $date->format('d'), $name);
+            $this->assertEquals($dateInfo['month'], $date->format('m'), $name);
+            $this->assertEquals($dateInfo['year'], $date->format('Y'), $name);
         }
     }
 
@@ -253,9 +253,9 @@ class Date_Holidays_Driver_Iceland_TestSuite extends PHPUnit_Framework_TestCase
             $this->assertFalse(Date_Holidays::isError($day), "$name is an error?");
             $this->assertEquals($name, $day->getInternalName(), $day->getInternalName() . " is not the same as $name");
             $date = $day->getDate();
-            $this->assertEquals($dateInfo['day'], $date->getDay(), $name);
-            $this->assertEquals($dateInfo['month'], $date->getMonth(), $name);
-            $this->assertEquals($dateInfo['year'], $date->getYear(), $name);
+            $this->assertEquals($dateInfo['day'], $date->format('d'), $name);
+            $this->assertEquals($dateInfo['month'], $date->format('m'), $name);
+            $this->assertEquals($dateInfo['year'], $date->format('Y'), $name);
         }
     }
 

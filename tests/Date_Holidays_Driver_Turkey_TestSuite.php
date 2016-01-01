@@ -60,9 +60,9 @@ class Date_Holidays_Driver_Turkey_TestSuite extends PHPUnit_Framework_TestCase
         if (Date_Holidays::isError($day)) {
             die('Factory was unable to make newYearsDay');
         }
-        $this->assertEquals(12, $day->getMonth());
-        $this->assertEquals(31, $day->getDay());
-        $this->assertEquals(2004, $day->getYear());
+        $this->assertEquals(12, $day->format('m'));
+        $this->assertEquals(31, $day->format('d'));
+        $this->assertEquals(2004, $day->format('Y'));
 
         // Test Ulusal Egemenlik ve Çocuk Bayramı
         $day = $holidays->getHolidayDate('egemenlikDay');
@@ -70,32 +70,32 @@ class Date_Holidays_Driver_Turkey_TestSuite extends PHPUnit_Framework_TestCase
             die('Factory was unable to create egemenlikDay');
         }
 
-        $this->assertEquals(4, $day->getMonth());
-        $this->assertEquals(23, $day->getDay());
+        $this->assertEquals(4, $day->format('m'));
+        $this->assertEquals(23, $day->format('d'));
 
         // Test Atatürk'ü Anma Gençlik ve Spor Bayramı
         $day = $holidays->getHolidayDate('genclikDay');
         if (Date_Holidays::isError($day)) {
             die('Factory was unable to create genclikDay day');
         }
-        $this->assertEquals(5, $day->getMonth());
-        $this->assertEquals(19, $day->getDay());
+        $this->assertEquals(5, $day->format('m'));
+        $this->assertEquals(19, $day->format('d'));
 
         // Test Zafer Bayramı
         $day = $holidays->getHolidayDate('zaferDay');
         if (Date_Holidays::isError($day)) {
             die('Factory was unable to create zaferDay day');
         }
-        $this->assertEquals(8, $day->getMonth());
-        $this->assertEquals(30, $day->getDay());
+        $this->assertEquals(8, $day->format('m'));
+        $this->assertEquals(30, $day->format('d'));
 
         // Test Cumhuriyet Bayramı
         $day = $holidays->getHolidayDate('cumhuriyetDay');
         if (Date_Holidays::isError($day)) {
             die('Factory was unable to create cumhuriyetDay day');
         }
-        $this->assertEquals(10, $day->getMonth());
-        $this->assertEquals(29, $day->getDay());
+        $this->assertEquals(10, $day->format('m'));
+        $this->assertEquals(29, $day->format('d'));
 
     }
 
@@ -118,9 +118,9 @@ class Date_Holidays_Driver_Turkey_TestSuite extends PHPUnit_Framework_TestCase
         if (Date_Holidays::isError($day)) {
             die('Factory was unable to make newYearsDay');
         }
-        $this->assertEquals(12, $day->getMonth());
-        $this->assertEquals(31, $day->getDay());
-        $this->assertEquals(2004, $day->getYear());
+        $this->assertEquals(12, $day->format('m'));
+        $this->assertEquals(31, $day->format('d'));
+        $this->assertEquals(2004, $day->format('Y'));
 
         // Test Ulusal Egemenlik ve Çocuk Bayramı
         $day = $holidays->getHolidayDate('egemenlikDay');
@@ -128,32 +128,32 @@ class Date_Holidays_Driver_Turkey_TestSuite extends PHPUnit_Framework_TestCase
             die('Factory was unable to create egemenlikDay day');
         }
 
-        $this->assertEquals(4, $day->getMonth());
-        $this->assertEquals(23, $day->getDay());
+        $this->assertEquals(4, $day->format('m'));
+        $this->assertEquals(23, $day->format('d'));
 
         // Test Atatürk'ü Anma Gençlik ve Spor Bayramı
         $day = $holidays->getHolidayDate('genclikDay');
         if (Date_Holidays::isError($day)) {
             die('Factory was unable to create genclikDay day');
         }
-        $this->assertEquals(5, $day->getMonth());
-        $this->assertEquals(19, $day->getDay());
+        $this->assertEquals(5, $day->format('m'));
+        $this->assertEquals(19, $day->format('d'));
 
         // Test Zafer Bayramı
         $day = $holidays->getHolidayDate('zaferDay');
         if (Date_Holidays::isError($day)) {
             die('Factory was unable to create zaferDay day');
         }
-        $this->assertEquals(8, $day->getMonth());
-        $this->assertEquals(30, $day->getDay());
+        $this->assertEquals(8, $day->format('m'));
+        $this->assertEquals(30, $day->format('d'));
 
         // Test Cumhuriyet Bayramı
         $day = $holidays->getHolidayDate('cumhuriyetDay');
         if (Date_Holidays::isError($day)) {
             die('Factory was unable to create cumhuriyetDay day');
         }
-        $this->assertEquals(10, $day->getMonth());
-        $this->assertEquals(29, $day->getDay());
+        $this->assertEquals(10, $day->format('m'));
+        $this->assertEquals(29, $day->format('d'));
 
     }
 
@@ -176,9 +176,9 @@ class Date_Holidays_Driver_Turkey_TestSuite extends PHPUnit_Framework_TestCase
         if (Date_Holidays::isError($day)) {
             die('Factory was unable to make newYearsDay');
         }
-        $this->assertEquals(12, $day->getMonth());
-        $this->assertEquals(31, $day->getDay());
-        $this->assertEquals(2004, $day->getYear());
+        $this->assertEquals(12, $day->format('m'));
+        $this->assertEquals(31, $day->format('d'));
+        $this->assertEquals(2004, $day->format('Y'));
 
         // Test Ulusal Egemenlik ve Çocuk Bayramı
         $day = $holidays->getHolidayDate('egemenlikDay');
@@ -186,32 +186,32 @@ class Date_Holidays_Driver_Turkey_TestSuite extends PHPUnit_Framework_TestCase
             die('Factory was unable to create egemenlikDay day');
         }
 
-        $this->assertEquals(4, $day->getMonth());
-        $this->assertEquals(23, $day->getDay());
+        $this->assertEquals(4, $day->format('m'));
+        $this->assertEquals(23, $day->format('d'));
 
         // Test Atatürk'ü Anma Gençlik ve Spor Bayramı
         $day = $holidays->getHolidayDate('genclikDay');
         if (Date_Holidays::isError($day)) {
             die('Factory was unable to create genclikDay day');
         }
-        $this->assertEquals(5, $day->getMonth());
-        $this->assertEquals(19, $day->getDay());
+        $this->assertEquals(5, $day->format('m'));
+        $this->assertEquals(19, $day->format('d'));
 
         // Test Zafer Bayramı
         $day = $holidays->getHolidayDate('zaferDay');
         if (Date_Holidays::isError($day)) {
             die('Factory was unable to create zaferDay day');
         }
-        $this->assertEquals(8, $day->getMonth());
-        $this->assertEquals(30, $day->getDay());
+        $this->assertEquals(8, $day->format('m'));
+        $this->assertEquals(30, $day->format('d'));
 
         // Test Cumhuriyet Bayramı
         $day = $holidays->getHolidayDate('cumhuriyetDay');
         if (Date_Holidays::isError($day)) {
             die('Factory was unable to create cumhuriyetDay day');
         }
-        $this->assertEquals(10, $day->getMonth());
-        $this->assertEquals(29, $day->getDay());
+        $this->assertEquals(10, $day->format('m'));
+        $this->assertEquals(29, $day->format('d'));
 
     }
     /**

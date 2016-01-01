@@ -82,7 +82,7 @@ class Date_Holidays_Driver_Romania extends Date_Holidays_Driver
          * Easter Monday
          */
         $this->_addHoliday('easterMonday',
-                           $easterDate->getNextday(),
+                           $this->_addDays($easterDate, 1),
                            'Easter Monday');
 
 

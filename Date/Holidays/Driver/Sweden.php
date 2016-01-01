@@ -98,7 +98,7 @@ class Date_Holidays_Driver_Sweden extends Date_Holidays_Driver
          * Easter Monday
          */
         $this->_addHoliday('easterMonday',
-                           $easterDate->getNextDay(),
+                           $this->_addDays($easterDate, 1),
                            'Easter Monday');
 
         /**
@@ -132,8 +132,8 @@ class Date_Holidays_Driver_Sweden extends Date_Holidays_Driver
          * Midsummer
          * Saturday past 20th, June
          */
-        $juneDate  = new Date($this->_year . '-06-20');
-        $dayOfWeek = $juneDate->getDayOfWeek();
+        $juneDate  = new DateTime($this->_year . '-06-20');
+        $dayOfWeek = $juneDate->format('w');
         $midSummerDate = $this->_addDays($juneDate, 6 - $dayOfWeek);
         $this->_addHoliday('midSummer', $midSummerDate, 'Midsummer Day');
 
@@ -142,14 +142,14 @@ class Date_Holidays_Driver_Sweden extends Date_Holidays_Driver
          * Day before Midsummer.
          */
         $this->_addHoliday('midSummerEve',
-                           $midSummerDate->getPrevDay(),
+                           $this->_addDays($midSummerDate, -1),
                            'Midsummer Eve');
 
         /**
          * All Saints' Day
          */
-        $saintspanDate = new Date($this->_year . '-10-31');
-        $dayOfWeek     = $saintspanDate->getDayOfWeek();
+        $saintspanDate = new DateTime($this->_year . '-10-31');
+        $dayOfWeek     = $saintspanDate->format('w');
         $allSaintsDate = $this->_addDays($saintspanDate, 6 - $dayOfWeek);
         $this->_addHoliday('allSaintsDay', $allSaintsDate, 'All Saints\' Day');
 

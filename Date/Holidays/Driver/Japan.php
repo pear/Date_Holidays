@@ -343,8 +343,8 @@ class Date_Holidays_Driver_Japan extends Date_Holidays_Driver
             $internalName = 'greeneryDay';
             $title = 'Greenery Day';
         } else if ($this->_year >= 1986) {
-            $date = new Date($this->_year . '-05-04');
-            if ($date->getDayOfWeek() != 0) {
+            $date = new DateTime($this->_year . '-05-04');
+            if ($date->format('w') != 0) {
                 $internalName = 'nationalHoliday';
                 $title = 'National Holiday';
             }
@@ -507,11 +507,11 @@ class Date_Holidays_Driver_Japan extends Date_Holidays_Driver
             );
 
             if ($this->_year >= 2003 
-                && $this->getHolidayDate('autumnalEquinoxDay')->getDayOfWeek() == 3
+                && $this->getHolidayDate('autumnalEquinoxDay')->format('w') == 3
             ) {
                 $this->_addHoliday(
                     'nationalHolidayBeforeAutumnalEquinoxDay',
-                    $this->getHolidayDate('autumnalEquinoxDay')->getPrevDay(),
+                    $this->getHolidayDate('autumnalEquinoxDay')->sub( new DateInterval('P1D')),
                     'National Holiday before Autumnal Equinox Day'
                 );
             }
@@ -619,13 +619,13 @@ class Date_Holidays_Driver_Japan extends Date_Holidays_Driver
     {
         // calculate 'current' substitute holidays
         foreach ($this->_dates as $internalName => $date) {
-            if ($date->getDayOfWeek() == 0) {
+            if ($date->format('w') == 0) {
                 if ($this->_year >= 2007) {
                     while (in_array($date, $this->_dates)) {
-                        $date = $date->getNextDay();
+                        $date = $date->add( new DateInterval('P1D'));
                     }
                 } else if ($date->getDate() >= '1973-04-12') {
-                    $date = $date->getNextDay();
+                    $date = $date->add( new DateInterval('P1D'));
                     if (in_array($date, $this->_dates)) {
                         continue;
                     }

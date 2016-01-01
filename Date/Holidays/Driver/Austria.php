@@ -139,7 +139,8 @@ class Date_Holidays_Driver_Austria extends Date_Holidays_Driver
         /**
          * Easter Monday
          */
-        $this->_addHoliday('easterMonday', $easterDate->getNextDay(), 'Ostermontag');
+        $easterMonday = $this->_addDays($easterDate, 1);
+        $this->_addHoliday('easterMonday', $easterMonday, 'Ostermontag');
         $this->_addTranslationForHoliday('easterMonday', 'en_EN', 'Easter Monday');
 
         /**
@@ -160,9 +161,9 @@ class Date_Holidays_Driver_Austria extends Date_Holidays_Driver
         /**
          * Mothers Day
          */
-        $mothersDay = $this->_calcFirstMonday("05");
-        $mothersDay = $mothersDay->getPrevDay();
-        $mothersDay = $this->_addDays($mothersDay, 7);
+        $mothersDay = $this->_calcFirstMonday(5);
+       // $mothersDay = $mothersDay->sub( new DateInterval('P1D'));
+        $mothersDay = $this->_addDays($mothersDay, 6);
         $this->_addHoliday('mothersDay', $mothersDay, 'Muttertag');
         $this->_addTranslationForHoliday('mothersDay', 'en_EN', 'Mothers Day');
 
@@ -186,7 +187,7 @@ class Date_Holidays_Driver_Austria extends Date_Holidays_Driver
          */
         $this->_addHoliday(
             'whitMonday',
-            $whitsunDate->getNextDay(),
+            $this->_addDays($whitsunDate, 1),
             'Pfingstmontag'
         );
         $this->_addTranslationForHoliday('whitMonday', 'en_EN', 'Whit Monday');
@@ -201,8 +202,8 @@ class Date_Holidays_Driver_Austria extends Date_Holidays_Driver
         /**
          * Fathers Day
          */
-        $fathersDay = $this->_calcFirstMonday("06");
-        $fathersDay = $fathersDay->getPrevDay();
+        $fathersDay = $this->_calcFirstMonday(6);
+        $fathersDay = $fathersDay->sub( new DateInterval('P1D'));
         $fathersDay = $this->_addDays($fathersDay, 7);
         $this->_addHoliday(
             'fathersDay',
@@ -302,9 +303,11 @@ class Date_Holidays_Driver_Austria extends Date_Holidays_Driver
         /**
          * 1. Advent
          */
-        $firstAdv = new Date($this->_year . '-12-03');
-        $dayOfWeek = $firstAdv->getDayOfWeek();
-        $firstAdv = $this->_addDays($firstAdv, - $dayOfWeek);
+        $firstAdv = new DateTime($this->_year . '-12-03');
+        $dayOfWeek = $firstAdv->format('w');
+        $firstAdv = $this->_addDays($firstAdv, -$dayOfWeek);
+        
+        
         $this->_addHoliday(
             'firstAdvent',
             $firstAdv,
@@ -345,6 +348,8 @@ class Date_Holidays_Driver_Austria extends Date_Holidays_Driver
         );
         $this->_addTranslationForHoliday('fourthAdvent', 'en_EN', '4. Advent');
 
+        
+        
         /**
          * Christmas Eve
          */

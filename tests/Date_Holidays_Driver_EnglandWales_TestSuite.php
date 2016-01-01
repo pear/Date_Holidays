@@ -117,9 +117,9 @@ class Date_Holidays_Driver_EnglandWales_TestSuite extends PHPUnit_Framework_Test
             $this->assertFalse(Date_Holidays::isError($day));
             $this->assertEquals($name, $day->getInternalName());
             $date = $day->getDate();
-            $this->assertEquals($dateInfo['day'], $date->getDay(), $name);
-            $this->assertEquals($dateInfo['month'], $date->getMonth(), $name);
-            $this->assertEquals($dateInfo['year'], $date->getYear(), $name);
+            $this->assertEquals($dateInfo['day'], $date->format('d'), $name);
+            $this->assertEquals($dateInfo['month'], $date->format('m'), $name);
+            $this->assertEquals($dateInfo['year'], $date->format('Y'), $name);
         }
     }
 
@@ -138,9 +138,9 @@ class Date_Holidays_Driver_EnglandWales_TestSuite extends PHPUnit_Framework_Test
             $this->assertFalse(Date_Holidays::isError($day));
             $this->assertEquals($name, $day->getInternalName());
             $date = $day->getDate();
-            $this->assertEquals($dateInfo['day'], $date->getDay(), $name);
-            $this->assertEquals($dateInfo['month'], $date->getMonth(), $name);
-            $this->assertEquals($dateInfo['year'], $date->getYear(), $name);
+            $this->assertEquals($dateInfo['day'], $date->format('d'), $name);
+            $this->assertEquals($dateInfo['month'], $date->format('m'), $name);
+            $this->assertEquals($dateInfo['year'], $date->format('Y'), $name);
         }
     }
 
@@ -157,15 +157,15 @@ class Date_Holidays_Driver_EnglandWales_TestSuite extends PHPUnit_Framework_Test
         $day = $d12->getHoliday('queensJubilee');
         $this->assertEquals(false, Date_Holidays::isError($day));
         $date = $day->getDate();
-        $this->assertEquals($date->getYear(), 2012);
-        $this->assertEquals($date->getMonth(), 6);
-        $this->assertEquals($date->getDay(), 5);
+        $this->assertEquals($date->format('Y'), 2012);
+        $this->assertEquals($date->format('m'), 6);
+        $this->assertEquals($date->format('d'), 5);
 
         $sbd = $d12->getHoliday('springBank');
         $sdate = $sbd->getDate();
-        $this->assertEquals($sdate->getYear(), 2012);
-        $this->assertEquals($sdate->getMonth(), 6);
-        $this->assertEquals($sdate->getDay(), 4);
+        $this->assertEquals($sdate->format('Y'), 2012);
+        $this->assertEquals($sdate->format('m'), 6);
+        $this->assertEquals($sdate->format('d'), 4);
 
         $d11 = Date_Holidays::factory('EnglandWales', 2011);
         $day = $d11->getHoliday('queensJubilee');
@@ -179,9 +179,9 @@ class Date_Holidays_Driver_EnglandWales_TestSuite extends PHPUnit_Framework_Test
             $this->fail(helper_get_error_message($sbd));
         }
         $sdate = $sbd->getDate();
-        $this->assertEquals($sdate->getYear(), 2011);
-        $this->assertEquals($sdate->getMonth(), 5);
-        $this->assertEquals($sdate->getDay(), 30);
+        $this->assertEquals($sdate->format('Y'), 2011);
+        $this->assertEquals($sdate->format('m'), 5);
+        $this->assertEquals($sdate->format('d'), 30);
     }
 }
 ?>

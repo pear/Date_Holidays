@@ -69,12 +69,12 @@ class Date_Holidays_Driver_EnglandWales extends Date_Holidays_Driver
         /**
          * New Year's Day
          */
-        $newYearsDay = new Date($this->_year . '-01-01');
-        if ($newYearsDay->getDayOfWeek() == 0) {
+        $newYearsDay = new DateTime($this->_year . '-01-01');
+        if ($newYearsDay->format('w') == 0) {
             $this->_addHoliday('newYearsDay',
                                $this->_year . '-01-02',
                                'Substitute Bank Holiday in lieu of New Year\'s Day');
-        } elseif ($newYearsDay->getDayOfWeek() == 6) {
+        } elseif ($newYearsDay->format('w') == 6) {
             $this->_addHoliday('newYearsDay',
                                $this->_year . '-01-03',
                                'Substitute Bank Holiday in lieu of New Year\'s Day');
@@ -90,7 +90,7 @@ class Date_Holidays_Driver_EnglandWales extends Date_Holidays_Driver
         if ($this->_year == 2012) {
             $this->_addHoliday(
                 'queensJubilee',
-                new Date('2012-06-05'),
+                new DateTime('2012-06-05'),
                 'Queen\'s Jubilee');
         }
 
@@ -102,7 +102,7 @@ class Date_Holidays_Driver_EnglandWales extends Date_Holidays_Driver
         /**
          * Good Friday
          */
-        $goodFridayDate = new Date($easterDate);
+       
         $goodFridayDate = $this->_addDays($easterDate, -2);
         $this->_addHoliday('goodFriday', $goodFridayDate, 'Good Friday');
 
@@ -110,7 +110,7 @@ class Date_Holidays_Driver_EnglandWales extends Date_Holidays_Driver
          * Easter Monday
          */
         $this->_addHoliday('easterMonday',
-                           $easterDate->getNextDay(),
+                           $easterDate->add( new DateInterval('P1D')),
                            'Easter Monday');
 
         /**
@@ -127,7 +127,7 @@ class Date_Holidays_Driver_EnglandWales extends Date_Holidays_Driver
         if ($this->_year == 2012) {
             $this->_addHoliday(
                 'springBank',
-                new Date('2012-06-04'),
+                new DateTime('2012-06-04'),
                 'Spring Bank Holiday');
         } else {
             $springBankDate = Date_Holidays_Driver::_calcLastMonday(5);
@@ -143,18 +143,18 @@ class Date_Holidays_Driver_EnglandWales extends Date_Holidays_Driver
         /**
          * Christmas and Boxing Day
          */
-        $christmasDay = new Date($this->_year . '-12-25');
-        if ($christmasDay->getDayOfWeek() == 0) {
+        $christmasDay = new DateTime($this->_year . '-12-25');
+        if ($christmasDay->format('w') == 0) {
             $this->_addHoliday('boxingDay', $this->_year . '-12-26', 'Boxing Day');
             $this->_addHoliday('christmasDay',
                                $this->_year . '-12-27',
                                'Substitute Bank Holiday in lieu of Christmas Day');
-        } elseif ($christmasDay->getDayOfWeek() == 5) {
+        } elseif ($christmasDay->format('w') == 5) {
             $this->_addHoliday('christmasDay', $christmasDay, 'Christmas Day');
             $this->_addHoliday('boxingDay',
                                $this->_year . '-12-28',
                                'Substitute Bank Holiday in lieu of Boxing Day');
-        } elseif ($christmasDay->getDayOfWeek() == 6) {
+        } elseif ($christmasDay->format('w') == 6) {
             $this->_addHoliday('christmasDay',
                                $this->_year . '-12-28',
                                'Substitute Bank Holiday in lieu of Christmas Day');

@@ -89,7 +89,7 @@ class Date_Holidays_Driver_USA extends Date_Holidays_Driver
         /**
          * Memorial Day
          */
-        $lastMondayInMayDate = $this->_calcLastMondayInMonth(5);
+        $lastMondayInMayDate = self::nWeekDayOfMonth('last', 1, 5, $this->_year);
         $this->_addHoliday('memorialDay', $lastMondayInMayDate, 'Memorial Day');
 
         /**
@@ -154,9 +154,9 @@ class Date_Holidays_Driver_USA extends Date_Holidays_Driver
         }
         $month = sprintf("%02d", $month);
 
-        $date = new Date($this->_year . '-' . $month . '-' . $startday);
-        while ($date->getDayOfWeek() != 4) {
-            $date = $date->getNextDay();
+        $date = new DateTime($this->_year . '-' . $month . '-' . $startday);
+        while ($date->format('w') != 4) {
+            $date = $date->add( new DateInterval('P1D'));
         }
         return $date;
     }
@@ -172,11 +172,11 @@ class Date_Holidays_Driver_USA extends Date_Holidays_Driver
     function _calcLastMondayInMonth($month)
     {
         $month       = sprintf("%02d", $month);
-        $date        = new Date($this->_year . '-' . $month . '-01');
+        $date        = new DateTime($this->_year . '-' . $month . '-01');
         $daysInMonth = $date->getDaysInMonth();
-        $date        = new Date($this->_year . '-' . $month . '-' . $daysInMonth);
-        while ($date->getDayOfWeek() != 1) {
-            $date = $date->getPrevDay();
+        $date        = new DateTime($this->_year . '-' . $month . '-' . $daysInMonth);
+        while ($date->format('w') != 1) {
+            $date = $date->sub( new DateInterval('P1D'));
         }
 
         return $date;
@@ -195,19 +195,19 @@ class Date_Holidays_Driver_USA extends Date_Holidays_Driver
     {
         $month = sprintf("%02d", $month);
         $day   = sprintf("%02d", $day);
-        $date  = new Date($this->_year . '-' . $month . '-' . $day);
+        $date  = new DateTime($this->_year . '-' . $month . '-' . $day);
 
         // When one of these holidays falls on a Saturday, the previous day is
         // also a holiday
         // When New Year's Day, Independence Day, or Christmas Day falls on a
         // Sunday, the next day is also a holiday.
-        if ($date->getDayOfWeek() == 0 ) {
+        if ($date->format('w') == 0 ) {
             // bump it up one
-            $date = $date->getNextDay();
+            $date = $date->add( new DateInterval('P1D'));
         }
-        if ($date->getDayOfWeek() == 6 ) {
+        if ($date->format('w') == 6 ) {
             // push it back one
-            $date = $date->getPrevDay();
+            $date = $date->sub( new DateInterval('P1D'));
         }
 
         return $date;

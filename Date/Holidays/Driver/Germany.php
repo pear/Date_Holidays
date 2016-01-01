@@ -126,8 +126,8 @@ class Date_Holidays_Driver_Germany extends Date_Holidays_Driver_Christian
         /**
          * Girls' Day (fourth Thursday in April)
          */
-        $girlsDayDate = new Date($this->_year . '-04-01');
-        $dayOfWeek    = $girlsDayDate->getDayOfWeek();
+        $girlsDayDate = new DateTime($this->_year . '-04-01');
+        $dayOfWeek    = $girlsDayDate->format('w');
         switch ($dayOfWeek) {
         case 0:
         case 1:
@@ -176,9 +176,9 @@ class Date_Holidays_Driver_Germany extends Date_Holidays_Driver_Christian
         /**
          * World's Laughing Day
          */
-        $laughingDayDate = new Date($this->_year . '-05-01');
-        while ($laughingDayDate->getDayOfWeek() != 0) {
-            $laughingDayDate = $laughingDayDate->getNextDay();
+        $laughingDayDate = new DateTime($this->_year . '-05-01');
+        while ($laughingDayDate->format('w') != 0) {
+            $laughingDayDate = $laughingDayDate->add( new DateInterval('P1D'));
         }
         $this->_addHoliday('laughingDay',
                            $laughingDayDate,
@@ -226,9 +226,9 @@ class Date_Holidays_Driver_Germany extends Date_Holidays_Driver_Christian
         /**
          * Day of organ donation
          */
-        $organDonationDate = new Date($this->_year . '-06-01');
-        while ($organDonationDate->getDayOfWeek() != 6) {
-            $organDonationDate = $organDonationDate->getNextDay();
+        $organDonationDate = new DateTime($this->_year . '-06-01');
+        while ($organDonationDate->format('w') != 6) {
+            $organDonationDate = $organDonationDate->add( new DateInterval('P1D'));
         }
         $this->_addHoliday('organDonationDay',
                            $organDonationDate,
@@ -279,9 +279,9 @@ class Date_Holidays_Driver_Germany extends Date_Holidays_Driver_Christian
         /**
          * Day of German Language
          */
-        $germanLangDayDate = new Date($this->_year . '-09-01');
-        while ($germanLangDayDate->getDayOfWeek() != 6) {
-            $germanLangDayDate = $germanLangDayDate->getNextDay();
+        $germanLangDayDate = new DateTime($this->_year . '-09-01');
+        while ($germanLangDayDate->format('w') != 6) {
+            $germanLangDayDate = $germanLangDayDate->add( new DateInterval('P1D'));
         }
         $germanLangDayDate = $this->_addDays($germanLangDayDate, 7);
         $this->_addHoliday('germanLanguageDay',
@@ -329,14 +329,14 @@ class Date_Holidays_Driver_Germany extends Date_Holidays_Driver_Christian
          */
         $stampsDayDate = null;
         if ($this->_year <= 1948) {
-            $stampsDayDate = new Date($this->_year . '-01-07');
-            while ($stampsDayDate->getDayOfWeek() != 0) {
-                $stampsDayDate = $stampsDayDate->getNextDay();
+            $stampsDayDate = new DateTime($this->_year . '-01-07');
+            while ($stampsDayDate->format('w') != 0) {
+                $stampsDayDate = $stampsDayDate->add( new DateInterval('P1D'));
             }
         } else {
-            $stampsDayDate = new Date($this->_year . '-10-31');
-            while ($stampsDayDate->getDayOfWeek() != 0) {
-                $stampsDayDate = $stampsDayDate->getPrevDay();
+            $stampsDayDate = new DateTime($this->_year . '-10-31');
+            while ($stampsDayDate->format('w') != 0) {
+                $stampsDayDate = $stampsDayDate->sub( new DateInterval('P1D'));
             }
         }
         $this->_addHoliday('stampsDay', $stampsDayDate, 'Stamp\'s Day');

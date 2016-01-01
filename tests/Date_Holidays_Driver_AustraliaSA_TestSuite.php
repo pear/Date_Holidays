@@ -68,6 +68,7 @@ class Date_Holidays_Driver_AustraliaSA_TestSuite extends PHPUnit_Framework_TestC
         if (Date_Holidays::isError($drv)) {
             $this->fail(helper_get_error_message($drv));
         }
+        
 
         $day = $drv->getHoliday($name);
         if (Date_Holidays::isError($day)) {
@@ -75,9 +76,10 @@ class Date_Holidays_Driver_AustraliaSA_TestSuite extends PHPUnit_Framework_TestC
         }
         $this->assertEquals($name, $day->getInternalName());
         $date = $day->getDate();
-        $this->assertEquals($dateInfo['day'], $date->getDay(), $name);
-        $this->assertEquals($dateInfo['month'], $date->getMonth(), $name);
-        $this->assertEquals($dateInfo['year'], $date->getYear(), $name);
+        
+        $this->assertEquals($dateInfo['day'], $date->format('d'), $name  );
+        $this->assertEquals($dateInfo['month'], $date->format('m'), $name);
+        $this->assertEquals($dateInfo['year'], $date->format('Y'), $name);
     }
 
 

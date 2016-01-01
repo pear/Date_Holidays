@@ -98,7 +98,7 @@ class Date_Holidays_Driver_Turkey extends Date_Holidays_Driver
     {
         $month = sprintf("%02d", $month);
         $day   = sprintf("%02d", $day);
-        $date  = new Date($this->_year . '-' . $month . '-' . $day);
+        $date  = new DateTime($this->_year . '-' . $month . '-' . $day);
 
         /*
          * When one of these holidays falls on a Saturday, the previous day is
@@ -106,13 +106,13 @@ class Date_Holidays_Driver_Turkey extends Date_Holidays_Driver
          * When New Year's Day, Independence Day, or Christmas Day falls on a
          * Sunday, the next day is also a holiday.
          */
-        if ($date->getDayOfWeek() == 0 ) {
+        if ($date->format('w') == 0 ) {
             // bump it up one
-            $date = $date->getNextDay();
+            $date = $date->add( new DateInterval('P1D'));
         }
-        if ($date->getDayOfWeek() == 6 ) {
+        if ($date->format('w') == 6 ) {
             // push it back one
-            $date = $date->getPrevDay();
+            $date = $date->sub( new DateInterval('P1D'));
         }
 
         return $date;

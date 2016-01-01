@@ -97,13 +97,13 @@ class Date_Holidays_Driver_France extends Date_Holidays_Driver
         /* from Christian.php */
         $easterDate = Date_Holidays_Driver_Christian::calcEaster($this->_year);
         $this->_addHoliday('easterMonday',
-                           $easterDate->getNextDay(),
+                           $easterDate->add( new DateInterval('P1D')),
                            'Easter Monday');
 
         $whitsunDate = $this->_addDays($easterDate, 49);
         $ascensionDayDate = $this->_addDays($whitsunDate, -10);
         $this->_addHoliday('ascensionDay', $ascensionDayDate, 'Ascension Day');
-        $this->_addHoliday('whitMonday', $whitsunDate->getNextDay(), 'Whit Monday');
+        $this->_addHoliday('whitMonday', $whitsunDate->add( new DateInterval('P1D')), 'Whit Monday');
 
         $this->_addHoliday('mariaAscension',
                            $this->_year . '-08-15',

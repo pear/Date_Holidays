@@ -144,14 +144,14 @@ class Date_Holidays_Driver_Christian extends Date_Holidays_Driver
          * Green Thursday
          */
         $this->_addHoliday('greenThursday',
-                           $goodFridayDate->getPrevDay(),
+                           $this->_addDays($goodFridayDate, -1),
                            'Green Thursday');
 
         /**
          * Easter Monday
          */
         $this->_addHoliday('easterMonday',
-                           $easterDate->getNextDay(),
+                           $this->_addDays($easterDate, 1),
                            'Easter Monday');
 
         /**
@@ -176,7 +176,7 @@ class Date_Holidays_Driver_Christian extends Date_Holidays_Driver
         /**
          * Whit Monday
          */
-        $this->_addHoliday('whitMonday', $whitsunDate->getNextDay(), 'Whit Monday');
+        $this->_addHoliday('whitMonday', $this->_addDays($whitsunDate, 1), 'Whit Monday');
 
         /**
          * Haunting of Mariä
@@ -244,8 +244,8 @@ class Date_Holidays_Driver_Christian extends Date_Holidays_Driver
          *
          * Sunday past Michaelis (29. September)
          */
-        $michaelisDate = new Date($this->_year . '-09-29');
-        $dayOfWeek     = $michaelisDate->getDayOfWeek();
+        $michaelisDate = new DateTime($this->_year . '-09-29');
+        $dayOfWeek     = $michaelisDate->format('w');
         $michaelisDate = $this->_addDays($michaelisDate, 7 - $dayOfWeek);
         $thanksGivingDate = $michaelisDate;
         $this->_addHoliday('thanksGiving', $thanksGivingDate, 'Thanks Giving');
@@ -255,8 +255,8 @@ class Date_Holidays_Driver_Christian extends Date_Holidays_Driver
          *
          * 3rd Sunday in October
          */
-        $kermisDate = new Date($this->_year . '-10-01');
-        $dayOfWeek  = $kermisDate->getDayOfWeek();
+        $kermisDate = new DateTime($this->_year . '-10-01');
+        $dayOfWeek  = $kermisDate->format('w');
         if ($dayOfWeek != 0) {
             $kermisDate = $this->_addDays($kermisDate, 7 - $dayOfWeek);
         }
@@ -292,8 +292,8 @@ class Date_Holidays_Driver_Christian extends Date_Holidays_Driver
         /**
          * 4th Advent
          */
-        $Advent4Date = new Date($this->_year . '-12-25');
-        $dayOfWeek   = $Advent4Date->getDayOfWeek();
+        $Advent4Date = new DateTime($this->_year . '-12-25');
+        $dayOfWeek   = $Advent4Date->format('w');
         if ($dayOfWeek == 0) {
             $dayOfWeek = 7;
         }
@@ -383,45 +383,13 @@ class Date_Holidays_Driver_Christian extends Date_Holidays_Driver
      */
     function calcEaster($year)
     {
-        if (function_exists("easter_days")) {
-            $easter = new Date();
-            $easter->setDate(
-                strtotime("$year-03-21 + " . easter_days($year) . " days"),
-                DATE_FORMAT_UNIXTIME
+       
+            $easter = new DateTime("$year-03-21");
+            $easter->add( new DateInterval('P' . easter_days($year) . 'D')
+
             );
             return $easter;
         }
-        // golden number
-        $golden  = null;
-        $century = null;
-        // 23-Epact (modulo 30)
-        $epact = null;
-        // number of days from 21 March to the Paschal Full Moon
-        $i = null;
-        // weekday of the Full Moon (0=Sunday,...)
-        $j = null;
-
-        if ($year > 1582) {
-            $golden  = $year % 19;
-            $century = floor($year / 100);
-            $l       = floor($century / 4);
-            $epact   = ($century - $l - floor((8 * $century + 13) / 25)
-                        + 19 * $golden + 15) % 30;
-            $i       = $epact - floor($epact / 28) * (1 - floor($epact / 28) *
-                       floor(29 / ($epact + 1)) * floor((21 - $golden) / 11));
-            $j       = ($year + floor($year / 4) + $i + 2 - $century + $l);
-            $j       = $j % 7;
-        } else {
-            $golden = $year % 19;
-            $i      = (19 * $golden + 15) % 30;
-            $j      = ($year + floor($year / 4) + $i) % 7;
-        }
-        $l     = $i - $j;
-        $month = 3 + floor(($l + 40) / 44);
-        $day   = $l + 28 - 31 * floor($month / 4);
-
-        $date = new Date(sprintf('%04d-%02d-%02d', $year, $month, $day));
-        return $date;
-    }
+       
 }
 ?>

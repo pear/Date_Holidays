@@ -288,8 +288,8 @@ class Date_Holidays_Driver_Netherlands extends Date_Holidays_Driver
          * day earlier (on the preceding Saturday).
          */
         if (($this->_year >= 1891) && ($this->_year <= 2013)) {
-            $queenDay = new Date(($this->_year <= 1948) ? $this->_year . '-08-31' : $this->_year . '-04-30');
-            if ($queenDay->getDayOfWeek() == 0) {
+            $queenDay = new DateTime(($this->_year <= 1948) ? $this->_year . '-08-31' : $this->_year . '-04-30');
+            if ($queenDay->format('w') == 0) {
                 $queenDay = $this->_addDays($queenDay, ($this->_year < 1980) ? 1 : -1);
             }
         }
@@ -302,8 +302,8 @@ class Date_Holidays_Driver_Netherlands extends Date_Holidays_Driver
          * celebrated the day before instead.
          */
         if ($this->_year >= 2014) {
-            $kingsDay = new Date($this->_year . '-04-27');
-            if ($kingsDay->getDayOfWeek() == 0) {
+            $kingsDay = new DateTime($this->_year . '-04-27');
+            if ($kingsDay->format('w') == 0) {
                 $kingsDay = $this->_addDays($kingsDay, -1);
             }
         }
@@ -319,16 +319,16 @@ class Date_Holidays_Driver_Netherlands extends Date_Holidays_Driver
         /**
          * Summertime last sunday of march
          */
-        $summerTime = new Date($this->_year . '-03-31');
-        $dayOfWeek  = $summerTime->getDayOfWeek();
+        $summerTime = new DateTime($this->_year . '-03-31');
+        $dayOfWeek  = $summerTime->format('w');
         $summerTime = $this->_addDays($summerTime, -$dayOfWeek);
         $this->_addHoliday('summerTime', $summerTime, 'Summertime');
 
         /**
          * Mothers' Day second sunday of may
          */
-        $mothersDay = new Date($this->_year . '-05-08');
-        $dayOfWeek  = $mothersDay->getDayOfWeek();
+        $mothersDay = new DateTime($this->_year . '-05-08');
+        $dayOfWeek  = $mothersDay->format('w');
         if ($dayOfWeek != 0) {
             $mothersDay = $this->_addDays($mothersDay, 7 - $dayOfWeek);
         }
@@ -337,8 +337,8 @@ class Date_Holidays_Driver_Netherlands extends Date_Holidays_Driver
         /**
          * Fathers' Day third sunday of june
          */
-        $fathersDay = new Date($this->_year . '-06-15');
-        $dayOfWeek  = $fathersDay->getDayOfWeek();
+        $fathersDay = new DateTime($this->_year . '-06-15');
+        $dayOfWeek  = $fathersDay->format('w');
         if ($dayOfWeek != 0) {
             $fathersDay = $this->_addDays($fathersDay, 7 - $dayOfWeek);
         }
@@ -347,8 +347,8 @@ class Date_Holidays_Driver_Netherlands extends Date_Holidays_Driver
         /**
          * Start of Parliamentary Year third tuesday of september
          */
-        $princesDay = new Date($this->_year . '-09-15');
-        $dayOfWeek  = $princesDay->getDayOfWeek();
+        $princesDay = new DateTime($this->_year . '-09-15');
+        $dayOfWeek  = $princesDay->format('w');
         if ($dayOfWeek <= 2) {
             $princesDay = $this->_addDays($princesDay, 2 - $dayOfWeek);
         } else {
@@ -359,8 +359,8 @@ class Date_Holidays_Driver_Netherlands extends Date_Holidays_Driver
         /**
          * Wintertime last sunday of october
          */
-        $winterTime = new Date($this->_year . '-10-31');
-        $dayOfWeek  = $winterTime->getDayOfWeek();
+        $winterTime = new DateTime($this->_year . '-10-31');
+        $dayOfWeek  = $winterTime->format('w');
         $winterTime = $this->_addDays($winterTime, -$dayOfWeek);
         $this->_addHoliday('winterTime', $winterTime, 'Wintertime');
 

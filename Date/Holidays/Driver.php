@@ -328,7 +328,7 @@ class Date_Holidays_Driver
 
         foreach ($stubdirs as $stubdir) {
             if (is_dir($stubdir)) {
-                if ($dh = opendir($stubdir)) {
+                if (true == ($dh = opendir($stubdir))) {
                     while (($file = readdir($dh)) !== false) {
                         if (strlen($locale) == 5) {
                             if (((strncasecmp($file, $bestLocale, 5) == 0))
@@ -628,15 +628,13 @@ class Date_Holidays_Driver
      */
     function isHoliday($date, $filter = null)
     {
-        if (! is_a($date, 'Date')) {
+        if (! is_a($date, 'DateTime')) {
             $date = $this->_convertDate($date);
-            if (Date_Holidays::isError($date)) {
-                return $date;
-            }
+   
         }
 
         //rebuild internal array of holidays if required.
-        $compare_year = $date->getYear();
+        $compare_year = $date->format('Y');
         $this_year = $this->getYear();
         if ($this_year !== $compare_year) {
             $this->setYear($compare_year);
@@ -650,6 +648,8 @@ class Date_Holidays_Driver
 
         foreach (array_keys($this->_dates) as $internalName) {
             if ($filter->accept($internalName)) {
+            	
+            	
                 if (Date_Holidays_Driver::dateSloppyCompare($date,
                                           $this->_dates[$internalName]) != 0) {
                     continue;
@@ -691,24 +691,19 @@ class Date_Holidays_Driver
      **/
     function getHolidayForDate($date, $locale = null, $multiple = false)
     {
-        if (!is_a($date, 'Date')) {
-            $date = $this->_convertDate($date);
-            if (Date_Holidays::isError($date)) {
-                return $date;
-            }
+        if (!is_a($date, 'DateTime')) {
+            $date = new DateTime($date);
+
         }
 
-        if ($date->getYear() != $this->_year) {
+        if ($date->format('Y') != $this->_year) {
             return null;
         }
 
-        $isodate = mktime(0,
-                          0,
-                          0,
-                          $date->getMonth(),
-                          $date->getDay(),
-                          $date->getYear());
-        unset($date);
+
+        
+        $isodate = $date->format('Y-m-d');
+        
         if (is_null($locale)) {
             $locale = $this->_locale;
         }
@@ -760,41 +755,26 @@ class Date_Holidays_Driver
             $filter = new Date_Holidays_Filter_Whitelist($filter);
         }
 
-        if (!is_a($start, 'Date')) {
+        if (!is_a($start, 'DateTime')) {
             $start = $this->_convertDate($start);
-            if (Date_Holidays::isError($start)) {
-                return $start;
-            }
-        }
-        if (!is_a($end, 'Date')) {
-            $end = $this->_convertDate($end);
-            if (Date_Holidays::isError($end)) {
-                return $end;
-            }
-        }
 
-        $isodateStart = mktime(0,
-                               0,
-                               0,
-                               $start->getMonth(),
-                               $start->getDay(),
-                               $start->getYear());
-        unset($start);
-        $isodateEnd = mktime(0,
-                             0,
-                             0,
-                             $end->getMonth(),
-                             $end->getDay(),
-                             $end->getYear());
-        unset($end);
-        if (is_null($locale)) {
+        }
+        if (!is_a($end, 'DateTime')) {
+            $end = $this->_convertDate($end);
+     
+        }
+        
+        
+         if (is_null($locale)) {
             $locale = $this->_locale;
         }
 
         $internalNames = array();
 
         foreach ($this->_holidays as $isoDateTS => $arHolidays) {
-            if ($isoDateTS >= $isodateStart && $isoDateTS <= $isodateEnd) {
+        		
+        	$dateTS = new DateTime($isoDateTS);
+            if ($dateTS >= $start && $dateTS <= $end) {
                 $internalNames = array_merge($internalNames, $arHolidays);
             }
         }
@@ -816,28 +796,19 @@ class Date_Holidays_Driver
      *
      * @static
      * @access   private
-     * @return   object PEAR_Date
+     * @return   object DateTime
      * @throws   object PEAR_Error   DATE_HOLIDAYS_INVALID_DATE_FORMAT
      * @throws   object PEAR_Error   DATE_HOLIDAYS_INVALID_DATE
      */
     function _convertDate($date)
     {
-        if (is_string($date)) {
-            if (! preg_match('/^[0-9]{4}-[0-9]{2}-[0-9]{2}/', $date)) {
-                return Date_Holidays::raiseError(DATE_HOLIDAYS_INVALID_DATE_FORMAT,
-                    'Date-string has wrong format (must be YYYY-MM-DD)');
-            }
-            $date = new Date($date);
-            return $date;
-        }
+    	
+    	
+    		$date = new DateTime($date);
 
-        if (is_int($date)) {
-            $date = new Date(date('Y-m-d', $date));
-            return $date;
-        }
-
-        return Date_Holidays::raiseError(DATE_HOLIDAYS_INVALID_DATE,
-            'The date you specified is invalid');
+    	return $date;
+		
+    
     }
 
     /**
@@ -889,16 +860,14 @@ class Date_Holidays_Driver
      */
     function _addHoliday($internalName, $date, $title)
     {
-        if (! is_a($date, 'Date')) {
-            $date = new Date($date);
+        if (! is_a($date, 'DateTime')) {
+            $date = new DateTime($date);
         }
 
         $this->_dates[$internalName]       = $date;
         $this->_titles['C'][$internalName] = $title;
-        $isodate                           = mktime(0, 0, 0,
-                                                    $date->getMonth(),
-                                                    $date->getDay(),
-                                                    $date->getYear());
+        
+        $isodate = $date->format('Y-m-d');
         if (!isset($this->_holidays[$isodate])) {
             $this->_holidays[$isodate] = array();
         }
@@ -1259,12 +1228,10 @@ class Date_Holidays_Driver
      */
     function dateSloppyCompare($d1, $d2)
     {
-        $d1->setTZ(new Date_TimeZone('UTC'));
-        $d2->setTZ(new Date_TimeZone('UTC'));
-        $days1 = Date_Calc::dateToDays($d1->day, $d1->month, $d1->year);
-        $days2 = Date_Calc::dateToDays($d2->day, $d2->month, $d2->year);
-        if ($days1 < $days2) return -1;
-        if ($days1 > $days2) return 1;
+    	
+
+        if ( $d1->format('Y') < $d2->format('Y') || $d1->format('z') < $d2->format('z')) return -1;
+        if ($d1->format('Y') > $d2->format('Y') || $d1->format('z') > $d2->format('z')) return 1;
         return 0;
     }
     /**
@@ -1277,12 +1244,9 @@ class Date_Holidays_Driver
      */
     function _calcFirstMonday($month)
     {
-        $month = sprintf("%02d", $month);
-        $date = new Date($this->_year . "-$month-01");
-        while ($date->getDayOfWeek() != 1) {
-            $date = $date->getNextDay();
-        }
-        return ($date);
+    	
+    	return self::nWeekDayOfMonth(1, 1, $month, $this->_year);
+
     }
     /**
      * Find the date of the last monday in the specified year of the current year.
@@ -1293,21 +1257,12 @@ class Date_Holidays_Driver
      * @return   object Date date of last monday in specified month.
      */
     function _calcLastMonday($month)
+    
+    
     {
-        //work backwards from the first day of the next month.
-        $month = sprintf("%02d", $month);
-        $nm = ((int) $month ) + 1;
-        if ($nm > 12) {
-            $nm = 1;
-        }
-        $nm = sprintf("%02d", $nm);
-
-        $date = new Date($this->_year . "-$nm-01");
-        $date = $date->getPrevDay();
-        while ($date->getDayOfWeek() != 1) {
-            $date = $date->getPrevDay();
-        }
-        return ($date);
+    	
+    	return self::nWeekDayOfMonth('last', 1, $month, $this->_year);
+       
     }
     /**
      * Calculate Nth monday in a month
@@ -1320,24 +1275,10 @@ class Date_Holidays_Driver
      */
     function _calcNthMondayInMonth($month, $position)
     {
-        if ($position  == 1) {
-            $startday = '01';
-        } elseif ($position == 2) {
-            $startday = '08';
-        } elseif ($position == 3) {
-            $startday = '15';
-        } elseif ($position == 4) {
-            $startday = '22';
-        } elseif ($position == 5) {
-            $startday = '29';
-        }
-        $month = sprintf("%02d", $month);
-
-        $date = new Date($this->_year . '-' . $month . '-' . $startday);
-        while ($date->getDayOfWeek() != 1) {
-            $date = $date->getNextDay();
-        }
-        return $date;
+    	
+    	return self::nWeekDayOfMonth($position, 1, $month, $this->_year);
+    	 
+      
     }
 
     /**
@@ -1352,24 +1293,10 @@ class Date_Holidays_Driver
      */
     function _calcNthWeekDayInMonth($position, $weekday, $month)
     {
-        if ($position  == 1) {
-            $startday = '01';
-        } elseif ($position == 2) {
-            $startday = '08';
-        } elseif ($position == 3) {
-            $startday = '15';
-        } elseif ($position == 4) {
-            $startday = '22';
-        } elseif ($position == 5) {
-            $startday = '29';
-        }
-        $month = sprintf("%02d", $month);
-
-        $date = new Date($this->_year . '-' . $month . '-' . $startday);
-        while ($date->getDayOfWeek() != $weekday) {
-            $date = $date->getNextDay();
-        }
-        return $date;
+    	
+    	return self::nWeekDayOfMonth($position, $weekday, $month, $this->_year);
+    	 
+   
     }
 
     /**
@@ -1383,23 +1310,113 @@ class Date_Holidays_Driver
      * @return   Date
      * @access   protected
      */
-    function _addDays($date, $pn_days)
+    function _addDays(DateTime $date, $pn_days)
     {
-        $new_date = new Date($date);
-        list($new_date->year, $new_date->month, $new_date->day) =
-            explode(' ',
-                    Date_Calc::daysToDate(Date_Calc::dateToDays($date->day,
-                                                                $date->month,
-                                                                $date->year) +
-                                          $pn_days,
-                                          '%Y %m %d'));
-        if (isset($new_date->on_standardyear)) {
-            $new_date->on_standardyear = $new_date->year;
-            $new_date->on_standardmonth = $new_date->month;
-            $new_date->on_standardday = $new_date->day;
+    	$newDate = clone $date;
+    	if ($pn_days < 0){
+    		
+    		$direction = 'sub';
+    	}
+    	else{
+    		
+    		$direction = 'add';
+    	}
+    	
+    	$newDate->$direction(new DateInterval('P' . abs($pn_days) . 'D'));
+    	
+    	return $newDate;
+    	
+    }
+    
+    
+    /**
+     * Calculates the date of the Nth weekday of the month,
+     * such as the second Saturday of January 2000
+     *
+     * @param int    $week   the number of the week to get
+     *                       (1 to 5.  Also can be 'last'.)
+     * @param int    $dow    the day of the week (0 = Sunday)
+     * @param int    $month  the month
+     * @param int    $year   the year.  Use the complete year instead of the
+     *                        abbreviated version.  E.g. use 2005, not 05.
+     * @param string $format the string indicating how to format the output
+     *
+     * @return   object Datetime     the date in the desired format
+     * @access   public
+     * @static
+     */
+    static function nWeekDayOfMonth($week, $dow, $month, $year,
+    		$format = DATE_CALC_FORMAT)
+    {
+    	
+    	$ordinal = array( 1=> 'first',
+    			2 => 'second',
+    			3 => 'third',
+    			4 => 'fourth',
+    			5 => 'fifth',
+    			'last' => 'last',
+    			'first' => 'first'
+    	);
+    	 
+    	$dayname = array( 1 => 'monday',
+    			2 => 'tuesday',
+    			3 => 'wednesday',
+    			4 => 'thursday',
+    			5 => 'friday',
+    			6 => 'saturday',
+    			7 => 'sunday'
+    	);
+    	 
+    	$monthname = array( 1 => 'january',
+    			2 => 'february',
+    			3 => 'march',
+    			4 => 'april',
+    			5 => 'may',
+    			6 => 'june',
+    			7 => 'july',
+    			8 => 'august',
+    			9 => 'september',
+    			10 => 'october',
+    			11 => 'november',
+    			12 => 'december'
+    	);
+    	
+    	
+    	//checks
+            if (!isset($ordinal[$week])
+            ) {
+            return PEAR::raiseError("Invalid week value '$week', only 1-5 or 'last' accepted");
         }
-        return $new_date;
+
+        if (!isset($dayname[$dow])) {
+            return PEAR::raiseError("Invalid dow value '$dow', only 0-6 accepted");
+        }
+
+        if (!isset($monthname[$month])) {
+            return PEAR::raiseError("Invalid month value '$month'");
+        }
+    	
+    	   	
+    	$string = $ordinal[$week] . ' ' . $dayname[$dow] . ' of ' . $monthname[$month] . ' ' . (int)$year ; 
+    	
+    	$datetime = new DateTime($string);
+    	
+    	
+    	
+    	return $datetime;
+    }
+    
+    /**
+     * Wrapper around DateTime->format('t')
+     * @param DateTime $date
+     * @return int
+     */
+    public function  getDaysInMonth( DateTime $date){
+    	
+    	
+    	return $date->format('t');
+    	
     }
 
 }
-?>
+

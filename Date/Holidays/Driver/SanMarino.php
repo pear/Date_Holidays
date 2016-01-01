@@ -123,7 +123,7 @@ class Date_Holidays_Driver_SanMarino extends Date_Holidays_Driver
          */
         $this->_addHoliday(
             'easterMonday',
-            $easterDate->getNextDay(),
+            $easterDate->add( new DateInterval('P1D')),
             'Easter Monday'
         );
         $this->_addTranslationForHoliday(

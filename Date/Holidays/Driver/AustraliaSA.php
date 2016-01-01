@@ -63,32 +63,32 @@ class Date_Holidays_Driver_AustraliaSA extends Date_Holidays_Driver
         /*
          * Labour Day - 1st Monday of October
          */
-        $labourDay = Date_Calc::nWeekdayOfMonth(1, 1, 10, $this->_year);
+        $labourDay = self::nWeekdayOfMonth(1, 1, 10, $this->_year);
         $this->_addHoliday('labourDay', $labourDay, "Labour Day");
         $this->_addTranslationForHoliday('labourDay', 'en_EN', 'Labour Day');
 
         /*
          * See http://en.wikipedia.org/wiki/Queen%27s_Official_Birthday#Australia
          */
-        $queensBirthday = Date_Calc::nWeekdayOfMonth(2, 1, 6, $this->_year);
+        $queensBirthday = self::nWeekdayOfMonth(2, 1, 6, $this->_year);
         $this->_addHoliday('queensBirthday', $queensBirthday, "Queen's Birthday");
         $this->_addTranslationForHoliday('queensBirthday', 'en_EN', "Queen's Birthday");
 
-        $volunteersDay = Date_Calc::nWeekdayOfMonth(2, 1, 6, $this->_year);
+        $volunteersDay = self::nWeekdayOfMonth(2, 1, 6, $this->_year);
         $this->_addHoliday('volunteersDay', $volunteersDay, "Volunteer's Day");
         $this->_addTranslationForHoliday('volunteersDay', 'en_EN', "Volunteer's Day");
 
         /**
          * Christmas and Boxing Day
          */
-        $christmasDay = new Date($this->_year . '-12-25');
-        if ($christmasDay->getDayOfWeek() == 6) {
+        $christmasDay = new DateTime($this->_year . '-12-25');
+        if ($christmasDay->format('w') == 6) {
             // 25 December - if that date falls on a Saturday the public holiday transfers to the following Monday.
             $this->_addHoliday('christmasDay',
                                $this->_year . '-12-27',
                                'Substitute Bank Holiday in lieu of Christmas Day');
 
-        } else if ($christmasDay->getDayOfWeek() == 0) {
+        } else if ($christmasDay->format('w') == 0) {
             // If that date falls on a Sunday that day and the following Monday will be public holidays.
             $this->_addHoliday('christmasDay',
                                $this->_year . '-12-26',
@@ -98,22 +98,22 @@ class Date_Holidays_Driver_AustraliaSA extends Date_Holidays_Driver
         }
 
 
-        $proclamationDay = new Date($this->_year . '-12-26');
-        if ($proclamationDay->getDayOfWeek() == 6) {
+        $proclamationDay = new DateTime($this->_year . '-12-26');
+        if ($proclamationDay->format('w') == 6) {
             //26 December - if that date falls on a Saturday the public holiday transfers to the following Monday.
             $this->_addHoliday('proclamationDay',
                                $this->_year . '-12-28',
                                'Substitute Bank Holiday in lieu of Proclamation Day');
-        } else if ($proclamationDay->getDayOfWeek() == 0) {
+        } else if ($proclamationDay->format('w') == 0) {
             // If that date falls on a Sunday that day and the following Tuesday will be public holidays.
             $this->_addHoliday('proclamationDay',
                                $this->_year . '-12-28',
                                'Substitute Bank Holiday in lieu of Proclamation Day');
-        } else if ($proclamationDay->getDayOfWeek() == 1) {
+        } else if ($proclamationDay->format('w') == 1) {
             // If that date falls on a Monday that day and the following Tuesday will be public holidays.
-            $this->_addHoliday('proclamationDay',
-                               $this->_year . '-12-26',
-                               'Substitute Bank Holiday in lieu of Proclamation Day');
+//             $this->_addHoliday('proclamationDay',
+//                                $this->_year . '-12-26',
+//                                'Substitute Bank Holiday in lieu of Proclamation Day');
             $this->_addHoliday('proclamationDay',
                                $this->_year . '-12-27',
                                'Substitute Bank Holiday in lieu of Proclamation Day');
@@ -127,10 +127,10 @@ class Date_Holidays_Driver_AustraliaSA extends Date_Holidays_Driver
 
         //The Holidays Act 1910 provides for the third Monday in May to be a public holiday.
         if ($this->_year < 2006) {
-            $adelaideCup = Date_Calc::nWeekdayOfMonth(3, 1, 5, $this->_year);
+            $adelaideCup = self::nWeekdayOfMonth(3, 1, 5, $this->_year);
         } else {
             // Since 2006, on a trial basis, this public holiday has been observed on the second Monday in March through the issuing of a special Proclamation by the Governor.
-            $adelaideCup = Date_Calc::nWeekdayOfMonth(2, 1, 3, $this->_year);
+            $adelaideCup = self::nWeekdayOfMonth(2, 1, 3, $this->_year);
         }
 
         $this->_addHoliday('adelaideCup', $adelaideCup, 'Adelaide Cup');

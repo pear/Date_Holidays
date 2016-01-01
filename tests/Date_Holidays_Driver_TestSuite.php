@@ -114,8 +114,8 @@ class Date_Holidays_Driver_TestSuite extends PHPUnit_Framework_TestCase
         $this->assertTrue($this->driver->isHoliday('2005-05-05'));
 
         // ascension day
-        $date = new Date('2005-05-05 12:03:10');
-        $this->assertTrue($this->driver->isHoliday($date));
+        $date = new DateTime('2005-05-05 12:03:10');
+        $this->assertTrue($this->driver->isHoliday($date->format('Y-m-d')));
 
         $filter = new Date_Holidays_Filter_Whitelist(array('ascensionDay'));
         $this->assertTrue($this->driver->isHoliday('2005-05-05', $filter));
@@ -181,8 +181,8 @@ class Date_Holidays_Driver_TestSuite extends PHPUnit_Framework_TestCase
     function testGetHolidayDate()
     {
         $date = $this->driver->getHolidayDate('ascensionDay');
-        $this->assertInstanceOf('Date', $date);
-        $this->assertTrue($date->equals(new Date('2005-05-05')));
+        $this->assertInstanceOf('DateTime', $date);
+        $this->assertTrue($date  == (new DateTime('2005-05-05')));
     }
 
     /**
@@ -195,7 +195,7 @@ class Date_Holidays_Driver_TestSuite extends PHPUnit_Framework_TestCase
     {
         $dates = $this->driver->getHolidayDates();
         foreach ($dates as $date) {
-            $this->assertInstanceOf('Date', $date);
+            $this->assertInstanceOf('DateTime', $date);
         }
 
         $restrict = array('ascensionDay', 'easter');
@@ -253,7 +253,7 @@ class Date_Holidays_Driver_TestSuite extends PHPUnit_Framework_TestCase
             $this->fail(helper_get_error_message($germany));
         }
         $holidays = $germany->getHolidayForDate(
-            mktime(0, 0, 0, 10, 30, 2005),
+           '2005-10-30', // mktime(0, 0, 0, 10, 30, 2005),
             null,
             true
         );
@@ -335,6 +335,8 @@ class Date_Holidays_Driver_TestSuite extends PHPUnit_Framework_TestCase
             $internalNames[] = $holiday->getInternalName();
             $this->assertInstanceOf('Date_Holidays_Holiday', $holiday);
         }
+        
+       
 
         $this->assertContains('laughingDay', $internalNames);
         $this->assertContains('laughingDay', $internalNames);
@@ -434,7 +436,7 @@ class Date_Holidays_Driver_TestSuite extends PHPUnit_Framework_TestCase
      */
     function testGetYear()
     {
-        $this->assertEquals(2005, $this->driver->getYear());
+        $this->assertEquals(2005, $this->driver->_year);
     }
 
     /**
@@ -451,7 +453,7 @@ class Date_Holidays_Driver_TestSuite extends PHPUnit_Framework_TestCase
         }
 
         $driver->setYear(1999);
-        $this->assertEquals(1999, $driver->getYear());
+        $this->assertEquals(1999, $driver->_year);
     }
 
 }

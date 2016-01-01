@@ -92,9 +92,9 @@ class Date_Holidays_Driver_Iceland extends Date_Holidays_Driver
          * a Saturday between the 18th and 24th of February. The first day
          * of Þorri is called Bóndadagur or "Husband's Day/Farmer's Day"
          */
-        $hdate = new Date($this->_year . "-01-19");
-        while ($hdate->getDayOfWeek() != 5) {
-            $hdate = $hdate->getNextDay();
+        $hdate = new DateTime($this->_year . "-01-19");
+        while ($hdate->format('w') != 5) {
+            $hdate = $hdate->add( new DateInterval('P1D'));
         }
         $this->_addHoliday('husbandsDay', $hdate, 'Husband\'s Day');
         $this->_addTranslationForHoliday('husbandsDay', 'is_IS', 'Bóndadagur');
@@ -103,9 +103,9 @@ class Date_Holidays_Driver_Iceland extends Date_Holidays_Driver
          * Woman's Day
          * Calculate Sunday in the 18th week of winter, ie between Feb 18-24.
          */
-        $wdate = new Date($this->_year . "-02-18");
-        while ($wdate->getDayOfWeek() != 0) {
-            $wdate = $wdate->getNextDay();
+        $wdate = new DateTime($this->_year . "-02-18");
+        while ($wdate->format('w') != 0) {
+            $wdate = $wdate->add( new DateInterval('P1D'));
         }
         $this->_addHoliday('womansDay', $wdate, 'Woman\'s Day');
         $this->_addTranslationForHoliday('womansDay', 'is_IS', 'Konudagur');
@@ -154,7 +154,7 @@ class Date_Holidays_Driver_Iceland extends Date_Holidays_Driver
          * Easter Monday
          */
         $this->_addHoliday('easterMonday',
-                           $easterDate->getNextDay(),
+                           $this->_addDays($easterDate, 1),
                            'Easter Monday');
         $this->_addTranslationForHoliday('easterMonday',
                                          'is_IS',
@@ -164,8 +164,8 @@ class Date_Holidays_Driver_Iceland extends Date_Holidays_Driver
          * First Day of Summer
          * First Thursday after 18 April
          */
-        $juneDate  = new Date($this->_year . '-04-18');
-        $dayOfWeek = $juneDate->getDayOfWeek();
+        $juneDate  = new DateTime($this->_year . '-04-18');
+        $dayOfWeek = $juneDate->format('w');
         $midSummerDate = $this->_addDays($juneDate, 4 - $dayOfWeek);
         $this->_addHoliday('firstDayOfSummer',
                            $midSummerDate,
@@ -174,11 +174,11 @@ class Date_Holidays_Driver_Iceland extends Date_Holidays_Driver
                                          'is_IS',
                                          'Sumardagurinn fyrsti');
 
-        $mayDay = new Date($this->_year . '-05-01');
+        $mayDay = new DateTime($this->_year . '-05-01');
         $this->_addHoliday('mayDay', $mayDay, 'May Day');
         $this->_addTranslationForHoliday('mayDay', 'is_IS', 'Verkalýðsdagurinn');
 
-        $mothersDay = new Date($this->_year . '-05-13');
+        $mothersDay = new DateTime($this->_year . '-05-13');
         $this->_addHoliday('mothersDay', $mothersDay, 'Mothers\' Day');
         $this->_addTranslationForHoliday('mothersDay', 'is_IS', 'Mæðradagurinn');
 
@@ -190,7 +190,7 @@ class Date_Holidays_Driver_Iceland extends Date_Holidays_Driver
         /**
          * Whit Monday
          */
-        $this->_addHoliday('whitMonday', $whitsunDate->getNextDay(), 'White Monday');
+        $this->_addHoliday('whitMonday', $this->_addDays($whitsunDate, 1) , 'White Monday');
         $this->_addTranslationForHoliday('whitMonday',
                                          'is_IS',
                                          'Annar í hvítasunnu');
@@ -217,8 +217,8 @@ class Date_Holidays_Driver_Iceland extends Date_Holidays_Driver
         $this->_addHoliday('jonsMass', $this->_year . '-06-24', 'Jón\'s Mass');
         $this->_addTranslationForHoliday('jonsMass', 'is_IS', 'Jónsmessa');
 
-        $augDate   = new Date($this->_year . '-08-01');
-        $dayOfWeek = $augDate->getDayOfWeek();
+        $augDate   = new DateTime($this->_year . '-08-01');
+        $dayOfWeek = $augDate->format('w');
         $commerceDate = $this->_addDays($augDate, 6 - $dayOfWeek);
         $this->_addHoliday('commerceDay', $commerceDate, 'Commerce Day');
         $this->_addTranslationForHoliday('commerceDay',

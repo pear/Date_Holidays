@@ -137,8 +137,8 @@ class Date_Holidays_Driver_Chile extends Date_Holidays_Driver
          * Fiestas Patrias (national holidays, september 17)
          * (http://www.leychile.cl/Navegar?idNorma=264651&idParte=&idVersion=2007-09-14)
          */
-        $fiestasPatrias_17 = new Date($this->_year . '-09-17');
-        if ($fiestasPatrias_17->getDayOfWeek() == 1) {
+        $fiestasPatrias_17 = new DateTime($this->_year . '-09-17');
+        if ($fiestasPatrias_17->format('w') == 1) {
             $this->_addHoliday(
                 'fiestasPatrias',
                 $fiestasPatrias_17,
@@ -168,8 +168,8 @@ class Date_Holidays_Driver_Chile extends Date_Holidays_Driver
          * Fiestas Patrias (national holidays, september 20)
          * (http://www.leychile.cl/Navegar?idNorma=264651&idParte=&idVersion=2007-09-14)
          */
-        $fiestasPatrias_20 = new Date($this->_year . '-09-20');
-        if ($fiestasPatrias_20->getDayOfWeek() == 5) {
+        $fiestasPatrias_20 = new DateTime($this->_year . '-09-20');
+        if ($fiestasPatrias_20->format('w') == 5) {
             $this->_addHoliday(
                 'fiestasPatrias',
                 $fiestasPatrias_20,
@@ -246,25 +246,25 @@ class Date_Holidays_Driver_Chile extends Date_Holidays_Driver
     {
         $month = sprintf("%02d", $month);
         $day   = sprintf("%02d", $day);
-        $date  = new Date($this->_year . '-' . $month . '-' . $day);
+        $date  = new DateTime($this->_year . '-' . $month . '-' . $day);
 
         // for tuesdays, wednesdays and thursdays, it gets bumped
         // to the previous monday
-        if ($date->getDayOfWeek() == 2) {
-            $date = $date->getPrevDay();
-        } elseif ($date->getDayOfWeek() == 3) {
-            $date = $date->getPrevDay();
-            $date = $date->getPrevDay();
-        } elseif ($date->getDayOfWeek() == 4) {
-            $date = $date->getPrevDay();
-            $date = $date->getPrevDay();
-            $date = $date->getPrevDay();
-        } elseif ($date->getDayOfWeek() == 5) {
+        if ($date->format('w') == 2) {
+            $date = $date->sub( new DateInterval('P1D'));
+        } elseif ($date->format('w') == 3) {
+            $date = $date->sub( new DateInterval('P1D'));
+            $date = $date->sub( new DateInterval('P1D'));
+        } elseif ($date->format('w') == 4) {
+            $date = $date->sub( new DateInterval('P1D'));
+            $date = $date->sub( new DateInterval('P1D'));
+            $date = $date->sub( new DateInterval('P1D'));
+        } elseif ($date->format('w') == 5) {
             // for fridays it gets bumped to the next monday
-            $date = $date->getNextDay();
-            $date = $date->getNextDay();
-            $date = $date->getNextDay();
-            $date = $date->getNextDay();
+            $date = $date->add( new DateInterval('P1D'));
+            $date = $date->add( new DateInterval('P1D'));
+            $date = $date->add( new DateInterval('P1D'));
+            $date = $date->add( new DateInterval('P1D'));
         }
         return $date;
     }
@@ -286,18 +286,18 @@ class Date_Holidays_Driver_Chile extends Date_Holidays_Driver
     {
         $month = sprintf("%02d", $month);
         $day   = sprintf("%02d", $day);
-        $date  = new Date($this->_year . '-' . $month . '-' . $day);
+        $date  = new DateTime($this->_year . '-' . $month . '-' . $day);
 
-        if ($date->getDayOfWeek() == 2) {
+        if ($date->format('w') == 2) {
             // for tuesdays it gets bumped to the previous monday
-            $date = $date->getPrevDay();
-            $date = $date->getPrevDay();
-            $date = $date->getPrevDay();
-            $date = $date->getPrevDay();
-        } elseif ($date->getDayOfWeek() == 3) {
+            $date = $date->sub( new DateInterval('P1D'));
+            $date = $date->sub( new DateInterval('P1D'));
+            $date = $date->sub( new DateInterval('P1D'));
+            $date = $date->sub( new DateInterval('P1D'));
+        } elseif ($date->format('w') == 3) {
             // for wednesdays it gets bumped to the next monday
-            $date = $date->getNextDay();
-            $date = $date->getNextDay();
+            $date = $date->add( new DateInterval('P1D'));
+            $date = $date->add( new DateInterval('P1D'));
         }
         return $date;
     }

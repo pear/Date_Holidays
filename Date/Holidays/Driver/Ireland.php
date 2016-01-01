@@ -114,7 +114,7 @@ class Date_Holidays_Driver_Ireland extends Date_Holidays_Driver
          * Easter Monday
          */
         $this->_addHoliday('easterMonday',
-                           $easterDate->getNextDay(),
+                           $this->_addDays($easterDate, 1),
                            'Easter Monday');
         $this->_addTranslationForHoliday('easterMonday',
                                          'ga_IE',
@@ -131,7 +131,7 @@ class Date_Holidays_Driver_Ireland extends Date_Holidays_Driver
         /**
          * May Bank Holiday
          */
-        $dn = $this->_calcFirstMonday('05');
+        $dn = $this->_calcFirstMonday(5);
         $this->_addHoliday('mayDayBankHoliday', $dn, 'May Bank Holiday');
         $this->_addTranslationForHoliday('mayDayBankHoliday',
                                          'ga_IE',
@@ -159,22 +159,22 @@ class Date_Holidays_Driver_Ireland extends Date_Holidays_Driver
         /**
          * June Bank Holiday
          */
-        $dn = $this->_calcFirstMonday('06');
+        $dn = $this->_calcFirstMonday(6);
         $this->_addHoliday('juneBankHoliday', $dn, 'June Bank Holiday');
         $this->_addTranslationForHoliday('juneBankHoliday',
                                          'ga_IE',
                                          'Lá Meitheamh');
 
 
-        $dn = $this->_calcNthWeekDayInMonth(3, 0, 6);
+        $dn = $this->_calcNthWeekDayInMonth(3, 7, 6);
         $this->_addHoliday('fathersDay', $dn, 'Father\'s Day');
 
         /**
          * Midsummer
          * Saturday past 20th, June
          */
-        $juneDate  = new Date($this->_year . '-06-20');
-        $dayOfWeek = $juneDate->getDayOfWeek();
+        $juneDate  = new DateTime($this->_year . '-06-20');
+        $dayOfWeek = $juneDate->format('w');
         $midSummerDate = $this->_addDays($juneDate, 6 - $dayOfWeek);
         $this->_addHoliday('midSummer', $midSummerDate, 'Midsummer Day');
         $this->_addTranslationForHoliday('midSummer',
@@ -184,7 +184,7 @@ class Date_Holidays_Driver_Ireland extends Date_Holidays_Driver
         /**
          * August Bank Holiday
          */
-        $dn = $this->_calcFirstMonday('08');
+        $dn = $this->_calcFirstMonday(8);
         $this->_addHoliday('augustBankHoliday', $dn, 'August Bank Holiday');
         $this->_addTranslationForHoliday('augustBankHoliday',
                                          'ga_IE',

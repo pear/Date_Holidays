@@ -59,7 +59,7 @@ class Date_Holidays_Driver_AustraliaWA extends Date_Holidays_Driver
         /*
          * Labour Day.
          */
-        $labourDay = Date_Calc::nWeekdayOfMonth(1, 1, 3, $this->_year);
+        $labourDay = self::nWeekdayOfMonth(1, 1, 3, $this->_year);
         $this->_addHoliday('labourDay', $labourDay, "Labour Day");
         $this->_addTranslationForHoliday('labourDay', 'en_EN', "Labour Day");
 
@@ -67,7 +67,7 @@ class Date_Holidays_Driver_AustraliaWA extends Date_Holidays_Driver
          * Foundation Day (Queen's Birthday in other states).
          * See http://en.wikipedia.org/wiki/Queen%27s_Official_Birthday#Australia
          */
-        $foundationDay = Date_Calc::nWeekdayOfMonth(1, 1, 6, $this->_year);
+        $foundationDay = self::nWeekdayOfMonth(1, 1, 6, $this->_year);
         $this->_addHoliday('foundationDay', $foundationDay, "Foundation Day");
         $this->_addTranslationForHoliday('foundationDay', 'en_EN', "Foundation Day");
 
@@ -85,12 +85,12 @@ class Date_Holidays_Driver_AustraliaWA extends Date_Holidays_Driver
 
         // Special case for CHOGM: the Queen's Birthday was moved in 2011 only.
         if ($y == 2011) {
-            $queensBirthday = new Date('2011-10-28');
+            $queensBirthday = new DateTime('2011-10-28');
         } else {
-            $lastMonSept = new Date(Date_Calc::nWeekdayOfMonth('last', 1, 9, $y));
-            $firstMonOct = new Date(Date_Calc::nWeekdayOfMonth(1, 1, 10, $y));
-            $daysToEnd = 30 - $lastMonSept->getDay();
-            $daysToStart = $firstMonOct->getDay();
+            $lastMonSept = self::nWeekdayOfMonth('last', 1, 9, $y);
+            $firstMonOct = self::nWeekdayOfMonth(1, 1, 10, $y);
+            $daysToEnd = 30 - $lastMonSept->format('d');
+            $daysToStart = $firstMonOct->format('d');
             if ($daysToEnd < $daysToStart) {
                 $queensBirthday = $lastMonSept;
             } else {
@@ -104,14 +104,14 @@ class Date_Holidays_Driver_AustraliaWA extends Date_Holidays_Driver
         /**
          * Christmas and Boxing Day
          */
-        $christmasDay = new Date($this->_year . '-12-25');
-        if ($christmasDay->getDayOfWeek() == 6) {
+        $christmasDay = new DateTime($this->_year . '-12-25');
+        if ($christmasDay->format('w') == 6) {
             // 25 December - if that date falls on a Saturday the public holiday transfers to the following Monday.
             $this->_addHoliday('christmasDay',
                                $this->_year . '-12-27',
                                'Substitute Bank Holiday in lieu of Christmas Day');
 
-        } else if ($christmasDay->getDayOfWeek() == 0) {
+        } else if ($christmasDay->format('w') == 0) {
             // If that date falls on a Sunday that day and the following Monday will be public holidays.
             $this->_addHoliday('christmasDay',
                                $this->_year . '-12-26',
@@ -120,18 +120,18 @@ class Date_Holidays_Driver_AustraliaWA extends Date_Holidays_Driver
             $this->_addHoliday('christmasDay', $christmasDay, 'Christmas Day');
         }
 
-        $boxingDay = new Date($this->_year . '-12-26');
-        if ($boxingDay->getDayOfWeek() == 6) {
+        $boxingDay = new DateTime($this->_year . '-12-26');
+        if ($boxingDay->format('w') == 6) {
             //26 December - if that date falls on a Saturday the public holiday transfers to the following Monday.
             $this->_addHoliday('boxingDay',
                                $this->_year . '-12-28',
                                'Substitute Bank Holiday in lieu of Boxing Day');
-        } else if ($boxingDay->getDayOfWeek() == 0) {
+        } else if ($boxingDay->format('w') == 0) {
             // If that date falls on a Sunday that day and the following Tuesday will be public holidays.
             $this->_addHoliday('boxingDay',
                                $this->_year . '-12-28',
                                'Substitute Bank Holiday in lieu of Boxing Day');
-        } else if ($boxingDay->getDayOfWeek() == 1) {
+        } else if ($boxingDay->format('w') == 1) {
             // If that date falls on a Monday that day and the following Tuesday will be public holidays.
             $this->_addHoliday('boxingDay',
                                $this->_year . '-12-26',
