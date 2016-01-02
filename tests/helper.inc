@@ -1,8 +1,8 @@
 <?php
 error_reporting(E_ALL ^ E_STRICT);
-if (! $fp = @fopen('Date.php', 'r', true)) {
-    die("skip PEAR_Date is required for these tests to run.\n");
-}
+// if (! $fp = @fopen('Date.php', 'r', true)) {
+//     die("skip PEAR_Date is required for these tests to run.\n");
+// }
 
 if ($fp = @fopen('PHPUnit/Autoload.php', 'r', true)) {
     require_once 'PHPUnit/Autoload.php';

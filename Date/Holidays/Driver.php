@@ -630,7 +630,9 @@ class Date_Holidays_Driver
     {
         if (! is_a($date, 'DateTime')) {
             $date = $this->_convertDate($date);
-   
+            if (Date_Holidays::isError($date)) {
+                return $date;
+            }
         }
 
         //rebuild internal array of holidays if required.
@@ -803,10 +805,20 @@ class Date_Holidays_Driver
     function _convertDate($date)
     {
     	
+    	try{
+    		$newDate = new DateTime($date);
+    		
+    	}
     	
-    		$date = new DateTime($date);
+    	catch( Exception $e) {
+    		
+    		return PEAR::raiseError("Wrong date string format " . $date,
+    			DATE_ERROR_INVALIDDATEFORMAT 
+    			
+    		);
+    	}
 
-    	return $date;
+    	return $newDate;
 		
     
     }

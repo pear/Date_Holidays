@@ -28,15 +28,38 @@
  * @link     http://pear.php.net/package/Date_Holidays
  */
 
+if (!defined('DATE_CALC_FORMAT')) {
+    /**
+     * The default value for each method's $format parameter
+     *
+     * The default is '%Y%m%d'.  To override this default, define
+     * this constant before including Calc.php.
+     *
+     * @since Constant available since Release 1.4.4
+     */
+    define('DATE_CALC_FORMAT', '%Y%m%d');
+}
+
+
 /**
  * uses PEAR errors
  */
+
+
+
+define('DATE_ERROR_INVALIDDATE', 1);
+define('DATE_ERROR_INVALIDTIME', 2);
+define('DATE_ERROR_INVALIDTIMEZONE', 3);
+define('DATE_ERROR_INVALIDDATEFORMAT', 4);
+define('DATE_ERROR_INVALIDFORMATSTRING', 5);
+
+
 require_once 'PEAR.php';
 
 /**
  * uses PEAR::Date
  */
-require_once 'Date.php';
+//require_once 'Date.php';
 
 /**
  * Class that wraps a holiday's data
