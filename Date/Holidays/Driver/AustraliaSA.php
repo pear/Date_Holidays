@@ -63,18 +63,18 @@ class Date_Holidays_Driver_AustraliaSA extends Date_Holidays_Driver
         /*
          * Labour Day - 1st Monday of October
          */
-        $labourDay = self::nWeekdayOfMonth(1, 1, 10, $this->_year);
+        $labourDay = $this->nWeekDayOfMonth(1, 1, 10, $this->_year);
         $this->_addHoliday('labourDay', $labourDay, "Labour Day");
         $this->_addTranslationForHoliday('labourDay', 'en_EN', 'Labour Day');
 
         /*
          * See http://en.wikipedia.org/wiki/Queen%27s_Official_Birthday#Australia
          */
-        $queensBirthday = self::nWeekdayOfMonth(2, 1, 6, $this->_year);
+        $queensBirthday = $this->nWeekDayOfMonth(2, 1, 6, $this->_year);
         $this->_addHoliday('queensBirthday', $queensBirthday, "Queen's Birthday");
         $this->_addTranslationForHoliday('queensBirthday', 'en_EN', "Queen's Birthday");
 
-        $volunteersDay = self::nWeekdayOfMonth(2, 1, 6, $this->_year);
+        $volunteersDay = $this->nWeekDayOfMonth(2, 1, 6, $this->_year);
         $this->_addHoliday('volunteersDay', $volunteersDay, "Volunteer's Day");
         $this->_addTranslationForHoliday('volunteersDay', 'en_EN', "Volunteer's Day");
 
@@ -127,10 +127,10 @@ class Date_Holidays_Driver_AustraliaSA extends Date_Holidays_Driver
 
         //The Holidays Act 1910 provides for the third Monday in May to be a public holiday.
         if ($this->_year < 2006) {
-            $adelaideCup = self::nWeekdayOfMonth(3, 1, 5, $this->_year);
+            $adelaideCup = $this->nWeekDayOfMonth(3, 1, 5, $this->_year);
         } else {
             // Since 2006, on a trial basis, this public holiday has been observed on the second Monday in March through the issuing of a special Proclamation by the Governor.
-            $adelaideCup = self::nWeekdayOfMonth(2, 1, 3, $this->_year);
+            $adelaideCup = $this->nWeekDayOfMonth(2, 1, 3, $this->_year);
         }
 
         $this->_addHoliday('adelaideCup', $adelaideCup, 'Adelaide Cup');

@@ -89,7 +89,7 @@ class Date_Holidays_Driver_USA extends Date_Holidays_Driver
         /**
          * Memorial Day
          */
-        $lastMondayInMayDate = self::nWeekDayOfMonth('last', 1, 5, $this->_year);
+        $lastMondayInMayDate = $this->nWeekDayOfMonth('last', 1, 5, $this->_year);
         $this->_addHoliday('memorialDay', $lastMondayInMayDate, 'Memorial Day');
 
         /**

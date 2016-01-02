@@ -58,14 +58,14 @@ class Date_Holidays_Driver_AustraliaNSW extends Date_Holidays_Driver
         /*
          * Labour Day - 1st Monday of October
          */
-        $labourDay = self::nWeekdayOfMonth(1, 1, 10, $this->_year);
+        $labourDay = $this->nWeekDayOfMonth(1, 1, 10, $this->_year);
         $this->_addHoliday('labourDay', $labourDay, "Labour Day");
         $this->_addTranslationForHoliday('labourDay', 'en_EN', "Labour Day");
 
         /*
          * See http://en.wikipedia.org/wiki/Queen%27s_Official_Birthday#Australia
          */
-        $queensBirthday = self::nWeekdayOfMonth(2, 1, 6, $this->_year);
+        $queensBirthday = $this->nWeekDayOfMonth(2, 1, 6, $this->_year);
         $this->_addHoliday('queensBirthday', $queensBirthday, "Queen's Birthday");
         $this->_addTranslationForHoliday('queensBirthday', 'en_EN', "Queen's Birthday");
 
@@ -117,7 +117,7 @@ class Date_Holidays_Driver_AustraliaNSW extends Date_Holidays_Driver
 
         // http://www.legislation.nsw.gov.au/maintop/view/inforce/act+49+2008+cd+0+N
         //  the first Monday in August (Bank Holiday).
-        $bankHoliday = self::nWeekdayOfMonth(1, 1, 8, $this->_year);
+        $bankHoliday = $this->nWeekDayOfMonth(1, 1, 8, $this->_year);
         $this->_addHoliday('bankHoliday', $bankHoliday, 'Bank Holiday');
         $this->_addTranslationForHoliday('bankHoliday', 'en_EN', 'Bank Holiday');
 

@@ -121,7 +121,7 @@ class Date_Holidays_Driver_Australia extends Date_Holidays_Driver
          * The Queen's Birthday.
          * See http://en.wikipedia.org/wiki/Queen%27s_Official_Birthday#Australia
          */
-        $queensBirthday = self::nWeekdayOfMonth(1, 1, 6, $this->_year);
+        $queensBirthday = $this->nWeekDayOfMonth(1, 1, 6, $this->_year);
         $this->_addHoliday('queensBirthday', $queensBirthday, "Queen's Birthday");
         $this->_addTranslationForHoliday('queensBirthday', 'en_EN', "Queen's Birthday");
 

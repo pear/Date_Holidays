@@ -1245,7 +1245,7 @@ class Date_Holidays_Driver
     function _calcFirstMonday($month)
     {
     	
-    	return self::nWeekDayOfMonth(1, 1, $month, $this->_year);
+    	return $this->nWeekDayOfMonth(1, 1, $month, $this->_year);
 
     }
     /**
@@ -1261,7 +1261,7 @@ class Date_Holidays_Driver
     
     {
     	
-    	return self::nWeekDayOfMonth('last', 1, $month, $this->_year);
+    	return $this->nWeekDayOfMonth('last', 1, $month, $this->_year);
        
     }
     /**
@@ -1276,7 +1276,7 @@ class Date_Holidays_Driver
     function _calcNthMondayInMonth($month, $position)
     {
     	
-    	return self::nWeekDayOfMonth($position, 1, $month, $this->_year);
+    	return $this->nWeekDayOfMonth($position, 1, $month, $this->_year);
     	 
       
     }
@@ -1294,7 +1294,7 @@ class Date_Holidays_Driver
     function _calcNthWeekDayInMonth($position, $weekday, $month)
     {
     	
-    	return self::nWeekDayOfMonth($position, $weekday, $month, $this->_year);
+    	return $this->nWeekDayOfMonth($position, $weekday, $month, $this->_year);
     	 
    
     }
@@ -1345,7 +1345,7 @@ class Date_Holidays_Driver
      * @access   public
      * @static
      */
-    static function nWeekDayOfMonth($week, $dow, $month, $year,
+    public function nWeekDayOfMonth($week, $dow, $month, $year,
     		$format = DATE_CALC_FORMAT)
     {
     	

@@ -68,15 +68,15 @@ class Date_Holidays_Driver_AustraliaQLD extends Date_Holidays_Driver
         /*
          * Labour Day - 1st Monday of May
          */
-        $labourDay = self::nWeekdayOfMonth(1, 1, 5, $this->_year);
+        $labourDay = $this->nWeekDayOfMonth(1, 1, 5, $this->_year);
         $this->_addHoliday('labourDay', $labourDay, "Labour Day");
         $this->_addTranslationForHoliday('labourDay', 'en_EN', 'Labour Day');
 
         // Royal National Agricultural (RNA) Show Day (Brisbane only) usually held on second Wednesday in August except when there are five Wednesdays in August it is held on third Wednesday.
-        if (self::nWeekdayOfMonth(5, 3, 8, $this->_year)->format('d') > 28) {
-            $royalQueenslandShow = self::nWeekdayOfMonth(3, 3, 8, $this->_year);
+        if ($this->nWeekDayOfMonth(5, 3, 8, $this->_year)->format('d') > 28) {
+            $royalQueenslandShow = $this->nWeekDayOfMonth(3, 3, 8, $this->_year);
         } else {
-            $royalQueenslandShow = self::nWeekdayOfMonth(2, 3, 8, $this->_year);
+            $royalQueenslandShow = $this->nWeekDayOfMonth(2, 3, 8, $this->_year);
         }
         $this->_addHoliday('royalQueenslandShow', $royalQueenslandShow, "Royal Queensland Show"); // Brisbane area only
         $this->_addTranslationForHoliday('royalQueenslandShow', 'en_EN', 'Royal Queensland Show');
@@ -131,18 +131,18 @@ class Date_Holidays_Driver_AustraliaQLD extends Date_Holidays_Driver
          * See http://en.wikipedia.org/wiki/Queen%27s_Official_Birthday#Australia
          */
         if ($this->_year < 2012) {
-            $queensBirthday = self::nWeekdayOfMonth(2, 1, 6, $this->_year);
+            $queensBirthday = $this->nWeekDayOfMonth(2, 1, 6, $this->_year);
             $this->_addHoliday('queensBirthday', $queensBirthday, "Queen's Birthday");
             $this->_addTranslationForHoliday('queensBirthday', 'en_EN', "Queen's Birthday");
         }
 
         if ($this->_year == '2012') {
-            $this->_addHoliday('queensDiamondJubilee', self::nWeekdayOfMonth(2, 1, 6, $this->_year), "Queen's Diamond Jubilee");
+            $this->_addHoliday('queensDiamondJubilee', $this->nWeekDayOfMonth(2, 1, 6, $this->_year), "Queen's Diamond Jubilee");
             $this->_addTranslationForHoliday('queensDiamondJubilee', 'en_EN', "Queen's Diamond Jubilee");
         }
 
         if ($this->_year >= 2012) {
-            $queensBirthday = self::nWeekdayOfMonth(1, 1, 10, $this->_year);
+            $queensBirthday = $this->nWeekDayOfMonth(1, 1, 10, $this->_year);
             $this->_addHoliday('queensBirthday', $queensBirthday, "Queen's Birthday");
             $this->_addTranslationForHoliday('queensBirthday', 'en_EN', "Queen's Birthday");
         }

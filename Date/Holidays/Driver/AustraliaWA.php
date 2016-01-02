@@ -59,7 +59,7 @@ class Date_Holidays_Driver_AustraliaWA extends Date_Holidays_Driver
         /*
          * Labour Day.
          */
-        $labourDay = self::nWeekdayOfMonth(1, 1, 3, $this->_year);
+        $labourDay = $this->nWeekDayOfMonth(1, 1, 3, $this->_year);
         $this->_addHoliday('labourDay', $labourDay, "Labour Day");
         $this->_addTranslationForHoliday('labourDay', 'en_EN', "Labour Day");
 
@@ -67,7 +67,7 @@ class Date_Holidays_Driver_AustraliaWA extends Date_Holidays_Driver
          * Foundation Day (Queen's Birthday in other states).
          * See http://en.wikipedia.org/wiki/Queen%27s_Official_Birthday#Australia
          */
-        $foundationDay = self::nWeekdayOfMonth(1, 1, 6, $this->_year);
+        $foundationDay = $this->nWeekDayOfMonth(1, 1, 6, $this->_year);
         $this->_addHoliday('foundationDay', $foundationDay, "Foundation Day");
         $this->_addTranslationForHoliday('foundationDay', 'en_EN', "Foundation Day");
 
@@ -87,8 +87,8 @@ class Date_Holidays_Driver_AustraliaWA extends Date_Holidays_Driver
         if ($y == 2011) {
             $queensBirthday = new DateTime('2011-10-28');
         } else {
-            $lastMonSept = self::nWeekdayOfMonth('last', 1, 9, $y);
-            $firstMonOct = self::nWeekdayOfMonth(1, 1, 10, $y);
+            $lastMonSept = $this->nWeekDayOfMonth('last', 1, 9, $y);
+            $firstMonOct = $this->nWeekDayOfMonth(1, 1, 10, $y);
             $daysToEnd = 30 - $lastMonSept->format('d');
             $daysToStart = $firstMonOct->format('d');
             if ($daysToEnd < $daysToStart) {
