@@ -72,6 +72,9 @@ class Date_Holidays_Driver_Slovenia extends Date_Holidays_Driver
          * New Year's Day
          */
         $this->_addHoliday('novoleto1', $this->_year . '-01-01', 'Novo leto');
+        if ($this->_year < 2013) {
+            $this->_addHoliday('novoleto2', $this->_year . '-01-02', 'Novo leto');
+        }
 
         /**
          * Prešernov dan
