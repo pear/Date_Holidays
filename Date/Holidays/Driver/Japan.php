@@ -618,14 +618,15 @@ class Date_Holidays_Driver_Japan extends Date_Holidays_Driver
     function _buildSubstituteHolidays()
     {
         // calculate 'current' substitute holidays
-        foreach ($this->_dates as $internalName => $date) {
+        foreach ($this->_dates as $internalName => $_date) {
+            $date = clone $_date;
             if ($date->format('w') == 0) {
                 if ($this->_year >= 2007) {
                     while (in_array($date, $this->_dates)) {
-                        $date = $date->add( new DateInterval('P1D'));
+                        $date->add(new DateInterval('P1D'));
                     }
                 } else if ($date->getDate() >= '1973-04-12') {
-                    $date = $date->add( new DateInterval('P1D'));
+                    $date->add(new DateInterval('P1D'));
                     if (in_array($date, $this->_dates)) {
                         continue;
                     }
