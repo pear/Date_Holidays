@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package packagerversion="1.10.5" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0     http://pear.php.net/dtd/tasks-1.0.xsd     http://pear.php.net/dtd/package-2.0     http://pear.php.net/dtd/package-2.0.xsd">
+ <name>Date_Holidays_Peru</name>
+ <channel>pear.php.net</channel>
+ <summary>Holidays for Peru</summary>
+ <description>Holidays for Peru</description>
+ <lead>
+  <name>Cristian Contreras</name>
+  <user>ccontreras</user>
+  <email>ccontrerasl@gmail.com</email>
+  <active>yes</active>
+ </lead>
+ <lead>
+  <name>Ken Guest</name>
+  <user>kguest</user>
+  <email>ken@linux.ie</email>
+  <active>yes</active>
+ </lead>
+ <date>2019-04-02</date>
+ <time>15:56:50</time>
+ <version>
+  <release>0.1.0</release>
+  <api>0.1.0</api>
+ </version>
+ <stability>
+  <release>alpha</release>
+  <api>alpha</api>
+ </stability>
+ <license uri="http://www.php.net/license/">PHP</license>
+ <notes>
+Initial Release
+ </notes>
+ <contents>
+  <dir baseinstalldir="/" name="/">
+   <dir name="Date">
+    <dir name="Holidays">
+     <dir name="Driver">
+      <file md5sum="3f731671dd3a7a19ac841722ada0b64a" name="Peru.php" role="php" />
+     </dir>
+    </dir>
+   </dir>
+  </dir>
+ </contents>
+ <dependencies>
+  <required>
+   <php>
+    <min>5.0.0</min>
+   </php>
+   <pearinstaller>
+    <min>1.4.0</min>
+   </pearinstaller>
+   <package>
+    <name>Date_Holidays</name>
+    <channel>pear.php.net</channel>
+    <min>0.21.1</min>
+   </package>
+  </required>
+ </dependencies>
+ <phprelease />
+ <changelog>
+  <release>
+   <version>
+    <release>0.1.0</release>
+    <api>0.1.0</api>
+   </version>
+   <stability>
+    <release>alpha</release>
+    <api>alpha</api>
+   </stability>
+   <date>2019-03-02</date>
+   <license uri="http://www.php.net/license/">PHP</license>
+   <notes>
+Initial Release
+   </notes>
+  </release>
+ </changelog>
+</package>
