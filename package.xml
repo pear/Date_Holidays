@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<package packagerversion="1.9.2" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0 http://pear.php.net/dtd/tasks-1.0.xsd http://pear.php.net/dtd/package-2.0 http://pear.php.net/dtd/package-2.0.xsd">
+<package packagerversion="1.9.4" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0 http://pear.php.net/dtd/tasks-1.0.xsd http://pear.php.net/dtd/package-2.0 http://pear.php.net/dtd/package-2.0.xsd">
  <name>Date_Holidays</name>
  <channel>pear.php.net</channel>
  <summary>Driver based class to calculate holidays.</summary>
@@ -28,10 +28,10 @@
   <email>wiesemann@php.net</email>
   <active>no</active>
  </contributor>
- <date>2013-01-22</date>
- <time>00:11:16</time>
+ <date>2019-11-12</date>
+ <time>00:11:57</time>
  <version>
-  <release>0.21.8</release>
+  <release>0.21.9</release>
   <api>0.17.2</api>
  </version>
  <stability>
@@ -72,7 +72,6 @@
     <file name="Holiday.php" role="php" />
    </dir> <!-- /Holidays -->
    <file name="Holidays.php" role="php" />
-   </dir>
    <dir name="lang">
     <dir name="Christian">
      <file baseinstalldir="Date" name="de_DE.ser" role="data" />
@@ -127,10 +126,6 @@
     <min>1.3.1</min>
    </package>
    <package>
-    <name>Date</name>
-    <channel>pear.php.net</channel>
-   </package>
-   <package>
     <name>XML_Serializer</name>
     <channel>pear.php.net</channel>
    </package>
@@ -156,6 +151,12 @@
   <group hint="Brazil subpackage" name="Date_Holidays_Brazil">
    <package>
     <name>Date_Holidays_Brazil</name>
+    <channel>pear.php.net</channel>
+   </package>
+  </group>
+  <group hint="Chile subpackage" name="Date_Holidays_Chile">
+   <package>
+    <name>Date_Holidays_Chile</name>
     <channel>pear.php.net</channel>
    </package>
   </group>
@@ -234,6 +235,12 @@
   <group hint="Norway subpackage" name="Date_Holidays_Norway">
    <package>
     <name>Date_Holidays_Norway</name>
+    <channel>pear.php.net</channel>
+   </package>
+  </group>
+  <group hint="Peru subpackage" name="Date_Holidays_Peru">
+   <package>
+    <name>Date_Holidays_Peru</name>
     <channel>pear.php.net</channel>
    </package>
   </group>
