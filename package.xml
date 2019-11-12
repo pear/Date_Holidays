@@ -72,20 +72,8 @@
     <file name="Holiday.php" role="php" />
    </dir> <!-- /Holidays -->
    <file name="Holidays.php" role="php" />
-   <dir name="lang">
-    <dir name="Christian">
-     <file baseinstalldir="Date" name="de_DE.ser" role="data" />
-     <file baseinstalldir="Date" name="de_DE.xml" role="data" />
-     <file baseinstalldir="Date" name="en_EN.ser" role="data" />
-     <file baseinstalldir="Date" name="en_EN.xml" role="data" />
-     <file baseinstalldir="Date" name="fr_FR.ser" role="data" />
-     <file baseinstalldir="Date" name="fr_FR.xml" role="data" />
-     <file baseinstalldir="Date" name="it_IT.ser" role="data" />
-     <file baseinstalldir="Date" name="it_IT.xml" role="data" />
-     <file baseinstalldir="Date" name="nl_NL.ser" role="data" />
-     <file baseinstalldir="Date" name="nl_NL.xml" role="data" />
-    </dir> <!-- /lang/Christian -->
-   </dir> <!-- /lang -->
+
+  </dir>
    <dir name="tests">
     <file baseinstalldir="Date" name="helper.inc" role="test">
      <tasks:replace from="@data_dir@" to="data_dir" type="pear-config" />
@@ -103,13 +91,26 @@
     <file baseinstalldir="Date" name="test_getHolidays.php" role="test" />
     <file baseinstalldir="Date" name="test_missingLocale.php" role="test" />
    </dir> <!-- /tests -->
+   <dir name="lang">
+    <dir name="Christian">
+     <file baseinstalldir="Date" name="de_DE.ser" role="data" />
+     <file baseinstalldir="Date" name="de_DE.xml" role="data" />
+     <file baseinstalldir="Date" name="en_EN.ser" role="data" />
+     <file baseinstalldir="Date" name="en_EN.xml" role="data" />
+     <file baseinstalldir="Date" name="fr_FR.ser" role="data" />
+     <file baseinstalldir="Date" name="fr_FR.xml" role="data" />
+     <file baseinstalldir="Date" name="it_IT.ser" role="data" />
+     <file baseinstalldir="Date" name="it_IT.xml" role="data" />
+     <file baseinstalldir="Date" name="nl_NL.ser" role="data" />
+     <file baseinstalldir="Date" name="nl_NL.xml" role="data" />
+    </dir> <!-- /lang/Christian -->
+   </dir> <!-- /lang -->
    <file baseinstalldir="/" name="pear-dh-compile-translationfile" role="script">
      <tasks:replace from="@PHP-BIN@" to="php_bin" type="pear-config" />
    </file>
    <file baseinstalldir="/" name="pear-dh-ini2xml" role="script">
      <tasks:replace from="@PHP-BIN@" to="php_bin" type="pear-config" />
    </file>
-
   </dir> <!-- / -->
  </contents>
  <dependencies>
